@@ -18,7 +18,7 @@ public interface IServices<T,R> {
     void delete(R r);
     List<T> getAll();
     T getById(R r);
-    T search(R r);
+    T search(T t);
     
     
 }
