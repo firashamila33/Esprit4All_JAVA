@@ -10,5 +10,5 @@ package gui;
  * @author Sami
  */
 public class ddd {
-    public String s;
+    public String sk;
 }
