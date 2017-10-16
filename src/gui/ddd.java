@@ -11,4 +11,5 @@ package gui;
  */
 public class ddd {
     public String s;
+    public String d;
 }

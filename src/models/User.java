@@ -32,6 +32,10 @@ public class User {
         roles=new ArrayList<>();
     }
 
+    public User(int id) {
+        this.id = id;
+    }
+
     public User(String username, String email, int enabled, String password, String nom, String prenom, Date dateNaissance, String cin, String adresse) {
         this.username = username;
         this.email = email;

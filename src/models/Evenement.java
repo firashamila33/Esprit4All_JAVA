@@ -4,17 +4,16 @@
  * and open the template in the editor.
  */
 package models;
-
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
- * @author Sami
+ * @author majdi
  */
 public class Evenement {
 
     private int id;
-    private String type;
+    private int type;
     private String description;
     private Date date;
     private String path_img;
@@ -23,7 +22,15 @@ public class Evenement {
     public Evenement() {
     }
 
-    public Evenement(int id, String type, String description, Date date, String path_img, Club club) {
+    public Evenement(int type, String description, Date date, String path_img, Club club) {
+        this.type = type;
+        this.description = description;
+        this.date = date;
+        this.path_img = path_img;
+        this.club = club;
+    }
+
+    public Evenement(int id, int type, String description, Date date, String path_img, Club club) {
         this.id = id;
         this.type = type;
         this.description = description;
@@ -40,11 +47,11 @@ public class Evenement {
         this.id = id;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 

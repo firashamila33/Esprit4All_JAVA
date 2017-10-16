@@ -12,7 +12,7 @@ package models;
 public class Club {
 
     private int id;
-    private String labelle;
+    private String libelle;
     private String description;
     private String path_img;
     private User user;
@@ -24,9 +24,16 @@ public class Club {
         this.id = id;
     }
 
-    public Club(int id, String labelle, String description, String path_img, User user) {
+    public Club(int id, String libelle, String description, String path_img, User user) {
         this.id = id;
-        this.labelle = labelle;
+        this.libelle = libelle;
+        this.description = description;
+        this.path_img = path_img;
+        this.user = user;
+    }
+
+    public Club( String libelle, String description, String path_img, User user) {
+        this.libelle = libelle;
         this.description = description;
         this.path_img = path_img;
         this.user = user;
@@ -40,12 +47,12 @@ public class Club {
         this.id = id;
     }
 
-    public String getLabelle() {
-        return labelle;
+    public String getLibelle() {
+        return libelle;
     }
 
-    public void setLabelle(String labelle) {
-        this.labelle = labelle;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 
     public String getDescription() {
@@ -75,7 +82,7 @@ public class Club {
     @Override
     public String toString() {
         return "Club{" + "id=" + id
-                + ", labelle=" + labelle
+                + ", labelle=" + libelle
                 + ", description=" + description
                 + ", path_img=" + path_img
                 + ", user=" + user + '}';
