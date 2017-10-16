@@ -5,12 +5,12 @@
  */
 package services;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
 import interfaces.IClubService;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import models.Club;
+import technique.DataSource;
 
 /**
  *
@@ -27,19 +27,12 @@ public class ClubService implements IClubService{
 
     @Override
     public void add(Club club) {
-        String req="insert into club (id,user_id,type,description,date,path_img)values(?,?,?,?,?,?)";
-        PreparedStatement preparedStatement;
-        try{
-        preparedStatement ;
-        
-        }catch(SQLException ex){
-            ex.printStackTrace();
-        }
+       
        
     }
 
     @Override
-    public void delete(Club t) {
+    public void delete(Integer t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -55,6 +48,11 @@ public class ClubService implements IClubService{
 
     @Override
     public void update(Club t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Club search(Club t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -5,44 +5,43 @@
  */
 package services;
 
-import interfaces.IServiceRevision;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
+import interfaces.IServiceDocumentAdministratif;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.Revision;
 import models.User;
+import models.DocumentAdministratif;
 import technique.DataSource;
 
 /**
  *
  * @author asus
  */
-public class RevisionService implements IServiceRevision {
+public class DocumentAdministratifService implements IServiceDocumentAdministratif {
 
     Connection connection;
 
-    public RevisionService() {
+    public DocumentAdministratifService() {
         connection = DataSource.getInstance().getConnection();
 
     }
 
     @Override
-    public void add(Revision t) {
-        String req = "insert into revision (user_id,matiere,heure,description,nbremax,type) values (?,?,?,?,?,?)";
+    public void add(models.DocumentAdministratif t) {
+        String req = "insert into documentadministratif (user_id,type,quantite,confirmation) values (?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
+
             preparedStatement.setInt(1, t.getUser().getId());
-            preparedStatement.setString(2, t.getMatiere());
-            preparedStatement.setDate(3, t.getDatetime());
-            preparedStatement.setString(4, t.getDescription());
-            preparedStatement.setInt(5, t.getNbrmax());
-            preparedStatement.setString(6, t.getType());
+            preparedStatement.setString(2, t.getType());
+            preparedStatement.setString(3, t.getQuantite());
+            preparedStatement.setBoolean(4, t.isConfirmation());
 
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
@@ -50,10 +49,15 @@ public class RevisionService implements IServiceRevision {
         }
     }
 
+    /**
+     *
+     * @param r
+     * @return
+     */
     @Override
-    public Revision getById(Integer r) {
-        Revision Revision = null;
-        String req = "select * from  revision where id=?";
+    public DocumentAdministratif getById(Integer r) {
+        DocumentAdministratif documentAdministratif = null;
+        String req = "select * from  documentadministratif where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -61,38 +65,40 @@ public class RevisionService implements IServiceRevision {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 User u = new User(resultSet.getInt(2));
-                Revision = new Revision(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getDate(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7));
+                documentAdministratif = new DocumentAdministratif(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getString(4), resultSet.getBoolean(5));
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return Revision;
+        return documentAdministratif;
     }
 
     @Override
-    public List<Revision> getAll() {
-        List<Revision> Revision = new ArrayList<>();
+    public List<DocumentAdministratif> getAll() {
+        List<DocumentAdministratif> documentAdministratifs = new ArrayList<>();
 
-        String req = "select * from  revision";
+        String req = "select * from documentadministratif";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 User u = new User(resultSet.getInt(1));
-                Revision r = new Revision(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getDate(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7));
-                Revision.add(r);
+                DocumentAdministratif r = new DocumentAdministratif(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getString(4), resultSet.getBoolean(5));
+
+                documentAdministratifs.add(r);
 
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return Revision;
+        return documentAdministratifs;
     }
 
     @Override
     public void delete(Integer r) {
-        String req = "delete from  revision where id =?";
+        String req = "delete from  documentadministratif where id =?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -104,18 +110,16 @@ public class RevisionService implements IServiceRevision {
     }
 
     @Override
-    public void update(Revision t) {
-        String req = "update  revision set matiere=?, heure =?, description=?,nbremax=?,type=? where id = ?";
-        PreparedStatement preparedStatement;
+    public void update(DocumentAdministratif t) {
+        String req = "update  documentadministratif  set  type=?,quantite=?,confirmation=? where id = ?";
+        java.sql.PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setString(1, t.getMatiere());
-            preparedStatement.setDate(2, t.getDatetime());
-            preparedStatement.setString(3, t.getDescription());
-            preparedStatement.setInt(4, t.getNbrmax());
-            preparedStatement.setString(5, t.getType());
+            preparedStatement.setString(1, t.getType());
+            preparedStatement.setString(2, t.getQuantite());
+            preparedStatement.setBoolean(3, t.isConfirmation());
 
-            preparedStatement.setInt(6, t.getId());
+            preparedStatement.setInt(4, t.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -123,21 +127,20 @@ public class RevisionService implements IServiceRevision {
     }
 
     @Override
-    public Revision search(Revision t) {
-        Revision x= null;
-        String req = "select * from revision where type=?";
+    public DocumentAdministratif search(DocumentAdministratif t) {
+        DocumentAdministratif x = null;
+        String req = "select * from documentadministratif where type=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, t.getType());
             ResultSet resultSet = preparedStatement.executeQuery();
             User u = new User(resultSet.getInt(1));
-            x = new Revision(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getDate(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7));
+            x = new DocumentAdministratif(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getString(4), resultSet.getBoolean(5));
         } catch (SQLException ex) {
             Logger.getLogger(RevisionService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return x;
     }
-
 }

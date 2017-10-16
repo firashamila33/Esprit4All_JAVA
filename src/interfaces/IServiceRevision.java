@@ -18,19 +18,16 @@ public interface IServiceRevision extends IServices<Revision,Integer> {
     public void add(Revision t);
 
     @Override
-    public boolean equals(Object o);
-
-    @Override
     public Revision getById(Integer r);
 
     @Override
     public List<Revision> getAll();
 
-    @Override
-    public int hashCode();
 
     @Override
     public void delete(Integer r);
-    
-    
+
+    @Override
+    public Revision search(Revision t);
+        
 }

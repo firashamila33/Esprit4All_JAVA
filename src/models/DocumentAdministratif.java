@@ -26,6 +26,15 @@ public class DocumentAdministratif {
         this.confirmation = confirmation;
     }
 
+    public DocumentAdministratif(User user, String type, String quantite, boolean confirmation) {
+        this.user = user;
+        this.type = type;
+        this.quantite = quantite;
+        this.confirmation = confirmation;
+    }
+
+    
+
     public int getId() {
         return id;
     }
