@@ -79,12 +79,41 @@ public class EvenementService implements IEvenementService{
 
     @Override
     public void update(Evenement t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String req = "update evenement set type=? ,description=? ,date=? ,path_img=? ,club_id=? where id=? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+
+            preparedStatement.setInt(1,t.getType());
+            preparedStatement.setString(2, t.getDescription());
+            preparedStatement.setDate(3, t.getDate());
+            preparedStatement.setString(4, t.getPath_img());
+            preparedStatement.setInt(5, t.getClub().getId());
+            preparedStatement.setInt(6, t.getId());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
     public Evenement getById(Integer r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Evenement ev = null;
+        String req = "select *from evenement where id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, r);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+               ev = new Evenement(resultSet.getInt("id"), resultSet.getInt("type"), resultSet.getString("description"),resultSet.getDate("date"),
+                        resultSet.getString("path_img"), new Club(resultSet.getInt("club_id")));
+                System.out.println(ev);}
+         } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return ev;
     }
 
     @Override
