@@ -17,8 +17,12 @@ public interface IClubService extends IServices<Club, Integer>{
     @Override
     public void add(Club t);
 
-   @Override
+    @Override
     public void delete(Integer r);
+
+    @Override
+    public Club search(Club t);
+
 
     @Override
     public List<Club> getAll();

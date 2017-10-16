@@ -21,6 +21,10 @@ public interface IEvenementService extends IServices<Evenement, Integer> {
    public  void delete(Integer r);
 
     @Override
+    public Evenement search(Evenement t);
+  
+  
+    @Override
     public List<Evenement> getAll();
 
     @Override
