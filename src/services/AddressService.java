@@ -11,6 +11,7 @@ import interfaces.IAddressService;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import technique.DataSource;
 
 /**
@@ -35,7 +36,6 @@ public class AddressService implements IAddressService {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
-          
 
             t.setId(rs.getInt((1)));
 
@@ -63,12 +63,33 @@ public class AddressService implements IAddressService {
 
     @Override
     public void delete(Integer r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String req = "delete from Address where id=?";
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
+            ps.setInt(1, r);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Error " + ex);
+        }
     }
 
     @Override
     public List<Address> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Address> result = new ArrayList<>();
+        try {
+            String req = "select * from Address";
+
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                result.add(new Address(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error" + ex);
+        }
+        return result;
+
     }
 
     @Override
