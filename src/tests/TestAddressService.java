@@ -44,12 +44,35 @@ public class TestAddressService {
 
     }
 
+    public static void testGetById() {
+        AddressService addressService = new AddressService();
+        Address a = new Address("Mourouj", "REpublique", "4000", "en face de monoprix");
+        addressService.add(a);
+        
+        System.out.println("testGetByID : " + addressService.getById(a.getId()));
+    }
+        public static void testSearch() {
+        AddressService addressService = new AddressService();
+        Address a = new Address("Manouba", "REpublique", "4000", "en face de monoprix");
+        addressService.add(a);
+        
+        System.out.println("testSearch : " + addressService.search(a));
+        
+        Address b = new Address("NotValid", "404", "4000", "en face de monoprix");
+        if(addressService.search(b) == null)
+                System.out.println("testSearch : null as expected");
+        
+        
+    }
+
     public static void main(String[] args) {
 
         TestAddressService.testAdd();
         TestAddressService.testUpdate();
         TestAddressService.testDelete();
         TestAddressService.testGetAll();
+        TestAddressService.testGetById();
+        TestAddressService.testSearch();
         System.out.println("Helllo");
 
     }

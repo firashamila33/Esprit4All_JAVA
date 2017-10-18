@@ -82,7 +82,9 @@ public class AddressService implements IAddressService {
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                result.add(new Address(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+                Address element = new Address(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                element.setId(rs.getInt(1));
+                result.add(element);
             }
 
         } catch (SQLException ex) {
@@ -94,12 +96,31 @@ public class AddressService implements IAddressService {
 
     @Override
     public Address getById(Integer r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String req = "select * from Address where id=?";
+
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
+            ps.setInt(1, r);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                
+                 Address result = new Address(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                 result.setId(rs.getInt(1));
+                 return result;
+            } else {
+                return null;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error" + ex);
+        }
+        return null;
+
     }
 
     @Override
     public Address search(Address t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getById(t.getId());
     }
 
 }
