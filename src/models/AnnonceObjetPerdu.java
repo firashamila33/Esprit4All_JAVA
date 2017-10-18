@@ -52,6 +52,11 @@ public class AnnonceObjetPerdu extends Annonce {
         this.lossDate = lossDate;
         this.lossLocation = losslocation;
     }
+
+    @Override
+    public String toString() {
+        return "AnnonceObjetPerdu{" + "objetDescription=" + objetDescription + ", lossDate=" + lossDate + ", lossLocation=" + lossLocation + '}';
+    }
     
     
 }

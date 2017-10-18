@@ -6,21 +6,25 @@
 package services;
 
 import interfaces.IAnnonceObjetPerduService;
+import interfaces.IUserService;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import models.AnnonceObjetPerdu;
+import models.User;
 import technique.DataSource;
+import java.util.ArrayList;
 
 /**
  *
  * @author kadhem
  */
-    public class AnnonceObjetPerduService implements IAnnonceObjetPerduService{
-        DataSource dataSource = DataSource.getInstance();
-        
+public class AnnonceObjetPerduService implements IAnnonceObjetPerduService {
 
+    DataSource dataSource = DataSource.getInstance();
+
+ 
     @Override
     public void add(AnnonceObjetPerdu t) {
 
@@ -33,11 +37,10 @@ import technique.DataSource;
             ps.setInt(3, t.getOwner().getId());
             ps.setDate(4, t.getCreationDate());
             ps.setDate(5, t.getExpirationDate());
-            ps.setString(6,t.getObjetDescription());
+            ps.setString(6, t.getObjetDescription());
             ps.setDate(7, t.getLossDate());
             ps.setString(8, t.getLossLocation());
-            
-            
+
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
@@ -61,10 +64,10 @@ import technique.DataSource;
             ps.setInt(3, t.getOwner().getId());
             ps.setDate(4, t.getCreationDate());
             ps.setDate(5, t.getExpirationDate());
-            ps.setString(6,t.getObjetDescription());
+            ps.setString(6, t.getObjetDescription());
             ps.setDate(7, t.getLossDate());
             ps.setString(8, t.getLossLocation());
-            
+
             ps.setInt(9, t.getId());
             ps.executeUpdate();
 
@@ -87,17 +90,63 @@ import technique.DataSource;
 
     @Override
     public List<AnnonceObjetPerdu> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<AnnonceObjetPerdu> result = new ArrayList<>();
+        IUserService userService = new UserService();
+        try {
+            String req = "select * from AnnonceObjetPerdu";
+
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+
+                //AnnonceObjetPerdu element = new AnnonceObjetPerdu(rs.getString("objectDescription"),
+                //        rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
+                //        rs.getString("description"), userService.getById(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
+                AnnonceObjetPerdu element = new AnnonceObjetPerdu(rs.getString("objectDescription"),
+                        rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
+                        rs.getString("description"), new User(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
+
+                element.setId(rs.getInt(1));
+                result.add(element);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error" + ex);
+        }
+        return result;
     }
 
     @Override
     public AnnonceObjetPerdu getById(Integer r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String req = "select * from AnnonceObjetPerdu where id=?";
+
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
+            ps.setInt(1, r);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                //AnnonceObjetPerdu result = new AnnonceObjetPerdu(rs.getString("objectDescription"),
+                //        rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
+                //        rs.getString("description"), userService.getById(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
+                AnnonceObjetPerdu result = new AnnonceObjetPerdu(rs.getString("objectDescription"),
+                        rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
+                        rs.getString("description"), new User(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
+
+                result.setId(rs.getInt(1));
+                return result;
+            } else {
+                return null;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error" + ex);
+        }
+        return null;
     }
 
     @Override
     public AnnonceObjetPerdu search(AnnonceObjetPerdu t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getById(t.getId());
     }
-    
+
 }
