@@ -6,7 +6,7 @@
 package models;
 
 import java.util.Collections;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -19,6 +19,54 @@ public class Annonce {
     private User owner;
     private Date creationDate;
     private Date ExpirationDate;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Date getExpirationDate() {
+        return ExpirationDate;
+    }
+
+    public void setExpirationDate(Date ExpirationDate) {
+        this.ExpirationDate = ExpirationDate;
+    }
 
     public Annonce(String name, String description, User owner, Date creationDate, Date ExpirationDate) {
         this.name = name;

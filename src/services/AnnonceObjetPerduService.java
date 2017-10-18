@@ -6,18 +6,47 @@
 package services;
 
 import interfaces.IAnnonceObjetPerduService;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import models.AnnonceObjetPerdu;
+import technique.DataSource;
 
 /**
  *
  * @author kadhem
  */
     public class AnnonceObjetPerduService implements IAnnonceObjetPerduService{
+        DataSource dataSource = DataSource.getInstance();
+        
 
     @Override
     public void add(AnnonceObjetPerdu t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        try {
+            String req = "insert into AnnonceObjetPerdu(name,description,owner_id,creationDate,expirationDate,objectDescription,lossDate,lossLocation) values(?,?,?,?,?,?,?,?)";
+
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setString(1, t.getName());
+            ps.setString(2, t.getDescription());
+            ps.setInt(3, t.getOwner().getId());
+            ps.setDate(4, t.getCreationDate());
+            ps.setDate(5, t.getExpirationDate());
+            ps.setString(6,t.getObjetDescription());
+            ps.setDate(7, t.getLossDate());
+            ps.setString(8, t.getLossLocation());
+            
+            
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+
+            t.setId(rs.getInt((1)));
+
+        } catch (SQLException ex) {
+            System.out.println("Error " + ex);
+        }
     }
 
     @Override
