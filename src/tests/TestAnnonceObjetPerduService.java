@@ -35,10 +35,19 @@ public class TestAnnonceObjetPerduService {
         aop.setObjetDescription("Iphone 7");
         annonceObjetPerduService.update(aop);
     }
+     public  static void testDelete()
+     {
+        User u = new User(4, "kadhem", "kadhem@gmail.com", 1, "mayhemekech", "kadhem", "kadhem", new Date(12545), "123456", "mourouj");
+        AnnonceObjetPerdu aop = new AnnonceObjetPerdu("YOU SHOULD NEVER SEE THIS", new Date(1223546), "Bloc A", u, new Date(1) , new Date(1));
+        AnnonceObjetPerduService annonceObjetPerduService = new AnnonceObjetPerduService();
+        annonceObjetPerduService.add(aop);
+        annonceObjetPerduService.delete(aop.getId());
+     }
     
     public static void main(String[] args) {
-     testAdd();
-     testUpdate();
+     //testAdd();
+     //testUpdate();
+     testDelete();
     }
     
 }

@@ -75,7 +75,14 @@ import technique.DataSource;
 
     @Override
     public void delete(Integer r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String req = "delete from AnnonceObjetPerdu where id=?";
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
+            ps.setInt(1, r);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Error " + ex);
+        }
     }
 
     @Override
