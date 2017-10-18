@@ -51,7 +51,26 @@ import technique.DataSource;
 
     @Override
     public void update(AnnonceObjetPerdu t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        try {
+            String req = "update  AnnonceObjetPerdu set name=? ,description =?,owner_id=?,creationDate=?,expirationDate=?,objectDescription=?,lossDate=?,lossLocation=? where id=?";
+
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
+            ps.setString(1, t.getName());
+            ps.setString(2, t.getDescription());
+            ps.setInt(3, t.getOwner().getId());
+            ps.setDate(4, t.getCreationDate());
+            ps.setDate(5, t.getExpirationDate());
+            ps.setString(6,t.getObjetDescription());
+            ps.setDate(7, t.getLossDate());
+            ps.setString(8, t.getLossLocation());
+            
+            ps.setInt(9, t.getId());
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println("Error " + ex);
+        }
     }
 
     @Override
