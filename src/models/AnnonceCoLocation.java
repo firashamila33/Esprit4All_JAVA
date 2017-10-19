@@ -12,7 +12,54 @@ import java.sql.Date;
  * @author kadhem
  */
 public class AnnonceCoLocation extends Annonce{
-private int id;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public String getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public ArrayList<User> getCoLocataires() {
+        return coLocataires;
+    }
+
+    public void setCoLocataires(ArrayList<User> coLocataires) {
+        this.coLocataires = coLocataires;
+    }
+
+    public int getMaxCoLocataire() {
+        return maxCoLocataire;
+    }
+
+    public void setMaxCoLocataire(int maxCoLocataire) {
+        this.maxCoLocataire = maxCoLocataire;
+    }
+
+    public float getLoyer() {
+        return loyer;
+    }
+
+    public void setLoyer(float loyer) {
+        this.loyer = loyer;
+    }
+
+    public ArrayList<String> getPhotosUrls() {
+        return photosUrls;
+    }
+
+    public void setPhotosUrls(ArrayList<String> photosUrls) {
+        this.photosUrls = photosUrls;
+    }
 private Address address;
 private String dimensions;
 private ArrayList<User> coLocataires;
