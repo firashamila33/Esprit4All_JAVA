@@ -27,20 +27,21 @@ public class Commande_test {
             
 //            Commande commande0= new Commande(new User(1),null,95822.21);
 //            Commande commande1= new Commande(new User(1),null,757575.3);
-//            Commande commande2= new Commande(new User(1),null,75576.21);
+            Commande commande7= new Commande(new User(1),null,7.21);
             
             
             ICommandeService orders_interface=new CommandeService();
 //            orders_interface.add(commande0);
 //            orders_interface.add(commande1);
-//            orders_interface.add(commande2);
-            orders_interface.delete(9);
-            Commande commande0= new Commande(7,new User(1),null,999.9);
+            orders_interface.add(commande7);
+            orders_interface.delete(3);
+            Commande commande0= new Commande(6,new User(1),null,1119.9);
             orders_interface.update(commande0);
             //System.out.println(orders_interface.getAll());
             
             orders_interface.getAll().forEach(System.out::println);
-            System.out.println("---------------------------------------------------------------------------");
+            System.out.println("------------------------------------Get By Id-------------------------------");
+            
             System.out.println(orders_interface.getById(6));
             
         }

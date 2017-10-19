@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import models.LigneCommande;
 import models.User;
+import technique.DataSource;
 
 /**
  *
@@ -21,17 +22,17 @@ import models.User;
  */
 public class LigneCommandeService implements ILigneCommandeService{
     
-    Connection connection;
+    Connection connection =DataSource.getInstance().getConnection();
     
     @Override
     public void add(LigneCommande t) {
-        String req = "insert into ligne_commande (Command_id,menu_id,quantite) values (?,?,?)";
+        String req = "insert into ligne_commande (commande_id,menu_id,quantite) values (?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getCommande_id());
-            preparedStatement.setInt(1, t.getMenu_id());
-            preparedStatement.setInt(1, t.getQuantite());
+            preparedStatement.setInt(2, t.getMenu_id());
+            preparedStatement.setInt(3, t.getQuantite());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -92,21 +93,22 @@ public class LigneCommandeService implements ILigneCommandeService{
         return meals;
     }
 
-    public void update(LigneCommande t1,LigneCommande t2) {
-        String req = "update ligne_commande set commande_id=?, menu_id=?, quantite=? where commande_id = ? and menu_id= ?";
-        PreparedStatement preparedStatement;
-        try {
-            preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setInt(1, t1.getCommande_id());
-            preparedStatement.setInt(2, t1.getMenu_id());
-            preparedStatement.setInt(3, t1.getQuantite());
-            preparedStatement.setInt(4, t2.getCommande_id());
-            preparedStatement.setInt(5, t2.getMenu_id());
-            preparedStatement.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
+//    public void update(LigneCommande t1,LigneCommande t2) {
+//        String req = "update ligne_commande set commande_id=?, menu_id=?, quantite=? where commande_id = ? and menu_id= ?";
+//        PreparedStatement preparedStatement;
+//        try {
+//            preparedStatement = connection.prepareStatement(req);
+//            preparedStatement.setInt(1, t1.getCommande_id());
+//            preparedStatement.setInt(2, t1.getMenu_id());
+//            preparedStatement.setInt(3, t1.getQuantite());
+//            
+//            preparedStatement.setInt(4, t2.getCommande_id());
+//            preparedStatement.setInt(5, t2.getMenu_id());
+//            preparedStatement.executeUpdate();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
 
     @Override
     public LigneCommande search(LigneCommande t) {
@@ -128,6 +130,7 @@ public class LigneCommandeService implements ILigneCommandeService{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
     
 
     

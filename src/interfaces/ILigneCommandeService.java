@@ -36,7 +36,7 @@ public interface ILigneCommandeService extends IServices<LigneCommande, Integer>
     
     public LigneCommande getByIds(LigneCommande t);
  
-    public void update(LigneCommande t1,LigneCommande t2);
+    //public void update(LigneCommande t1,LigneCommande t2);
     
     
 }

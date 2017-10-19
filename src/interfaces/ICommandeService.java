@@ -32,7 +32,7 @@ public interface ICommandeService extends IServices<Commande, Integer> {
     @Override
     public void update(Commande t);
     
-    public List<Commande> GetUserCommands(User u);
+    //public List<Commande> GetUserCommands(User u);
     
     
     

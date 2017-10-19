@@ -26,7 +26,6 @@ public class CommandeService implements ICommandeService {
     
     public CommandeService() {
         connection = DataSource.getInstance().getConnection();
-
     }
     
     public void add(Commande t) {
@@ -45,7 +44,7 @@ public class CommandeService implements ICommandeService {
     
     
     public void delete(Integer r) {
-       String req="delete from Commande where id=?";
+       String req="delete from commande where id=?";
        PreparedStatement preparedStatement;
        try{
            preparedStatement= connection.prepareStatement(req);
@@ -61,9 +60,9 @@ public class CommandeService implements ICommandeService {
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);         
-            preparedStatement.setDate(2, t.getDateajout());
-            preparedStatement.setDouble(3, t.getPrix());
-            preparedStatement.setDouble(4, t.getId());
+            preparedStatement.setDate(1, t.getDateajout());
+            preparedStatement.setDouble(2, t.getPrix());
+            preparedStatement.setInt(3, t.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -73,7 +72,7 @@ public class CommandeService implements ICommandeService {
     
     public List<Commande> getAll() {
         List<Commande> orders = new ArrayList<>();
-        String req = "select * from Commande";
+        String req = "select * from commande";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -132,7 +131,7 @@ public class CommandeService implements ICommandeService {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+    //@Override
     public List<Commande> GetUserCommands(User u) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

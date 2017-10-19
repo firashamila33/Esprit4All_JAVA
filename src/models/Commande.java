@@ -16,13 +16,16 @@ public class Commande {
     private User user;
     private Date Dateajout;
     private Double prix;
-    private List<LigneCommande> MealsOrders;
+    
+
+
 
     public Commande(int id, User user, Date Dateajout, Double prix) {
         this.id = id;
         this.user = user;
         this.Dateajout = Dateajout;
         this.prix = prix;
+        
     }
 
     public Commande(User user, Date Dateajout, Double prix) {
@@ -90,7 +93,7 @@ public class Commande {
 
     @Override
     public String toString() {
-        return "Commande{" + "id=" + id + ", user=" + user + ", Dateajout=" + Dateajout + ", prix=" + prix + '}';
+        return "Commande{" + "id=" + id + ", user=" + user.getCin() + ", Dateajout=" + Dateajout + ", prix=" + prix + '}';
     }
     
     
