@@ -21,7 +21,7 @@ public interface ICommandeService extends IServices<Commande, Integer> {
     @Override
     public void delete(Integer r);
     
-    public List<Commande> GetUserCommands(User u);
+    
 
     @Override
     public List<Commande> getAll();
@@ -31,6 +31,8 @@ public interface ICommandeService extends IServices<Commande, Integer> {
  
     @Override
     public void update(Commande t);
+    
+    public List<Commande> GetUserCommands(User u);
     
     
     

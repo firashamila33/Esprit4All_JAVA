@@ -5,6 +5,7 @@
  */
 package models;
 import java.sql.Date;
+import java.util.List;
 /**
  *
  * @author plazma33
@@ -15,6 +16,7 @@ public class Commande {
     private User user;
     private Date Dateajout;
     private Double prix;
+    private List<LigneCommande> MealsOrders;
 
     public Commande(int id, User user, Date Dateajout, Double prix) {
         this.id = id;

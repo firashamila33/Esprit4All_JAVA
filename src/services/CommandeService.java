@@ -44,12 +44,12 @@ public class CommandeService implements ICommandeService {
     }
     
     
-    public void delete(Integer id) {
+    public void delete(Integer r) {
        String req="delete from Commande where id=?";
        PreparedStatement preparedStatement;
        try{
            preparedStatement= connection.prepareStatement(req);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, r);
             preparedStatement.executeUpdate();
        }catch(SQLException ex)
        {
@@ -57,11 +57,10 @@ public class CommandeService implements ICommandeService {
     }
     
     public void update(Commande t) {
-        String req = "update commande set user_id=?, heure =?, prix=? where id = ?";
+        String req = "update commande set  heure =?, prix=? where id = ?";
         PreparedStatement preparedStatement;
         try {
-            preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setInt(1, t.getUser().getId());
+            preparedStatement = connection.prepareStatement(req);         
             preparedStatement.setDate(2, t.getDateajout());
             preparedStatement.setDouble(3, t.getPrix());
             preparedStatement.setDouble(4, t.getId());
