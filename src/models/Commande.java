@@ -16,6 +16,7 @@ public class Commande {
     private User user;
     private Date Dateajout;
     private Double prix;
+        //maybe here I will be adding a list full of command ligne rows
     
 
 
