@@ -127,8 +127,14 @@ public class CommandeService implements ICommandeService {
         return commande;
     }
     
+    
     @Override
     public Commande search(Commande t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Commande> GetUserCommands(User u) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

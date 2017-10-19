@@ -6,32 +6,27 @@
 package interfaces;
 
 import java.util.List;
-import models.Commande;
-import models.User;
+import models.Menu;
 
 /**
  *
  * @author plazma33
  */
-public interface ICommandeService extends IServices<Commande, Integer> {
+public interface IMenuService extends IServices<Menu, Integer> {
     
     @Override
-    public void add(Commande t);
+    public void add(Menu t);
 
     @Override
     public void delete(Integer r);
-    
-    public List<Commande> GetUserCommands(User u);
 
     @Override
-    public List<Commande> getAll();
+    public List<Menu> getAll();
 
     @Override
-    public Commande getById(Integer r);
+    public Menu getById(Integer r);
  
     @Override
-    public void update(Commande t);
-    
-    
+    public void update(Menu t);
     
 }
