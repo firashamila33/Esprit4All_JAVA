@@ -252,20 +252,20 @@ CREATE TABLE `ImageAnnonce` (
 -- Structure de la table `User`
 --
 
-CREATE TABLE `User` (
-  `id` int(11) NOT NULL,
-  `Name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- CREATE TABLE `User` (
+--   `id` int(11) NOT NULL,
+--   `Name` varchar(50) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `User`
 --
 
-INSERT INTO `User` (`id`, `Name`) VALUES
-(1, 'ahmed'),
-(2, 'kadhem'),
-(3, 'ahmed'),
-(4, 'kadhem');
+-- INSERT INTO `User` (`id`, `Name`) VALUES
+-- (1, 'ahmed'),
+-- (2, 'kadhem'),
+-- (3, 'ahmed'),
+-- (4, 'kadhem');
 
 --
 -- Index pour les tables déchargées
@@ -310,8 +310,8 @@ ALTER TABLE `ImageAnnonce`
 --
 -- Index pour la table `User`
 --
-ALTER TABLE `User`
-  ADD PRIMARY KEY (`id`);
+-- ALTER TABLE `User`
+--   ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -345,8 +345,8 @@ ALTER TABLE `ImageAnnonce`
 --
 -- AUTO_INCREMENT pour la table `User`
 --
-ALTER TABLE `User`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+-- ALTER TABLE `User`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Contraintes pour les tables déchargées
 --
@@ -356,20 +356,20 @@ ALTER TABLE `User`
 --
 ALTER TABLE `AnnonceCoLocataire_R`
   ADD CONSTRAINT `fk_AnnonceCoLocationId` FOREIGN KEY (`annonceCoLocation_id`) REFERENCES `AnnonceCoLocation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_Colocataire` FOREIGN KEY (`User_id`) REFERENCES `User` (`id`);
+  -- ADD CONSTRAINT `fk_Colocataire` FOREIGN KEY (`User_id`) REFERENCES `User` (`id`);
 
 --
 -- Contraintes pour la table `AnnonceCoLocation`
 --
 ALTER TABLE `AnnonceCoLocation`
   ADD CONSTRAINT `fk_addressId` FOREIGN KEY (`address_id`) REFERENCES `Address` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_ownerId` FOREIGN KEY (`owner_id`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  -- ADD CONSTRAINT `fk_ownerId` FOREIGN KEY (`owner_id`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `AnnonceObjetPerdu`
 --
 ALTER TABLE `AnnonceObjetPerdu`
-  ADD CONSTRAINT `AnnonceObjetPerdu_ibfk_1` FOREIGN KEY (`owner_id`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  -- ADD CONSTRAINT `AnnonceObjetPerdu_ibfk_1` FOREIGN KEY (`owner_id`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `ImageAnnonce`
