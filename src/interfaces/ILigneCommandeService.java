@@ -34,7 +34,9 @@ public interface ILigneCommandeService extends IServices<LigneCommande, Integer>
     
     public void delete(LigneCommande t);
     
-    public LigneCommande getByIds(LigneCommande t);
+    public List<LigneCommande> getByCommandId(Integer t);
+    
+    public List<LigneCommande> getByMenuId(Integer t);
  
     //public void update(LigneCommande t1,LigneCommande t2);
     

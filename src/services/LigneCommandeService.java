@@ -75,14 +75,35 @@ public class LigneCommandeService implements ILigneCommandeService{
         return meals;
     }
 
-    public LigneCommande getByIds(LigneCommande t) {
-        LigneCommande meals = null;
-        String req = "select * from ligne_commande where commande_id = ? and menu_id= ?";
+    public List<LigneCommande> getByCommandId(Integer t) {
+        List<LigneCommande> meals = null;
+        String req = "select * from ligne_commande where commande_id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setInt(1, t.getCommande_id());
-            preparedStatement.setInt(2, t.getMenu_id());
+            
+            preparedStatement.setInt(1, t);           
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                 LigneCommande m = new LigneCommande(resultSet.getInt("commande_id"), resultSet.getInt("menu_id"),resultSet.getInt("quantite"));
+                 }
+         } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return meals;
+    }
+    
+    
+    public List<LigneCommande> getByMenuId(Integer t) {
+        List<LigneCommande> meals = null;
+        String req = "select * from ligne_commande where menu_id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            
+            preparedStatement.setInt(1, t);           
+            
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                  LigneCommande m = new LigneCommande(resultSet.getInt("commande_id"), resultSet.getInt("menu_id"),resultSet.getInt("quantite"));
@@ -93,32 +114,29 @@ public class LigneCommandeService implements ILigneCommandeService{
         return meals;
     }
 
-//    public void update(LigneCommande t1,LigneCommande t2) {
-//        String req = "update ligne_commande set commande_id=?, menu_id=?, quantite=? where commande_id = ? and menu_id= ?";
-//        PreparedStatement preparedStatement;
-//        try {
-//            preparedStatement = connection.prepareStatement(req);
-//            preparedStatement.setInt(1, t1.getCommande_id());
-//            preparedStatement.setInt(2, t1.getMenu_id());
-//            preparedStatement.setInt(3, t1.getQuantite());
-//            
-//            preparedStatement.setInt(4, t2.getCommande_id());
-//            preparedStatement.setInt(5, t2.getMenu_id());
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
+    public void update(LigneCommande t) {
+        String req = "update ligne_commande set quantite=? where commande_id = ? and menu_id= ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(2, t.getCommande_id());
+            preparedStatement.setInt(3, t.getMenu_id());
+            preparedStatement.setInt(1, t.getQuantite());            
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 
+    
+    
+    
     @Override
     public LigneCommande search(LigneCommande t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void update(LigneCommande t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     @Override
     public LigneCommande getById(Integer r) {
@@ -129,6 +147,10 @@ public class LigneCommandeService implements ILigneCommandeService{
     public void delete(Integer r) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
+
+    
 
     
     

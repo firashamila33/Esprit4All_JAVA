@@ -24,8 +24,7 @@ public class Commande {
         this.id = id;
         this.user = user;
         this.Dateajout = Dateajout;
-        this.prix = prix;
-        
+        this.prix = prix;     
     }
 
     public Commande(User user, Date Dateajout, Double prix) {

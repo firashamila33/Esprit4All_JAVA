@@ -79,7 +79,7 @@ public class CommandeService implements ICommandeService {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Commande c = new Commande(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getDate("heure"),resultSet.getDouble("prix"));
-                System.out.println(c);
+                orders.add(c);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -133,7 +133,20 @@ public class CommandeService implements ICommandeService {
 
     //@Override
     public List<Commande> GetUserCommands(User u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Commande> orders = new ArrayList<>();
+        String req = "select * from commande where user_id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Commande c = new Commande(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getDate("heure"),resultSet.getDouble("prix"));
+                orders.add(c);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return orders;
     }
     
     
