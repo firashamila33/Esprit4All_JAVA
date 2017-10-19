@@ -86,8 +86,8 @@ public class ClubService implements IClubService {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), resultSet.getString("path_img"), new User(resultSet.getInt("user_id")));
-                System.out.println(c);
-
+                //System.out.println(c);
+                club.add(c);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -105,15 +105,16 @@ public class ClubService implements IClubService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-               club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
+                club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
                         resultSet.getString("path_img"), new User(resultSet.getInt("user_id")));
-                System.out.println(club);}
-         } catch (SQLException ex) {
+                System.out.println(club);
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return club;
     }
-    
+
     @Override
     public Club search(Club c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
