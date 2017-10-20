@@ -5,29 +5,24 @@
  */
 package tests;
 
-import models.Covoiturage;
+import models.Profil;
 import models.User;
-import services.CovoiturageService;
+import services.ProfilService;
 import utils.BCrypt;
 
 /**
  *
  * @author YACINE
  */
-public class TestCovoiturage {
+public class ProfilTest {
 
     public static void main(String[] args) {
         String originalPassword = "azerty";
         String generatedSecuredPasswordHash = BCrypt.hashpw(originalPassword, BCrypt.gensalt(12));
         User u = new User(2,"yacine", "yacine.farhat@esprit.tn", 1, generatedSecuredPasswordHash, "farhat", "yacine", null, "12345678", "cité olympique");
-        Covoiturage c = new Covoiturage(3,u, "Opel", 12, "cité olympique", "esprit it", "pas d'objet lourd", 3, "8h15");
-        CovoiturageService covoiturageService = new CovoiturageService();
-        //covoiturageService.add(c);
-        /*covoiturageService.getAll().forEach((cov) -> {
-            System.out.println(cov);
-        });*/
-        //covoiturageService.delete(1);
-        //System.out.println(covoiturageService.getById(2));
-        //covoiturageService.update(c);
+        Profil p = new Profil(4,u, "JAVA", "je suis très bon", "4infob", "j'ai pas", "j'ai pas", "j'ai pas", "j'ai pas", "j'ai pas", "j'ai pas", "50494671");
+        ProfilService profilService = new ProfilService();
+        //profilService.add(p);
+        profilService.update(p);
     }
 }

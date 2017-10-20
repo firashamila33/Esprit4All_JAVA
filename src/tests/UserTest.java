@@ -28,9 +28,13 @@ public class UserTest {
         String password = scanner.nextLine();
         userService.Login(username, password);*/
         //userService.enable(u);
-        userService.getAll().forEach((user) -> {
+        /*userService.getAll().forEach((user) -> {
             System.out.println(user);
-        });
+        });*/
+        User use=new User();
+        use=userService.getUserById(1);
+        System.out.println(use);
+        
     }
 
 }
