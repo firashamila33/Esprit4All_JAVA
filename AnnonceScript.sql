@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  ven. 20 oct. 2017 à 01:13
+-- Généré le :  Dim 22 oct. 2017 à 16:30
 -- Version du serveur :  10.1.25-MariaDB
 -- Version de PHP :  5.6.31
 
@@ -252,24 +252,6 @@ CREATE TABLE `ImageAnnonce` (
 -- Structure de la table `User`
 --
 
--- CREATE TABLE `User` (
---   `id` int(11) NOT NULL,
---   `Name` varchar(50) NOT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `User`
---
-
--- INSERT INTO `User` (`id`, `Name`) VALUES
--- (1, 'ahmed'),
--- (2, 'kadhem'),
--- (3, 'ahmed'),
--- (4, 'kadhem');
-
---
--- Index pour les tables déchargées
---
 
 --
 -- Index pour la table `Address`
@@ -308,11 +290,6 @@ ALTER TABLE `ImageAnnonce`
   ADD KEY `fk_AnnonceCoLocation` (`annonceCoLocation_id`);
 
 --
--- Index pour la table `User`
---
--- ALTER TABLE `User`
---   ADD PRIMARY KEY (`id`);
-
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
@@ -326,12 +303,12 @@ ALTER TABLE `Address`
 -- AUTO_INCREMENT pour la table `AnnonceCoLocataire_R`
 --
 ALTER TABLE `AnnonceCoLocataire_R`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `AnnonceCoLocation`
 --
 ALTER TABLE `AnnonceCoLocation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `AnnonceObjetPerdu`
 --
@@ -341,14 +318,7 @@ ALTER TABLE `AnnonceObjetPerdu`
 -- AUTO_INCREMENT pour la table `ImageAnnonce`
 --
 ALTER TABLE `ImageAnnonce`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
---
--- AUTO_INCREMENT pour la table `User`
---
--- ALTER TABLE `User`
---   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- Contraintes pour les tables déchargées
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 
 --
@@ -356,20 +326,20 @@ ALTER TABLE `ImageAnnonce`
 --
 ALTER TABLE `AnnonceCoLocataire_R`
   ADD CONSTRAINT `fk_AnnonceCoLocationId` FOREIGN KEY (`annonceCoLocation_id`) REFERENCES `AnnonceCoLocation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  -- ADD CONSTRAINT `fk_Colocataire` FOREIGN KEY (`User_id`) REFERENCES `User` (`id`);
+  ADD CONSTRAINT `fk_Colocataire` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`);
 
 --
 -- Contraintes pour la table `AnnonceCoLocation`
 --
 ALTER TABLE `AnnonceCoLocation`
   ADD CONSTRAINT `fk_addressId` FOREIGN KEY (`address_id`) REFERENCES `Address` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  -- ADD CONSTRAINT `fk_ownerId` FOREIGN KEY (`owner_id`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_ownerId` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `AnnonceObjetPerdu`
 --
 ALTER TABLE `AnnonceObjetPerdu`
-  -- ADD CONSTRAINT `AnnonceObjetPerdu_ibfk_1` FOREIGN KEY (`owner_id`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `AnnonceObjetPerdu_ibfk_1` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `ImageAnnonce`
