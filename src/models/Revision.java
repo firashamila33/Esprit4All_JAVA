@@ -31,6 +31,16 @@ public class Revision {
         this.type = type;
     }
 
+    public Revision(User user, String matiere, Date datetime, String description, int nbrmax, String type) {
+        this.user = user;
+        this.matiere = matiere;
+        this.datetime = datetime;
+        this.description = description;
+        this.nbrmax = nbrmax;
+        this.type = type;
+    }
+    
+
     public int getId() {
         return id;
     }

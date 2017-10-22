@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import models.Covoiturage;
+import models.User;
 import technique.DataSource;
 
 /**
@@ -49,7 +50,7 @@ public class CovoiturageService implements ICovoiturageService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Covoiturage c = new Covoiturage(resultSet.getInt("id"), resultSet.getInt("user_id"), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
+                Covoiturage c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
                 emp.add(c);
             }
         } catch (SQLException ex) {
@@ -68,7 +69,7 @@ public class CovoiturageService implements ICovoiturageService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                c = new Covoiturage(resultSet.getInt("id"), resultSet.getInt("user_id"), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
+                c = new Covoiturage(resultSet.getInt("id"),  new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -83,7 +84,7 @@ public class CovoiturageService implements ICovoiturageService {
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setInt(1, t.getUserId());
+            preparedStatement.setInt(1, t.getUserId().getId());
             preparedStatement.setString(2, t.getType());
             preparedStatement.setDouble(3, t.getPrix());
             preparedStatement.setString(4, t.getDepart());
@@ -104,7 +105,7 @@ public class CovoiturageService implements ICovoiturageService {
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setInt(1, t.getUserId());
+            preparedStatement.setInt(1, t.getUserId().getId());
             preparedStatement.setString(2, t.getType());
             preparedStatement.setDouble(3, t.getPrix());
             preparedStatement.setString(4, t.getDepart());

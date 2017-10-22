@@ -19,4 +19,5 @@ public interface IUserService{
     void enable(User u);
     User search(User u);
     List<User> getAll();
+    User getUserById(Integer i);
 }
