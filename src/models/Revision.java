@@ -16,7 +16,8 @@ public class Revision {
   private  int id ;
   private User user;
   private  String  matiere ;
-  private  Date datetime;
+  private  Date dateDebut;
+  private  Date dateFin;
   private String  description ;
   private int nbrmax;
   private String type ;
@@ -25,7 +26,7 @@ public class Revision {
         this.id = id;
         this.user = user;
         this.matiere = matiere;
-        this.datetime = datetime;
+        this.dateDebut = datetime;
         this.description = description;
         this.nbrmax = nbrmax;
         this.type = type;
@@ -34,7 +35,7 @@ public class Revision {
     public Revision(User user, String matiere, Date datetime, String description, int nbrmax, String type) {
         this.user = user;
         this.matiere = matiere;
-        this.datetime = datetime;
+        this.dateDebut = datetime;
         this.description = description;
         this.nbrmax = nbrmax;
         this.type = type;
@@ -54,7 +55,7 @@ public class Revision {
     }
 
     public Date getDatetime() {
-        return datetime;
+        return dateDebut;
     }
 
     public String getDescription() {
@@ -82,7 +83,7 @@ public class Revision {
     }
 
     public void setDatetime(Date datetime) {
-        this.datetime = datetime;
+        this.dateDebut = datetime;
     }
 
     public void setDescription(String description) {
@@ -99,7 +100,7 @@ public class Revision {
 
     @Override
     public String toString() {
-        return "Revision{" + "id=" + id + ", user=" + user + ", matiere=" + matiere + ", datetime=" + datetime + ", description=" + description + ", nbrmax=" + nbrmax + ", type=" + type + '}';
+        return "Revision{" + "id=" + id + ", user=" + user + ", matiere=" + matiere + ", datetime=" + dateDebut + ", description=" + description + ", nbrmax=" + nbrmax + ", type=" + type + '}';
     }
 
     @Override
@@ -138,7 +139,7 @@ public class Revision {
         if (!Objects.equals(this.user, other.user)) {
             return false;
         }
-        if (!Objects.equals(this.datetime, other.datetime)) {
+        if (!Objects.equals(this.dateDebut, other.dateDebut)) {
             return false;
         }
         return true;

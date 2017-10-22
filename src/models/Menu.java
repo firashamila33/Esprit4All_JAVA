@@ -17,7 +17,6 @@ import java.util.Objects;
 public class Menu {
     
     private int id;
-    //private User user ;
     private String libelle;
     private String type;
     private String endroit;

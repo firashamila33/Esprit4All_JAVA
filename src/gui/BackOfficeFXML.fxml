@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.guigarage.controls.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackOfficeFXMLController">
+    <children>
+        <JFXToolbar prefHeight="40.0" prefWidth="1360.0" style="-fx-background-color: #ff2e44; -fx-min-height: 42; -fx-padding: 10;" stylesheets="@../utils/Style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <left>
+                <Label prefHeight="30.0" prefWidth="228.0" text="Esprit4All Dashboard" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+               
+                </Label>
+            </left>
+        </JFXToolbar>
+        <VBox layoutY="42.0" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #4242428B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="42.0">
+            <children>
+            <AnchorPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="151.0" fitWidth="249.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../utils/material_header.jpg" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="144.0" layoutY="116.0" text="Deconnextion" textFill="WHITE" />
+                  <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="97.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/photo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="84.0" layoutY="93.0" text="Prenom nom" textFill="WHITE" />
+                  <Label layoutX="3.0" layoutY="121.0" text="Role" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+                <JFXButton fx:id="nav_clubs" onAction="#goToClubs" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Clubs" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_events" onAction="#goToEvents" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Evenement" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_docs" onAction="#goToDocs" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Documents" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_menu" onAction="#goToMenu" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Menus" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_revisions" onAction="#goToRevisions" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Révisions" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_objetPerdus" onAction="#goToObjetPerdus" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Objets Perdus" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_info_club" onAction="#goToInfoClub" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Club" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_orders" onAction="#goToOrders" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Orders" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_recettes" onAction="#goToRecette" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Recettes" textAlignment="CENTER" />
+               
+            </children>
+        </VBox>
+         <AnchorPane fx:id="holderPane" layoutX="250.0" layoutY="42.0" prefHeight="720.0" prefWidth="1110.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0" />
+    </children>
+</AnchorPane>
