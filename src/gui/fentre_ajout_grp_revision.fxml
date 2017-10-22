@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9" fx:controller="controllers.Fentre_ajout_grp_revisionController">
+   <children>
+      <AnchorPane layoutX="-2.0" layoutY="358.0" prefHeight="42.0" prefWidth="606.0" style="-fx-background-color: #ff2e44;" />
+      <Separator layoutX="27.0" layoutY="326.0" prefHeight="2.0" prefWidth="557.0" />
+      <Separator layoutX="54.0" layoutY="14.0" orientation="VERTICAL" prefHeight="341.0" prefWidth="2.0" />
+      <AnchorPane layoutX="57.0" layoutY="14.0" opacity="0.5" prefHeight="310.0" prefWidth="521.0">
+         <children>
+            <TextField fx:id="Ajoutgrp_userid" layoutX="101.0" layoutY="33.0" prefHeight="25.0" prefWidth="119.0" promptText="Votre id.." style="-fx-background-radius: 5em;" />
+            <TextField fx:id="Ajoutgrp_type" layoutX="209.0" layoutY="245.0" prefHeight="25.0" prefWidth="119.0" promptText="Type" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="Ajoutgrp_nbrmax" layoutX="325.0" layoutY="173.0" prefHeight="25.0" prefWidth="119.0" promptText="nombre max" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="Ajoutgrp_description" layoutX="104.0" layoutY="173.0" prefHeight="25.0" prefWidth="119.0" promptText="Description" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="Ajoutgrp_heurfin" layoutX="328.0" layoutY="103.0" prefHeight="25.0" prefWidth="119.0" promptText="Heur de fin" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="Ajoutgrp_heurdepart" layoutX="100.0" layoutY="103.0" prefHeight="25.0" prefWidth="119.0" promptText="Heur de debut" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="Ajoutgrp_matiere" layoutX="325.0" layoutY="33.0" prefHeight="25.0" prefWidth="119.0" promptText="matiere.." style="-fx-background-radius: 5em;" />
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="62.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_ID_Card_50px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="161.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Password_52px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="284.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Group_64px_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="62.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Create_52px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="62.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Open_Sign_50px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="284.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Book_52px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="284.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Close_Sign_48px_1.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="434.0" layoutY="261.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="31.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em;">
+               <graphic>
+                  <ImageView fx:id="valider_ajout_grp" fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/ajouter-un-bouton.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

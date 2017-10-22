@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLController">
+   <children>
+      <AnchorPane layoutX="-2.0" prefHeight="762.0" prefWidth="1059.0" style="-fx-background-color: #4242428b;">
+         <children>
+            <ListView fx:id="Listeview_grouperevision" layoutX="-2.0" layoutY="74.0" prefHeight="688.0" prefWidth="1060.0" style="-fx-background-color: #4242428b;" />
+            <TextField fx:id="recherche_par_matiere" layoutX="229.0" layoutY="1.0" prefHeight="73.0" prefWidth="593.0" />
+            <Label layoutY="-10.0" prefHeight="87.0" prefWidth="336.0" text="Matiere:">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="recherche_grprevision" layoutX="822.0" layoutY="1.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="104.0" text="Button">
+               <graphic>
+                  <ImageView fitHeight="59.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/recherche.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Ajout_groupeRevision" layoutX="990.0" layoutY="701.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="44.0" text="Button" />
+         </children></AnchorPane>
+      <ListView fx:id="List_TopRatedMentor" layoutX="1056.0" prefHeight="761.0" prefWidth="326.0" style="-fx-background-color: FF2E44;" />
+   </children>
+</AnchorPane>
