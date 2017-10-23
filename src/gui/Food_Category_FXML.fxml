@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FoodHomeFXMLController">
+   <children>
+      <ImageView fitHeight="560.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0">
+         <image>
+            <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/background1.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="560.0" prefWidth="350.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <JFXButton layoutY="147.0" prefHeight="54.0" prefWidth="350.0" text="Menu" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="37.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutX="-1.0" layoutY="216.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <JFXButton layoutX="-34.0" layoutY="222.0" prefHeight="70.0" prefWidth="382.0" text="    MY ORDERS" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="-1.0" layoutY="295.0" prefHeight="73.0" prefWidth="350.0" text="      CURRENT ORDER" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutY="290.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <BorderPane layoutX="1.0" layoutY="366.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <JFXButton layoutX="1.0" layoutY="371.0" prefHeight="70.0" prefWidth="350.0" text="  MY FAVORITES" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutX="1.0" layoutY="144.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <BorderPane layoutX="-1.0" layoutY="440.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <ImageView fitHeight="73.0" fitWidth="59.0" layoutX="20.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/menu2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="28.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/myorders.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="34.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/current-order.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="35.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/favorite.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <JFXButton layoutX="662.0" layoutY="265.0" prefHeight="53.0" prefWidth="66.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/next.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="968.0" layoutY="265.0" prefHeight="53.0" prefWidth="66.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/next.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Pane layoutX="726.0" layoutY="118.0" prefHeight="334.0" prefWidth="242.0" style="-fx-border-color: white; -fx-border-width: 4;">
+         <children>
+            <Pane layoutX="26.0" layoutY="20.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+               <children>
+                  <ImageView fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/menu-modern-5-310x260.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="49.0" layoutY="235.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
+                     <font>
+                        <Font name="Browallia New Bold" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="12.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Special">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="69.0" layoutY="189.0" text="5 DT" textFill="#ff2e44">
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="1043.0" layoutY="139.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+         <children>
+            <ImageView fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/menu-modern-2-310x260.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="69.0" layoutY="190.0" text="4 DT" textFill="#ff2e44">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Mixt">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="462.0" layoutY="138.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+         <children>
+            <ImageView fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/menu-modern-3-310x260.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="12.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Viande">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="189.0" text="3 DT" textFill="#ff2e44">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <JFXButton layoutX="549.0" layoutY="27.0" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Burger" textFill="#f8f6f6">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="680.0" layoutY="28.0" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Pain Grillé" textFill="#f8f6f6">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="811.0" layoutY="29.0" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Pizza" textFill="#f8f6f6">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="942.0" layoutY="29.0" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Salade" textFill="#f8f6f6">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <MenuButton layoutX="1077.0" layoutY="29.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: #424242;" text="Autre" textFill="#f8f6f6">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </MenuButton>
+   </children>
+</AnchorPane>
