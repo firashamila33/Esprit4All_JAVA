@@ -30,14 +30,15 @@ public class ClubService implements IClubService {
 
     @Override
     public void add(Club club) {
-        String req = "insert into club (Libelle,Description,path_img,user_id) values (?,?,?,?)";
+        String req = "insert into club (Libelle,Description,path_img,path_couverture,user_id) values (?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, club.getLibelle());
             preparedStatement.setString(2, club.getDescription());
             preparedStatement.setString(3, club.getPath_img());
-            preparedStatement.setInt(4, 1);
+            preparedStatement.setString(4, club.getPath_couverture());
+            preparedStatement.setInt(5, 1);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -46,7 +47,7 @@ public class ClubService implements IClubService {
 
     @Override
     public void update(Club c) {
-        String req = "update club set libelle=? ,description=? ,path_img=? ,user_id=? where id=? ";
+        String req = "update club set libelle=? ,description=? ,path_img=?,path_couverture=? ,user_id=? where id=? ";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -54,8 +55,9 @@ public class ClubService implements IClubService {
             preparedStatement.setString(1, c.getLibelle());
             preparedStatement.setString(2, c.getDescription());
             preparedStatement.setString(3, c.getPath_img());
-            preparedStatement.setInt(4, c.getUser().getId());
-            preparedStatement.setInt(5, c.getId());
+            preparedStatement.setString(4, c.getPath_couverture());
+            preparedStatement.setInt(5, c.getUser().getId());
+            preparedStatement.setInt(6, c.getId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException ex) {
@@ -85,8 +87,7 @@ public class ClubService implements IClubService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), resultSet.getString("path_img"), new User(resultSet.getInt("user_id")));
-                //System.out.println(c);
+                Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), resultSet.getString("path_img"), resultSet.getString("path_couverture"), new User(resultSet.getInt("user_id")));
                 club.add(c);
             }
         } catch (SQLException ex) {
@@ -106,8 +107,9 @@ public class ClubService implements IClubService {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
-                        resultSet.getString("path_img"), new User(resultSet.getInt("user_id")));
-                System.out.println(club);
+                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), new User(resultSet.getInt("user_id")));
+                //System.out.println(club);
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

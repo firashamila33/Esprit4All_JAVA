@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcceuilFXMLController">
+   <children>
+      <JFXToolbar prefHeight="100.0" prefWidth="1360.0" style="-fx-background-color: #ff2e44;">
+         <left>
+            <ImageView fx:id="logoesprit" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../ressources/LOGO1.png" />
+               </image></ImageView>
+         </left>
+         <center>
+            <Label contentDisplay="CENTER" text="Esprit 4 All" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font></Label>
+         </center>
+         <right>
+            <Pane prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="6.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/user-3.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="-93.0" layoutY="43.0" text="Nom et Prenm" />
+               </children>
+            </Pane>
+         </right>
+      </JFXToolbar>
+      <HBox layoutY="100.0" prefHeight="40.0" prefWidth="1360.0" style="-fx-background-color: #2424248B;">
+         <children>
+            <JFXButton prefHeight="40.0" prefWidth="226.0" style="-fx-border-width: 0 1 0 0; -fx-border-color: black;" text="Acceuil" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton prefHeight="40.0" prefWidth="226.0" style="-fx-border-width: 0 1 0 0; -fx-border-color: black;" text="Vie sociale" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton prefHeight="40.0" prefWidth="226.0" style="-fx-border-width: 0 1 0 0; -fx-border-color: black;" text="Révision" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton prefHeight="40.0" prefWidth="226.0" style="-fx-border-width: 0 1 0 0; -fx-border-color: black;" text="Restaurant" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton prefHeight="40.0" prefWidth="226.0" style="-fx-border-width: 0 1 0 0; -fx-border-color: black;" text="Annonce" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton prefHeight="40.0" prefWidth="226.0" style="-fx-border-width: 0 0 0 0; -fx-border-color: black;" text="Objet Perdu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+         </children></HBox>
+      <AnchorPane layoutY="140.0" prefHeight="560.0" prefWidth="1360.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="560.0" prefWidth="1360.0" vbarPolicy="NEVER">
+               <content>
+                  <Pane prefHeight="3360.0" prefWidth="1360.0">
+                     <children>
+                        <VBox prefHeight="3360.0" prefWidth="1360.0">
+                           <children>
+                              <Pane fx:id="imageSlider" prefHeight="560.0" prefWidth="1360.0" />
+                              <AnchorPane prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: yellow;" />
+                              <AnchorPane prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: green;" />
+                              <AnchorPane prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: Blue;" />
+                              <AnchorPane prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: Black;" />
+                              <AnchorPane prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: pink;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <Pane layoutY="700.0" prefHeight="60.0" prefWidth="1360.0" style="-fx-background-color: #2424248B;" />
+   </children>
+</AnchorPane>

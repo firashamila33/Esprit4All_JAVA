@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Sami
+ * @author danml
  */
 public class Esprit4All extends Application {
 

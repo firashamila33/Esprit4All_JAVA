@@ -13,6 +13,7 @@ import java.sql.Date;
 public class Evenement {
 
     private int id;
+    private String liblle;
     private int type;
     private String description;
     private Date date;
@@ -22,7 +23,8 @@ public class Evenement {
     public Evenement() {
     }
 
-    public Evenement(int type, String description, Date date, String path_img, Club club) {
+    public Evenement(String libelle, int type, String description, Date date, String path_img, Club club) {
+        this.liblle=libelle;
         this.type = type;
         this.description = description;
         this.date = date;
@@ -30,8 +32,9 @@ public class Evenement {
         this.club = club;
     }
 
-    public Evenement(int id, int type, String description, Date date, String path_img, Club club) {
+    public Evenement(int id,String libelle, int type, String description, Date date, String path_img, Club club) {
         this.id = id;
+        this.liblle=libelle;
         this.type = type;
         this.description = description;
         this.date = date;
@@ -45,6 +48,14 @@ public class Evenement {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getLiblle() {
+        return liblle;
+    }
+
+    public void setLiblle(String liblle) {
+        this.liblle = liblle;
     }
 
     public int getType() {
@@ -89,13 +100,15 @@ public class Evenement {
 
     @Override
     public String toString() {
-        return "Evenement{" + "id=" + id
-                + ", type=" + type
-                + ", description=" + description
-                + ", date=" + date
-                + ", path_img=" + path_img
-                + ", club=" + club + '}';
+        return "Evenement{" + "id=" + id + 
+                ", liblle=" + liblle +
+                ", type=" + type + 
+                ", description=" + description +
+                ", date=" + date +
+                ", path_img=" + path_img +
+                ", club=" + club + '}';
     }
+
 
     @Override
     public boolean equals(Object obj) {

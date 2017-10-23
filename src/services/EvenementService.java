@@ -21,24 +21,26 @@ import technique.DataSource;
  *
  * @author majdi
  */
-public class EvenementService implements IEvenementService{
+public class EvenementService implements IEvenementService {
 
-     Connection connection;
+    Connection connection;
 
     public EvenementService() {
         connection = DataSource.getInstance().getConnection();
     }
+
     @Override
     public void add(Evenement e) {
-          String req = "insert into evenement (type,Description,date,path_img,club_id) values (?,?,?,?,?)";
+        String req = "insert into evenement (libelle,type,Description,date,path_img,club_id) values (?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setInt(1, e.getType());
-            preparedStatement.setString(2, e.getDescription());
-            preparedStatement.setDate(3, e.getDate());
-            preparedStatement.setString(4, e.getPath_img());
-            preparedStatement.setInt(5,e.getClub().getId());
+            preparedStatement.setString(1, e.getLiblle());
+            preparedStatement.setInt(2, e.getType());
+            preparedStatement.setString(3, e.getDescription());
+            preparedStatement.setDate(4, e.getDate());
+            preparedStatement.setString(5, e.getPath_img());
+            preparedStatement.setInt(6, e.getClub().getId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -47,15 +49,15 @@ public class EvenementService implements IEvenementService{
 
     @Override
     public void delete(Integer id) {
-       String req="delete  from evenement where id=?";
-       PreparedStatement preparedStatement;
-       try{
-           preparedStatement= connection.prepareStatement(req);
+        String req = "delete  from evenement where id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
-       }catch(SQLException ex)
-       {
-       ex.printStackTrace();}
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
@@ -67,9 +69,9 @@ public class EvenementService implements IEvenementService{
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Evenement e = new Evenement(resultSet.getInt("id"), resultSet.getInt("type"), resultSet.getString("description"),resultSet.getDate("date"), resultSet.getString("path_img"), new Club(resultSet.getInt("Club_id")));
-                System.out.println(e);
-
+                Evenement e = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getInt("type"), resultSet.getString("description"), resultSet.getDate("date"), resultSet.getString("path_img"), new Club(resultSet.getInt("Club_id")));
+                // System.out.println(e);
+                even.add(e);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -79,17 +81,18 @@ public class EvenementService implements IEvenementService{
 
     @Override
     public void update(Evenement t) {
-         String req = "update evenement set type=? ,description=? ,date=? ,path_img=? ,club_id=? where id=? ";
+        String req = "update evenement set libelle=? type=? ,description=? ,date=? ,path_img=? ,club_id=? where id=? ";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
 
-            preparedStatement.setInt(1,t.getType());
-            preparedStatement.setString(2, t.getDescription());
-            preparedStatement.setDate(3, t.getDate());
-            preparedStatement.setString(4, t.getPath_img());
-            preparedStatement.setInt(5, t.getClub().getId());
-            preparedStatement.setInt(6, t.getId());
+            preparedStatement.setString(1, t.getLiblle());
+            preparedStatement.setInt(2, t.getType());
+            preparedStatement.setString(3, t.getDescription());
+            preparedStatement.setDate(4, t.getDate());
+            preparedStatement.setString(5, t.getPath_img());
+            preparedStatement.setInt(6, t.getClub().getId());
+            preparedStatement.setInt(7, t.getId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException ex) {
@@ -99,7 +102,7 @@ public class EvenementService implements IEvenementService{
 
     @Override
     public Evenement getById(Integer r) {
-       Evenement ev = null;
+        Evenement ev = null;
         String req = "select *from evenement where id=?";
         PreparedStatement preparedStatement;
         try {
@@ -107,10 +110,11 @@ public class EvenementService implements IEvenementService{
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-               ev = new Evenement(resultSet.getInt("id"), resultSet.getInt("type"), resultSet.getString("description"),resultSet.getDate("date"),
+                ev = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getInt("type"), resultSet.getString("description"), resultSet.getDate("date"),
                         resultSet.getString("path_img"), new Club(resultSet.getInt("club_id")));
-                System.out.println(ev);}
-         } catch (SQLException ex) {
+                System.out.println(ev);
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return ev;
@@ -121,7 +125,4 @@ public class EvenementService implements IEvenementService{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
-
-   
 }

@@ -24,8 +24,11 @@
       </Pane>
       <StackPane fx:id="tablePane" layoutY="51.0" prefHeight="671.0" prefWidth="1108.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0">
          <children>
-            <JFXTextField fx:id="recherche_tf" alignment="CENTER" focusTraversable="false" layoutX="930.0" layoutY="10.0" maxWidth="200.0" minWidth="200.0" prefHeight="33.0" prefWidth="200.0" promptText="Recherche" StackPane.alignment="TOP_RIGHT" />
-            <TableView fx:id="clubs_table" layoutX="10.0" layoutY="45.0" prefHeight="624.0" prefWidth="1108.0" StackPane.alignment="BOTTOM_CENTER">
+            <JFXTextField fx:id="recherche_tf" alignment="CENTER" focusTraversable="false" layoutX="928.0" layoutY="10.0" maxWidth="200.0" minWidth="200.0" prefHeight="33.0" prefWidth="200.0" promptText="Recherche" StackPane.alignment="TOP_RIGHT">
+               <StackPane.margin>
+                  <Insets right="30.0" />
+               </StackPane.margin></JFXTextField>
+            <TableView fx:id="clubs_table" layoutX="10.0" layoutY="45.0" prefHeight="600.0" prefWidth="1108.0" StackPane.alignment="BOTTOM_CENTER">
               <columns>
                 <TableColumn fx:id="col_libelle" prefWidth="75.0" text="Libelle" />
                 <TableColumn fx:id="col_description" prefWidth="75.0" text="Description" />
@@ -37,12 +40,12 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <StackPane.margin>
-                  <Insets top="30.0" />
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </StackPane.margin>
             </TableView>
          </children>
       </StackPane>
-      <JFXButton fx:id="add_btn_layout" layoutX="1030.0" layoutY="660.0" onAction="#showAddFormAction" prefHeight="48.0" prefWidth="48.0" styleClass="addBtn" />
+      <JFXButton fx:id="add_btn_layout" layoutX="1049.0" layoutY="660.0" onAction="#showAddFormAction" prefHeight="48.0" prefWidth="48.0" styleClass="addBtn" />
       <JFXDialogLayout fx:id="addDialogLayout" layoutY="8.0" prefHeight="300.0" prefWidth="250.0" visible="false">
          <children>
             <StackPane>
@@ -98,7 +101,7 @@
                         <Insets top="30.0" />
                      </StackPane.margin>
                   </GridPane>
-                  <Label alignment="TOP_LEFT" text="Ajouter Club" StackPane.alignment="TOP_CENTER">
+                  <Label fx:id="formLibelle_lbl" alignment="TOP_LEFT" text="Ajouter Club" StackPane.alignment="TOP_CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

@@ -15,6 +15,7 @@ public class Club {
     private String libelle;
     private String description;
     private String path_img;
+    private String path_couverture;
     private User user;
 
     public Club() {
@@ -24,7 +25,8 @@ public class Club {
         this.id = id;
     }
 
-    public Club(int id, String libelle, String description, String path_img, User user) {
+    public Club(int id, String libelle, String description, String path_img,String path_couverture, User user) {
+        this.path_couverture= path_couverture;
         this.id = id;
         this.libelle = libelle;
         this.description = description;
@@ -32,7 +34,8 @@ public class Club {
         this.user = user;
     }
 
-    public Club( String libelle, String description, String path_img, User user) {
+    public Club( String libelle, String description, String path_img,String path_couverture, User user) {
+        this.path_couverture= path_couverture;
         this.libelle = libelle;
         this.description = description;
         this.path_img = path_img;
@@ -79,14 +82,20 @@ public class Club {
         this.user = user;
     }
 
+    public String getPath_couverture() {
+        return path_couverture;
+    }
+
+    public void setPath_couverture(String path_couverture) {
+        this.path_couverture = path_couverture;
+    }
+
     @Override
     public String toString() {
-        return "Club{" + "id=" + id
-                + ", labelle=" + libelle
-                + ", description=" + description
-                + ", path_img=" + path_img
-                + ", user=" + user + '}';
+        return "Club{" + "id=" + id + ", libelle=" + libelle + ", description=" + description + ", path_img=" + path_img + ", path_couverture=" + path_couverture + ", user=" + user + '}';
     }
+
+   
 
     @Override
     public boolean equals(Object o) {

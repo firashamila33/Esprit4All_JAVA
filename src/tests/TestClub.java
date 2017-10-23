@@ -18,16 +18,16 @@ public class TestClub {
 
     public static void main(String[] args) {
 
-        Club club = new Club(16, "Junior", "Meilleur", "azerty", new User(1));
-        IClubService cs = new ClubService();
+//        Club club = new Club("MOHAMED", "UGHJ", "TREH", new User(16));
+//        IClubService cs = new ClubService();
 
         //cs.add(club);
        
         //cs.delete(8);
        
-        for (Club c : cs.getAll()) {
-            System.out.println(c);
-        }
+//        for (Club c : cs.getAll()) {
+//            System.out.println(c);
+//        }
          
         
         //cs.update(club);
