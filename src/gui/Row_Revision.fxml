@@ -15,10 +15,10 @@
          <children>
             <ImageView fitHeight="270.0" fitWidth="795.0" layoutY="2.0" opacity="0.24" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/tutoring%20ques.jpg" />
+                  <Image url="@../ressources/tutoring%20ques.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="rejoindre" layoutX="607.0" layoutY="90.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="160.0" text="Rejoindre">
+            <Button fx:id="rejoindre_grp" layoutX="635.0" layoutY="216.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="160.0" text="Rejoindre">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="24.0" />
                </font>

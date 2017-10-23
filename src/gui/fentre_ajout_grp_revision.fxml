@@ -24,44 +24,44 @@
             <TextField fx:id="Ajoutgrp_matiere" layoutX="325.0" layoutY="33.0" prefHeight="25.0" prefWidth="119.0" promptText="matiere.." style="-fx-background-radius: 5em;" />
             <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="62.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_ID_Card_50px.png" />
+                  <Image url="@../ressources/icons8_ID_Card_50px.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="161.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Password_52px.png" />
+                  <Image url="@../ressources/icons8_Password_52px.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="284.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Group_64px_1.png" />
+                  <Image url="@../ressources/icons8_Group_64px_1.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="62.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Create_52px.png" />
+                  <Image url="@../ressources/icons8_Create_24px.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="62.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Open_Sign_50px.png" />
+                  <Image url="@../ressources/icons8_Open_Sign_24px_3.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="284.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Book_52px.png" />
+                  <Image url="@../ressources/icons8_Book_52px.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="284.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Close_Sign_48px_1.png" />
+                  <Image url="@../ressources/icons8_Close_Sign_24px_2.png" />
                </image>
             </ImageView>
             <Button layoutX="434.0" layoutY="261.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="31.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em;">
                <graphic>
                   <ImageView fx:id="valider_ajout_grp" fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/ajouter-un-bouton.jpg" />
+                        <Image url="@../ressources/ajouter-un-bouton.jpg" />
                      </image>
                   </ImageView>
                </graphic>

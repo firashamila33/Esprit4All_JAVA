@@ -16,29 +16,37 @@ public class Revision {
   private  int id ;
   private User user;
   private  String  matiere ;
-  private  Date datetime;
+  private  Date date_debut;
   private String  description ;
   private int nbrmax;
   private String type ;
+    private  Date date_fin
+            ;
 
-    public Revision(int id, User user, String matiere, Date datetime, String description, int nbrmax, String type) {
+
+   
+
+    public Revision(int id, User user, String matiere, Date date_debut, String description, int nbrmax, String type, Date date_fin) {
         this.id = id;
         this.user = user;
         this.matiere = matiere;
-        this.datetime = datetime;
+        this.date_debut = date_debut;
         this.description = description;
         this.nbrmax = nbrmax;
         this.type = type;
+        this.date_fin = date_fin;
     }
 
-    public Revision(User user, String matiere, Date datetime, String description, int nbrmax, String type) {
+    public Revision(User user, String matiere, Date date_debut, String description, int nbrmax, String type, Date date_fin) {
         this.user = user;
         this.matiere = matiere;
-        this.datetime = datetime;
+        this.date_debut = date_debut;
         this.description = description;
         this.nbrmax = nbrmax;
         this.type = type;
+        this.date_fin = date_fin;
     }
+    
     
 
     public int getId() {
@@ -53,9 +61,15 @@ public class Revision {
         return matiere;
     }
 
-    public Date getDatetime() {
-        return datetime;
+    public Date getDate_fin() {
+        return date_fin;
     }
+
+    public Date getDate_debut() {
+        return date_debut;
+    }
+
+  
 
     public String getDescription() {
         return description;
@@ -81,9 +95,7 @@ public class Revision {
         this.matiere = matiere;
     }
 
-    public void setDatetime(Date datetime) {
-        this.datetime = datetime;
-    }
+   
 
     public void setDescription(String description) {
         this.description = description;
@@ -99,13 +111,23 @@ public class Revision {
 
     @Override
     public String toString() {
-        return "Revision{" + "id=" + id + ", user=" + user + ", matiere=" + matiere + ", datetime=" + datetime + ", description=" + description + ", nbrmax=" + nbrmax + ", type=" + type + '}';
+        return "Revision{" + "id=" + id + ", user=" + user + ", matiere=" + matiere + ", date_debut=" + date_debut + ", description=" + description + ", nbrmax=" + nbrmax + ", type=" + type + ", date_fin=" + date_fin + '}';
     }
+
+    
 
     @Override
     public int hashCode() {
         int hash = 3;
         return hash;
+    }
+
+    public void setDate_debut(Date date_debut) {
+        this.date_debut = date_debut;
+    }
+
+    public void setDate_fin(Date date_fin) {
+        this.date_fin = date_fin;
     }
 
     @Override
@@ -138,11 +160,16 @@ public class Revision {
         if (!Objects.equals(this.user, other.user)) {
             return false;
         }
-        if (!Objects.equals(this.datetime, other.datetime)) {
+        if (!Objects.equals(this.date_debut, other.date_debut)) {
+            return false;
+        }
+        if (!Objects.equals(this.date_fin, other.date_fin)) {
             return false;
         }
         return true;
     }
+
+    
   
     
 }

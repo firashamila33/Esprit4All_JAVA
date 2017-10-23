@@ -127,9 +127,9 @@ public class UserService implements IUserService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-               User user;
-               user = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"));
-               users.add(user);
+                User user;
+                user = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"));
+                users.add(user);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -137,4 +137,22 @@ public class UserService implements IUserService {
         return users;
     }
 
+    @Override
+    public User getUserById(Integer i) {
+        String req = "select * from user where id=?";
+        User u = null;
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, i);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                u = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return u;
+    }
 }

@@ -15,7 +15,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Graduation_Cap_48px.png" />
+                        <Image url="@../ressources/icons8_Graduation_Cap_48px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -24,7 +24,7 @@
                <graphic>
                   <ImageView fx:id="quitter_grp_rev" fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Delete_52px.png" />
+                        <Image url="@../ressources/icons8_Delete_52px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -33,7 +33,7 @@
                <graphic>
                   <ImageView fx:id="setting_grp_rev" fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Settings_50px_2.png" />
+                        <Image url="@../ressources/icons8_Settings_50px_2.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -42,7 +42,7 @@
                <graphic>
                   <ImageView fx:id="chat_grp_rev" fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Chat_48px.png" />
+                        <Image url="@../ressources/icons8_Chat_48px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -60,22 +60,22 @@
          <children>
             <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="187.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/user-3.png" />
+                  <Image url="@../ressources/user-3.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="43.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/user-3.png" />
+                  <Image url="@../ressources/user-3.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="187.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/user-3.png" />
+                  <Image url="@../ressources/user-3.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="326.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/user-3.png" />
+                  <Image url="@../ressources/user-3.png" />
                </image>
             </ImageView>
             <Separator layoutX="101.0" layoutY="228.0" prefHeight="7.0" prefWidth="264.0" />
@@ -83,29 +83,29 @@
             <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="289.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="187.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Close_Sign_24px_2.png" />
+                  <Image url="@../ressources/icons8_Close_Sign_24px_2.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="46.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Open_Sign_24px_3.png" />
+                  <Image url="@../ressources/icons8_Open_Sign_24px_3.png" />
                </image>
             </ImageView>
             <Separator layoutX="162.0" layoutY="245.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" />
             <Separator layoutX="309.0" layoutY="245.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" />
             <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="326.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Group_24px.png" />
+                  <Image url="@../ressources/icons8_Group_64px_1.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="46.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Graduation_Cap_24px.png" />
+                  <Image url="@../ressources/icons8_Graduation_Cap_24px.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="187.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/Esprit4All_JAVAAA/src/resource/icons8_Create_24px.png" />
+                  <Image url="@../ressources/icons8_Create_24px.png" />
                </image>
             </ImageView>
             <Separator layoutX="162.0" layoutY="331.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" />

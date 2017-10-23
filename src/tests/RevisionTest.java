@@ -17,10 +17,7 @@ import services.RevisionService;
  */
 public class RevisionTest {
     public static void main(String[] args) {
-        Revision R= new Revision(4,new User(1),"hahaha",null,"hhhhhhhhhhhhhhhhhpouvoir me reviser math",8,"yezi");
-              Revision h= new Revision(new User(1),"vvvvvvvvvvvvvvvvvvv",null,"hhhhhhhhhhhhhhhhhpouvoir me reviser math",8,"yezi");
-        IServiceRevision cs = new RevisionService();
-cs.delete(5);
+    
 
         }
 }

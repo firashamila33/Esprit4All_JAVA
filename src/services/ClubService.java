@@ -107,7 +107,8 @@ public class ClubService implements IClubService {
             while (resultSet.next()) {
                 club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
                         resultSet.getString("path_img"), new User(resultSet.getInt("user_id")));
-                System.out.println(club);
+                //System.out.println(club);
+                
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

@@ -13,12 +13,12 @@ import java.sql.Date;
  * @author kadhem
  */
 public class Annonce {
-    private int id;
-    private String name;
-    private String description;
-    private User owner;
-    private Date creationDate;
-    private Date ExpirationDate;
+    protected int id;
+    protected String name;
+    protected String description;
+    protected User owner;
+    protected Date creationDate;
+    protected Date ExpirationDate;
 
     public int getId() {
         return id;
