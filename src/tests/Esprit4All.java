@@ -13,14 +13,16 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author danml
+ * @author majdi
  */
 public class Esprit4All extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-         //Parent root = FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
-       Parent root = FXMLLoader.load(getClass().getResource("/gui/ClubBack.fxml"));
+        
+         //Parent root = FXMLLoader.load(getClass().getResource("/gui/RowEventFXML.fxml"));
+       //  Parent root = FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();

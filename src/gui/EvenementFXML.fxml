@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EvenementFXMLController">
+   <children>
+      <Pane prefHeight="510.0" prefWidth="499.0" style="-fx-background-color: #4242428B;">
+         <children>
+            <ImageView fitHeight="488.0" fitWidth="480.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../ressources/fête%20de%20la%20musique.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="510.0" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #ff2e44;">
+         <children>
+            <JFXButton layoutX="822.0" layoutY="8.0" prefHeight="39.0" prefWidth="138.0" text="Commentaire" textFill="WHITE">
+               <font>
+                  <Font name="Sitka Text" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="513.0" layoutY="15.0" prefHeight="117.0" prefWidth="117.0" style="-fx-border-width: 0 1 0 0; -fx-border-color: #ff2e44;">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../ressources/logo-256-transp.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="510.0" layoutY="222.0" prefHeight="277.0" prefWidth="480.0" style="-fx-border-color: #2424248B;" text="Description" />
+      <Label alignment="CENTER" layoutX="660.0" layoutY="14.0" prefHeight="41.0" prefWidth="313.0" style="-fx-border-color: #ff2e44;" text="Libelle evenement">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="660.0" layoutY="74.0" prefHeight="17.0" prefWidth="138.0" text="Type :" />
+      <Label layoutX="835.0" layoutY="74.0" prefHeight="17.0" prefWidth="138.0" text="Date  : " />
+   </children>
+</AnchorPane>

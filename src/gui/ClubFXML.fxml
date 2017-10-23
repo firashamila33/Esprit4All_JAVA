@@ -1,11 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClubFXMLController">
-    
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="1000.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../ressources/lion_big_cat_face_smoke_colored_63451_3840x2160.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="27.0" layoutY="79.0" prefHeight="70.0" prefWidth="463.0" text="Nom de club" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label alignment="CENTER" layoutY="200.0" prefHeight="130.0" prefWidth="300.0" text="Notre histoire" textFill="#ff2e44">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <JFXScrollPane layoutY="200.0" prefHeight="702.0" prefWidth="1000.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE;">
+               <children>
+                  <Label alignment="CENTER" layoutX="4.0" layoutY="33.0" prefHeight="58.0" prefWidth="300.0" style="-fx-border-width: 0 2 0 0; -fx-border-color: #ff2e44;" text="Notre histoire">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="300.0" prefHeight="130.0" prefWidth="700.0" text="majdi rahbie hamine kduecem ali va terminal php carte environnement livre akd">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutY="130.0" prefHeight="130.0" prefWidth="700.0" text="majdi rahbie hamine kduecem ali va terminal php carte environnement livre akd">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="702.0" layoutY="174.0" prefHeight="50.0" prefWidth="300.0" style="-fx-border-width: 0 0 0 2; -fx-border-color: #ff2e44;" text="A propre nous">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutY="300.0" prefHeight="50.0" prefWidth="300.0" style="-fx-border-width: 0 2 0 0; -fx-border-color: #ff2e44;" text="Membres">
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="253.0" fitWidth="463.0" layoutY="449.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../ressources/210199-digital_art-minimalism-low_poly-geometry-triangle-red-black-gray-abstract.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="37.0" layoutY="476.0" prefHeight="17.0" prefWidth="113.0" text="Libelle " textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+      </JFXScrollPane>
+   </children>
 </AnchorPane>
