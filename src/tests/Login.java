@@ -28,14 +28,14 @@ public class Login extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
         stage.initStyle(StageStyle.TRANSPARENT);
         Scene scene = new Scene(root);
-        root.setOnMousePressed((MouseEvent event) -> {
-            xOffset=event.getSceneX();
-            yOffset=event.getSceneY();
-        });
-        root.setOnMouseDragged((MouseEvent event) -> {
-            stage.setX(event.getSceneX()-xOffset);
-            stage.setY(event.getSceneY()-xOffset);
-        });
+//        root.setOnMousePressed((MouseEvent event) -> {
+//            xOffset=event.getSceneX();
+//            yOffset=event.getSceneY();
+//        });
+//        root.setOnMouseDragged((MouseEvent event) -> {
+//            stage.setX(event.getSceneX()-xOffset);
+//            stage.setY(event.getSceneY()-xOffset);
+//        });
         
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);

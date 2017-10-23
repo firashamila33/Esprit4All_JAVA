@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import com.jfoenix.controls.*?>
@@ -71,7 +72,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane id="fenetre1" fx:id="window2" layoutX="163.0" prefHeight="587.0" prefWidth="380.0" style="-fx-background-color: #ff2e44;">
+      <AnchorPane id="fenetre1" fx:id="window2" layoutX="163.0" prefHeight="587.0" prefWidth="380.0" style="-fx-background-color: #ff2e44; -fx-background-radius: 4.0;">
          <children>
             <Text fill="WHITE" layoutX="68.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenu à">
                <font>
@@ -88,6 +89,9 @@
                   <Image url="@../ressources/Logo_ESPRIT_-_Tunisie.png" />
                </image>
             </ImageView>
-         </children></AnchorPane>
+         </children>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0" />
+         </effect></AnchorPane>
    </children>
 </AnchorPane>
