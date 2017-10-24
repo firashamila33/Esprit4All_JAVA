@@ -16,7 +16,7 @@ import javafx.scene.image.ImageView;
  *
  * @author majdi
  */
-public class AcceuilFXMLController implements Initializable {
+public class AccueilFXMLController implements Initializable {
 
     @FXML
     private ImageView logoesprit;

@@ -8,16 +8,16 @@
 
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.ClubBackController">
-   <children>
-      <TableView id="club_tab" fx:id="tab_club" layoutX="40.0" layoutY="46.0" prefHeight="226.0" prefWidth="521.0">
-        <columns>
-          <TableColumn id="libelle" fx:id="libelle" prefWidth="87.0" text="Libelle" />
-            <TableColumn id="description" fx:id="description" prefWidth="190.0" text="Description" />
-            <TableColumn id="path_img" fx:id="path_img" prefWidth="188.0" text="Path_Img" />
-            <TableColumn id="user_id" fx:id="user_id" prefWidth="55.0" text="User" />
-        </columns>
-      </TableView>
-      <Button fx:id="btn_aff_club" layoutX="158.0" layoutY="306.0" mnemonicParsing="false" text="Afficher Clubs" />
-      <Button fx:id="btn_mod_club" layoutX="332.0" layoutY="306.0" mnemonicParsing="false" text="Modifier" />
-   </children>
+    <children>
+        <TableView id="club_tab" fx:id="tab_club" layoutX="40.0" layoutY="46.0" prefHeight="226.0" prefWidth="521.0">
+            <columns>
+                <TableColumn id="libelle" fx:id="libelle" prefWidth="87.0" text="Libelle" />
+                <TableColumn id="description" fx:id="description" prefWidth="190.0" text="Description" />
+                <TableColumn id="path_img" fx:id="path_img" prefWidth="188.0" text="Path_Img" />
+                <TableColumn id="user_id" fx:id="user_id" prefWidth="55.0" text="User" />
+            </columns>
+        </TableView>
+        <Button fx:id="btn_aff_club" layoutX="158.0" layoutY="306.0" mnemonicParsing="false" text="Afficher Clubs" />
+        <Button fx:id="btn_mod_club" layoutX="332.0" layoutY="306.0" mnemonicParsing="false" text="Modifier" />
+    </children>
 </AnchorPane>

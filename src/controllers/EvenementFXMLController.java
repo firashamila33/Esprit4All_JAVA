@@ -5,51 +5,46 @@
  */
 package controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author majdi
  */
-public class ClubFXMLController implements Initializable {
+public class EvenementFXMLController implements Initializable {
 
     @FXML
-    private Pane img_event_id;
+    private ImageView back_id;
+    @FXML
+    private AnchorPane anchorPanrEV_id;
+    AnchorPane club;
 
     /**
      * Initializes the controller class.
      */
-    @FXML
-    private AnchorPane anchorPane_id;
-
-    AnchorPane eventclub;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
     @FXML
-    private void GoToEvenement(MouseEvent event) {
+    private void backToClub(MouseEvent event) {
         try {
-
-            eventclub = FXMLLoader.load(getClass().getResource("/gui/EvenementFXML.fxml"));
-            anchorPane_id.getChildren().clear();
-            anchorPane_id.getChildren().add(eventclub);
+            club = FXMLLoader.load(getClass().getResource("/gui/ClubFXML.fxml"));
+            anchorPanrEV_id.getChildren().clear();
+            anchorPanrEV_id.getChildren().add(club);
         } catch (Exception e) {
-            System.out.println("Can load new window");
+
+            System.out.println("interface introuvable");
         }
+
     }
 }
