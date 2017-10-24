@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="window1" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #ff2e44;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="covoiturage.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="window1" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #ff2e44;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLDocumentController">
    <children>
       <AnchorPane fx:id="window2" prefHeight="560.0" prefWidth="1360.0">
          <children>
@@ -21,7 +21,7 @@
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0">
                            <image>
-                              <Image url="@../sourceImage/621382-200.png" />
+                              <Image url="@../ressources/621382-200.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -42,7 +42,7 @@
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="212.0">
                            <image>
-                              <Image url="@../sourceImage/car-search-icon-6371-0.png" />
+                              <Image url="@../ressources/car-search-icon-6371-0.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -65,7 +65,7 @@
                <graphic>
                   <ImageView>
                      <image>
-                        <Image url="@../sourceImage/icons8_Back_96px.png" />
+                        <Image url="@../ressources/icons8_Back_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -144,7 +144,7 @@
                      <graphic>
                         <ImageView>
                            <image>
-                              <Image url="@../sourceImage/icons8_Checkmark_64px.png" />
+                              <Image url="@../ressources/icons8_Checkmark_64px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -164,7 +164,7 @@
                <graphic>
                   <ImageView>
                      <image>
-                        <Image url="@../sourceImage/icons8_Back_96px.png" />
+                        <Image url="@../ressources/icons8_Back_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -178,7 +178,7 @@
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0">
                            <image>
-                              <Image url="@../sourceImage/621382-200.png" />
+                              <Image url="@../ressources/621382-200.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -198,17 +198,19 @@
                         <Font size="48.0" />
                      </font>
                   </Text>
-                  <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="197.0" layoutY="99.0" prefHeight="14.0" prefWidth="16.0" />
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="220.0" layoutY="106.0" prefHeight="14.0" prefWidth="16.0">
+                     <graphic>
+                        <ImageView fitHeight="49.0" fitWidth="49.0">
+                           <image>
+                              <Image url="@../ressources/icons8_Search_64px_6.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
                   <JFXTextField focusColor="#424242" layoutX="306.0" layoutY="115.0" prefHeight="25.0" prefWidth="269.0" promptText="Chercher" unFocusColor="#ff2e44">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </JFXTextField>
-                  <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="250.0" layoutY="112.0">
-                     <image>
-                        <Image url="@../sourceImage/icons8_Search_64px_6.png" />
-                     </image>
-                  </ImageView>
                </children>
                <effect>
                   <DropShadow />
