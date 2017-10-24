@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: gray;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9" fx:controller="controllers.DocAdministratifController">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="111.0" prefWidth="732.0" />
+      <ImageView fitHeight="596.0" fitWidth="1536.0" layoutX="-3.0" layoutY="-2.0" opacity="0.39" pickOnBounds="true">
+         <image>
+            <Image url="@../ressources/xlarge_stock-footage-document-signature-paper-signature-signing-a-printed-form-signature-on-agreement-to-sign-a.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="select_doc" layoutX="673.0" layoutY="482.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="122.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em;" />
+      <ImageView fitHeight="159.0" fitWidth="497.0" layoutX="129.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="5.0" layoutY="3.0" prefHeight="84.0" prefWidth="470.0" text="Documents administratif" textFill="#fff4f4">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Separator layoutX="730.0" layoutY="35.0" orientation="VERTICAL" prefHeight="436.0" prefWidth="18.0" />
+      <Separator layoutX="116.0" layoutY="298.0" prefHeight="0.0" prefWidth="512.0" />
+      <Separator layoutX="889.0" layoutY="297.0" prefHeight="1.0" prefWidth="534.0" />
+      <Separator layoutX="17.0" layoutY="92.0" prefHeight="1.0" prefWidth="460.0" />
+      <Separator layoutX="445.0" layoutY="10.0" orientation="VERTICAL" prefHeight="116.0" prefWidth="9.0" />
+      <ImageView fitHeight="159.0" fitWidth="497.0" layoutX="910.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="159.0" fitWidth="497.0" layoutX="107.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="159.0" fitWidth="497.0" layoutX="903.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="72.0" fitWidth="108.0" layoutX="696.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/rounded-add-button_icon-icons.com_72592.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

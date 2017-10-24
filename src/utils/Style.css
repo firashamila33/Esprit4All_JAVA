@@ -216,6 +216,16 @@ and open the template in the editor.
 }
 
 
+.rev-nav-button:hover{
+    -fx-border-width: 0 4 0 0;
+    -fx-border-color:  #ff2e44;
+}
+.rev-nav-button{
+    -fx-border-width: 0 0 0 0;
+}
+
+
+
 
 
 

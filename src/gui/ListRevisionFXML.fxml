@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import application.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListRevisionFXMLController">
+   <children>
+        <AnchorPane prefHeight="560.0" prefWidth="1260.0">
+                  <children>
+                     <ListView fx:id="revision_lv" layoutX="260.0" layoutY="53.0" prefHeight="490.0" prefWidth="800.0" />
+                     <AnchorPane prefHeight="40.0" prefWidth="1260.0" style="-fx-background-color: ff2e44;" />
+                  </children>
+               </AnchorPane>
+   </children>
+</AnchorPane>
