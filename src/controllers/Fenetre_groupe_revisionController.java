@@ -9,17 +9,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
- * @author majdi
+ * @author asus
  */
-public class AcceuilFXMLController implements Initializable {
+public class Fenetre_groupe_revisionController implements Initializable {
 
     @FXML
-    private ImageView logoesprit;
+    private AnchorPane topbar;
+    @FXML
+    private AnchorPane Description;
+    @FXML
+    private AnchorPane Chat;
+    @FXML
+    private AnchorPane compteRendu;
 
     /**
      * Initializes the controller class.

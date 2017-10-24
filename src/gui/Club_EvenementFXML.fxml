@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -9,10 +11,18 @@
 
 <AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Club_EvenementFXMLController">
    <children>
-      <Pane prefHeight="280.0" prefWidth="1000.0" />
+      <Pane prefHeight="280.0" prefWidth="1000.0" style="-fx-background-color: #ff2e44;" />
       <Pane layoutY="280.0" prefHeight="280.0" prefWidth="1000.0" style="-fx-background-color: #4242428B;">
          <children>
-            <JFXListView fx:id="list_even" layoutX="50.0" layoutY="15.0" prefHeight="251.0" prefWidth="900.0" />
+            <JFXListView fx:id="list_even" layoutX="50.0" layoutY="15.0" prefHeight="251.0" prefWidth="900.0">
+               <effect>
+                  <DropShadow color="#ff2e44" />
+               </effect></JFXListView>
+            <Label layoutX="70.0" layoutY="-16.0" text="Evenements" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

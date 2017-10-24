@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Fenetre_groupe_revisionController">
+   <children>
+      <AnchorPane fx:id="topbar" prefHeight="57.0" prefWidth="450.0" style="-fx-background-color: #4242428b;">
+         <children>
+            <Button layoutX="61.0" layoutY="15.0" minWidth="41.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" text="Description_grp_rev">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Graduation_Cap_48px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="339.0" layoutY="15.0" minWidth="41.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" text="Button">
+               <graphic>
+                  <ImageView fx:id="quitter_grp_rev" fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Delete_52px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="249.0" layoutY="15.0" minWidth="41.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" text="Button">
+               <graphic>
+                  <ImageView fx:id="setting_grp_rev" fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Settings_50px_2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="150.0" layoutY="15.0" minWidth="41.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" text="Button">
+               <graphic>
+                  <ImageView fx:id="chat_grp_rev" fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Chat_48px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Description" layoutX="1.0" layoutY="65.0" prefHeight="432.0" prefWidth="449.0" style="-fx-background-color: #4242428b;" visible="false" />
+      <AnchorPane fx:id="Chat" layoutY="67.0" prefHeight="432.0" prefWidth="450.0" style="-fx-background-color: #4242428b;" visible="false">
+         <children>
+            <Button fx:id="save_setting_grp" layoutX="159.0" layoutY="363.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="133.0" style="-fx-background-color: #D6EAF8; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Save" textFill="#720505" />
+            <Separator layoutX="101.0" layoutY="346.0" prefHeight="7.0" prefWidth="245.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="compteRendu" layoutY="65.0" prefHeight="432.0" prefWidth="450.0" style="-fx-background-color: #4242428b; -fx-border-image-width: 0 1 1 0;">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="187.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/user-3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="43.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/user-3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="187.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/user-3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="326.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/user-3.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="101.0" layoutY="228.0" prefHeight="7.0" prefWidth="264.0" />
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="289.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="289.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="187.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Close_Sign_24px_2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="46.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Open_Sign_24px_3.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="162.0" layoutY="245.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" />
+            <Separator layoutX="309.0" layoutY="245.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" />
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="326.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Group_64px_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="46.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Graduation_Cap_24px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="187.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Create_24px.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="162.0" layoutY="331.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" />
+            <Label fx:id="heurdebut_label" layoutX="101.0" layoutY="262.0" prefHeight="24.0" prefWidth="61.0" />
+            <Label fx:id="heur_fin_label" layoutX="245.0" layoutY="262.0" prefHeight="24.0" prefWidth="61.0" text="Labl" />
+            <Label fx:id="nbr_grp" layoutX="370.0" layoutY="262.0" prefHeight="24.0" prefWidth="27.0" text="Label" />
+            <Label fx:id="nbrmaw_grp" layoutX="414.0" layoutY="262.0" prefHeight="24.0" prefWidth="27.0" text="Label" />
+            <Label fx:id="descritpion" layoutX="245.0" layoutY="354.0" prefHeight="57.0" prefWidth="191.0" text="Label" />
+            <Label fx:id="matiere" layoutX="101.0" layoutY="354.0" prefHeight="24.0" prefWidth="61.0" />
+            <Label layoutX="394.0" layoutY="254.0" prefHeight="34.0" prefWidth="19.0" text="/" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
