@@ -9,8 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="836.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.FoodMyOrderController">
+<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoodMyOrderController">
    <children>
       <Pane layoutY="376.0" opacity="0.89" prefHeight="88.0" prefWidth="836.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -29,7 +28,7 @@
                <graphic>
                   <ImageView fitHeight="37.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/confirm.png" />
+                        <Image url="@../ressources/confirm.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -44,7 +43,7 @@
                <graphic>
                   <ImageView fitHeight="37.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/cancle2.png" />
+                        <Image url="@../ressources/cancle2.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -57,6 +56,11 @@
             <Label layoutX="36.0" layoutY="28.0" text="Ref :" textFill="#b2afaf">
                <font>
                   <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="700.0" layoutY="29.0" prefHeight="32.0" prefWidth="100.0" text="15 DT">
+               <font>
+                  <Font name="Arial Bold" size="26.0" />
                </font>
             </Label>
          </children>

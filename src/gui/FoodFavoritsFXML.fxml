@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoodFavoritsFXMLController">
+   <children>
+      <JFXButton layoutX="687.0" layoutY="210.0" prefHeight="81.0" prefWidth="82.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="75.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/next.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="11.0" layoutY="217.0" prefHeight="81.0" prefWidth="82.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="75.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../ressources/next.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Pane layoutX="128.0" layoutY="264.0" prefHeight="230.0" prefWidth="154.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="118.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/toast-1-310x260.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="28.0" layoutY="175.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
+               <font>
+                  <Font name="Browallia New Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="12.0" layoutY="105.0" prefHeight="41.0" prefWidth="137.0" text="        Pain Grillé">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="141.0" text="2 DT" textFill="#ff2e44">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="490.0" layoutY="264.0" prefHeight="230.0" prefWidth="154.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="118.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/pizzas-5-310x260.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="28.0" layoutY="175.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
+               <font>
+                  <Font name="Browallia New Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="12.0" layoutY="105.0" prefHeight="41.0" prefWidth="137.0" text="           Pizza">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="141.0" text="5 DT" textFill="#ff2e44">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="310.0" layoutY="264.0" prefHeight="230.0" prefWidth="154.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="118.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/drinks-1-310x260.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="28.0" layoutY="175.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
+               <font>
+                  <Font name="Browallia New Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="1.0" layoutY="105.0" prefHeight="41.0" prefWidth="152.0" text="          Coca Cola">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="141.0" text="1 DT" textFill="#ff2e44">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="309.0" layoutY="8.0" prefHeight="230.0" prefWidth="154.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="118.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/deserts-3-310x260.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="28.0" layoutY="175.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
+               <font>
+                  <Font name="Browallia New Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="12.0" layoutY="105.0" prefHeight="41.0" prefWidth="137.0" text="         Donuts">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="141.0" text="3 DT" textFill="#ff2e44">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="489.0" layoutY="8.0" prefHeight="230.0" prefWidth="154.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="118.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/salads-1-310x260.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="28.0" layoutY="175.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
+               <font>
+                  <Font name="Browallia New Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="12.0" layoutY="105.0" prefHeight="41.0" prefWidth="137.0" text="          Salade">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="141.0" text="10 DT" textFill="#ff2e44">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="127.0" layoutY="8.0" prefHeight="230.0" prefWidth="154.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="118.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/menu-modern-5-310x260.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="28.0" layoutY="175.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
+               <font>
+                  <Font name="Browallia New Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="12.0" layoutY="105.0" prefHeight="41.0" prefWidth="137.0" text="Hamburger Special">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="141.0" text="5 DT" textFill="#ff2e44">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoodMaineFXMLController">
+   <children>
+      <ImageView fitHeight="560.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0">
+         <image>
+            <Image url="@../ressources/background1.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="560.0" prefWidth="350.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="226.0" fitWidth="182.0" layoutX="84.0" layoutY="-6.0">
+               <image>
+                  <Image url="@../ressources/chef.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="menu_btn" layoutY="221.0" onAction="#goToMenu" prefHeight="54.0" prefWidth="350.0" text="Menu" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="37.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutX="-1.0" layoutY="290.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" />
+            <JFXButton fx:id="current_order_btn" layoutX="-2.0" layoutY="296.0" onAction="#goToCurrentOrder" prefHeight="73.0" prefWidth="350.0" text="      CURRENT ORDER" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutY="367.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <JFXButton fx:id="my_favorites_btn" layoutY="372.0" onAction="#goToFavorites" prefHeight="70.0" prefWidth="350.0" text="  MY FAVORITES" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutX="-7.0" layoutY="218.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" />
+            <BorderPane layoutX="-2.0" layoutY="441.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" />
+            <ImageView fitHeight="73.0" fitWidth="59.0" layoutX="20.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/menu2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="33.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/current-order.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="34.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/favorite.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="92.0" fitWidth="202.0" layoutX="112.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/enjoy.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="container" layoutX="425.0" layoutY="28.0" prefHeight="503.0" prefWidth="871.0">
+         <children>
+            <AnchorPane fx:id="container1" layoutX="18.0" layoutY="21.0" prefHeight="466.0" prefWidth="836.0" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="container3" layoutX="479.0" layoutY="28.0" prefHeight="505.0" prefWidth="769.0" />
+      
+   </children>
+</AnchorPane>
