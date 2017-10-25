@@ -6,6 +6,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXListView;
+import interfaces.IEvenementService;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +15,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import models.Club;
 import models.Evenement;
-import models.User;
+import services.ClubService;
+import services.EvenementService;
 
 /**
  * FXML Controller class
@@ -32,17 +37,25 @@ public class Club_EvenementFXMLController implements Initializable {
     @FXML
     private JFXListView< Evenement> list_even;
     public ObservableList<Evenement> evenements;
+    @FXML
+    private AnchorPane anchorpane_club_id;
 
-    public Club_EvenementFXMLController() {
-        evenements = FXCollections.observableArrayList();
-
-        evenements.addAll(new Evenement("amak", 1, "ali", null, "ressources.images.jpg", new Club(16)),
-                new Evenement("Quiz", 1, "aureh", null, "ressources.images.jpg", new Club(16)));
-    }
+    @FXML
+    private JFXListView<Club> list_even_club;
+    public ObservableList<Club> clubs;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        EvenementService es = new EvenementService();
+        ClubService cs = new ClubService();
+        //System.out.println(es.getAll().toString());
+        evenements = FXCollections.observableArrayList(es.getAll());
         list_even.setItems(evenements);
         list_even.setCellFactory(evenementListView -> new RowEventFXMLController());
+        //lister les clubs 
+        clubs = FXCollections.observableArrayList(cs.getAll());
+        list_even_club.setItems(clubs);
+        list_even_club.setCellFactory(clubListView -> new RowClubFXMLController());
+
     }
 }

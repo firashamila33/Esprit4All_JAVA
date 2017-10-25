@@ -14,7 +14,7 @@ public class Evenement {
 
     private int id;
     private String liblle;
-    private int type;
+    private String type;
     private String description;
     private Date date;
     private String path_img;
@@ -23,7 +23,7 @@ public class Evenement {
     public Evenement() {
     }
 
-    public Evenement(String libelle, int type, String description, Date date, String path_img, Club club) {
+    public Evenement(String libelle, String type, String description, Date date, String path_img, Club club) {
         this.liblle=libelle;
         this.type = type;
         this.description = description;
@@ -32,7 +32,7 @@ public class Evenement {
         this.club = club;
     }
 
-    public Evenement(int id,String libelle, int type, String description, Date date, String path_img, Club club) {
+    public Evenement(int id,String libelle, String type, String description, Date date, String path_img, Club club) {
         this.id = id;
         this.liblle=libelle;
         this.type = type;
@@ -58,11 +58,11 @@ public class Evenement {
         this.liblle = liblle;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 

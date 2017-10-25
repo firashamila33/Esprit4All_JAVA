@@ -17,19 +17,19 @@ import services.EvenementService;
 public class TestEvenement {
     public static void main(String []args){
     
-    Evenement e=new Evenement(1,"Disco",1,"MAJDI",null,"SALA",new Club(16));
+    Evenement e=new Evenement("kkkj","jljlkj","khhj",null,"SALAgyuhk",new Club(1));
         IEvenementService es =  new EvenementService();
         
         // es.add(e);
       //es.delete(3);
       
-      
-      /* for (Evenement ev : es.getAll()) {
-            System.out.println(ev);
-        }*/
+//      
+//       for (Evenement ev : es.getAll()) {
+//            System.out.println(ev);
+//        }
          
        // es.update(e);
-               System.out.println(es.getById(1));
+               //System.out.println(es.getById(1));
 
         
     }
