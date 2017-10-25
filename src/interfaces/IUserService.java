@@ -14,7 +14,7 @@ import models.User;
  */
 public interface IUserService{
     void register(User u);
-    void Login(String username,String password);
+    boolean Login(String username,String password);
     void disable(User u);
     void enable(User u);
     User search(User u);
