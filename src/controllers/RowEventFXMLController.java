@@ -62,6 +62,7 @@ protected void updateItem(Evenement evenements, boolean empty) {
 
                 try {
                     mLLoader.load();
+                    
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
