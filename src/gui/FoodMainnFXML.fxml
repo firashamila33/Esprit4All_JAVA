@@ -31,20 +31,20 @@
                   <Font name="Candara" size="37.0" />
                </font>
             </JFXButton>
-            <BorderPane layoutX="-1.0" layoutY="290.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" />
+            <BorderPane layoutX="-1.0" layoutY="290.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" visible="false" />
             <JFXButton fx:id="current_order_btn" layoutX="-2.0" layoutY="296.0" onAction="#goToCurrentOrder" prefHeight="73.0" prefWidth="350.0" text="      CURRENT ORDER" textFill="#373a42">
                <font>
                   <Font name="Candara" size="24.0" />
                </font>
             </JFXButton>
-            <BorderPane layoutY="367.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <BorderPane layoutY="367.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" visible="false" />
             <JFXButton fx:id="my_favorites_btn" layoutY="372.0" onAction="#goToFavorites" prefHeight="70.0" prefWidth="350.0" text="  MY FAVORITES" textFill="#373a42">
                <font>
                   <Font name="Candara" size="24.0" />
                </font>
             </JFXButton>
-            <BorderPane layoutX="-7.0" layoutY="218.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" />
-            <BorderPane layoutX="-2.0" layoutY="441.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" />
+            <BorderPane layoutX="-7.0" layoutY="218.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" visible="false" />
+            <BorderPane layoutX="-2.0" layoutY="441.0" prefHeight="6.0" prefWidth="358.0" style="-fx-background-color: #ff2e44;" visible="false" />
             <ImageView fitHeight="73.0" fitWidth="59.0" layoutX="20.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/menu2.png" />
@@ -184,7 +184,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="menu_layout" layoutX="420.0" layoutY="30.0" prefHeight="505.0" prefWidth="871.0">
+      <AnchorPane fx:id="menu_layout" layoutX="420.0" layoutY="30.0" prefHeight="505.0" prefWidth="871.0" visible="false">
          <children>
             <AnchorPane layoutX="457.0" layoutY="273.0" prefHeight="225.0" prefWidth="399.0" style="-fx-background-color: #ffffff; -fx-border-radius: 50; -fx-opacity: 0.95;">
                <children>
@@ -278,15 +278,10 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane id="AnchorPane" fx:id="my_order_layout" layoutX="436.0" layoutY="51.0" prefHeight="464.0" prefWidth="836.0" visible="false">
+      <AnchorPane id="AnchorPane" fx:id="my_order_layout" layoutX="436.0" layoutY="51.0" prefHeight="464.0" prefWidth="836.0">
          <children>
             <Pane layoutY="376.0" opacity="0.89" prefHeight="88.0" prefWidth="836.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <Label layoutX="617.0" layoutY="27.0" text="Total :" textFill="#b2afaf">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
                   <JFXButton layoutX="369.0" layoutY="22.0" prefHeight="48.0" prefWidth="153.0" style="-fx-background-color: #87de75; -fx-opacity: 1;" text="  Confirmer ">
                      <cursor>
                         <Cursor fx:constant="NONE" />
@@ -317,6 +312,11 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
+                  <Label layoutX="617.0" layoutY="27.0" text="Total :" textFill="#b2afaf">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
                   <Label layoutX="99.0" layoutY="31.0" prefHeight="32.0" prefWidth="55.0" text="752">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
@@ -334,7 +334,7 @@
                   </Label>
                </children>
             </Pane>
-            <JFXListView opacity="0.89" prefHeight="373.0" prefWidth="836.0" style="-fx-background-color: #ffffff;" />
+            <JFXListView fx:id="listView_commandes" opacity="0.89" prefHeight="373.0" prefWidth="836.0" style="-fx-background-color: #ffffff;" />
          </children>
       </AnchorPane>
       <AnchorPane id="AnchorPane" fx:id="favorits_layout" layoutX="471.0" layoutY="35.0" prefHeight="505.0" prefWidth="756.0" translateY="1.0" visible="false">

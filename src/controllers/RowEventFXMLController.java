@@ -60,6 +60,7 @@ public class RowEventFXMLController extends ListCell<Evenement> {
 
                 try {
                     mLLoader.load();
+                    
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
