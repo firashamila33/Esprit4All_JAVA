@@ -5,10 +5,8 @@
  */
 package controllers;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +26,8 @@ import models.Evenement;
 public class RowEventFXMLController extends ListCell<Evenement> {
 
     @FXML
+    private AnchorPane row;
+    @FXML
     private ImageView img_evnt_id;
     @FXML
     private Label lib_event_id;
@@ -39,13 +39,15 @@ public class RowEventFXMLController extends ListCell<Evenement> {
     private ImageView img_club_id;
     @FXML
     private Label desc_event_id;
-    @FXML
-    private AnchorPane row;
-    
-    private FXMLLoader mLLoader;
 
-    @Override
-    protected void updateItem(Evenement evenements, boolean empty) {
+    /**
+     * Initializes the controller class.
+     */
+     private FXMLLoader mLLoader;
+
+  
+   
+protected void updateItem(Evenement evenements, boolean empty) {
         super.updateItem(evenements, empty);
 
         if (empty || evenements == null) {
@@ -66,17 +68,15 @@ public class RowEventFXMLController extends ListCell<Evenement> {
 
             }
 
-            lib_event_id.setText(String.valueOf(evenements.getLiblle()));
+            lib_event_id.setText(evenements.getLiblle());
            
             date_event_id.setText(String.valueOf(evenements.getDate()));
-            desc_event_id.setText("qdhkjqhsjkdhqksjdhqkjsdhqkjsdhqkjsdhqkjsdhkjqsdhkjqshdk"
-                    + "qjsdgkhqgfdhgfkjsqhdjkqhsdljqhsdljqhdsjl"
-                    + "qshdjkshdlqjskhdqjkshdqjksdhjqksdhjqkshdjkqhsdjqhsdjkhqsdjkh");
+            desc_event_id.setText(evenements.getDescription());
+            type_event_id.setText(evenements.getType());
 
             setText(null);
             setGraphic(row);
         }
 
     }
-
 }
