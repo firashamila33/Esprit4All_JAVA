@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="row" prefHeight="120.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="2.0" layoutY="2.0" prefHeight="117.0" prefWidth="197.0" style="-fx-border-color: black; -fx-border-width: 2;">
+         <children>
+            <ImageView fx:id="img_evnt_id" fitHeight="111.0" fitWidth="190.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../ressources/fête%20de%20la%20musique.jpg" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="200.0" layoutY="2.0" prefHeight="117.0" prefWidth="698.0" style="-fx-background-color: #fffff; -fx-border-color: #4242428B;">
+         <children>
+            <Label fx:id="lib_event_id" alignment="CENTER" layoutX="282.0" layoutY="17.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #ff2e44;" text="Libelle evenement" textFill="WHITE">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="date_event_id" layoutX="81.0" layoutY="14.0" prefHeight="17.0" prefWidth="111.0" text="Date :" />
+            <Label fx:id="type_event_id" layoutX="81.0" layoutY="37.0" prefHeight="17.0" prefWidth="111.0" text="Type :" />
+            <Pane layoutX="15.0" layoutY="7.0" prefHeight="45.0" prefWidth="51.0">
+               <children>
+                  <ImageView fx:id="img_club_id" fitHeight="51.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/logo-256-transp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Label fx:id="desc_event_id" alignment="CENTER" layoutX="17.0" layoutY="64.0" prefHeight="45.0" prefWidth="665.0" style="-fx-border-color: #ff2e44;" text="Description de l'evenement avec quelques details ...">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
