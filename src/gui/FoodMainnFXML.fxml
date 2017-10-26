@@ -184,7 +184,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="menu_layout" layoutX="420.0" layoutY="30.0" prefHeight="505.0" prefWidth="871.0" visible="false">
+      <AnchorPane fx:id="menu_layout" layoutX="420.0" layoutY="30.0" prefHeight="505.0" prefWidth="871.0">
          <children>
             <AnchorPane layoutX="457.0" layoutY="273.0" prefHeight="225.0" prefWidth="399.0" style="-fx-background-color: #ffffff; -fx-border-radius: 50; -fx-opacity: 0.95;">
                <children>
@@ -278,7 +278,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane id="AnchorPane" fx:id="my_order_layout" layoutX="436.0" layoutY="51.0" prefHeight="464.0" prefWidth="836.0">
+      <AnchorPane id="AnchorPane" fx:id="my_order_layout" layoutX="436.0" layoutY="51.0" prefHeight="464.0" prefWidth="836.0" visible="false">
          <children>
             <Pane layoutY="376.0" opacity="0.89" prefHeight="88.0" prefWidth="836.0" style="-fx-background-color: #ffffff;">
                <children>
@@ -312,12 +312,12 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <Label layoutX="617.0" layoutY="27.0" text="Total :" textFill="#b2afaf">
+                  <Label layoutX="587.0" layoutY="29.0" text="Total :" textFill="#b2afaf">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="99.0" layoutY="31.0" prefHeight="32.0" prefWidth="55.0" text="752">
+                  <Label fx:id="id_commande" layoutX="99.0" layoutY="31.0" prefHeight="32.0" prefWidth="82.0" text="752">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
                      </font>
@@ -327,7 +327,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="700.0" layoutY="29.0" prefHeight="32.0" prefWidth="100.0" text="15 DT">
+                  <Label fx:id="price_commande" layoutX="670.0" layoutY="31.0" prefHeight="32.0" prefWidth="157.0" text="15 DT">
                      <font>
                         <Font name="Arial Bold" size="26.0" />
                      </font>

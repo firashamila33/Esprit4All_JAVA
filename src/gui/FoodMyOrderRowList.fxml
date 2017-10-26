@@ -19,7 +19,7 @@
                   <Image url="@../ressources/menu-modern-5-310x260.png" />
                </image>
             </ImageView>
-            <Label fx:id="type_row_commande" layoutX="232.0" layoutY="23.0" text="Burger" textFill="#b2afaf">
+            <Label fx:id="type_row_commande" layoutX="232.0" layoutY="23.0" prefHeight="20.0" prefWidth="85.0" text="Burger" textFill="#b2afaf">
                <font>
                   <Font size="14.0" />
                </font>
@@ -29,7 +29,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="price_row_commande" layoutX="693.0" layoutY="47.0" prefHeight="21.0" prefWidth="51.0" text="5 DT">
+            <Label fx:id="price_row_commande" layoutX="668.0" layoutY="47.0" prefHeight="21.0" prefWidth="78.0" text="5 DT">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -43,7 +43,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <Label layoutX="34.0" layoutY="37.0" text="2">
+            <Label fx:id="quantity" layoutX="34.0" layoutY="37.0" text="2">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>

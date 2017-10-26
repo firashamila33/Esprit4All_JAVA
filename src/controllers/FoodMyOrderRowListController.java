@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import interfaces.IMenuService;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
 import models.LigneCommande;
+import models.Menu;
+import services.MenuService;
 
 /**
  * FXML Controller class
@@ -27,6 +30,9 @@ public class FoodMyOrderRowListController extends ListCell<LigneCommande>{
     @FXML
     private Label price_row_commande;
     
+    @FXML
+    private Label quantity;
+    
     private FXMLLoader mLLoader;
     @FXML
     private AnchorPane row;
@@ -37,9 +43,9 @@ public class FoodMyOrderRowListController extends ListCell<LigneCommande>{
      * @param empty
      */
     @Override
-    protected void updateItem(LigneCommande lignecommande,boolean empty ) {
-        super.updateItem(lignecommande, empty);
-        if (empty || lignecommande == null) {
+    protected void updateItem(LigneCommande ligne_commande,boolean empty ) {
+        super.updateItem(ligne_commande, empty);
+        if (empty || ligne_commande == null) {
 
             setText(null);
             setGraphic(null);
@@ -56,8 +62,15 @@ public class FoodMyOrderRowListController extends ListCell<LigneCommande>{
                 }
 
             }
+            IMenuService menu =new MenuService();
+            Menu repas ;
+            repas=menu.getById(ligne_commande.getMenu_id());
+            quantity.setText(String.valueOf(ligne_commande.getQuantite()));
+            price_row_commande.setText(String.valueOf(repas.getPrix()+" DT"));
+            name_row_commande.setText(repas.getLibelle());
+            type_row_commande.setText(repas.getType());
             
-            price_row_commande.setText(String.valueOf(lignecommande.getQuantite()));
+            
             setText(null);
             setGraphic(row);
         }
