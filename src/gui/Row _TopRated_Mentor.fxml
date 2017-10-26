@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="top_rated" prefHeight="100.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Row_TopRated_MentorController">
+   <children>
+      <AnchorPane layoutX="107.0" prefHeight="102.0" prefWidth="225.0">
+         <children>
+            <ImageView fx:id="topMentorinfo" fitHeight="114.0" fitWidth="225.0" opacity="0.5" pickOnBounds="true">
+               <image>
+                  <Image url="@../ressources/Abstract-Background-Red-and-Grey.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="afficher_mentorProfil" layoutX="135.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Afficher " />
+            <Label fx:id="LabelNomMentor1LabelNomMentor" layoutX="135.0" layoutY="19.0" prefHeight="32.0" prefWidth="86.0" />
+            <Label layoutX="14.0" layoutY="19.0" prefHeight="32.0" prefWidth="132.0" text="Nom Du Mentor :">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <ImageView fx:id="photo_mentor1" fitHeight="112.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controllers;
 
-import application.Button;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +9,6 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.animation.FadeTransition;
-import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +17,6 @@ import javafx.scene.Cursor;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -41,7 +34,6 @@ public class AcceuilFXMLController implements Initializable {
     private List<String> list = new ArrayList<String>();
     int j = 0;
     double orgCliskSceneX, orgReleaseSceneX;
-    Button lbutton, rButton;
     ImageView imageView;
     
     Timer timer = new Timer();
