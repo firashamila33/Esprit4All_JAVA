@@ -36,8 +36,8 @@ public class Club_EvenementFXMLController implements Initializable {
     public Club_EvenementFXMLController() {
         evenements = FXCollections.observableArrayList();
 
-        evenements.addAll(new Evenement("amak", 1, "ali", null, "ressources.images.jpg", new Club(16)),
-                new Evenement("Quiz", 1, "aureh", null, "ressources.images.jpg", new Club(16)));
+        evenements.addAll(new Evenement("amak", "1", "ali", null, "ressources.images.jpg", new Club(16)),
+                new Evenement("Quiz", "1", "aureh", null, "ressources.images.jpg", new Club(16)));
     }
 
     @Override

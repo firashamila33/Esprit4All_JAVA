@@ -25,6 +25,7 @@ import utils.BCrypt;
 public class UserService implements IUserService {
 
     Connection connection;
+    public static User userStatic = null;
 
     public UserService() {
         connection = DataSource.getInstance().getConnection();
@@ -42,13 +43,12 @@ public class UserService implements IUserService {
             preparedStatement.setString(4, u.getEmail());
             preparedStatement.setInt(5, u.getEnabled());
             preparedStatement.setString(6, u.getPassword());
-            //preparedStatement.setArray(5, u.getRoles());
             preparedStatement.setString(7, u.getNom());
             preparedStatement.setString(8, u.getPrenom());
             preparedStatement.setDate(9, u.getDateNaissance());
             preparedStatement.setString(10, u.getCin());
             preparedStatement.setString(11, u.getAdresse());
-            preparedStatement.setString(12, "a:0:{}");
+            preparedStatement.setString(12, "a:1:{i:0;s:13:\"ROLE_ETUDIANT\";}");
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -57,32 +57,29 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void Login(String username, String password) {
+    public boolean Login(String username, String password) {
+        boolean exist=false;
         String req = "select * from user where username=?";
-
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, username);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next() == false) {
-                System.out.println("Mot de passe ou username incorrecte");
-            } else {
-                while (resultSet.next()) {
-
-                    String psw = resultSet.getString("password");
-                    boolean matched = BCrypt.checkpw(password, psw);
-                    if (matched) {
-                        System.out.println("Bienvenue");
-                    } else {
-                        System.out.println("Mot de passe ou username incorrecte");
-                    }
+            while (resultSet.next()) {
+                exist = true;
+                String psw = resultSet.getString("password");
+                boolean matched = BCrypt.checkpw(password, psw);
+                if (!matched) {
+                    exist = false;
+                } else {
+                    String role =resultSet.getString("roles").substring(15, resultSet.getString("roles").length()-3);
+                    userStatic = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"),role);
                 }
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
+        return exist;
     }
 
     @Override
@@ -155,4 +152,75 @@ public class UserService implements IUserService {
 
         return u;
     }
+
+    public boolean chercherUsername(String username) {
+        boolean test = false;
+        String req = "select * from user where username=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareCall(req);
+            preparedStatement.setString(1, username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                test = true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return test;
+    }
+
+    public boolean chercherEmail(String email) {
+        boolean test = false;
+        String req = "select * from user where email=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareCall(req);
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                test = true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return test;
+    }
+
+    public boolean chercherCIN(String cin) {
+        boolean test = false;
+        String req = "select * from user where cin=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareCall(req);
+            preparedStatement.setString(1, cin);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                test = true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return test;
+    }
+
+    @Override
+    public List<User> getAllStudent() {
+        List<User> users = new ArrayList<>();
+        String req = "SELECT * FROM user WHERE ROLES='a:1:{i:0;s:13:\"ROLE_ETUDIANT\";}'";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                User user = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"));
+                users.add(user);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return users;
+    }
+    
+    
 }

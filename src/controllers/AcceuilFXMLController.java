@@ -52,9 +52,9 @@ public class AcceuilFXMLController implements Initializable {
     
     private void slideImages() {
         try {
-            list.add("ressources/images.jpg");
-            list.add("ressources/user-3.png");
-            list.add("ressources/LOGO1.png");
+            list.add("/ressources/images.jpg");
+            list.add("/ressources/user-3.png");
+            list.add("/ressources/LOGO1.png");
             Image images[] = new Image[list.size()];
             for (int i = 0; i < list.size(); i++) {
                 images[i] = new Image(list.get(i));

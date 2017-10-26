@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import application.*?>
-<?import javafx.geometry.*?>
-<?import org.controlsfx.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1110.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackOfficeObjetPerdusFXMLController">
    <children>
-      <JFXProgressBar prefWidth="1110.0" visible="false" />
       <Pane prefHeight="50.0" prefWidth="1110.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="12.5" layoutY="12.5" prefHeight="30.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Gestion Revisions" />
             <Separator layoutY="48.0" prefWidth="1110.0" />
+            <JFXTextField layoutX="945.0" layoutY="14.0" />
          </children>
       </Pane>
       <StackPane fx:id="tablePane" layoutY="51.0" prefHeight="671.0" prefWidth="1108.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0">
@@ -35,9 +27,7 @@
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
-               <StackPane.margin>
-                  <Insets top="30.0" />
-               </StackPane.margin>
+              
             </TableView>
          </children>
       </StackPane>

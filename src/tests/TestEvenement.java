@@ -17,7 +17,7 @@ import services.EvenementService;
 public class TestEvenement {
     public static void main(String []args){
     
-    Evenement e=new Evenement("Disco",1,"MAJDI",null,"SALA",new Club(1));
+    Evenement e=new Evenement("Disco","1","MAJDI",null,"SALA",new Club(1));
         IEvenementService es =  new EvenementService();
         
         es.add(e);

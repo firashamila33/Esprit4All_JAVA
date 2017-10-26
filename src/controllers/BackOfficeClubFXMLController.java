@@ -6,17 +6,19 @@
 package controllers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import interfaces.IClubService;
+import interfaces.IUserService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.Pane;
 import models.Club;
 import java.lang.ProcessBuilder.Redirect.Type;
 import java.util.ArrayList;
@@ -27,9 +29,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,6 +38,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import models.User;
 import services.ClubService;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -69,7 +69,7 @@ public class BackOfficeClubFXMLController implements Initializable {
     @FXML
     private JFXTextField libelle_tf;
     @FXML
-    private JFXTextField Description_tf;
+    private JFXTextArea Description_tf;
     @FXML
     private JFXTextField logo_path_tf;
     @FXML
@@ -85,11 +85,19 @@ public class BackOfficeClubFXMLController implements Initializable {
     /**
      * Attribue
      */
-    JFXDialog dialog;
-    IClubService clubService;
-    Boolean updateTest = false;
-    Club clubTest;
-    List<Club> clubsList = new ArrayList<>();
+    private JFXDialog dialog;
+    private IClubService clubService;
+    private IUserService userService;
+    private Boolean updateTest = false;
+    private Club clubTest;
+    private List<Club> clubsList = new ArrayList<>();
+    private List<User> usersList = new ArrayList<>();
+    @FXML
+    private JFXComboBox<User> Respnsable;
+    @FXML
+    private JFXButton parcourir_logo;
+    @FXML
+    private JFXButton parcourir_couverture;
 
     /**
      * Initializes the controller class.
@@ -97,8 +105,11 @@ public class BackOfficeClubFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         clubService = new ClubService();
+        userService= new UserService();
+        
         clubsList = clubService.getAll();
-        setLabelFlat();
+        usersList= userService.getAllStudent();
+        
         displayAll();
 
         recherche_tf.setOnKeyPressed((KeyEvent event) -> {
@@ -138,13 +149,6 @@ public class BackOfficeClubFXMLController implements Initializable {
         dialog.close();
     }
 
-    private void setLabelFlat() {
-        libelle_tf.setLabelFloat(true);
-        logo_path_tf.setLabelFloat(true);
-        couverture_path_tf.setLabelFloat(true);
-        Description_tf.setLabelFloat(false);
-    }
-
     private void cleanTf() {
         libelle_tf.clear();
         Description_tf.clear();
@@ -162,6 +166,10 @@ public class BackOfficeClubFXMLController implements Initializable {
     }
 
     private void displayAll() {
+        Respnsable.getItems().addAll(usersList);
+        
+        
+        
         ObservableList list = FXCollections.observableArrayList();
         clubService.getAll().stream().forEach((club) -> {
             list.add(club);
@@ -179,7 +187,7 @@ public class BackOfficeClubFXMLController implements Initializable {
                 @Override
                 protected void updateItem(Void item, boolean empty) {
                     super.updateItem(item, empty); //To change body of generated methods, choose Tools | Templates.
-                    update.setGraphic(new ImageView("ressources/Updates-24.png"));
+                    update.setGraphic(new ImageView("ressources/icons8-Edit-24-2.png"));
                     update.setStyle("-fx-background-color: transparent;");
                     delete.setGraphic(new ImageView("ressources/Delete-24.png"));
                     delete.setStyle("-fx-background-color: transparent;");
@@ -225,6 +233,14 @@ public class BackOfficeClubFXMLController implements Initializable {
             updateTest = false;
         });
         dialog.show();
+    }
+
+    @FXML
+    private void parcourir_logo(ActionEvent event) {
+    }
+
+    @FXML
+    private void parcourir_couverture(ActionEvent event) {
     }
 
 }

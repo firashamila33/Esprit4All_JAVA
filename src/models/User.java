@@ -21,7 +21,7 @@ public class User {
     private String email;
     private int enabled;
     private String password;
-    private List<String> roles;
+    private String role;
     private String nom;
     private String prenom;
     private Date dateNaissance;
@@ -29,7 +29,7 @@ public class User {
     private String adresse;
     
     public User() {
-        roles=new ArrayList<>();
+        
     }
 
     public User(int id) {
@@ -41,7 +41,6 @@ public class User {
         this.email = email;
         this.enabled = enabled;
         this.password = password;
-        roles=new ArrayList<>();
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
@@ -49,8 +48,22 @@ public class User {
         this.adresse = adresse;
     }
 
+    public User(int id, String username, String email, int enabled, String password, String nom, String prenom, Date dateNaissance, String cin, String adresse,String role) {
+        
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.enabled = enabled;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.cin = cin;
+        this.adresse = adresse;
+        this.role=role;
+    }
+
     public User(int id, String username, String email, int enabled, String password, String nom, String prenom, Date dateNaissance, String cin, String adresse) {
-        roles=new ArrayList<>();
         this.id = id;
         this.username = username;
         this.email = email;
@@ -62,6 +75,7 @@ public class User {
         this.cin = cin;
         this.adresse = adresse;
     }
+    
 
     public String getUsername() {
         return username;
@@ -93,14 +107,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
     }
 
     public String getNom() {
@@ -154,7 +160,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", username=" + username + ", email=" + email + ", enabled=" + enabled + ", password=" + password + ", roles=" + roles + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + ", cin=" + cin + ", adresse=" + adresse + '}';
+        return prenom +" "+nom;
     }
 
     @Override
@@ -196,7 +202,7 @@ public class User {
         if (!Objects.equals(this.adresse, other.adresse)) {
             return false;
         }
-        if (!Objects.equals(this.roles, other.roles)) {
+        if (!Objects.equals(this.role, other.role)) {
             return false;
         }
         return Objects.equals(this.dateNaissance, other.dateNaissance);
@@ -210,13 +216,21 @@ public class User {
         hash = 29 * hash + Objects.hashCode(this.email);
         hash = 29 * hash + this.enabled;
         hash = 29 * hash + Objects.hashCode(this.password);
-        hash = 29 * hash + Objects.hashCode(this.roles);
+        hash = 29 * hash + Objects.hashCode(this.role);
         hash = 29 * hash + Objects.hashCode(this.nom);
         hash = 29 * hash + Objects.hashCode(this.prenom);
         hash = 29 * hash + Objects.hashCode(this.dateNaissance);
         hash = 29 * hash + Objects.hashCode(this.cin);
         hash = 29 * hash + Objects.hashCode(this.adresse);
         return hash;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
     
     

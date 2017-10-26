@@ -36,7 +36,7 @@ public class EvenementService implements IEvenementService {
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, e.getLiblle());
-            preparedStatement.setInt(2, e.getType());
+            preparedStatement.setString(2, e.getType());
             preparedStatement.setString(3, e.getDescription());
             preparedStatement.setDate(4, e.getDate());
             preparedStatement.setString(5, e.getPath_img());
@@ -69,7 +69,7 @@ public class EvenementService implements IEvenementService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Evenement e = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getInt("type"), resultSet.getString("description"), resultSet.getDate("date"), resultSet.getString("path_img"), new Club(resultSet.getInt("Club_id")));
+                Evenement e = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"), resultSet.getString("path_img"), new Club(resultSet.getInt("Club_id")));
                 // System.out.println(e);
                 even.add(e);
             }
@@ -87,7 +87,7 @@ public class EvenementService implements IEvenementService {
             preparedStatement = connection.prepareStatement(req);
 
             preparedStatement.setString(1, t.getLiblle());
-            preparedStatement.setInt(2, t.getType());
+            preparedStatement.setString(2, t.getType());
             preparedStatement.setString(3, t.getDescription());
             preparedStatement.setDate(4, t.getDate());
             preparedStatement.setString(5, t.getPath_img());
@@ -110,7 +110,7 @@ public class EvenementService implements IEvenementService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                ev = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getInt("type"), resultSet.getString("description"), resultSet.getDate("date"),
+                ev = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"),
                         resultSet.getString("path_img"), new Club(resultSet.getInt("club_id")));
                 System.out.println(ev);
             }

@@ -31,9 +31,10 @@ public class UserTest {
         /*userService.getAll().forEach((user) -> {
             System.out.println(user);
         });*/
-        User use=new User();
-        use=userService.getUserById(1);
-        System.out.println(use);
+      
+        
+        
+        System.out.println(userService.getAllStudent().toString());
         
     }
 
