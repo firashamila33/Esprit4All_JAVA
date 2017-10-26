@@ -21,7 +21,9 @@ public class Esprit4All extends Application {
     public void start(Stage stage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("/gui/FoodMainnFXML.fxml"));
-
+        //Parent root = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
+        // Parent root = FXMLLoader.load(getClass().getResource("/gui/ClubFXML.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/gui/FoodMaineFXML.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
 
         Scene scene = new Scene(root);
@@ -36,8 +38,6 @@ public class Esprit4All extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        
-        
     }
 
 }

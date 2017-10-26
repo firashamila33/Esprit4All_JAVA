@@ -28,7 +28,7 @@ public class Menu {
     
     public Menu(int id, String libelle,String type, String endroit, int disponibilite, int quantite, Double prix,String path_img ){
         this.id=id;
-        
+        this.type=type;
         this.libelle=libelle;
         this.endroit=endroit;
         this.disponibilite=disponibilite;
@@ -46,6 +46,16 @@ public class Menu {
         this.prix=prix;
         this.path_img=path_img;
     }
+
+    public Menu(String libelle, String type, Double prix, String path_img) {
+        this.libelle = libelle;
+        this.type = type;
+        this.prix = prix;
+        this.path_img = path_img;
+    }
+    
+    
+
 
     public int getId() {
         return id;
@@ -135,10 +145,11 @@ public class Menu {
         }
         return true;
     }
+    
 
     @Override
     public String toString() {
-        return "Menu{" + "id=" + id + ", user=" + ", libelle=" + libelle + ", type=" + type + ", endroit=" + endroit + ", disponibilite=" + disponibilite + ", quantite=" + quantite + ", prix=" + prix + ", path_img=" + path_img + '}';
+        return "Menu{" + "idddd=" + id + ", user=" + ", libelle=" + libelle + ", type=" + type + ", endroit=" + endroit + ", disponibilite=" + disponibilite + ", quantite=" + quantite + ", prix=" + prix + ", path_img=" + path_img + '}';
     }
     
      

@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import models.Club;
 import models.Evenement;
 
@@ -23,58 +24,49 @@ import models.Evenement;
  *
  * @author majdi
  */
-public class RowEventFXMLController extends ListCell<Evenement> {
+public class RowClubFXMLController extends ListCell<Club> {
 
     @FXML
     private AnchorPane row;
     @FXML
-    private ImageView img_evnt_id;
+    private ImageView path_img_id;
     @FXML
-    private Label lib_event_id;
+    private Label libelle_club_id;
     @FXML
-    private Label date_event_id;
-    @FXML
-    private Label type_event_id;
-    @FXML
-    private ImageView img_club_id;
-    @FXML
-    private Label desc_event_id;
+    private Label decription_club_id;
 
     /**
      * Initializes the controller class.
      */
-     private FXMLLoader mLLoader;
+    private FXMLLoader mLLoader;
 
-  
-   
-protected void updateItem(Evenement evenements, boolean empty) {
-        super.updateItem(evenements, empty);
+    @Override
+    protected void updateItem(Club clubs, boolean empty) {
+        super.updateItem(clubs, empty);
 
-        if (empty || evenements == null) {
+        if (empty || clubs == null) {
 
             setText(null);
             setGraphic(null);
 
         } else {
             if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/gui/RowEventFXML.fxml"));
+                mLLoader = new FXMLLoader(getClass().getResource("/gui/RowClubFXML.fxml"));
                 mLLoader.setController(this);
 
                 try {
                     mLLoader.load();
-                    
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
             }
 
-            lib_event_id.setText(evenements.getLiblle());
-           
-            date_event_id.setText(String.valueOf(evenements.getDate()));
-            desc_event_id.setText(evenements.getDescription());
-            type_event_id.setText(evenements.getType());
+            libelle_club_id.setText(clubs.getLibelle());
+            decription_club_id.setText(clubs.getDescription());
+            
 
+            // img_club_id.setImage(new Image(evenements.getPath_img()));
             setText(null);
             setGraphic(row);
         }
