@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="anchorPane_id" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClubFXMLController">
    <children>
-      <ScrollPane layoutY="200.0" prefHeight="360.0" prefWidth="1000.0">
+      <ScrollPane layoutY="200.0" prefHeight="569.0" prefWidth="1000.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="727.0" prefWidth="1000.0" style="-fx-background-color: #ff2e44;">
                <children>
@@ -29,7 +29,7 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
+                        <Pane fx:id="list_membre" layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
                            <effect>
                               <DropShadow height="10.0" radius="4.5" width="10.0" />
                            </effect>
@@ -114,7 +114,7 @@
       </ScrollPane>
       <Pane prefHeight="200.0" prefWidth="1000.0">
          <children>
-            <ImageView fitHeight="184.0" fitWidth="981.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true">
+            <ImageView fx:id="path_couverture_id" fitHeight="184.0" fitWidth="981.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true">
                <image>
                   <Image url="@../ressources/lion_big_cat_face_smoke_colored_63451_3840x2160.jpg" />
                </image>
@@ -122,7 +122,7 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <Label layoutX="153.0" layoutY="134.0" prefHeight="58.0" prefWidth="380.0" text="Nom de club" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="libelle_clib_id" layoutX="153.0" layoutY="134.0" prefHeight="58.0" prefWidth="380.0" text="Nom de club" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="48.0" />
                </font>
@@ -131,7 +131,7 @@
                <children>
                   <BorderPane layoutX="-4.0" layoutY="-4.0" prefHeight="108.0" prefWidth="110.0" style="-fx-border-color: WHITE;">
                      <center>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                        <ImageView fx:id="path_img_id" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
                               <Image url="@../ressources/logo-256-transp.png" />
                            </image>

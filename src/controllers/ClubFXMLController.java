@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -35,6 +37,14 @@ public class ClubFXMLController implements Initializable {
     private AnchorPane anchorPane_id;
 
     AnchorPane eventclub;
+    @FXML
+    private Pane list_membre;
+    @FXML
+    private ImageView path_couverture_id;
+    @FXML
+    private Label libelle_clib_id;
+    @FXML
+    private ImageView path_img_id;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

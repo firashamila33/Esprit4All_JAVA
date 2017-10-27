@@ -71,7 +71,7 @@
                                 </JFXTextArea>
                                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                                     <children>
-                                        <JFXTextField fx:id="logo_path_tf" f alignment="TOP_LEFT" focusColor="#ff2e44" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="130.0" promptText="Logo Path">
+                                        <JFXTextField fx:id="logo_path_tf" alignment="TOP_LEFT" focusColor="#ff2e44" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="130.0" promptText="Logo Path">
                                             <HBox.margin>
                                                 <Insets />
                                             </HBox.margin>
