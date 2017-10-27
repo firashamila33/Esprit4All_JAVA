@@ -5,22 +5,30 @@
  */
 package controllers;
 
+import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import models.Revision;
 import models.User;
 import services.RevisionService;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -83,6 +91,13 @@ public class Fenetre_groupe_revisionController implements Initializable {
     private Button description_rev;
     @FXML
     private Button button_chat;
+       @FXML
+      
+    private Button        set_modif;
+       @FXML
+     private  Button quitter;
+      @FXML
+      private AnchorPane revision_fenetre;
 
     /**
      * Initializes the controller class.
@@ -95,12 +110,17 @@ public class Fenetre_groupe_revisionController implements Initializable {
     @FXML
     private void modif_grp_revis(ActionEvent event) {
         User u = new User(1);
-
-        if (u.getId() == 1) {
-            modification.setVisible(true);
+modification.setVisible(true);
             modiff.setVisible(true);
             Chat.setVisible(false);
             compteRendu.setVisible(false);
+        if (u.getId() == 1) {
+            set_modif.setVisible(true);}
+         else 
+            
+        {             set_modif.setVisible(true);
+
+        }
             RevisionService rs = new RevisionService();
             Revision r = rs.getById(u.getId());
             modifgrp_userid.setText(String.valueOf(u.getId()));
@@ -114,16 +134,13 @@ public class Fenetre_groupe_revisionController implements Initializable {
             modifgrp_matiere.setText(r.getMatiere());
             
 
-        }
-        else 
-        { modification.setVisible(false);
-          Chat.setVisible(false);
-            compteRendu.setVisible(false);
-        }
+        
+        
     }
 
     @FXML
     private void modifier_grp(ActionEvent event) {
+       
         User u = new User(1);
          RevisionService rs = new RevisionService();
             Revision r = rs.getById(u.getId());
@@ -157,11 +174,31 @@ public class Fenetre_groupe_revisionController implements Initializable {
         User u = new User(1);
         if (u.getId()==1)
         {
-        RevisionService rs = new RevisionService();
-            Revision r = rs.getById(u.getId());
- rs.delete(u.getId());}else
+       
+        }else
         {supp_annonce.setVisible(false);}
+         RevisionService rs = new RevisionService();
+            Revision r = rs.getById(u.getId());
+ rs.delete(u.getId());
+ 
+ 
+  try{
+                    FXMLLoader fXMLLoader=new FXMLLoader(getClass().getResource("/gui/fenetre_groupe_revision.fxml"));
+                    Parent root=(Parent) fXMLLoader.load();
+                 
+                    Stage stage=new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.close();
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+                
     }
+
+ 
+ 
+  
+    
 
     @FXML
     private void boutton_descrip(ActionEvent event) {
@@ -176,5 +213,19 @@ public class Fenetre_groupe_revisionController implements Initializable {
           Chat.setVisible(true);
             compteRendu.setVisible(false);
     }
-
+     @FXML
+    private void quiter(ActionEvent event) throws IOException {
+Stage stage = (Stage) quitter.getScene().getWindow();
+    // do what you have to do
+    stage.close();                    
+    }
 }
+    
+  
+        
+    
+    
+    
+    
+
+

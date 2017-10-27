@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -15,11 +16,16 @@ import models.Revision;
 import services.RevisionService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -30,6 +36,10 @@ public class ListRevisionFXMLController implements Initializable {
     @FXML
     private ListView<Revision> revision_lv;
     private ObservableList<Revision> revision;
+    @FXML
+    private TextArea recherche_annonce;
+    @FXML
+    private Button creer_fentre;
 
     /**
      * Initializes the controller class.
@@ -47,4 +57,31 @@ public class ListRevisionFXMLController implements Initializable {
     
 }
 
+    @FXML
+    private void ajout_grp_rev(ActionEvent event) {
+        try{
+                    FXMLLoader fXMLLoader=new FXMLLoader(getClass().getResource("/gui/fentre_ajout_grp_revision.fxml"));
+                    Parent root=(Parent) fXMLLoader.load();
+                 
+                   
+                       
+                    
+                    
+                    Stage stage=new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+                
+        
+       
+       
+        
+    }
+    
+
 }
+   
+
+

@@ -11,46 +11,43 @@
 
 <AnchorPane id="AnchorPane" fx:id="revision_fenetre" prefHeight="460.0" prefWidth="474.0" style="-fx-background-color: ff2e44;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Fenetre_groupe_revisionController">
    <children>
-      <AnchorPane fx:id="topbar" prefHeight="57.0" prefWidth="474.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="topbar" prefHeight="70.0" prefWidth="474.0" style="-fx-background-color: white;">
          <children>
-            <Button fx:id="description_rev" layoutX="61.0" layoutY="15.0" minWidth="41.0" mnemonicParsing="false" onAction="#boutton_descrip" prefHeight="34.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" text="Description_grp_rev" />
-            <Button layoutX="339.0" layoutY="15.0" minWidth="41.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
-            <Button fx:id="modifrevision" layoutX="249.0" layoutY="15.0" minWidth="41.0" mnemonicParsing="false" onAction="#modif_grp_revis" prefHeight="34.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
-            <Button fx:id="button_chat" layoutX="150.0" layoutY="15.0" minWidth="41.0" mnemonicParsing="false" onAction="#chat_revision" prefHeight="34.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" text="Button">
-               <graphic>
-                  <ImageView fx:id="chat_grp_rev" fitHeight="32.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ressources/icons8_Chat_48px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="66.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="description_rev" layoutX="46.0" layoutY="-1.0" minWidth="41.0" mnemonicParsing="false" onAction="#boutton_descrip" prefHeight="70.0" prefWidth="83.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
+            <Button fx:id="quitter" layoutX="319.0" layoutY="1.0" minWidth="41.0" mnemonicParsing="false" onAction="#quiter" prefHeight="68.0" prefWidth="83.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
+            <Button fx:id="modifrevision" layoutX="227.0" layoutY="-8.0" minWidth="41.0" mnemonicParsing="false" onAction="#modif_grp_revis" prefHeight="70.0" prefWidth="83.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
+            <Button fx:id="button_chat" layoutX="150.0" layoutY="1.0" minWidth="41.0" mnemonicParsing="false" onAction="#chat_revision" prefHeight="68.0" prefWidth="83.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
+            <ImageView fitHeight="70.0" fitWidth="68.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/icons8_Graduation_Cap_48px.png" />
                </image>
             </ImageView>
-            <Button fx:id="supp_annonce" layoutX="423.0" layoutY="20.0" mnemonicParsing="false" onAction="#supprimer_annoce" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: white;" />
-            <ImageView fx:id="quitter_grp_rev" fitHeight="41.0" fitWidth="34.0" layoutX="423.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="supp_annonce" layoutX="395.0" layoutY="-23.0" mnemonicParsing="false" onAction="#supprimer_annoce" prefHeight="95.0" prefWidth="83.0" style="-fx-background-color: white;" />
+            <ImageView fx:id="quitter_grp_rev" fitHeight="57.0" fitWidth="57.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/icons8_Delete_52px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="61.0" layoutX="340.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="57.0" fitWidth="68.0" layoutX="319.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/icons8_Exit_48px.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="setting_grp_rev" fitHeight="31.0" fitWidth="35.0" layoutX="254.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="setting_grp_rev" fitHeight="57.0" fitWidth="57.0" layoutX="240.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/icons8_Settings_50px_2.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="chat_grp_rev" fitHeight="72.0" fitWidth="57.0" layoutX="142.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Chat_48px.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="modification" layoutY="71.0" prefHeight="452.0" prefWidth="474.0" style="-fx-background-color: white;" visible="false">
+      <AnchorPane fx:id="modification" layoutY="71.0" prefHeight="452.0" prefWidth="474.0" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
          <children>
-            <AnchorPane fx:id="modiff" layoutX="1.0" layoutY="3.0" opacity="0.5" prefHeight="446.0" prefWidth="473.0">
+            <AnchorPane fx:id="modiff" layoutX="1.0" layoutY="3.0" opacity="0.5" prefHeight="446.0" prefWidth="473.0" visible="false">
                <children>
                   <TextField fx:id="modifgrp_userid" layoutX="74.0" layoutY="40.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 5em; -fx-background-color: ff2e44;" />
                   <TextField fx:id="modifgrp_type" layoutX="323.0" layoutY="191.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 5em; -fx-background-color: ff2e44;" />
@@ -91,7 +88,7 @@
                         <Image url="@../ressources/icons8_Calendar_52px_1.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="172.0" layoutY="354.0" mnemonicParsing="false" onAction="#modifier_grp" prefHeight="57.0" prefWidth="175.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: ff2e44;" text="Modifier" textFill="WHITE" />
+                  <Button fx:id="set_modif" layoutX="172.0" layoutY="354.0" mnemonicParsing="false" onAction="#modifier_grp" prefHeight="57.0" prefWidth="175.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: ff2e44;" text="Modifier" textFill="WHITE" />
                   <DatePicker fx:id="modifgrp_heurdepart" layoutX="74.0" layoutY="117.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: ff2e44;" />
                   <DatePicker fx:id="modifgrp_heurfin" layoutX="326.0" layoutY="117.0" prefHeight="24.0" prefWidth="133.0" style="-fx-background-color: ff2e44;" />
                   <Separator layoutX="112.0" layoutY="337.0" prefHeight="0.0" prefWidth="294.0" style="-fx-background-color: ff2e44;" />
@@ -99,10 +96,10 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="Chat" layoutY="77.0" prefHeight="439.0" prefWidth="474.0" style="-fx-background-color: white;" visible="false" />
-      <AnchorPane fx:id="compteRendu" layoutY="105.0" prefHeight="419.0" prefWidth="474.0" style="-fx-background-color: white; -fx-border-image-width: 0 1 1 0;">
+      <AnchorPane fx:id="Chat" layoutY="77.0" prefHeight="439.0" prefWidth="474.0" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false" />
+      <AnchorPane fx:id="compteRendu" layoutY="112.0" prefHeight="419.0" prefWidth="474.0" style="-fx-background-color: white; -fx-border-image-width: 0 1 1 0; -fx-background-radius: 5em;">
          <children>
-            <ImageView fitHeight="193.0" fitWidth="191.0" layoutX="129.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="193.0" fitWidth="191.0" layoutX="142.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/user-3.png" />
                </image>

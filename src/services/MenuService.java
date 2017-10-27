@@ -113,7 +113,7 @@ public class MenuService implements IMenuService {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                  menu = new Menu(resultSet.getInt("id"), resultSet.getString("libelle"),resultSet.getString("type"),resultSet.getString("endroit"),resultSet.getInt("disponibilite"),resultSet.getInt("quantite"),resultSet.getDouble("prix"),resultSet.getString("path_img"));
-                System.out.println(menu);}
+                System.out.println("jh;jhjhjlkjklj"+menu);}
          } catch (SQLException ex) {
             ex.printStackTrace();
         }

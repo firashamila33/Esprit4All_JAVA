@@ -10,6 +10,7 @@ import java.util.List;
 import models.Revision;
 import models.User;
 import services.RevisionService;
+import services.UserService;
 
 /**
  *
@@ -25,10 +26,13 @@ public class RevisionTest {
 //            System.out.println("testGetAll : " + r);
 //        }
 //        
-
-            IServiceRevision revision = new RevisionService();
-            System.out.println(revision.getAll());
+UserService us =new UserService();
+            RevisionService rs = new RevisionService();
+       // User u = UserService.userStatic;
+     //  User u=new User(3);
+         //   Revision r = new Revision(u," math", null, "description", 0, "nnnd", null);
             
+            rs.delete(3);
         
 
     }

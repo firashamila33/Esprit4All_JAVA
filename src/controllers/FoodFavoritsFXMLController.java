@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author plazma33
  */
-public class FoodMyOrderController implements Initializable {
+public class FoodFavoritsFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.

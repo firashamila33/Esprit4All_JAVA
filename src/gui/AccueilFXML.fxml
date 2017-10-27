@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
@@ -9,8 +10,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcceuilFXMLController">
-   <children>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.AccueilFXMLController">
+    <children>
       <JFXToolbar prefHeight="100.0" prefWidth="1360.0" style="-fx-background-color: #ff2e44;">
          <left>
             <ImageView fx:id="logoesprit" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
@@ -18,18 +19,27 @@
                   <Image url="@../ressources/LOGO1.png" />
                </image></ImageView>
          </left>
-         <right>
-            <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../ressources/user-3.png" />
-               </image></ImageView>
-         </right>
          <center>
             <Label contentDisplay="CENTER" text="Esprit 4 All" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
                   <Font name="System Bold" size="33.0" />
                </font></Label>
          </center>
+         <right>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="69.0" layoutX="90.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/user-3.png" />
+                     </image>
+                     <effect>
+                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </ImageView>
+                  <Label layoutX="-15.0" layoutY="41.0" prefHeight="17.0" prefWidth="95.0" text="Nom et Prenom" />
+               </children>
+            </Pane>
+         </right>
       </JFXToolbar>
       <HBox layoutY="100.0" prefHeight="40.0" prefWidth="1360.0" style="-fx-background-color: #4242428B;">
          <children>

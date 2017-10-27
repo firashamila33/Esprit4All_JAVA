@@ -31,17 +31,24 @@ public class TopRatedMentorsFXMLController implements Initializable {
         private ObservableList<Revision> mentor_etu;
 @FXML
     private ListView<Revision> listtopprof;
+                         private ListView<Revision>        list_topetu;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+      RevisionService es = new RevisionService();
         //System.out.println(es.getAll().toString());
-       mentor_prof = FXCollections.observableArrayList();
-       mentor_prof.addAll(es.getAll());
-        listtopprof.setItems(mentor_prof);
-    listtopprof.setCellFactory(revisionListView -> new Row_TopRated_MentorController());
-           }    
+        mentor_prof = FXCollections.observableArrayList(es.getAll());
+               mentor_etu = FXCollections.observableArrayList(es.getAll());
+
+       listtopprof.setItems(mentor_prof);
+        listtopprof.setCellFactory(e-> new Row_TopRated_MentorController());
+        
+         list_topetu.setItems(mentor_etu);
+         list_topetu.setCellFactory(f-> new Row_TopRated_MentorController());
+          
+          
     
-}
+}}

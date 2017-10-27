@@ -6,6 +6,7 @@
 package tests;
 
 import interfaces.ILigneCommandeService;
+import java.util.List;
 import models.LigneCommande;
 import services.LigneCommandeService;
 
@@ -14,12 +15,26 @@ import services.LigneCommandeService;
  * @author plazma33
  */
 public class LigneCommande_test {
-    
+
     public static void main(String[] args) {
+
         
-        LigneCommande pizza =new LigneCommande(5, 13, 2);
-        ILigneCommandeService meals_interface =new LigneCommandeService();
-        meals_interface.add(pizza);
+        ILigneCommandeService ligne_commande = new LigneCommandeService();
+
+//        meals_interface.getAll().forEach(System.out::println);
+//        System.out.println(meals_interface.getAll());
+//        System.out.println("haaaaa");
+//        LigneCommande pizza = new LigneCommande(5, 12, 9);
+//        LigneCommande pizza1 = new LigneCommande(5, 12, 9);
+//        meals_interface.delete(pizza);
+//        meals_interface.add(pizza);
+
+            
+//System.out.println(ligne_commande.getByCommande(5));
+            
+        
+
+        
     }
-    
+
 }

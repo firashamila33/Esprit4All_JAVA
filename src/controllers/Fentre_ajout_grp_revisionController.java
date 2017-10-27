@@ -23,7 +23,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import models.Revision;
 import models.User;
+import models.utilisateur_has_revision;
 import services.RevisionService;
+import services.Sutilisateur_has_revision;
 import services.UserService;
 
 /**
@@ -60,9 +62,8 @@ public class Fentre_ajout_grp_revisionController implements Initializable {
 
     @FXML
     private void ajouter_grp(ActionEvent event) throws ParseException {
+        User u= new User(1);
         RevisionService rs = new RevisionService();
-        UserService us = new UserService();
-        User u = new User(1);
         String y = Ajoutgrp_matiere.getText();
         Date date1 = new Date(Ajoutgrp_heurdepart.getValue().toEpochDay());
 
@@ -72,9 +73,11 @@ public class Fentre_ajout_grp_revisionController implements Initializable {
         String r = (Ajoutgrp_type.getText());
         Date date2 = new Date(Ajoutgrp_heurfin.getValue().toEpochDay());
 
-        Revision E = new Revision(u,y,date1, v,w,  r, date2);
+        Revision E = new Revision(u, r, date2, r, w, y, date2);
         rs.add(E);
-
+        utilisateur_has_revision ur = new utilisateur_has_revision( E, u);
+        Sutilisateur_has_revision sur = new Sutilisateur_has_revision();
+        sur.add(ur);
        
     
   Ajoutgrp_type.clear();

@@ -25,10 +25,16 @@ import javafx.scene.control.Button;
 
 import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
+import static javafx.scene.input.KeyCode.E;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
+import javafx.stage.Stage;
 import models.Revision;
 import models.User;
+import models.utilisateur_has_revision;
+import services.RevisionService;
+import services.Sutilisateur_has_revision;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -90,8 +96,25 @@ public class Row_RevisionController extends ListCell<Revision> {
         // TODO
     }
     @FXML
-    private void rejoindre_grp_revision(ActionEvent event) {
-       
+    private void rejoindre_grp_revision(ActionEvent event) { 
+       try{
+                    FXMLLoader fXMLLoader=new FXMLLoader(getClass().getResource("/gui/fenetre_groupe_revision.fxml"));
+                    Parent root=(Parent) fXMLLoader.load();
+                 
+                    Stage stage=new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+                
+          RevisionService rs = new RevisionService();
+       User u = new User(1);
+       Revision revision = rs.getById(1);
+        utilisateur_has_revision ur = new utilisateur_has_revision(revision, u);
+        Sutilisateur_has_revision sur = new Sutilisateur_has_revision();
+        sur.add(ur);
+            
        
         
     }

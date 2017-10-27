@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="row" prefHeight="120.0" prefWidth="900.0" style="-fx-border-color: #ff2e44;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <Pane layoutX="656.0" layoutY="5.0" prefHeight="111.0" prefWidth="232.0" style="-fx-border-color: BLACK; -fx-border-width: 1;">
+         <children>
+            <ImageView fx:id="path_img_id" fitHeight="101.0" fitWidth="225.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../ressources/Abstract-Background-Red-and-Grey.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label fx:id="libelle_club_id" alignment="CENTER" layoutX="256.0" layoutY="14.0" text="Nom de club">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <BorderPane layoutX="6.0" layoutY="5.0" prefHeight="111.0" prefWidth="646.0" style="-fx-border-color: #4242428B;">
+         <bottom>
+            <Label fx:id="decription_club_id" alignment="CENTER" layoutX="4.0" layoutY="-13.0" prefHeight="33.0" prefWidth="627.0" text="Description club " BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </bottom></BorderPane>
+   </children>
+</AnchorPane>
