@@ -5,17 +5,12 @@
  */
 package models;
 
-import java.sql.Date;
-import java.util.Objects;
-
-
-
 /**
  *
  * @author plazma33
  */
 public class Menu {
-    
+
     private int id;
     private String libelle;
     private String type;
@@ -24,26 +19,31 @@ public class Menu {
     private int quantite;
     private Double prix;
     private String path_img;
-    
-    public Menu(int id, String libelle,String type, String endroit, int disponibilite, int quantite, Double prix,String path_img ){
-        this.id=id;
-        this.type=type;
-        this.libelle=libelle;
-        this.endroit=endroit;
-        this.disponibilite=disponibilite;
-        this.quantite=quantite;
-        this.prix=prix;
-        this.path_img=path_img;
+    private String categorie;
+
+    public Menu(int id, String libelle, String type, String categorie, String endroit, int disponibilite, int quantite, Double prix, String path_img) {
+        this.id = id;
+        this.type = type;
+        this.libelle = libelle;
+        this.type = type;
+        this.categorie = categorie;
+        this.endroit = endroit;
+        this.disponibilite = disponibilite;
+        this.quantite = quantite;
+        this.prix = prix;
+        this.path_img = path_img;
     }
-    
-    public Menu(String libelle,String type, String endroit, int disponibilite, int quantite, Double prix,String path_img ){
-   
-        this.libelle=libelle;
-        this.endroit=endroit;
-        this.disponibilite=disponibilite;
-        this.quantite=quantite;
-        this.prix=prix;
-        this.path_img=path_img;
+
+    public Menu(String libelle, String type, String categorie, String endroit, int disponibilite, int quantite, Double prix, String path_img) {
+
+        this.libelle = libelle;
+        this.type = type;
+        this.categorie = categorie;
+        this.endroit = endroit;
+        this.disponibilite = disponibilite;
+        this.quantite = quantite;
+        this.prix = prix;
+        this.path_img = path_img;
     }
 
     public Menu(String libelle, String type, Double prix, String path_img) {
@@ -52,9 +52,6 @@ public class Menu {
         this.prix = prix;
         this.path_img = path_img;
     }
-    
-    
-
 
     public int getId() {
         return id;
@@ -120,6 +117,14 @@ public class Menu {
         this.path_img = path_img;
     }
 
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -144,26 +149,10 @@ public class Menu {
         }
         return true;
     }
-    
 
     @Override
     public String toString() {
         return "Menu{" + "idddd=" + id + ", user=" + ", libelle=" + libelle + ", type=" + type + ", endroit=" + endroit + ", disponibilite=" + disponibilite + ", quantite=" + quantite + ", prix=" + prix + ", path_img=" + path_img + '}';
     }
-    
-     
-   
 
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
 }

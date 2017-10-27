@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -65,8 +66,10 @@ public class RowClubFXMLController extends ListCell<Club> {
             libelle_club_id.setText(clubs.getLibelle());
             decription_club_id.setText(clubs.getDescription());
             
+            
+            path_img_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/"+clubs.getPath_img(), 500 ,500 ,true,true));
 
-            // img_club_id.setImage(new Image(evenements.getPath_img()));
+           
             setText(null);
             setGraphic(row);
         }

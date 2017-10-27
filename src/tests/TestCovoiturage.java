@@ -23,9 +23,9 @@ public class TestCovoiturage {
         Covoiturage c = new Covoiturage(3,u, "Opel", 12, "cité olympique", "esprit it", "pas d'objet lourd", 3, "8h15");
         CovoiturageService covoiturageService = new CovoiturageService();
         //covoiturageService.add(c);
-        /*covoiturageService.getAll().forEach((cov) -> {
+        covoiturageService.getAll().forEach((cov) -> {
             System.out.println(cov);
-        });*/
+        });
         //covoiturageService.delete(1);
         //System.out.println(covoiturageService.getById(2));
         //covoiturageService.update(c);

@@ -125,6 +125,24 @@ public class ProfilService implements IProfilService {
         return p;
     }
 
+    public Profil getByUserId(Integer i) {
+        String req = "select * from profil where user_id=?";
+        Profil p = null;
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, i);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                p = new Profil(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("matiere_c"), resultSet.getString("description"), resultSet.getString("classe"), resultSet.getString("path_img"), resultSet.getString("path_cv"), resultSet.getString("link_fb"), resultSet.getString("link_ld"), resultSet.getString("link_g"), resultSet.getString("link_web"), resultSet.getString("tel"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return p;
+    }
+
     @Override
     public Profil search(Profil p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

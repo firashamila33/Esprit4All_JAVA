@@ -174,24 +174,16 @@ modification.setVisible(true);
         User u = new User(1);
         if (u.getId()==1)
         {
-       
-        }else
-        {supp_annonce.setVisible(false);}
-         RevisionService rs = new RevisionService();
-            Revision r = rs.getById(u.getId());
+       RevisionService rs = new RevisionService();
  rs.delete(u.getId());
  
- 
-  try{
-                    FXMLLoader fXMLLoader=new FXMLLoader(getClass().getResource("/gui/fenetre_groupe_revision.fxml"));
-                    Parent root=(Parent) fXMLLoader.load();
-                 
-                    Stage stage=new Stage();
-                    stage.setScene(new Scene(root));
-                    stage.close();
-                }catch(IOException e){
-                    e.printStackTrace();
-                }
+ Stage stage = (Stage) quitter.getScene().getWindow();
+    // do what you have to do
+    stage.close(); 
+        }else
+        {supp_annonce.setVisible(false);}
+         
+  
                 
     }
 
@@ -202,9 +194,18 @@ modification.setVisible(true);
 
     @FXML
     private void boutton_descrip(ActionEvent event) {
+       User u = new User(1);
+        RevisionService rs = new RevisionService();
+        Revision r = new Revision();
+        r= rs.getById(u.getId());
+        nbrmaw_grp.setText(String.valueOf(r.getNbrmax()));
+        matiere.setText(r.getMatiere());
+        descritpion.setText(r.getDescription());
+        
         modification.setVisible(false);
           Chat.setVisible(false);
             compteRendu.setVisible(true);
+            
     }
 
     @FXML
