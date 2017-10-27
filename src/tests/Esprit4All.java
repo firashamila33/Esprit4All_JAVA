@@ -22,7 +22,6 @@ public class Esprit4All extends Application {
 
         //Parent root = FXMLLoader.load(getClass().getResource("/gui/FoodMainFXML.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("/gui/AcceuilClubFXML.fxml"));
-        
 //Parent root = FXMLLoader.load(getClass().getResource("/gui/FoodMaineFXML.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
 
