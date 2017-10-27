@@ -20,8 +20,7 @@ public class Revision {
   private String  description ;
   private int nbrmax;
   private String type ;
-    private  Date date_fin
-            ;
+  private  Date date_fin ;
 
 
    

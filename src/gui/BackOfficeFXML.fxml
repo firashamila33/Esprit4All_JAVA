@@ -54,10 +54,12 @@
                 <JFXButton fx:id="nav_clubs" onAction="#goToClubs" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Clubs" textAlignment="CENTER" />
                 <JFXButton fx:id="nav_events" onAction="#goToEvents" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Evenement" textAlignment="CENTER" />
                 <JFXButton fx:id="nav_docs" onAction="#goToDocs" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Documents" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_Professeur" onAction="#goToProfesseur" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Professeur " textAlignment="CENTER" />
                 <JFXButton fx:id="nav_menu" onAction="#goToMenu" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Menus" textAlignment="CENTER" />
                 <JFXButton fx:id="nav_revisions" onAction="#goToRevisions" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Révisions" textAlignment="CENTER" />
                 <JFXButton fx:id="nav_objetPerdus" onAction="#goToObjetPerdus" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Objets Perdus" textAlignment="CENTER" />
                 <JFXButton fx:id="nav_orders" onAction="#goToOrders" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Orders" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_utilisateur" onAction="#goToUtilisateur" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Utilisateurs" textAlignment="CENTER" />
                 <JFXButton fx:id="nav_recettes" onAction="#goToRecette" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Recettes" textAlignment="CENTER" />
                
             </children>

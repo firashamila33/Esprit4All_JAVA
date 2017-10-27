@@ -111,7 +111,7 @@ public class LoginController implements Initializable {
         Date dateL = java.sql.Date.valueOf(dateNaissance);
         String cartIdentite = cin.getText();
         String adress = adresse.getText();
-        User u = new User(username, email, enabled, generatedSecuredPasswordHash, nomUser, prenomUser, dateL, cartIdentite, adress);
+        User u = new User(username, email, enabled, generatedSecuredPasswordHash, nomUser, prenomUser, dateL, cartIdentite, adress,"a:1:{i:0;s:13:\"ROLE_ETUDIANT\";}");
         UserService userService = new UserService();
         if (!userService.chercherUsername(username)) {
             if (!userService.chercherEmail(email)) {
@@ -168,7 +168,7 @@ public class LoginController implements Initializable {
     public void Redirection() throws IOException {
         stage = (Stage) login.getScene().getWindow();
         if (UserService.userStatic.getRole().equals("ROLE_ETUDIANT")||UserService.userStatic.getRole().equals("ROLE_PROFESSEUR")) {
-            root = FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/MainAcceuilFXML.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.centerOnScreen();

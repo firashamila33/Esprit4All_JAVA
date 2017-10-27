@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1100.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackOfficeMenuOrderFXMLController">
+    <children>
+        <Pane prefHeight="50.0" prefWidth="1110.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="35.0" layoutY="12.5" prefHeight="30.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Orders" />
+                <Separator layoutY="48.0" prefWidth="1110.0" />
+            </children>
+        </Pane>
+        <StackPane prefHeight="720.0" prefWidth="1100.0">
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <TableView fx:id="membre_table" layoutX="24.0" layoutY="75.0" prefHeight="600.0" prefWidth="700.0" styleClass="card-white">
+                            <columns>
+                                <TableColumn fx:id="col_ref" prefWidth="75.0" text="Reference" />
+                                <TableColumn fx:id="col_prix" prefWidth="75.0" text="Prix Total" />
+                                <TableColumn fx:id="col_confirmation" prefWidth="75.0" text="Confirmation" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                        <AnchorPane layoutX="751.0" layoutY="75.0" prefHeight="600.0" prefWidth="323.0" styleClass="card-white">
+                            <children>
+                                <StackPane layoutX="47.0" layoutY="66.0" maxHeight="600.0" minHeight="600.0" prefHeight="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane fx:id="responsable_label" prefHeight="600.0" prefWidth="323.0">
+                                 <children>
+                                    <ListView fx:id="ligneCommande_lv" prefHeight="556.0" prefWidth="323.0" />
+                                    <AnchorPane layoutY="556.0" prefHeight="66.0" prefWidth="323.0" style="-fx-background-color: #ff2e44;">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="15.0" text="Prix Total :" textFill="WHITE">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="282.0" layoutY="15.0" text="Dt" textFill="WHITE">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="prix_lb" layoutX="174.0" layoutY="15.0" text="Prix" textFill="WHITE">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                        </AnchorPane>
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

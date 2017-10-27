@@ -12,11 +12,12 @@ import java.util.Objects;
  * @author asus
  */
 public class DocumentAdministratif {
+
     private int id;
     private User user;
     private String type;
     private String quantite;
-    private  boolean confirmation ;
+    private Boolean confirmation;
 
     public DocumentAdministratif(int id, User user, String type, String quantite, boolean confirmation) {
         this.id = id;
@@ -32,8 +33,6 @@ public class DocumentAdministratif {
         this.quantite = quantite;
         this.confirmation = confirmation;
     }
-
-    
 
     public int getId() {
         return id;
@@ -115,5 +114,5 @@ public class DocumentAdministratif {
     public String toString() {
         return "DocumentAdministratif{" + "id=" + id + ", user=" + user + ", type=" + type + ", quantite=" + quantite + ", confirmation=" + confirmation + '}';
     }
-    
+
 }

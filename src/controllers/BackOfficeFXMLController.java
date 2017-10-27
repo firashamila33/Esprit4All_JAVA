@@ -25,7 +25,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import services.UserService;
 
@@ -54,11 +53,15 @@ public class BackOfficeFXMLController implements Initializable {
     @FXML
     private JFXButton nav_recettes;
     @FXML
+    private JFXButton nav_Professeur;
+    @FXML
+    private JFXButton nav_utilisateur;
+    @FXML
     private AnchorPane holderPane;
 
     JFXButton currentselectedButton;
 
-    AnchorPane clubs, events, docs, menus, revisions, objetPerdus, orders, recette;
+    AnchorPane clubs, events, docs, menus, revisions, objetPerdus, orders, recette, professeur, utilisateur;
     @FXML
     private JFXButton deconnexion;
     @FXML
@@ -95,6 +98,8 @@ public class BackOfficeFXMLController implements Initializable {
             menu_bar.getChildren().remove(nav_objetPerdus);
             menu_bar.getChildren().remove(nav_events);
             menu_bar.getChildren().remove(nav_info_club);
+            menu_bar.getChildren().remove(nav_Professeur);
+            menu_bar.getChildren().remove(nav_utilisateur);
 
         }
 
@@ -172,9 +177,9 @@ public class BackOfficeFXMLController implements Initializable {
 
     @FXML
     private void goToOrders(ActionEvent event) throws IOException {
-
+        orders = FXMLLoader.load(getClass().getResource("/gui/BackOfficeMenuOrderFXML.fxml"));
         changeStyle(nav_orders);
-        setNode(clubs);
+        setNode(orders);
 
     }
 
@@ -183,6 +188,20 @@ public class BackOfficeFXMLController implements Initializable {
         changeStyle(nav_recettes);
         setNode(clubs);
 
+    }
+
+    @FXML
+    private void goToProfesseur(ActionEvent event) throws IOException {
+        professeur = FXMLLoader.load(getClass().getResource("/gui/BackOfficeProfesseurFXML.fxml"));
+        changeStyle(nav_Professeur);
+        setNode(professeur);
+    }
+
+    @FXML
+    private void goToUtilisateur(ActionEvent event) throws IOException {
+        utilisateur = FXMLLoader.load(getClass().getResource("/gui/BackOfficeUtilisateurFXML.fxml"));
+        changeStyle(nav_utilisateur);
+        setNode(utilisateur);
     }
 
     @FXML

@@ -36,7 +36,7 @@ public class User {
         this.id = id;
     }
 
-    public User(String username, String email, int enabled, String password, String nom, String prenom, Date dateNaissance, String cin, String adresse) {
+    public User(String username, String email, int enabled, String password, String nom, String prenom, Date dateNaissance, String cin, String adresse,String Role) {
         this.username = username;
         this.email = email;
         this.enabled = enabled;
@@ -46,6 +46,7 @@ public class User {
         this.dateNaissance = dateNaissance;
         this.cin = cin;
         this.adresse = adresse;
+        this.role= Role;
     }
 
     public User(int id, String username, String email, int enabled, String password, String nom, String prenom, Date dateNaissance, String cin, String adresse,String role) {

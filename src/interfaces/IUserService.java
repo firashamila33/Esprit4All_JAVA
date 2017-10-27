@@ -21,4 +21,5 @@ public interface IUserService{
     List<User> getAll();
     User getUserById(Integer i);
     List<User>getAllStudent();
+    List<User>getAllProfesseur();
 }

@@ -214,7 +214,16 @@ and open the template in the editor.
     -fx-background-radius: 4.0;
     -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);
 }
-
+.nav-card{
+    -fx-background-color: rgb(255.0, 255.0, 255.0);
+    -fx-background-radius: 4 4 0 0;
+    -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);
+}
+.container-card{
+    -fx-background-color: rgb(255.0, 255.0, 255.0);
+    -fx-background-radius: 0 0 4 4;
+    -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);
+}
 
 .rev-nav-button:hover{
     -fx-border-width: 0 4 0 0;

@@ -14,97 +14,111 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1110.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackOfficeMenusFXMLController">
-   <children>
-      <JFXProgressBar prefWidth="1110.0" visible="false" />
-      <Pane prefHeight="50.0" prefWidth="1110.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="12.5" layoutY="12.5" prefHeight="30.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Gestion Menus" />
-            <Separator layoutY="48.0" prefWidth="1110.0" />
-         </children>
-      </Pane>
-      <StackPane fx:id="tablePane" layoutY="51.0" prefHeight="671.0" prefWidth="1108.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0">
-         <children>
-            <JFXTextField fx:id="recherche_tf" alignment="CENTER" focusTraversable="false" layoutX="930.0" layoutY="10.0" maxWidth="200.0" minWidth="200.0" prefHeight="33.0" prefWidth="200.0" promptText="Recherche" StackPane.alignment="TOP_RIGHT" />
-            <TableView fx:id="menus_table" layoutX="10.0" layoutY="45.0" prefHeight="624.0" prefWidth="1108.0" StackPane.alignment="BOTTOM_CENTER">
-              <columns>
-                  <TableColumn fx:id="col_logo" prefWidth="75.0" text="Logo" />
-                <TableColumn fx:id="col_libelle" prefWidth="75.0" text="Libelle" />
-                  <TableColumn fx:id="col_prix" prefWidth="75.0" text="Prix" />
-                <TableColumn fx:id="col_type" prefWidth="75.0" text="Type" />
-                  <TableColumn fx:id="col_endroit" prefWidth="75.0" text="Endroit" />
-                  <TableColumn fx:id="col_disponibilite" prefWidth="75.0" text="Disponibilite" />
-                  <TableColumn fx:id="col_quantite" prefWidth="75.0" text="Quantite" />
-                  <TableColumn fx:id="col_option" prefWidth="75.0" text="Option" />
-              </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-               <StackPane.margin>
-                  <Insets top="30.0" />
-               </StackPane.margin>
-            </TableView>
-         </children>
-      </StackPane>
-      <JFXButton fx:id="add_btn_layout" layoutX="1030.0" layoutY="660.0" onAction="#showAddFormAction" prefHeight="48.0" prefWidth="48.0" styleClass="addBtn" />
-      <JFXDialogLayout fx:id="addDialogLayout" layoutY="8.0" prefHeight="300.0" prefWidth="250.0" visible="false">
-         <children>
-            <StackPane>
-               <children>
-                  <GridPane alignment="CENTER" focusTraversable="true" prefHeight="300.0" prefWidth="100.0">
-                    <columnConstraints>
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <JFXTextField fx:id="libelle_tf" prefHeight="30.0" prefWidth="200.0" promptText="Libelle" />
-                        <HBox prefHeight="30.0" prefWidth="202.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                           <children>
-                              <JFXTextField fx:id="logo_path_tf" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="33.0" prefWidth="130.0" promptText="Logo Path">
-                                 <HBox.margin>
-                                    <Insets top="8.0" />
-                                 </HBox.margin>
-                              </JFXTextField>
-                              <JFXButton alignment="CENTER" prefHeight="30.0" prefWidth="83.0" text="Parcourir" HBox.hgrow="NEVER">
-                                 <font>
-                                    <Font size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="11.0" />
-                                 </HBox.margin>
+    <children>
+        <JFXProgressBar prefWidth="1110.0" visible="false" />
+        <Pane prefHeight="50.0" prefWidth="1110.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="12.5" layoutY="12.5" prefHeight="30.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Gestion Menus" />
+                <JFXTextField fx:id="recherche_tf" alignment="TOP_LEFT" focusColor="#ff2e44" focusTraversable="false" labelFloat="true" layoutX="868.0" layoutY="15.0" maxWidth="202.0" minWidth="200.0" prefHeight="30.0" prefWidth="202.0" promptText="Recherche">
+                    <cursor>
+                        <Cursor fx:constant="TEXT" />
+                    </cursor>
+                </JFXTextField>
+                <Separator layoutY="48.0" prefWidth="1110.0" />
+            </children>
+        </Pane>
+        <StackPane fx:id="tablePane" layoutY="51.0" prefHeight="671.0" prefWidth="1108.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="49.0">
+            <children>
+               
+                <TableView fx:id="menus_table" layoutX="10.0" layoutY="45.0" prefHeight="624.0" prefWidth="1108.0" styleClass="card-white" StackPane.alignment="BOTTOM_CENTER">
+                    <columns>
+                        <TableColumn fx:id="col_logo" prefWidth="75.0" text="Logo" />
+                        <TableColumn fx:id="col_libelle" prefWidth="75.0" text="Libelle" />
+                        <TableColumn fx:id="col_prix" prefWidth="75.0" text="Prix" />
+                        <TableColumn fx:id="col_Categorie" prefWidth="75.0" text="Categorie" />
+                        <TableColumn fx:id="col_sous_categorie" prefWidth="75.0" text="Categorie" />
+                        <TableColumn fx:id="col_endroit" prefWidth="75.0" text="Endroit" />
+                        <TableColumn fx:id="col_disponibilite" prefWidth="75.0" text="Disponibilite" />
+                        <TableColumn fx:id="col_quantite" prefWidth="75.0" text="Quantite" />
+                        <TableColumn fx:id="col_option" prefWidth="75.0" text="Option" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                    <StackPane.margin>
+                        <Insets bottom="35.0" left="35.0" right="35.0" top="25.0" />
+                    </StackPane.margin>
+                </TableView>
+            </children>
+        </StackPane>
+        <JFXButton fx:id="add_btn_layout" layoutX="1030.0" layoutY="660.0" onAction="#showAddFormAction" prefHeight="48.0" prefWidth="48.0" styleClass="addBtn" />
+        <JFXDialogLayout fx:id="addDialogLayout" layoutY="8.0" prefHeight="300.0" prefWidth="250.0" visible="false">
+            <children>
+                <StackPane>
+                    <children>
+                        <GridPane alignment="CENTER" focusTraversable="true" prefHeight="300.0" prefWidth="100.0">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <JFXTextField fx:id="libelle_tf" labelFloat="true" focusColor="#ff2e44" prefHeight="30.0" prefWidth="200.0" promptText="Libelle" />
+                                <JFXTextField fx:id="prix_tf" labelFloat="true" focusColor="#ff2e44" promptText="Prix" GridPane.rowIndex="1" />
+                                <HBox prefHeight="30.0" prefWidth="202.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                    <children>
+                                        <JFXTextField fx:id="logo_path_tf" focusColor="#ff2e44" labelFloat="true" maxWidth="130.0" minWidth="130.0" prefHeight="33.0" prefWidth="130.0" promptText="Logo Path">
+                                            <HBox.margin>
+                                                <Insets top="8.0" />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                                        <JFXButton alignment="CENTER" prefHeight="30.0" prefWidth="83.0" onAction="#parcourir_logo" text="Parcourir" HBox.hgrow="NEVER">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="11.0" />
+                                            </HBox.margin>
             
-                                                            </JFXButton>
-                           </children>
-                        </HBox>
-                        <JFXButton fx:id="add_btn" onAction="#addAction" text="Ajouter" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-                        <JFXTextField fx:id="quantite_tf" promptText="Quantite" GridPane.rowIndex="4" />
-                        <JFXTextField fx:id="endroit_tf" promptText="Endroit" GridPane.rowIndex="5" />
-                        <JFXTextField fx:id="type_tf" promptText="Type" GridPane.rowIndex="3" />
-                        <JFXTextField fx:id="prix_tf" promptText="Prix" GridPane.rowIndex="1" />
-                        <JFXCheckBox fx:id="disponibilite_cb" prefHeight="17.0" prefWidth="223.0" text="Disponible" GridPane.rowIndex="6" />
-                        
-                                          
-                     </children>
-                     <StackPane.margin>
-                        <Insets top="30.0" />
-                     </StackPane.margin>
-                  </GridPane>
-                  <Label alignment="TOP_LEFT" text="Ajouter Menu" StackPane.alignment="TOP_CENTER">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </StackPane>
-         </children>
-      </JFXDialogLayout>
-   </children>
+                                        </JFXButton>
+                                    </children>
+                                </HBox>
+                                <JFXComboBox  fx:id="Categorie_tf" focusColor="#ff2e44" labelFloat="true"  prefHeight="24.0" prefWidth="203.0" promptText="Catergorie" visibleRowCount="5" GridPane.rowIndex="3">
+                                    <GridPane.margin>
+                                        <Insets top="10.0" />
+                                    </GridPane.margin>
+                                </JFXComboBox> 
+                                <JFXTextField labelFloat="true" focusColor="#ff2e44" fx:id="sous_Categorie_tf" promptText="Sous Categorie" GridPane.rowIndex="4" />
+                                <JFXTextField labelFloat="true" focusColor="#ff2e44" fx:id="quantite_tf" promptText="Quantite" GridPane.rowIndex="5" /> 
+                                <JFXComboBox fx:id="endroit_tf" focusColor="#ff2e44" labelFloat="true"  prefHeight="24.0" prefWidth="203.0" promptText="Endroit" visibleRowCount="5" GridPane.rowIndex="6">
+                                    <GridPane.margin>
+                                        <Insets top="10.0" />
+                                    </GridPane.margin>
+                                </JFXComboBox>   
+                                <JFXCheckBox  fx:id="disponibilite_cb" prefHeight="17.0" prefWidth="223.0" text="Disponible" GridPane.rowIndex="7" /> 
+                                <JFXButton fx:id="add_btn" onAction="#addAction" text="Ajouter" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                            </children>
+                            <StackPane.margin>
+                                <Insets top="30.0" />
+                            </StackPane.margin>
+                        </GridPane>
+                        <Label fx:id="formLibelle_lbl" alignment="TOP_LEFT" text="Ajouter Menu" StackPane.alignment="TOP_CENTER">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+            </children>
+        </JFXDialogLayout>
+    </children>
 </AnchorPane>

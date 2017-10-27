@@ -64,7 +64,7 @@ public class DocumentAdministratifService implements IServiceDocumentAdministrat
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                User u = new User(resultSet.getInt(2));
+                User u = new UserService().getUserById(resultSet.getInt("user_id"));
                 documentAdministratif = new DocumentAdministratif(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getString(4), resultSet.getBoolean(5));
 
             }
@@ -84,7 +84,7 @@ public class DocumentAdministratifService implements IServiceDocumentAdministrat
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                User u = new User(resultSet.getInt(1));
+                User u = new UserService().getUserById(resultSet.getInt("user_id"));
                 DocumentAdministratif r = new DocumentAdministratif(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getString(4), resultSet.getBoolean(5));
 
                 documentAdministratifs.add(r);

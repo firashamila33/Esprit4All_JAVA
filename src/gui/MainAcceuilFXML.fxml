@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import com.guigarage.controls.*?>
+<?import org.controlsfx.control.textfield.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainFXMLController">
+   <children>
+      <Pane prefHeight="203.0" prefWidth="1360.0" style="-fx-background-color: ff2E44;">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="1360.0" pickOnBounds="true" preserveRatio="true" />
+            <AnchorPane layoutX="20.0" layoutY="61.0" prefHeight="140.0" prefWidth="1320.0" styleClass="nav-card">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="140.0" prefWidth="1320.0">
+                     <children>
+                        <ImageView fitHeight="140.0" fitWidth="300.0" pickOnBounds="true" HBox.hgrow="NEVER">
+                           <image>
+                              <Image url="@../utils/material_header.jpg" />
+                           </image>
+                        </ImageView>
+                        <JFXButton fx:id="acceuil_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToAcceuil" prefHeight="140.0" prefWidth="120.0" text="Acceuil">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../ressources/home2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="annonce_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToAnnonce" prefHeight="140.0" prefWidth="120.0" text="Annonce">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ressources/annoncement.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="covoiturage_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToCovoitureage" prefHeight="140.0" prefWidth="128.0" text="Covoiturage">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../ressources/car.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="objetPerdu_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToObjetPerdu" prefHeight="140.0" prefWidth="140.0" text="Objet Perdus">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../ressources/find.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="revision_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToRevision" prefHeight="140.0" prefWidth="140.0" text="Révision">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../ressources/revision.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="restauration_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToRestauration" prefHeight="140.0" text="Restauration">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ressources/restauration.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="vieSocial_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToVieSocial" prefHeight="140.0" prefWidth="120.0" text="Vie Social">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ressources/networksocial.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="profile_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToProfile" prefHeight="140.0" prefWidth="120.0" text="Profile">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../ressources/profile.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+         </children></Pane>
+      <AnchorPane fx:id="container" layoutY="200.0" prefHeight="560.0" prefWidth="1360.0" />
+   </children>
+</AnchorPane>

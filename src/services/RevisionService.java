@@ -81,8 +81,8 @@ public class RevisionService implements IServiceRevision {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                User u = new User(resultSet.getInt(1));
-                Revision r = new Revision(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getDate(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7),resultSet.getDate(8));
+                User u = new UserService().getUserById(resultSet.getInt("user_id"));
+                Revision r = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"),resultSet.getDate("date_fin"));
                 Revision.add(r);
 
             }

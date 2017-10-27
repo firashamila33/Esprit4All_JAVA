@@ -31,8 +31,15 @@ public class EvenementService implements IEvenementService {
 
     @Override
     public void add(Evenement e) {
-        String req = "insert into evenement (libelle,type,Description,date,path_img,club_id) values (?,?,?,?,?,?)";
+
+        String req;
         PreparedStatement preparedStatement;
+        if (e.getClub() != null) {
+            req = "insert into evenement (libelle,type,Description,date,path_img,club_id) values (?,?,?,?,?,?)";
+        } else {
+            req = "insert into evenement (libelle,type,Description,date,path_img) values (?,?,?,?,?)";
+        }
+
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, e.getLiblle());
@@ -40,15 +47,19 @@ public class EvenementService implements IEvenementService {
             preparedStatement.setString(3, e.getDescription());
             preparedStatement.setDate(4, e.getDate());
             preparedStatement.setString(5, e.getPath_img());
-            preparedStatement.setInt(6, e.getClub().getId());
+            if (e.getClub() != null) {
+                preparedStatement.setInt(6, e.getClub().getId());
+            }
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Integer id
+    ) {
         String req = "delete  from evenement where id=?";
         PreparedStatement preparedStatement;
         try {
@@ -69,8 +80,8 @@ public class EvenementService implements IEvenementService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Evenement e = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"), resultSet.getString("path_img"), new Club(resultSet.getInt("Club_id")));
-                // System.out.println(e);
+                Evenement e = new Evenement(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"), resultSet.getString("path_img"), new Club(resultSet.getInt("Club_id")));
+             
                 even.add(e);
             }
         } catch (SQLException ex) {
@@ -80,19 +91,31 @@ public class EvenementService implements IEvenementService {
     }
 
     @Override
-    public void update(Evenement t) {
-        String req = "update evenement set libelle=? type=? ,description=? ,date=? ,path_img=? ,club_id=? where id=? ";
+    public void update(Evenement e) {
+        String req;
         PreparedStatement preparedStatement;
+        if (e.getClub() != null) {
+            req = "update evenement set libelle=? ,type=? ,description=? ,date=? ,path_img=? ,club_id=? where id=? ";
+        } else {
+            req = "update evenement set libelle=? ,type=? ,description=? ,date=? ,path_img=?  where id=? ";
+        }
+
         try {
             preparedStatement = connection.prepareStatement(req);
 
-            preparedStatement.setString(1, t.getLiblle());
-            preparedStatement.setString(2, t.getType());
-            preparedStatement.setString(3, t.getDescription());
-            preparedStatement.setDate(4, t.getDate());
-            preparedStatement.setString(5, t.getPath_img());
-            preparedStatement.setInt(6, t.getClub().getId());
-            preparedStatement.setInt(7, t.getId());
+            preparedStatement.setString(1, e.getLiblle());
+            preparedStatement.setString(2, e.getType());
+            preparedStatement.setString(3, e.getDescription());
+            preparedStatement.setDate(4, e.getDate());
+            preparedStatement.setString(5, e.getPath_img());
+            if (e.getClub() != null) {
+                preparedStatement.setInt(6, e.getClub().getId());
+                preparedStatement.setInt(7, e.getId());
+            } else {
+
+                preparedStatement.setInt(6, e.getId());
+            }
+
             preparedStatement.executeUpdate();
 
         } catch (SQLException ex) {
@@ -101,7 +124,8 @@ public class EvenementService implements IEvenementService {
     }
 
     @Override
-    public Evenement getById(Integer r) {
+    public Evenement getById(Integer r
+    ) {
         Evenement ev = null;
         String req = "select *from evenement where id=?";
         PreparedStatement preparedStatement;
@@ -110,7 +134,7 @@ public class EvenementService implements IEvenementService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                ev = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"),
+                ev = new Evenement(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"),
                         resultSet.getString("path_img"), new Club(resultSet.getInt("club_id")));
                 System.out.println(ev);
             }
@@ -121,7 +145,8 @@ public class EvenementService implements IEvenementService {
     }
 
     @Override
-    public Evenement search(Evenement t) {
+    public Evenement search(Evenement t
+    ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
