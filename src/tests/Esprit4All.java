@@ -26,8 +26,8 @@ public class Esprit4All extends Application {
         //Parent root = FXMLLoader.load(getClass().getResource("/gui/FoodMaineFXML.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        Scene scene = new Scene(root); 
+       stage.setScene(scene);
         stage.centerOnScreen();
         stage.setResizable(true);
         stage.show();

@@ -67,123 +67,6 @@
             </ImageView>
          </children>
       </Pane>
-      <AnchorPane fx:id="sub_menu_layout" layoutX="420.0" layoutY="30.0" prefHeight="505.0" prefWidth="871.0" visible="false">
-         <children>
-            <MenuButton layoutX="659.0" layoutY="41.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: #424242;" text="Autre" textFill="#f8f6f6">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
-                  <MenuItem mnemonicParsing="false" text="Action 2" />
-               </items>
-            </MenuButton>
-            <JFXButton layoutX="524.0" layoutY="41.0" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Salade" textFill="#f8f6f6">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="393.0" layoutY="41.0" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Pizza" textFill="#f8f6f6">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="262.0" layoutY="40.0" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Pain Grillé" textFill="#f8f6f6">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="131.0" layoutY="39.0" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Burger" textFill="#f8f6f6">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <Pane layoutX="44.0" layoutY="150.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
-               <children>
-                  <ImageView fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ressources/menu-modern-3-310x260.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="12.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Viande">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="69.0" layoutY="189.0" text="3 DT" textFill="#ff2e44">
-                     <font>
-                        <Font name="Arial Bold" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane layoutX="625.0" layoutY="151.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
-               <children>
-                  <ImageView fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ressources/menu-modern-2-310x260.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="69.0" layoutY="190.0" text="4 DT" textFill="#ff2e44">
-                     <font>
-                        <Font name="Arial Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="21.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Mixt">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <JFXButton layoutX="550.0" layoutY="277.0" prefHeight="53.0" prefWidth="66.0" text=" ">
-               <graphic>
-                  <ImageView fitHeight="60.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/next.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton layoutX="244.0" layoutY="277.0" prefHeight="53.0" prefWidth="66.0" text=" ">
-               <graphic>
-                  <ImageView fitHeight="60.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                     <image>
-                        <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/next.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <Pane layoutX="308.0" layoutY="130.0" prefHeight="334.0" prefWidth="242.0" style="-fx-border-color: white; -fx-border-width: 4;">
-               <children>
-                  <Pane layoutX="26.0" layoutY="20.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
-                     <children>
-                        <ImageView fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../ressources/menu-modern-5-310x260.png" />
-                           </image>
-                        </ImageView>
-                        <JFXButton layoutX="49.0" layoutY="235.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
-                           <font>
-                              <Font name="Browallia New Bold" size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <Label layoutX="12.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Special">
-                           <font>
-                              <Font name="Arial Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="69.0" layoutY="189.0" text="5 DT" textFill="#ff2e44">
-                           <font>
-                              <Font name="Arial Bold" size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
-         </children>
-      </AnchorPane>
       <AnchorPane fx:id="menu_layout" layoutX="420.0" layoutY="30.0" prefHeight="505.0" prefWidth="871.0">
          <children>
             <AnchorPane layoutX="457.0" layoutY="273.0" prefHeight="225.0" prefWidth="399.0" style="-fx-background-color: #ffffff; -fx-border-radius: 50; -fx-opacity: 0.95;">
@@ -212,7 +95,7 @@
                   <DropShadow />
                </effect>
             </AnchorPane>
-            <JFXButton layoutX="450.0" layoutY="254.0" onMouseClicked="#GoToFastFood" prefHeight="250.0" prefWidth="420.0" text=" " />
+            <JFXButton fx:id="Fast_food_button" layoutX="450.0" layoutY="254.0" onMouseClicked="#GoToFastFood" prefHeight="250.0" prefWidth="420.0" text=" " />
             <Pane layoutX="14.0" layoutY="11.0" prefHeight="225.0" prefWidth="399.0" style="-fx-background-color: #ffffff; -fx-border-radius: 50; -fx-opacity: 0.95;">
                <children>
                   <ImageView fitHeight="157.0" fitWidth="190.0" layoutX="21.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 1;">
@@ -275,6 +158,124 @@
                <effect>
                   <DropShadow />
                </effect>
+            </Pane>
+            <JFXButton layoutX="16.0" layoutY="271.0" onMouseClicked="#GoToSnack" prefHeight="230.0" prefWidth="403.0" text=" " />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="sub_menu_layout" layoutX="420.0" layoutY="30.0" prefHeight="505.0" prefWidth="871.0" visible="false">
+         <children>
+            <MenuButton fx:id="sub_menu_but" layoutX="659.0" layoutY="41.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: #424242;" text="Autre" textFill="#f8f6f6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="Action 2" />
+               </items>
+            </MenuButton>
+            <JFXButton fx:id="sub_menu_btn_4" layoutX="524.0" layoutY="41.0" onAction="#click_sub_men_but" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text=" " textFill="#f8f6f6">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="sub_menu_btn_3" layoutX="393.0" layoutY="41.0" onAction="#click_sub_men_but" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text=" " textFill="#f8f6f6">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="sub_menu_btn_2" layoutX="262.0" layoutY="40.0" onAction="#click_sub_men_but" prefHeight="42.0" prefWidth="118.0" style="-fx-background-color: #424242;" text=" " textFill="#f8f6f6">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="sub_menu_btn_1" layoutX="105.0" layoutY="39.0" onAction="#click_sub_men_but" prefHeight="42.0" prefWidth="142.0" style="-fx-background-color: #424242;" text=" " textFill="#f8f6f6">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Pane layoutX="44.0" layoutY="150.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+               <children>
+                  <ImageView fx:id="sub_menu_img1" fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/menu-modern-3-310x260.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="first_sub_meal_label" layoutX="12.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Viande">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="first_sub_meal_price" layoutX="69.0" layoutY="189.0" text="3 DT" textFill="#ff2e44">
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="625.0" layoutY="151.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+               <children>
+                  <ImageView fx:id="sub_menu_img3" fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/menu-modern-2-310x260.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="third_sub_meal_price" layoutX="69.0" layoutY="190.0" text="4 DT" textFill="#ff2e44">
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="third_sub_meal_label" layoutX="21.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Mixt">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <JFXButton layoutX="550.0" layoutY="277.0" prefHeight="53.0" prefWidth="66.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="26.0" onDragDetected="#next_part_sub_menu" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/next.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="244.0" layoutY="277.0" prefHeight="53.0" prefWidth="66.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="26.0" onDragDetected="#prev_part_sub_menu" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../ressources/next.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Pane layoutX="308.0" layoutY="130.0" prefHeight="334.0" prefWidth="242.0" style="-fx-border-color: white; -fx-border-width: 4;">
+               <children>
+                  <Pane layoutX="26.0" layoutY="20.0" prefHeight="291.0" prefWidth="190.0" style="-fx-background-color: rgba(242,243,248,0.92);">
+                     <children>
+                        <ImageView fx:id="sub_menu_img2" fitHeight="130.0" fitWidth="143.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/menu-modern-5-310x260.png" />
+                           </image>
+                        </ImageView>
+                        <JFXButton layoutX="49.0" layoutY="235.0" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: #ff2e44;" text="commander" textFill="#fffdfd">
+                           <font>
+                              <Font name="Browallia New Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <Label fx:id="snd_sub_meal_label" layoutX="12.0" layoutY="143.0" prefHeight="53.0" prefWidth="182.0" text="Hamburger Special">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="snd_sub_meal_price" layoutX="69.0" layoutY="189.0" text="5 DT" textFill="#ff2e44">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
             </Pane>
          </children>
       </AnchorPane>

@@ -19,6 +19,6 @@ public interface IServices<T,R> {
     List<T> getAll();
     T getById(R r);
     T search(T t);
-    
+      
     
 }
