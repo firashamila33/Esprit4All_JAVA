@@ -16,11 +16,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import models.Evenement;
 import models.Profil;
 import models.User;
+import services.EvenementService;
 
 /**
  * FXML Controller class
@@ -28,10 +31,11 @@ import models.User;
  * @author majdi
  */
 public class ClubFXMLController implements Initializable {
+
     /**
      * Initializes the controller class.
      */
-      @FXML
+    @FXML
     private Pane img_event_id;
     @FXML
     private AnchorPane anchorPane_id;
@@ -44,6 +48,16 @@ public class ClubFXMLController implements Initializable {
     public ObservableList<Profil> profils;
     @FXML
     private ScrollPane scrollpane_verticale_id;
+   
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public ClubFXMLController() {
         profils = FXCollections.observableArrayList();
@@ -82,5 +96,18 @@ public class ClubFXMLController implements Initializable {
     @FXML
     private void GoToEvenementDeClub(ActionEvent event) {
 
+    }
+
+    public void display() {
+        EvenementService es = new EvenementService();
+        Evenement e = es.getById(id);
+        System.out.println(e);
+
+//       path_img_event_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + e.getPath_img()));
+//       path_img_club_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/"+e.getClub().getPath_img()));
+//        desc_id.setText(e.getDescription());
+//        libel_event_id.setText(e.getLiblle());
+//        type_id.setText(e.getType());
+//        date_id.setText(String.valueOf(e.getDate()));
     }
 }

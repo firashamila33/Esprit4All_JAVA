@@ -8,15 +8,20 @@ package controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import models.Club;
 import models.Evenement;
 
@@ -69,7 +74,29 @@ public class RowClubFXMLController extends ListCell<Club> {
             
             path_img_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/"+clubs.getPath_img(), 500 ,500 ,true,true));
 
-           
+           setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    //To change body of generated methods, choose Tools | Templates.
+                    try {
+
+                        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/ClubFXML.fxml"));
+                        Parent root = (Parent) fXMLLoader.load();
+                        ClubFXMLController controller = fXMLLoader.<ClubFXMLController>getController();
+                        controller.setId(clubs.getId());
+                        controller.display();
+                        
+
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            );
             setText(null);
             setGraphic(row);
         }
