@@ -12,9 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import models.Club;
 import models.Evenement;
-import models.User;
 import technique.DataSource;
 
 /**
@@ -69,7 +67,7 @@ public class EvenementService implements IEvenementService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Evenement e = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"), resultSet.getString("path_img"), new Club(resultSet.getInt("Club_id")));
+                Evenement e = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"), resultSet.getString("path_img"), new ClubService().getById(resultSet.getInt("Club_id")));
                 even.add(e);
             }
         } catch (SQLException ex) {
@@ -109,9 +107,11 @@ public class EvenementService implements IEvenementService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                System.out.println("jhhhkjhkjh"+resultSet.getInt("club_id"));
                 ev = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"),
-                        resultSet.getString("path_img"), new Club(resultSet.getInt("club_id")));
-                System.out.println(ev);
+                        resultSet.getString("path_img"), new ClubService().getById(resultSet.getInt("club_id")));
+                
+                
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

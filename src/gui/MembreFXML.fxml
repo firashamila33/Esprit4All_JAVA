@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane id="AnchorPane" fx:id="anchorpane_membre_id" prefHeight="110.0" prefWidth="110.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="img_membre_id" fitHeight="60.0" fitWidth="60.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_User_96px_1.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nom_membre_id" alignment="CENTER" layoutX="9.0" layoutY="80.0" prefHeight="17.0" prefWidth="93.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #4242428B;" text="Nom membre" textFill="#424242">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

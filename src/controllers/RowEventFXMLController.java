@@ -13,10 +13,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import models.Club;
 import models.Evenement;
+import services.ClubService;
 
 /**
  * FXML Controller class
@@ -43,11 +45,9 @@ public class RowEventFXMLController extends ListCell<Evenement> {
     /**
      * Initializes the controller class.
      */
-     private FXMLLoader mLLoader;
+    private FXMLLoader mLLoader;
 
-  
-   
-protected void updateItem(Evenement evenements, boolean empty) {
+    protected void updateItem(Evenement evenements, boolean empty) {
         super.updateItem(evenements, empty);
 
         if (empty || evenements == null) {
@@ -59,18 +59,17 @@ protected void updateItem(Evenement evenements, boolean empty) {
             if (mLLoader == null) {
                 mLLoader = new FXMLLoader(getClass().getResource("/gui/RowEventFXML.fxml"));
                 mLLoader.setController(this);
-
                 try {
                     mLLoader.load();
-                    
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
 
             lib_event_id.setText(evenements.getLiblle());
-           
+            img_evnt_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + evenements.getPath_img()));
+            img_club_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/" + evenements.getClub().getPath_img()));
+
             date_event_id.setText(String.valueOf(evenements.getDate()));
             desc_event_id.setText(evenements.getDescription());
             type_event_id.setText(evenements.getType());

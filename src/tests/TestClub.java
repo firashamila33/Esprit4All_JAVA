@@ -18,12 +18,12 @@ public class TestClub {
 
     public static void main(String[] args) {
 
-        Club club = new Club("MOHAMED", "UGHJ", "TREH", new User(16));
+        Club club = new Club("AIESEC", "DESC5", "path_iMG5","Couverture5", new User(1));
         IClubService cs = new ClubService();
 
         //cs.add(club);
        
-        //cs.delete(8);
+        //cs.delete(4);
        
 //        for (Club c : cs.getAll()) {
 //            System.out.println(c);
@@ -32,7 +32,7 @@ public class TestClub {
         
         //cs.update(club);
         
-        //System.out.println(cs.getById(16));
+        //System.out.println(cs.getById(3));
         
     }
 

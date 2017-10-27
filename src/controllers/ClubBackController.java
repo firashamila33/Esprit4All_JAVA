@@ -49,6 +49,7 @@ public class ClubBackController implements Initializable {
         libelle.setCellValueFactory(new PropertyValueFactory<Club, String>("libelle"));
         description.setCellValueFactory(new PropertyValueFactory<Club, String>("description"));
         path_img.setCellValueFactory(new PropertyValueFactory<Club, String>("path_img"));
+        
         user_id.setCellValueFactory(new PropertyValueFactory<Club, Integer>("user_id"));
 
         tab_club.setItems(getClub());
@@ -58,7 +59,7 @@ public class ClubBackController implements Initializable {
     public ObservableList<Club> getClub() {
 
         ObservableList<Club> clubs = FXCollections.observableArrayList();
-        clubs.add(new Club("Microsoft", "Windows", "aaa", new User(1)));
+        clubs.add(new Club("Microsoft", "Windows", "aaa","couverture1", new User(1)));
 
         return clubs;
     }
