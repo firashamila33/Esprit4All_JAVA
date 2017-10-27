@@ -91,6 +91,9 @@ public class Club {
         this.user = user;
     }
 
+    
+
+   
     @Override
     public String toString() {
         return "Club{" + "id=" + id +

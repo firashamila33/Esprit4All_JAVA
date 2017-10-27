@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RevisionMainFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RevisionMainFXMLController">
    <children>
       <AnchorPane prefHeight="560.0" prefWidth="100.0" style="-fx-background-color: Withe;">
          <children>
             <VBox prefHeight="560.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="retour_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Button" />
-                  <Button fx:id="listRevision_btn" mnemonicParsing="false" onAction="#goToListRevision" prefHeight="260.0" prefWidth="100.0" text="Button" />
-                  <Button fx:id="topRated_btn" mnemonicParsing="false" onAction="#goToTopRated" prefHeight="260.0" prefWidth="100.0" text="Button" />
+                  <JFXButton fx:id="retour_btn" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #ff2e44; -fx-background-radius: 0;" text="retour" />
+                  <JFXButton fx:id="listRevision_btn" onAction="#goToListRevision" prefHeight="260.0" prefWidth="100.0" style="-fx-background-radius: 0;" styleClass="rev-nav-button" text="list" />
+                  <JFXButton fx:id="topRated_btn" onAction="#goToTopRated" prefHeight="260.0" prefWidth="100.0" style="-fx-background-radius: 0;" styleClass="rev-nav-button" text="rated" />
                </children>
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Container" layoutX="101.0" prefHeight="560.0" prefWidth="1260.0" style="-fx-background-color: gray;">
+      <AnchorPane fx:id="Container" layoutX="100.0" prefHeight="560.0" prefWidth="1260.0">
        
       </AnchorPane>
    </children>

@@ -1,10 +1,10 @@
+package tests;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tests;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,21 +13,15 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author majdi
+ * @author danml
  */
 public class Esprit4All extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
-//        Parent root = FXMLLoader.load(getClass().getResource("/gui/FoodMainnFXML.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
-        // Parent root = FXMLLoader.load(getClass().getResource("/gui/ClubFXML.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/gui/FoodMaineFXML.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
-
-        Scene scene = new Scene(root); 
-       stage.setScene(scene);
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/RevisionMainFXML.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.centerOnScreen();
         stage.setResizable(true);
         stage.show();

@@ -77,7 +77,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane id="fenetre1" fx:id="window2" layoutX="163.0" prefHeight="587.0" prefWidth="380.0" style="-fx-background-color: #ff2e44; -fx-background-radius: 4.0;">
+      <AnchorPane id="fenetre1" fx:id="window2" layoutX="163.0" prefHeight="587.0" prefWidth="380.0" style="-fx-background-color: #ff2e44; -fx-background-radius: 5;">
          <children>
             <Text fill="WHITE" layoutX="68.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenu à">
                <font>
@@ -96,7 +96,7 @@
             </ImageView>
          </children>
          <effect>
-            <DropShadow height="10.0" radius="4.5" width="10.0" />
+            <DropShadow />
          </effect></AnchorPane>
    </children>
 </AnchorPane>

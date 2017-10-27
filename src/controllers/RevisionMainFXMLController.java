@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,16 +27,17 @@ import javafx.scene.layout.AnchorPane;
 public class RevisionMainFXMLController implements Initializable {
 
     @FXML
-    private Button retour_btn;
-    @FXML
-    private Button listRevision_btn;
-    @FXML
-    private Button topRated_btn;
-    @FXML
     private AnchorPane Container;
-    
-    
-    AnchorPane listRevision,topRated;
+
+    AnchorPane listRevision, topRated;
+    @FXML
+    private JFXButton retour_btn;
+    @FXML
+    private JFXButton listRevision_btn;
+    @FXML
+    private JFXButton topRated_btn;
+
+    JFXButton currentButton;
 
     /**
      * Initializes the controller class.
@@ -44,27 +46,47 @@ public class RevisionMainFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             // TODO
-            listRevision=FXMLLoader.load(getClass().getResource("/gui/ListRevisionFXML.fxml"));
-             topRated=FXMLLoader.load(getClass().getResource("/gui/TopRatedMentorsFXML.fxml"));
-       
+            listRevision = FXMLLoader.load(getClass().getResource("/gui/ListRevisionFXML.fxml"));
+            topRated = FXMLLoader.load(getClass().getResource("/gui/TopRatedMentorsFXML.fxml"));
+
         } catch (IOException ex) {
             Logger.getLogger(RevisionMainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        listRevision_btn.setStyle(" -fx-border-width: 0 4 0 0;\n"
+                + "    -fx-border-color:  #ff2e44;"
+                + "-fx-background-radius:0;");
+        currentButton = listRevision_btn;
         setNode(listRevision);
-    }    
+    }
 
     @FXML
     private void goToListRevision(ActionEvent event) {
         setNode(listRevision);
+        changeStyle(listRevision_btn);
+        
     }
 
     @FXML
     private void goToTopRated(ActionEvent event) {
         setNode(topRated);
+        changeStyle(topRated_btn);
     }
-    
-    private void setNode(Node node){
+
+    private void setNode(Node node) {
         Container.getChildren().clear();
         Container.getChildren().add((Node) node);
     }
+
+    private void changeStyle(JFXButton button) {
+
+        button.setStyle(" -fx-border-width: 0 4 0 0;\n"
+                + "    -fx-border-color:  #ff2e44;"
+                + "-fx-background-radius:0;");
+        currentButton.setStyle("-fx-border-width: 0 0 0 0;"
+                + "-fx-background-radius:0;");
+
+        currentButton = button;
+
+    }
+
 }

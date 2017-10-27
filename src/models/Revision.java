@@ -23,6 +23,10 @@ public class Revision {
     private  Date date_fin
             ;
 
+    public Revision(int id) {
+        this.id = id;
+    }
+
 
    
 
@@ -46,7 +50,11 @@ public class Revision {
         this.type = type;
         this.date_fin = date_fin;
     }
-    
+
+    public Revision() {
+    }
+
+   
     
 
     public int getId() {
