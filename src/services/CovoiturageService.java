@@ -43,7 +43,7 @@ public class CovoiturageService implements ICovoiturageService {
 
     @Override
     public List<Covoiturage> getAll() {
-        List<Covoiturage> emp = new ArrayList<>();
+        List<Covoiturage> covoiturages = new ArrayList<>();
         String req = "select * from covoiturage";
         PreparedStatement preparedStatement;
         try {
@@ -51,12 +51,12 @@ public class CovoiturageService implements ICovoiturageService {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Covoiturage c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
-                emp.add(c);
+                covoiturages.add(c);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return emp;
+        return covoiturages;
     }
 
     @Override
@@ -69,7 +69,25 @@ public class CovoiturageService implements ICovoiturageService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                c = new Covoiturage(resultSet.getInt("id"),  new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
+                c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return c;
+    }
+
+    public Covoiturage getByUserId(Integer id) {
+        String req = "select * from covoiturage where user_id=?";
+        Covoiturage c = null;
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

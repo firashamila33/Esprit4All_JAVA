@@ -5,7 +5,10 @@
  */
 package interfaces;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
 import models.Menu;
 
 /**
@@ -28,5 +31,12 @@ public interface IMenuService extends IServices<Menu, Integer> {
  
     @Override
     public void update(Menu t);
+    
+    
+    public Map<String,TreeSet<String>> GetSubCategoriesbyCategory();
+    
+    public List<Menu> GetMealsFromSubMenuFilter(String s);
+    
+    
     
 }

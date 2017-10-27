@@ -5,6 +5,12 @@
  */
 package models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import technique.DataSource;
+
 /**
  *
  * @author plazma33
@@ -14,6 +20,10 @@ public class LigneCommande {
     private int menu_id;
     private int quantite;
 
+    
+    
+    Connection connection = DataSource.getInstance().getConnection();    
+    
     public LigneCommande() {
     }
     
@@ -76,6 +86,29 @@ public class LigneCommande {
         }
         return true;
     }
+    
+    
+//    public Menu GetLigneCommandeMeal() {
+//        Menu meal= null;
+//        String req = "select * from menu where id=?";
+//        PreparedStatement preparedStatement;
+//        try {
+//            preparedStatement = connection.prepareStatement(req);
+//
+//            preparedStatement.setInt(1,menu_id);
+//
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            while (resultSet.next()) {
+//                
+//                meal = new Menu(resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("path_img"));
+//            }
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//
+//        return meal;
+//
+//    }
     
     
     
