@@ -27,8 +27,7 @@ import javafx.util.Duration;
  */
 public class MainFXMLController implements Initializable {
 
-
-    AnchorPane acceuil,annonce, covoiturage, objetPerdus, revision, restauration, vieSocial, profile;
+    AnchorPane acceuil, annonce, covoiturage, objetPerdus, revision, restauration, vieSocial, profile;
     @FXML
     private JFXButton acceuil_btn;
     @FXML
@@ -45,9 +44,11 @@ public class MainFXMLController implements Initializable {
     private JFXButton vieSocial_btn;
     @FXML
     private JFXButton profile_btn;
+
+    JFXButton currentselectedButton;
+
     @FXML
     private AnchorPane container;
-   
 
     /**
      * Initializes the controller class.
@@ -55,16 +56,18 @@ public class MainFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            acceuil=FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
-            
+            acceuil = FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
+            currentselectedButton = acceuil_btn;
+            acceuil_btn.setStyle("-fx-border-width: 0 0 4 0;\n"
+                    + "    -fx-border-color:  #ff2e44;");
             setNode(acceuil);
         } catch (IOException ex) {
             Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
-    public void setNode(Node node){
+    public void setNode(Node node) {
         container.getChildren().clear();
         container.getChildren().add((Node) node);
         FadeTransition ft = new FadeTransition(Duration.millis(1500));
@@ -74,43 +77,68 @@ public class MainFXMLController implements Initializable {
         ft.setCycleCount(1);
         ft.setAutoReverse(false);
         ft.play();
-    
+
     }
 
     @FXML
     private void goToAcceuil(ActionEvent event) throws IOException {
-        acceuil=FXMLLoader.load(getClass().getResource("gui/AcceuilFXML.fxml"));
-            
-            setNode(acceuil);
+        acceuil = FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
+
+        setNode(acceuil);
+        changeStyle(acceuil_btn);
     }
 
     @FXML
     private void goToAnnonce(ActionEvent event) {
+        changeStyle(annonce_btn);
     }
 
     @FXML
     private void goToCovoitureage(ActionEvent event) {
+        changeStyle(covoiturage_btn);
     }
 
     @FXML
     private void goToObjetPerdu(ActionEvent event) {
+        changeStyle(objetPerdu_btn);
     }
 
     @FXML
     private void goToRevision(ActionEvent event) {
+        changeStyle(revision_btn);
     }
 
     @FXML
-    private void goToRestauration(ActionEvent event) {
+    private void goToRestauration(ActionEvent event) throws IOException {
+
+        restauration = FXMLLoader.load(getClass().getResource("/gui/FoodMainnFXML.fxml"));
+        changeStyle(restauration_btn);
+        setNode(restauration);
+
     }
 
     @FXML
     private void goToVieSocial(ActionEvent event) {
+        changeStyle(vieSocial_btn);
     }
 
     @FXML
     private void goToProfile(ActionEvent event) {
+        changeStyle(profile_btn);
     }
 
+    private void changeStyle(JFXButton button) {
 
+        button.setStyle(" -fx-border-width: 0 0 4 0;\n"
+                + "    -fx-border-color:  #ff2e44;");
+        currentselectedButton.setStyle("-fx-border-width:  0 0 4 0;\n"
+                + "    -fx-border-color:  #ffffff;"
+                + ".main-nav-button:hover{\n"
+                + "    -fx-border-width: 0 0 4 0;\n"
+                + "    -fx-border-color:  #ff2e44;\n"
+                + "}\n");
+
+        currentselectedButton = button;
+
+    }
 }

@@ -42,9 +42,9 @@
                            </image>
                         </ImageView>
                      </graphic></JFXButton>
-                        <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="97.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../utils/photo.png" />
+                                <Image url="@../ressources/profile.png" />
                             </image>
                         </ImageView>
                         <Label fx:id="User" alignment="CENTER" layoutY="93.0" prefHeight="17.0" prefWidth="248.0" text="Prenom " textAlignment="CENTER" textFill="WHITE" />

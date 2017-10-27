@@ -1,9 +1,6 @@
-
 package controllers;
 
-
 import java.net.URL;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -14,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -39,29 +37,26 @@ public class AcceuilFXMLController implements Initializable {
     private AnchorPane Couvoiturage;
     @FXML
     private AnchorPane Restauration;
-    
-    
-    
-    
-    AnchorPane club,covoiturage,restauration,revision,document;
-    
-    List<String> images= new ArrayList<>();
-    
+
+    AnchorPane club, covoiturage, restauration, revision, document;
+
+    List<String> images = new ArrayList<>();
+
     private ImageView slide;
-    
-    Timer timer= new Timer();
-    int j=0;
-    
+
+    Timer timer = new Timer();
+    int j = 0;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-       slideImages();
+
+        slideImages();
+        
     }
-    
+
     private void slideImages() {
         try {
             images.add("/ressources/food_pattern_background_wallpaper_free_hd.jpg");
@@ -71,7 +66,7 @@ public class AcceuilFXMLController implements Initializable {
             for (int i = 0; i < images.size(); i++) {
                 imagest[i] = new Image(images.get(i));
             }
-            
+
             slide = new ImageView(imagest[j]);
             slide.setCursor(Cursor.OPEN_HAND);
             timer.scheduleAtFixedRate(new TimerTask() {
@@ -99,20 +94,32 @@ public class AcceuilFXMLController implements Initializable {
                 }
             }, 5000, 5000);
             
+
             slide.setFitHeight(560);
             slide.setFitWidth(1320);
-            
+
             HBox hBox = new HBox();
             hBox.setSpacing(15);
             hBox.setAlignment(Pos.CENTER);
-            
+
             hBox.getChildren().addAll(slide);
-            
+
             slideImage.getChildren().add(hBox);
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-   
+
+    private void setNode(Node node, AnchorPane container) {
+        container.getChildren().clear();
+        container.getChildren().add((Node) node);
+        FadeTransition ft = new FadeTransition(Duration.millis(1500));
+        ft.setNode(node);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+    }
 }

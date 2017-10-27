@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="row" prefHeight="120.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="row" prefHeight="120.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="2.0" layoutY="2.0" prefHeight="117.0" prefWidth="197.0" style="-fx-border-color: black; -fx-border-width: 2;">
          <children>
@@ -33,7 +32,7 @@
             <Label fx:id="type_event_id" layoutX="81.0" layoutY="37.0" prefHeight="17.0" prefWidth="111.0" text="Type :" />
             <Pane layoutX="15.0" layoutY="7.0" prefHeight="45.0" prefWidth="51.0">
                <children>
-                  <ImageView fx:id="img_club_id" fitHeight="51.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="img_club_id" fitHeight="52.0" fitWidth="52.0" pickOnBounds="true">
                      <image>
                         <Image url="@../ressources/logo-256-transp.png" />
                      </image>

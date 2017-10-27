@@ -5,20 +5,20 @@
  */
 package controllers;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import models.Club;
 import models.Evenement;
+import services.ClubService;
 
 /**
  * FXML Controller class
@@ -27,6 +27,8 @@ import models.Evenement;
  */
 public class RowEventFXMLController extends ListCell<Evenement> {
 
+    @FXML
+    private AnchorPane row;
     @FXML
     private ImageView img_evnt_id;
     @FXML
@@ -39,12 +41,12 @@ public class RowEventFXMLController extends ListCell<Evenement> {
     private ImageView img_club_id;
     @FXML
     private Label desc_event_id;
-    @FXML
-    private AnchorPane row;
-    
+
+    /**
+     * Initializes the controller class.
+     */
     private FXMLLoader mLLoader;
 
-    @Override
     protected void updateItem(Evenement evenements, boolean empty) {
         super.updateItem(evenements, empty);
 
@@ -57,26 +59,24 @@ public class RowEventFXMLController extends ListCell<Evenement> {
             if (mLLoader == null) {
                 mLLoader = new FXMLLoader(getClass().getResource("/gui/RowEventFXML.fxml"));
                 mLLoader.setController(this);
-
                 try {
                     mLLoader.load();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
 
-            lib_event_id.setText(String.valueOf(evenements.getLiblle()));
-           
+            lib_event_id.setText(evenements.getLiblle());
+            img_evnt_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + evenements.getPath_img()));
+            img_club_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/" + evenements.getClub().getPath_img()));
+
             date_event_id.setText(String.valueOf(evenements.getDate()));
-            desc_event_id.setText("qdhkjqhsjkdhqksjdhqkjsdhqkjsdhqkjsdhqkjsdhkjqsdhkjqshdk"
-                    + "qjsdgkhqgfdhgfkjsqhdjkqhsdljqhsdljqhdsjl"
-                    + "qshdjkshdlqjskhdqjkshdqjksdhjqksdhjqkshdjkqhsdjqhsdjkhqsdjkh");
+            desc_event_id.setText(evenements.getDescription());
+            type_event_id.setText(evenements.getType());
 
             setText(null);
             setGraphic(row);
         }
 
     }
-
 }

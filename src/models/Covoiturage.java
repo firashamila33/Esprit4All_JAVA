@@ -22,7 +22,11 @@ public class Covoiturage {
     private String description;
     private int nbrePlace;
     private String heureDépart;
-
+    
+    public Covoiturage(int id){
+        this.id=id;
+    }
+    
     public Covoiturage(int id, User u, String type, double prix, String depart, String arrivé, String description, int nbrePlace, String heureDépart) {
         this.id = id;
         this.u = u;

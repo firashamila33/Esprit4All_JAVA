@@ -31,7 +31,9 @@ public class Club {
         this.libelle = libelle;
         this.description = description;
         this.path_img = path_img;
+         this.path_couverture=path_couverture;
         this.user = user;
+       
     }
 
     public Club( String libelle, String description, String path_img,String path_couverture, User user) {
@@ -39,6 +41,7 @@ public class Club {
         this.libelle = libelle;
         this.description = description;
         this.path_img = path_img;
+         this.path_couverture=path_couverture;
         this.user = user;
     }
 
@@ -74,20 +77,20 @@ public class Club {
         this.path_img = path_img;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public String getPath_couverture() {
         return path_couverture;
     }
 
     public void setPath_couverture(String path_couverture) {
         this.path_couverture = path_couverture;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

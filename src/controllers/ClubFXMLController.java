@@ -5,20 +5,22 @@
  */
 package controllers;
 
-import java.io.IOException;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import models.Profil;
+import models.User;
 
 /**
  * FXML Controller class
@@ -26,29 +28,43 @@ import javafx.stage.Stage;
  * @author majdi
  */
 public class ClubFXMLController implements Initializable {
-
-    @FXML
-    private Pane img_event_id;
-
     /**
      * Initializes the controller class.
      */
+      @FXML
+    private Pane img_event_id;
     @FXML
     private AnchorPane anchorPane_id;
 
     AnchorPane eventclub;
     @FXML
-    private Pane list_membre;
+    private JFXButton btn_evenement_id;
     @FXML
-    private ImageView path_couverture_id;
+    private JFXListView<Profil> lit_view_membre;
+    public ObservableList<Profil> profils;
     @FXML
-    private Label libelle_clib_id;
-    @FXML
-    private ImageView path_img_id;
+    private ScrollPane scrollpane_verticale_id;
+
+    public ClubFXMLController() {
+        profils = FXCollections.observableArrayList();
+        profils.addAll(new Profil(new User(), "", "", "", "icons8_User_96px_1", "", "", "", "", "", ""),
+                new Profil(new User(), "", "", "", "icons8_User_96px_1", "", "", "", "", "", ""),
+                new Profil(new User(), "", "", "", "icons8_User_96px_1", "", "", "", "", "", ""),
+                new Profil(new User(), "", "", "", "icons8_User_96px_1", "", "", "", "", "", ""),
+                new Profil(new User(), "", "", "", "icons8_User_96px_1", "", "", "", "", "", ""),
+                new Profil(new User(), "", "", "", "icons8_User_96px_1", "", "", "", "", "", ""),
+                new Profil(new User(), "", "", "", "icons8_User_96px_1", "", "", "", "", "", ""));
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+//        ProfilService ps = new ProfilService();
+//        profils = FXCollections.observableArrayList(ps.getAll());
+
+        lit_view_membre.setItems(profils);
+        lit_view_membre.setCellFactory(evenementListView -> new MembreFXMLController());
     }
 
     @FXML
@@ -61,5 +77,10 @@ public class ClubFXMLController implements Initializable {
         } catch (Exception e) {
             System.out.println("Can load new window");
         }
+    }
+
+    @FXML
+    private void GoToEvenementDeClub(ActionEvent event) {
+
     }
 }

@@ -18,17 +18,19 @@
    <children>
       <Pane prefHeight="203.0" prefWidth="1360.0" style="-fx-background-color: ff2E44;">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="1360.0" pickOnBounds="true" preserveRatio="true" />
-            <AnchorPane layoutX="20.0" layoutY="61.0" prefHeight="140.0" prefWidth="1320.0" styleClass="nav-card">
+            <AnchorPane layoutX="20.0" layoutY="63.0" prefHeight="140.0" prefWidth="1320.0" styleClass="nav-card">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="140.0" prefWidth="1320.0">
                      <children>
-                        <ImageView fitHeight="140.0" fitWidth="300.0" pickOnBounds="true" HBox.hgrow="NEVER">
+                        <ImageView fitHeight="123.0" fitWidth="264.0" pickOnBounds="true" HBox.hgrow="NEVER">
                            <image>
-                              <Image url="@../utils/material_header.jpg" />
+                              <Image url="@../ressources/Logo_ESPRIT_-_Tunisie.png" />
                            </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
                         </ImageView>
-                        <JFXButton fx:id="acceuil_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToAcceuil" prefHeight="140.0" prefWidth="120.0" text="Acceuil">
+                        <JFXButton fx:id="acceuil_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToAcceuil" prefHeight="140.0" prefWidth="120.0" styleClass="main-nav-button" text="Acceuil">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -40,7 +42,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="annonce_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToAnnonce" prefHeight="140.0" prefWidth="120.0" text="Annonce">
+                        <JFXButton fx:id="annonce_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToAnnonce" prefHeight="140.0" prefWidth="120.0" styleClass="main-nav-button" text="Annonce">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -52,7 +54,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="covoiturage_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToCovoitureage" prefHeight="140.0" prefWidth="128.0" text="Covoiturage">
+                        <JFXButton fx:id="covoiturage_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToCovoitureage" prefHeight="140.0" prefWidth="128.0" styleClass="main-nav-button" text="Covoiturage">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -64,7 +66,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="objetPerdu_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToObjetPerdu" prefHeight="140.0" prefWidth="140.0" text="Objet Perdus">
+                        <JFXButton fx:id="objetPerdu_btn" contentDisplay="TOP" ellipsisString="" graphicTextGap="5.0" onAction="#goToObjetPerdu" prefHeight="140.0" prefWidth="140.0" styleClass="main-nav-button" text="Objet Perdus">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -76,7 +78,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="revision_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToRevision" prefHeight="140.0" prefWidth="140.0" text="Révision">
+                        <JFXButton fx:id="revision_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToRevision" prefHeight="140.0" prefWidth="140.0" styleClass="main-nav-button" text="Révision">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -91,7 +93,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="restauration_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToRestauration" prefHeight="140.0" text="Restauration">
+                        <JFXButton fx:id="restauration_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToRestauration" prefHeight="140.0" styleClass="main-nav-button" text="Restauration">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -103,7 +105,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="vieSocial_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToVieSocial" prefHeight="140.0" prefWidth="120.0" text="Vie Social">
+                        <JFXButton fx:id="vieSocial_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToVieSocial" prefHeight="140.0" prefWidth="120.0" styleClass="main-nav-button" text="Vie Social">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -115,7 +117,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="profile_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToProfile" prefHeight="140.0" prefWidth="120.0" text="Profile">
+                        <JFXButton fx:id="profile_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToProfile" prefHeight="140.0" prefWidth="120.0" styleClass="main-nav-button" text="Profile">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -131,6 +133,6 @@
                   </HBox>
                </children></AnchorPane>
          </children></Pane>
-      <AnchorPane fx:id="container" layoutY="200.0" prefHeight="560.0" prefWidth="1360.0" />
+      <AnchorPane fx:id="container" layoutY="203.0" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #E5E5E5;" />
    </children>
 </AnchorPane>

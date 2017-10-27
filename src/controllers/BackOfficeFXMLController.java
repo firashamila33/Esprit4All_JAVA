@@ -236,7 +236,11 @@ public class BackOfficeFXMLController implements Initializable {
                 + "    -fx-text-fill: #000000;");
         currentselectedButton.setStyle("-fx-border-color:#CDCDCD;\n"
                 + "    -fx-border-width:0 0 1 0;\n"
-                + "    -fx-text-fill: #ffffff;");
+                + "    -fx-text-fill: #ffffff;"
+                + ".nav-button:hover{\n"
+                + "    -fx-background-color:#ffffff;\n"
+                + "    -fx-text-fill: #000000;\n"
+                + "}");
 
         currentselectedButton = button;
 
