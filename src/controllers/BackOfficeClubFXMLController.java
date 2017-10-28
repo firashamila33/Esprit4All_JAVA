@@ -43,7 +43,7 @@ import services.ClubService;
 /**
  * FXML Controller class
  *
- * @author Sami
+ * @author majdi
  */
 public class BackOfficeClubFXMLController implements Initializable {
 

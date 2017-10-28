@@ -69,7 +69,7 @@ public class EvenementFXMLController implements Initializable {
     @FXML
     private void backToClub(MouseEvent event) {
         try {
-            club = FXMLLoader.load(getClass().getResource("/gui/ClubFXML.fxml"));
+            club = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
             anchorPanrEV_id.getChildren().clear();
             anchorPanrEV_id.getChildren().add(club);
         } catch (Exception e) {
