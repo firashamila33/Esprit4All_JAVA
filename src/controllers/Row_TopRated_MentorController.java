@@ -5,23 +5,68 @@
  */
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import models.Revision;
 
 /**
  * FXML Controller class
  *
  * @author asus
  */
-public class Row_TopRated_MentorController implements Initializable {
+public class Row_TopRated_MentorController extends ListCell<Revision>  {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    @FXML
+    private AnchorPane top_rated;
+    @FXML
+    private Button afficher_mentorProfil;
+    @FXML
+    private Label LabelNomMentor1LabelNomMentor;
+    @FXML
+    private ImageView photo_mentor1;
+ private FXMLLoader mLLoader;
+        JFXButton currentButton;
+    private AnchorPane TopMentorinfo;
+    @FXML
+    private ImageView topMentorinfo;
+
+   @Override
+    protected void updateItem(Revision revision, boolean empty) {
+        
+        super.updateItem(revision, empty);
+
+        if (empty || revision == null) {
+
+            setText(null);
+            setGraphic(null);
+
+        } else {
+            if (mLLoader == null) {
+                mLLoader = new FXMLLoader(getClass().getResource("/gui/Row_TopRated_MentorController.fxml"));
+                mLLoader.setController(this);
+
+                try {
+                    mLLoader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+           
+           setText(null);
+            setGraphic(top_rated);
+            }
+
+        }
+
+    }
+
 }

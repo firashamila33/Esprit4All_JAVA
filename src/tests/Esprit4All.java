@@ -21,7 +21,7 @@ public class Esprit4All extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/ClubFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
         stage.initStyle(StageStyle.TRANSPARENT);
         Scene scene = new Scene(root);
         stage.centerOnScreen();

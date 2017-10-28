@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -8,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="row" prefHeight="120.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="row" prefHeight="120.0" prefWidth="900.0" style="-fx-background-color: white; -fx-border-width: 0 0 1 0; -fx-border-color: #4242428B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="2.0" layoutY="2.0" prefHeight="117.0" prefWidth="197.0" style="-fx-border-color: black; -fx-border-width: 2;">
          <children>
@@ -18,7 +24,7 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Pane layoutX="200.0" layoutY="2.0" prefHeight="117.0" prefWidth="698.0" style="-fx-background-color: #fffff; -fx-border-color: #4242428B;">
+      <Pane layoutX="200.0" layoutY="2.0" prefHeight="117.0" prefWidth="698.0" style="-fx-background-color: #fffff;">
          <children>
             <Label fx:id="lib_event_id" alignment="CENTER" layoutX="282.0" layoutY="17.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #ff2e44;" text="Libelle evenement" textFill="WHITE">
                <effect>

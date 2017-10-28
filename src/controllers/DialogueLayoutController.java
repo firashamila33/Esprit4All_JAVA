@@ -72,6 +72,7 @@ public class DialogueLayoutController implements Initializable {
     public void setId(int id) {
         this.id = id;
     }
+    
 
     /**
      * Initializes the controller class.
@@ -79,6 +80,7 @@ public class DialogueLayoutController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }
 
     public void afficherDialogue(int i) {

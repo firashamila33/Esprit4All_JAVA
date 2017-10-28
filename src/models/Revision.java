@@ -45,6 +45,10 @@ public class Revision {
         this.type = type;
         this.date_fin = date_fin;
     }
+
+    public Revision() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 
