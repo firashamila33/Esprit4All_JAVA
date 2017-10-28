@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Covoiturage {
 
     private int id;
-    private int userId;
+    private User u;
     private String type;
     private double prix;
     private String depart;
@@ -22,10 +22,14 @@ public class Covoiturage {
     private String description;
     private int nbrePlace;
     private String heureDépart;
-
-    public Covoiturage(int id, int userId, String type, double prix, String depart, String arrivé, String description, int nbrePlace, String heureDépart) {
+    
+    public Covoiturage(int id){
+        this.id=id;
+    }
+    
+    public Covoiturage(int id, User u, String type, double prix, String depart, String arrivé, String description, int nbrePlace, String heureDépart) {
         this.id = id;
-        this.userId = userId;
+        this.u = u;
         this.type = type;
         this.prix = prix;
         this.depart = depart;
@@ -35,8 +39,8 @@ public class Covoiturage {
         this.heureDépart = heureDépart;
     }
 
-    public Covoiturage(int userId, String type, double prix, String depart, String arrivé, String description, int nbrePlace, String heureDépart) {
-        this.userId = userId;
+    public Covoiturage(User u, String type, double prix, String depart, String arrivé, String description, int nbrePlace, String heureDépart) {
+        this.u = u;
         this.type = type;
         this.prix = prix;
         this.depart = depart;
@@ -56,15 +60,15 @@ public class Covoiturage {
 
     @Override
     public String toString() {
-        return "Covoiturage{" + "id=" + id + ", userId=" + userId + ", type=" + type + ", prix=" + prix + ", depart=" + depart + ", arriv\u00e9=" + arrivé + ", nbrePlace=" + nbrePlace + ", heureD\u00e9part=" + heureDépart + '}';
+        return "Covoiturage{" + "id=" + id + ", User_id=" + u.getId() + ", type=" + type + ", prix=" + prix + ", depart=" + depart + ", arriv\u00e9=" + arrivé + ", nbrePlace=" + nbrePlace + ", heureD\u00e9part=" + heureDépart + '}';
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUserId() {
+        return u;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(User u) {
+        this.u = u;
     }
 
     public String getType() {
@@ -119,7 +123,7 @@ public class Covoiturage {
     public int hashCode() {
         int hash = 3;
         hash = 53 * hash + this.id;
-        hash = 53 * hash + this.userId;
+        hash = 53 * hash + this.u.hashCode();
         hash = 53 * hash + Objects.hashCode(this.type);
         hash = 53 * hash + (int) (Double.doubleToLongBits(this.prix) ^ (Double.doubleToLongBits(this.prix) >>> 32));
         hash = 53 * hash + Objects.hashCode(this.depart);
@@ -144,7 +148,7 @@ public class Covoiturage {
         if (this.id != other.id) {
             return false;
         }
-        if (this.userId != other.userId) {
+        if (this.u != other.u) {
             return false;
         }
         if (Double.doubleToLongBits(this.prix) != Double.doubleToLongBits(other.prix)) {

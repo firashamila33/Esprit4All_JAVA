@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="row" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Separator layoutX="10.0" layoutY="102.0" prefHeight="3.0" prefWidth="806.0" />
+      <Pane layoutX="2.0" layoutY="1.0" prefHeight="86.0" prefWidth="836.0">
+         <children>
+            <ImageView fitHeight="74.0" fitWidth="78.0" layoutX="87.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/menu-modern-5-310x260.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="type_row_commande" layoutX="232.0" layoutY="23.0" prefHeight="20.0" prefWidth="85.0" text="Burger" textFill="#b2afaf">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="name_row_commande" layoutX="232.0" layoutY="46.0" prefHeight="21.0" prefWidth="184.0" text="Hamburger Special">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="price_row_commande" layoutX="668.0" layoutY="47.0" prefHeight="21.0" prefWidth="78.0" text="5 DT">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="753.0" layoutY="37.0" prefHeight="35.0" prefWidth="41.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/cancle.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label fx:id="quantity" layoutX="34.0" layoutY="37.0" text="2">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="26.0" layoutY="54.0" prefHeight="21.0" prefWidth="17.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/less.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="25.0" layoutY="15.0" prefHeight="21.0" prefWidth="17.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="11.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -63,6 +63,7 @@ public class User {
         this.adresse = adresse;
     }
 
+  
     public String getUsername() {
         return username;
     }

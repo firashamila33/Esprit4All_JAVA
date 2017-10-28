@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorpane_club_id" prefHeight="560.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Club_EvenementFXMLController">
+   <children>
+      <Pane prefHeight="280.0" prefWidth="1000.0" style="-fx-background-color: #ff2e44;">
+         <children>
+            <JFXListView fx:id="list_even_club" layoutX="50.0" layoutY="27.0" prefHeight="251.0" prefWidth="900.0" style="-fx-background-color: #ff2e44;">
+               <effect>
+                  <DropShadow color="#424242" />
+               </effect>
+            </JFXListView>
+            <Label alignment="CENTER" layoutX="65.0" prefHeight="27.0" prefWidth="181.0" style="-fx-background-color: #4242428B;" text="Clubs" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutY="280.0" prefHeight="280.0" prefWidth="1000.0" style="-fx-background-color: #ff2e44;">
+         <children>
+            <JFXListView fx:id="list_even" layoutX="50.0" layoutY="26.0" prefHeight="251.0" prefWidth="900.0" style="-fx-background-color: #ff2e44;">
+               <effect>
+                  <DropShadow color="#424242" />
+               </effect></JFXListView>
+            <Label alignment="CENTER" layoutX="65.0" layoutY="-1.0" prefHeight="27.0" prefWidth="181.0" style="-fx-background-color: #4242428B;" text="Evenements" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

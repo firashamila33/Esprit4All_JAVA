@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DocAdministratifController">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="111.0" prefWidth="732.0" />
+      <ImageView fitHeight="634.0" fitWidth="1578.0" layoutX="-3.0" layoutY="4.0" opacity="0.39" pickOnBounds="true">
+         <image>
+            <Image url="@../ressources/xlarge_stock-footage-document-signature-paper-signature-signing-a-printed-form-signature-on-agreement-to-sign-a.jpg" />
+         </image>
+
+      </ImageView>
+           <Button fx:id="select_doc" layoutX="247.0" layoutY="541.0" mnemonicParsing="false" onAction="#envoi_demande" onKeyPressed="#envoi_demande" prefHeight="79.0" prefWidth="217.0" style="-fx-background-color: ff2e44;" text="Envoyer" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="41.0" />
+         </font></Button>
+
+      <ImageView fx:id="relever" fitHeight="432.0" fitWidth="341.0" layoutX="979.0" layoutY="106.0" onMousePressed="#relever" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/3c294222.jpg" />
+         </image></ImageView>
+      <Label layoutX="5.0" layoutY="3.0" prefHeight="84.0" prefWidth="470.0" text="Documents administratif" textFill="#fff4f4">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Separator layoutX="730.0" layoutY="35.0" orientation="VERTICAL" prefHeight="436.0" prefWidth="18.0" />
+      <Separator layoutX="116.0" layoutY="298.0" prefHeight="0.0" prefWidth="512.0" />
+      <Separator layoutX="889.0" layoutY="297.0" prefHeight="1.0" prefWidth="534.0" />
+      <Separator layoutX="17.0" layoutY="92.0" prefHeight="1.0" prefWidth="460.0" />
+      <Separator layoutX="445.0" layoutY="10.0" orientation="VERTICAL" prefHeight="116.0" prefWidth="9.0" />
+      <ImageView fitHeight="159.0" fitWidth="497.0" layoutX="107.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="159.0" fitWidth="497.0" layoutX="845.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="attestation" fitHeight="422.0" fitWidth="384.0" layoutX="208.0" layoutY="119.0" onMouseClicked="#attestation" onMousePressed="#attestation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/attestation-de-presence-au-travail-attestation-fb-3.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="select_doc1" layoutX="1023.0" layoutY="541.0" mnemonicParsing="false" onAction="#envoi_demande2" onKeyPressed="#envoi_demande" prefHeight="79.0" prefWidth="214.0" style="-fx-background-color: ff2e44;" text="Envoyer" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="42.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

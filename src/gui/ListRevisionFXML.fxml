@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListRevisionFXMLController">
+   <children>
+        <AnchorPane prefHeight="560.0" prefWidth="1260.0">
+                  <children>
+                     <ListView fx:id="revision_lv" layoutX="184.0" layoutY="53.0" prefHeight="490.0" prefWidth="910.0" style="-fx-border-color: black; -fx-border-width: 4 4 4 4;" />
+                     <AnchorPane prefHeight="40.0" prefWidth="1260.0" style="-fx-background-color: ff2e44;" />
+            <Button fx:id="creer_fentre" layoutX="1134.0" layoutY="457.0" mnemonicParsing="false" onAction="#ajout_grp_rev" prefHeight="89.0" prefWidth="112.0" style="-fx-background-color: ff2e44;" text="Créer" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+               </font>
+            </Button>
+                  </children>
+               </AnchorPane>
+   </children>
+</AnchorPane>

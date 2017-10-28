@@ -1,0 +1,105 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controllers;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import models.Club;
+import models.Evenement;
+
+/**
+ * FXML Controller class
+ *
+ * @author majdi
+ */
+public class RowClubFXMLController extends ListCell<Club> {
+
+    @FXML
+    private AnchorPane row;
+    @FXML
+    private ImageView path_img_id;
+    @FXML
+    private Label libelle_club_id;
+    @FXML
+    private Label decription_club_id;
+
+    /**
+     * Initializes the controller class.
+     */
+    private FXMLLoader mLLoader;
+
+    @Override
+    protected void updateItem(Club clubs, boolean empty) {
+        super.updateItem(clubs, empty);
+
+        if (empty || clubs == null) {
+
+            setText(null);
+            setGraphic(null);
+
+        } else {
+            if (mLLoader == null) {
+                mLLoader = new FXMLLoader(getClass().getResource("/gui/RowClubFXML.fxml"));
+                mLLoader.setController(this);
+
+                try {
+                    mLLoader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            libelle_club_id.setText(clubs.getLibelle());
+            decription_club_id.setText(clubs.getDescription());
+            
+            
+            path_img_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/"+clubs.getPath_img(), 500 ,500 ,true,true));
+
+           setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    //To change body of generated methods, choose Tools | Templates.
+                    try {
+
+                        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/ClubFXML.fxml"));
+                        Parent root = (Parent) fXMLLoader.load();
+                        ClubFXMLController controller = fXMLLoader.<ClubFXMLController>getController();
+                        controller.setId(clubs.getId());
+                        controller.display();
+                        
+
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            );
+            setText(null);
+            setGraphic(row);
+        }
+
+    }
+}

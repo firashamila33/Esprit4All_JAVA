@@ -32,7 +32,7 @@ public class DocumentAdministratifService implements IServiceDocumentAdministrat
     }
 
     @Override
-    public void add(models.DocumentAdministratif t) {
+    public void add(DocumentAdministratif t) {
         String req = "insert into documentadministratif (user_id,type,quantite,confirmation) values (?,?,?,?)";
         PreparedStatement preparedStatement;
         try {

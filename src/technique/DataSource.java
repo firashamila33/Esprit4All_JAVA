@@ -22,7 +22,7 @@ public class DataSource {
 
     private static DataSource instance;
 
-    public DataSource() {
+    private DataSource() {
         try {
             connection = DriverManager.getConnection(url, login, password);
         } catch (SQLException ex) {

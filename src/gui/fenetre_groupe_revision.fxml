@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="revision_fenetre" prefHeight="460.0" prefWidth="474.0" style="-fx-background-color: ff2e44;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Fenetre_groupe_revisionController">
+   <children>
+      <AnchorPane fx:id="topbar" prefHeight="70.0" prefWidth="474.0" style="-fx-background-color: white;">
+         <children>
+            <Button fx:id="description_rev" layoutX="10.0" layoutY="-1.0" minWidth="41.0" mnemonicParsing="false" onAction="#boutton_descrip" prefHeight="72.0" prefWidth="119.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
+            <Button fx:id="quitter" layoutX="319.0" layoutY="1.0" minWidth="41.0" mnemonicParsing="false" onAction="#quiter" prefHeight="68.0" prefWidth="83.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;">
+               <graphic>
+                  <ImageView fitHeight="57.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Exit_48px.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="modifrevision" layoutX="227.0" layoutY="-8.0" minWidth="41.0" mnemonicParsing="false" onAction="#modif_grp_revis" prefHeight="79.0" prefWidth="83.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
+            <Button fx:id="button_chat" layoutX="150.0" layoutY="1.0" minWidth="41.0" mnemonicParsing="false" onAction="#chat_revision" prefHeight="68.0" prefWidth="83.0" style="-fx-background-color: white; -fx-background-radius: 5em; -fx-border-radius: 5em;" />
+            <Button fx:id="supp_annonce" layoutX="395.0" layoutY="-23.0" mnemonicParsing="false" onAction="#supprimer_annoce" prefHeight="95.0" prefWidth="83.0" style="-fx-background-color: white;" />
+            <ImageView fitHeight="70.0" fitWidth="68.0" layoutX="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Graduation_Cap_48px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="chat_grp_rev" fitHeight="72.0" fitWidth="57.0" layoutX="142.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Chat_48px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="setting_grp_rev" fitHeight="57.0" fitWidth="57.0" layoutX="240.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Settings_50px_2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="quitter_grp_rev" fitHeight="57.0" fitWidth="57.0" layoutX="408.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Delete_52px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="modification" layoutY="71.0" prefHeight="452.0" prefWidth="474.0" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+         <children>
+            <AnchorPane fx:id="modiff" layoutX="1.0" layoutY="3.0" opacity="0.5" prefHeight="446.0" prefWidth="473.0" visible="false">
+               <children>
+                  <TextField fx:id="modifgrp_userid" layoutX="74.0" layoutY="40.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 5em; -fx-background-color: ff2e44;" />
+                  <TextField fx:id="modifgrp_type" layoutX="323.0" layoutY="191.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 5em; -fx-background-color: ff2e44;" />
+                  <TextField fx:id="modifgrp_description" layoutX="74.0" layoutY="194.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 5em; -fx-background-color: ff2e44;" />
+                  <TextField fx:id="modifgrp_matiere" layoutX="326.0" layoutY="40.0" prefHeight="34.0" prefWidth="133.0" style="-fx-background-radius: 5em; -fx-background-color: ff2e44;" />
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_ID_Card_50px_2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="34.0" fitWidth="40.0" layoutX="277.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Password_52px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="120.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Group_64px_2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="48.0" fitWidth="45.0" layoutX="18.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Create_48px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="18.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Calendar_52px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="268.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Book_48px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="272.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Calendar_52px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="set_modif" layoutX="172.0" layoutY="354.0" mnemonicParsing="false" onAction="#modifier_grp" prefHeight="57.0" prefWidth="175.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: ff2e44;" text="Modifier" textFill="WHITE" />
+                  <DatePicker fx:id="modifgrp_heurdepart" layoutX="74.0" layoutY="117.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: ff2e44;" />
+                  <DatePicker fx:id="modifgrp_heurfin" layoutX="326.0" layoutY="117.0" prefHeight="24.0" prefWidth="133.0" style="-fx-background-color: ff2e44;" />
+                  <Separator layoutX="112.0" layoutY="337.0" prefHeight="0.0" prefWidth="294.0" style="-fx-background-color: ff2e44;" />
+                  <TextField fx:id="modifgrp_nbrmax" layoutX="189.0" layoutY="271.0" prefHeight="41.0" prefWidth="140.0" style="-fx-background-radius: 5em; -fx-background-color: ff2e44;" />
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+      <AnchorPane fx:id="Chat" layoutY="77.0" prefHeight="439.0" prefWidth="474.0" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false" />
+      <AnchorPane fx:id="compteRendu" layoutY="112.0" prefHeight="419.0" prefWidth="474.0" style="-fx-background-color: white; -fx-border-image-width: 0 1 1 0; -fx-background-radius: 5em;">
+         <children>
+            <ImageView fitHeight="193.0" fitWidth="191.0" layoutX="142.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/user-3.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="101.0" layoutY="228.0" prefHeight="7.0" prefWidth="264.0" style="-fx-background-color: ff2e44;" />
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="289.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="289.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="187.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Time_48px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="46.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Time_48px.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="162.0" layoutY="245.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" style="-fx-background-color: ff2e44;" />
+            <Separator layoutX="309.0" layoutY="245.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" style="-fx-background-color: ff2e44;" />
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="326.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Group_64px_2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="46.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Book_48px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="45.0" layoutX="187.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/icons8_Create_48px.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="162.0" layoutY="331.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="0.0" style="-fx-background-color: ff2e44;" />
+            <Label fx:id="heurdebut_label" layoutX="101.0" layoutY="252.0" prefHeight="34.0" prefWidth="61.0">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="heur_fin_label" layoutX="245.0" layoutY="262.0" prefHeight="24.0" prefWidth="61.0" />
+            <Label fx:id="nbr_grp" layoutX="370.0" layoutY="262.0" prefHeight="24.0" prefWidth="27.0" />
+            <Label fx:id="nbrmaw_grp" layoutX="414.0" layoutY="262.0" prefHeight="24.0" prefWidth="27.0" textFill="#ff2e44">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label fx:id="descritpion" layoutX="245.0" layoutY="354.0" prefHeight="57.0" prefWidth="191.0" textFill="#ff2e44">
+               <font>
+                  <Font size="19.0" />
+               </font></Label>
+            <Label fx:id="matiere" layoutX="94.0" layoutY="344.0" prefHeight="34.0" prefWidth="68.0" textFill="#ff2e44">
+               <font>
+                  <Font size="30.0" />
+               </font></Label>
+            <Label layoutX="394.0" layoutY="254.0" prefHeight="34.0" prefWidth="19.0" text="/" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

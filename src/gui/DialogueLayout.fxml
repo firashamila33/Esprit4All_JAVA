@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="covoiturage" prefHeight="500.0" prefWidth="640.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DialogueLayoutController">
+   <children>
+      <StackPane fx:id="paneMessage" prefHeight="500.0" prefWidth="640.0">
+         <children>
+            <AnchorPane prefHeight="500.0" prefWidth="640.0">
+               <children>
+                  <ImageView layoutX="20.0" layoutY="149.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Car_64px.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="type" fill="#ff2e44" layoutX="84.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque de la voiture">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView layoutX="352.0" layoutY="245.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Price_64px.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="prix" fill="#ff2e44" layoutX="424.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="prix">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView layoutX="36.0" layoutY="277.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Marker_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#424242" layoutX="33.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Départ">
+                     <font>
+                        <Font name="Lato Black" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="depart" fill="#ff2e44" layoutX="84.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu de départ">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView layoutX="36.0" layoutY="219.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Marker_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#424242" layoutX="34.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrivé">
+                     <font>
+                        <Font name="Lato Black" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="arrive" fill="#ff2e44" layoutX="85.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu d'arrivé">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView layoutX="352.0" layoutY="309.0">
+                     <image>
+                        <Image url="@../ressources/icons8_User_Groups_64px.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="nbrePlace" fill="#ff2e44" layoutX="424.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombre place">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView layoutX="20.0" layoutY="339.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Clock_64px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="343.0" layoutY="26.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Create_64px.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="description" layoutX="350.0" layoutY="91.0" prefHeight="151.0" prefWidth="284.0" text="Description" textFill="#ff2e44">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="20.0" layoutY="26.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Customer_64px.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="name" fill="#ff2e44" layoutX="84.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom nom">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView layoutX="20.0" layoutY="85.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Phone_64px.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="tel" fill="#ff2e44" layoutX="84.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Téléphone">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+                  <JFXButton fx:id="subscribe" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="280.0" layoutY="414.0" onAction="#ajouterUser">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../ressources/icons8_Add_User_Male_64px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Text fx:id="hDepart" fill="#ff2e44" layoutX="83.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="heure départ">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <JFXDialogLayout fx:id="dialogLayoutMessage" maxHeight="100.0" maxWidth="400.0" minHeight="100.0" minWidth="400.0" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #ff2e44;" visible="false">
+               <children>
+                  <Label fx:id="labelDialog" textFill="WHITE">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </JFXDialogLayout>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
