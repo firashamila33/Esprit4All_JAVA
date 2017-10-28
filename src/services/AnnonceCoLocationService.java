@@ -203,8 +203,7 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
             IAddressService addressService = new AddressService();
             addressService.update(t.getAddress());
 
-            //ps.setInt(1, t.getAddress().getId());
-            ps.setInt(1, 142);
+            ps.setInt(1, t.getAddress().getId());
             ps.setString(2, t.getDimensions());
             ps.setInt(3, t.getMaxCoLocataire());
             ps.setFloat(4, t.getLoyer());
