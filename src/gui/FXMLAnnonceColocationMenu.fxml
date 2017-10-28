@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLAnnonceColocationMenuController">
+   
+    <children>
+      <AnchorPane layoutX="4.0" layoutY="3.0">
+         <children>
+            <AnchorPane fx:id="mainPlace" layoutY="11.0">
+               <children>
+                  <AnchorPane fx:id="Menu">
+                     <children>
+                        <ScrollPane layoutY="96.0" prefHeight="444.0" prefWidth="798.0">
+                           <content>
+                              <VBox fx:id="myVBox" prefHeight="442.0" prefWidth="796.0" spacing="10.0" />
+                           </content>
+                        </ScrollPane>
+                        <Button layoutX="20.0" mnemonicParsing="false" onAction="#onNouvelleAnnonceAction" prefHeight="26.0" prefWidth="163.0" text="Nouvelle Annonce" />
+                        <Label layoutX="20.0" layoutY="36.0" prefHeight="26.0" prefWidth="77.0" text="Loyer" />
+                        <TextField layoutX="250.0" layoutY="36.0" />
+                        <TextField layoutX="589.0" layoutY="35.0" />
+                        <Label layoutX="218.0" layoutY="41.0" text="min" />
+                        <Label layoutX="553.0" layoutY="40.0" text="max" />
+                        <Label layoutX="20.0" layoutY="70.0" text="CoLocataires" />
+                        <TextField layoutX="250.0" layoutY="65.0" />
+                        <TextField layoutX="589.0" layoutY="64.0" />
+                        
+                        
+                        <Label layoutX="218.0" layoutY="70.0" text="min" />
+                        <Label layoutX="553.0" layoutY="69.0" text="max" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="798.0" layoutY="5.0" prefHeight="545.0" prefWidth="558.0">
+               <children>
+                  <WebView fx:id="webViewMap" layoutX="-4.0" layoutY="-5.0" prefHeight="552.0" prefWidth="564.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

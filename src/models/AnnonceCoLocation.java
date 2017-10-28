@@ -94,6 +94,11 @@ public AnnonceCoLocation(Address address, String dimensions, ArrayList<User> coL
     }
 
     @Override
+    public String toString() {
+        return "AnnonceCoLocation{" + "address=" + address + ", dimensions=" + dimensions + ", maxCoLocataire=" + maxCoLocataire + ", loyer=" + loyer + '}';
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;

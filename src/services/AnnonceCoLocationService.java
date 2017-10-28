@@ -10,6 +10,7 @@ import java.util.List;
 import models.AnnonceCoLocation;
 import interfaces.IAnnonceCoLocationService;
 import interfaces.IServices;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -84,7 +85,7 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
 
             } catch (SQLException ex) {
                 System.err.println(ex);
-            ex.printStackTrace();
+                ex.printStackTrace();
             }
             return result;
         }
@@ -99,43 +100,47 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
         private PreparedStatement deletePS;
         private String selectReq = "select User_id from AnnonceCoLocataire_R where annonceCoLocation_id=?";
         private PreparedStatement selectPS;
-        public CoLocataire(){
+
+        public CoLocataire() {
             try {
                 insertPS = dataSource.getConnection().prepareStatement(insertReq);
                 deletePS = dataSource.getConnection().prepareStatement(deleteReq);
-                selectPS =  dataSource.getConnection().prepareStatement(selectReq);
+                selectPS = dataSource.getConnection().prepareStatement(selectReq);
             } catch (SQLException ex) {
                 System.err.println(ex);
             }
-            
+
         }
-        public void add(int annonceCoLocationId,int userId){
+
+        public void add(int annonceCoLocationId, int userId) {
             try {
                 insertPS.setInt(1, annonceCoLocationId);
                 insertPS.setInt(2, userId);
                 insertPS.executeUpdate();
             } catch (SQLException ex) {
-                  System.out.println(ex);
+                System.out.println(ex);
             }
         }
-        public void remove(int annonceCoLocationId,int userId)
-        {
+
+        public void remove(int annonceCoLocationId, int userId) {
             try {
                 deletePS.setInt(1, annonceCoLocationId);
-                deletePS.setInt(2,userId);
+                deletePS.setInt(2, userId);
                 deletePS.executeUpdate();
             } catch (SQLException e) {
                 System.out.println(e);
             }
-        
+
         }
-        public List<User>  getAllUsers(int annonceCoLocationId ){
+
+        public List<User> getAllUsers(int annonceCoLocationId) {
             List<User> result = new ArrayList();
             try {
-                selectPS.setInt(1,annonceCoLocationId);
+                selectPS.setInt(1, annonceCoLocationId);
                 ResultSet rs = selectPS.executeQuery();
-                while(rs.next())
+                while (rs.next()) {
                     result.add(new User(rs.getInt(1)));
+                }
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
@@ -173,13 +178,13 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
             // adding the Images
             ImageService imageService = new ImageService();
             for (String photo : t.getPhotosUrls()) {
-                imageService.add(photo,t.getId());
-                
+                imageService.add(photo, t.getId());
+
             }
             //adding "les Colocataires"
             CoLocataire coLocataireService = new CoLocataire();
             for (User u : t.getCoLocataires()) {
-                coLocataireService.add(t.getId(),u.getId());
+                coLocataireService.add(t.getId(), u.getId());
             }
 
         } catch (SQLException ex) {
@@ -191,15 +196,15 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
     @Override
     public void update(AnnonceCoLocation t) {
         try {
-            String req = "update  AnnonceCoLocation set address_id = ?,dimensions=?,maxCoLocataire=?, loyer=?,name=?,description=?,owner_id=?,creationDate=?,expirationDate=? where id=?" ;
-            
-            
+            String req = "update  AnnonceCoLocation set address_id = ?,dimensions=?,maxCoLocataire=?, loyer=?,name=?,description=?,owner_id=?,creationDate=?,expirationDate=? where id=?";
+
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
 
             IAddressService addressService = new AddressService();
             addressService.update(t.getAddress());
 
-            ps.setInt(1, t.getAddress().getId());
+            //ps.setInt(1, t.getAddress().getId());
+            ps.setInt(1, 142);
             ps.setString(2, t.getDimensions());
             ps.setInt(3, t.getMaxCoLocataire());
             ps.setFloat(4, t.getLoyer());
@@ -209,33 +214,29 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
             ps.setInt(7, t.getOwner().getId());
             ps.setDate(8, t.getCreationDate());
             ps.setDate(9, t.getExpirationDate());
-            ps.setInt(10,t.getId());
+            ps.setInt(10, t.getId());
             ps.executeUpdate();
             // updating the Images
-            
+
             ImageService imageService = new ImageService();
-            
-            for(String photo: imageService.getAllPhotos(t.getId()))
-            {
+
+            for (String photo : imageService.getAllPhotos(t.getId())) {
                 imageService.remove(photo, t.getId());
-                
+
             }
-                
-                
+
             for (String photo : t.getPhotosUrls()) {
-                imageService.add(photo,t.getId());
-                
+                imageService.add(photo, t.getId());
+
             }
             //updating "les Colocataires"
-            
-            
+
             CoLocataire coLocataireService = new CoLocataire();
-            for(User u : coLocataireService.getAllUsers(t.getId()))
-            {
-               coLocataireService.remove(t.getId(), u.getId());
+            for (User u : coLocataireService.getAllUsers(t.getId())) {
+                coLocataireService.remove(t.getId(), u.getId());
             }
             for (User u : t.getCoLocataires()) {
-                coLocataireService.add(t.getId(),u.getId());
+                coLocataireService.add(t.getId(), u.getId());
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -249,7 +250,37 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
 
     @Override
     public List<AnnonceCoLocation> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<AnnonceCoLocation> result = new ArrayList<>();
+        try {
+            String req = "select * from AnnonceCoLocation";
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
+            ResultSet rs = ps.executeQuery();
+
+            AddressService addressService = new AddressService();
+            while (rs.next()) {
+                AnnonceCoLocation element = new AnnonceCoLocation(
+                        addressService.getById(rs.getInt("address_id")),
+                        rs.getString("dimensions"),
+                        new ArrayList<User>(),
+                        rs.getInt("maxCoLocataire"),
+                        rs.getFloat("loyer"),
+                        new ArrayList<String>(),
+                        rs.getString("name"),
+                        rs.getString("description"),
+                        new User(rs.getInt("owner_id")),
+                        rs.getDate("creationDate"),
+                        rs.getDate("expirationDate"));
+
+                element.setId(rs.getInt(1));
+                result.add(element);
+                
+                System.out.println("hello i s me");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("olal  a  " + ex);
+        }
+        return result;
     }
 
     @Override
