@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  Dim 22 oct. 2017 à 16:30
+-- Généré le :  sam. 28 oct. 2017 à 15:34
 -- Version du serveur :  10.1.25-MariaDB
 -- Version de PHP :  5.6.31
 
@@ -30,132 +30,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Address` (
   `id` int(11) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `street` varchar(50) NOT NULL,
-  `homeNumber` varchar(50) NOT NULL,
-  `furtherAddressDescription` varchar(100) NOT NULL
+  `lat` double NOT NULL,
+  `lng` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `Address`
 --
 
-INSERT INTO `Address` (`id`, `city`, `street`, `homeNumber`, `furtherAddressDescription`) VALUES
-(4, 'Beja', '', '', ''),
-(5, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(6, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(7, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(8, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(9, '1111', '', '', ''),
-(10, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(11, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(12, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(13, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(14, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(15, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(16, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(17, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(18, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(19, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(20, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(21, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(22, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(23, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(24, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(25, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(26, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(27, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(28, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(29, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(30, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(31, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(32, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(33, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(34, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(35, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(36, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(37, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(38, 'Beja', 'Jassmin', '21', 'en face de monoprix'),
-(39, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(40, 'Jandouba', 'Jassmin', '45', 'en face de monoprix'),
-(41, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(42, 'Jandouba', 'Jassmin', '45', 'en face de monoprix'),
-(43, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(44, 'El KEff', 'Jassmin', '45', 'en face de monoprix'),
-(45, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(46, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(47, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(48, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(49, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(50, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(51, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(52, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(55, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(56, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(58, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(59, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(61, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(62, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(64, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(65, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(67, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(68, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(70, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(71, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(73, 'Mourouj', 'REpublique', '4000', 'en face de monoprix'),
-(74, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(75, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(77, 'Mourouj', 'REpublique', '4000', 'en face de monoprix'),
-(78, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(79, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(81, 'Mourouj', 'REpublique', '4000', 'en face de monoprix'),
-(82, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(83, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(85, 'Mourouj', 'REpublique', '4000', 'en face de monoprix'),
-(86, 'Manouba', 'REpublique', '4000', 'en face de monoprix'),
-(87, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(88, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(90, 'Mourouj', 'REpublique', '4000', 'en face de monoprix'),
-(91, 'Manouba', 'REpublique', '4000', 'en face de monoprix'),
-(92, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(93, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(95, 'Mourouj', 'REpublique', '4000', 'en face de monoprix'),
-(96, 'Manouba', 'REpublique', '4000', 'en face de monoprix'),
-(97, 'Tunis', 'REpublique', '21', 'en face de monoprix'),
-(98, 'Ben arous', 'Jassmin', '45', 'en face de monoprix'),
-(100, 'Mourouj', 'REpublique', '4000', 'en face de monoprix'),
-(101, 'Manouba', 'REpublique', '4000', 'en face de monoprix'),
-(102, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(103, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(104, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(105, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(106, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(107, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(108, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(109, 'NouvelleAriana', 'Principale', '404', 'baa7dha el pole'),
-(110, 'NouvelleAriana', 'Principale', '404', 'baa7dha el pole'),
-(111, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(112, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(113, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(114, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(115, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(116, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(117, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(118, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(119, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(120, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(121, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(122, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(123, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(124, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(125, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(126, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(127, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(128, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(129, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(130, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(131, 'Ghazela', 'Principale', '404', 'baa7dha el pole'),
-(132, 'Ghazela', 'Principale', '404', 'baa7dha el pole');
+INSERT INTO `Address` (`id`, `lat`, `lng`) VALUES
+(173, 37.40609645125389, -121.96695327758789),
+(174, 37.39048169465409, -121.95425033569336),
+(175, 37.38714012333367, -121.96291923522949),
+(176, 37.39123182284687, -121.98214530944824),
+(177, 37.410732521048885, -121.97227478027344),
+(178, 37.38714012333367, -121.96291923522949);
 
 -- --------------------------------------------------------
 
@@ -187,6 +76,18 @@ CREATE TABLE `AnnonceCoLocation` (
   `creationDate` date NOT NULL,
   `expirationDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `AnnonceCoLocation`
+--
+
+INSERT INTO `AnnonceCoLocation` (`id`, `address_id`, `dimensions`, `maxCoLocataire`, `loyer`, `name`, `description`, `owner_id`, `creationDate`, `expirationDate`) VALUES
+(35, 173, '1', 10, 1, '', 'bus station	', 3, '2017-10-28', '1970-01-18'),
+(36, 174, '1', 10, 1, '', 'oracle', 3, '2017-10-28', '1970-01-18'),
+(37, 175, '1', 10, 1, '', 'Intel Mesuil', 3, '2017-10-28', '1970-01-18'),
+(38, 176, '1', 10, 1, '', 'basla mechwaya college', 3, '2017-10-28', '1970-01-18'),
+(39, 177, 'ss', 10, 233, '', 'ssssssssssss', 3, '2017-10-28', '1970-01-18'),
+(40, 178, 'z', 10, 12.2, '', 'zzzzzzzzzzzzzz', 3, '2017-10-28', '1970-01-18');
 
 -- --------------------------------------------------------
 
@@ -246,12 +147,34 @@ CREATE TABLE `ImageAnnonce` (
   `imageUrl` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `User`
+-- Déchargement des données de la table `ImageAnnonce`
 --
 
+INSERT INTO `ImageAnnonce` (`id`, `annonceCoLocation_id`, `imageUrl`) VALUES
+(9, 9, 'photo1.png'),
+(10, 9, 'photo2.png'),
+(11, 10, 'photo1.png'),
+(12, 10, 'photo2.png'),
+(13, 11, 'photo1.png'),
+(14, 11, 'photo2.png'),
+(17, 12, 'photo1.png'),
+(18, 12, 'photo2.png'),
+(21, 13, 'photo1.png'),
+(22, 13, 'photo2.png'),
+(25, 14, 'photo1.png'),
+(26, 14, 'photo2.png'),
+(27, 14, 'A beautifull pic'),
+(30, 15, 'photo1.png'),
+(31, 15, 'photo2.png'),
+(32, 15, 'A beautifull pic'),
+(35, 16, 'photo1.png'),
+(36, 16, 'photo2.png'),
+(37, 16, 'A beautifull pic');
+
+--
+-- Index pour les tables déchargées
+--
 
 --
 -- Index pour la table `Address`
@@ -290,7 +213,6 @@ ALTER TABLE `ImageAnnonce`
   ADD KEY `fk_AnnonceCoLocation` (`annonceCoLocation_id`);
 
 --
---
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -298,7 +220,7 @@ ALTER TABLE `ImageAnnonce`
 -- AUTO_INCREMENT pour la table `Address`
 --
 ALTER TABLE `Address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
 --
 -- AUTO_INCREMENT pour la table `AnnonceCoLocataire_R`
 --
@@ -308,7 +230,7 @@ ALTER TABLE `AnnonceCoLocataire_R`
 -- AUTO_INCREMENT pour la table `AnnonceCoLocation`
 --
 ALTER TABLE `AnnonceCoLocation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT pour la table `AnnonceObjetPerdu`
 --
@@ -318,34 +240,22 @@ ALTER TABLE `AnnonceObjetPerdu`
 -- AUTO_INCREMENT pour la table `ImageAnnonce`
 --
 ALTER TABLE `ImageAnnonce`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+--
+-- Contraintes pour les tables déchargées
 --
 
 --
 -- Contraintes pour la table `AnnonceCoLocataire_R`
 --
 ALTER TABLE `AnnonceCoLocataire_R`
-  ADD CONSTRAINT `fk_AnnonceCoLocationId` FOREIGN KEY (`annonceCoLocation_id`) REFERENCES `AnnonceCoLocation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_Colocataire` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_AnnonceCoLocationId` FOREIGN KEY (`annonceCoLocation_id`) REFERENCES `AnnonceCoLocation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `AnnonceCoLocation`
 --
 ALTER TABLE `AnnonceCoLocation`
-  ADD CONSTRAINT `fk_addressId` FOREIGN KEY (`address_id`) REFERENCES `Address` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_ownerId` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `AnnonceObjetPerdu`
---
-ALTER TABLE `AnnonceObjetPerdu`
-  ADD CONSTRAINT `AnnonceObjetPerdu_ibfk_1` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `ImageAnnonce`
---
-ALTER TABLE `ImageAnnonce`
-  ADD CONSTRAINT `fk_AnnonceCoLocation` FOREIGN KEY (`annonceCoLocation_id`) REFERENCES `AnnonceCoLocation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_addressId` FOREIGN KEY (`address_id`) REFERENCES `Address` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
