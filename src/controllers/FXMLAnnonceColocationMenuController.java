@@ -22,8 +22,11 @@ import controllers.FXMLAnnonceColocationController;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import models.User;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -52,9 +55,17 @@ public class FXMLAnnonceColocationMenuController implements Initializable {
     private TextField minCoLocataires;
     @FXML
     private TextField maxCoLocataires;
+    @FXML
+    private Button supprimerButton;
+    private User currentUser;
+    private boolean isAdmin;
 
     public FXMLAnnonceColocationMenuController() {
         annonceWidgetList = new ArrayList<>();
+        UserService service = new UserService();
+        currentUser = service.getUserById(7);
+        isAdmin = false;
+         
     }
 
     public void setMarkerPosition(double lat, double lng) {
@@ -68,6 +79,12 @@ public class FXMLAnnonceColocationMenuController implements Initializable {
         focusedElement = c;
 
         setMarkerPosition(c.getAnnonce().getAddress().getLat(), c.getAnnonce().getAddress().getLng());
+        System.out.println(focusedElement.getAnnonce().getOwner());
+        if(currentUser.equals(focusedElement.getAnnonce().getOwner()) || isAdmin)
+            supprimerButton.setVisible(true);
+        else
+            supprimerButton.setVisible(false);
+        
 
     }
 
@@ -121,9 +138,10 @@ public class FXMLAnnonceColocationMenuController implements Initializable {
             FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/FXMLDetailedAnnonce.fxml"));
             Node widget = fXMLLoader.<Node>load();
             FXMLDetailedAnnonceController controller = fXMLLoader.<FXMLDetailedAnnonceController>getController();
-            //System.out.println(" Dclick" + trigger.getAnnonce());
-            controller.initUpdateMode(trigger.getAnnonce(), this);
-            //System.out.println(Menu);
+            if(currentUser.equals(trigger.getAnnonce().getOwner()))
+                controller.initUpdateMode(trigger.getAnnonce(), this);
+            else
+               controller.initViewMode(trigger.getAnnonce(), this); 
             mainPlace.getChildren().remove(Menu);
             mainPlace.getChildren().add(widget);
 
@@ -183,6 +201,13 @@ public class FXMLAnnonceColocationMenuController implements Initializable {
 
                 });
         annonceWidgetList = newAnnonceWidgetList;
+    }
+
+    @FXML
+    private void onSupprimerAction(ActionEvent event) {
+        AnnonceCoLocationService service = new AnnonceCoLocationService();
+        service.delete(focusedElement.getAnnonce().getId());
+        refresh();
     }
 
 }

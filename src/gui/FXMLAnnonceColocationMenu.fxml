@@ -48,6 +48,7 @@
                                  </children>
                               </Pane>
                               <Button layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#onFiltrerAction" prefHeight="26.0" prefWidth="145.0" style="-fx-background-color: #545454; -fx-text-fill: #ff3869; -fx-font-size: 13.5;" text="Filtrer" />
+                              <Button fx:id="supprimerButton" layoutX="574.0" layoutY="5.0" mnemonicParsing="false" onAction="#onSupprimerAction" prefHeight="26.0" prefWidth="145.0" style="-fx-background-color: #545454; -fx-text-fill: #ff3869; -fx-font-size: 13.5;" text="Supprimer" visible="false" />
                            </children>
                         </Pane>
                      </children>
