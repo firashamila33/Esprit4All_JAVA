@@ -4,12 +4,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLDetailedAnnonceObjetPerduController">
    <children>
-      <Label layoutX="10.0" layoutY="55.0" prefHeight="27.0" prefWidth="277.0" text="Information Generale :">
+      <ImageView blendMode="OVERLAY" fitHeight="550.0" fitWidth="743.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/lost&amp;found.jpeg" />
+         </image>
+      </ImageView>
+      <Label layoutX="10.0" layoutY="55.0" prefHeight="27.0" prefWidth="383.0" text="Information sur L'objet Perdu :">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -19,9 +26,9 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextArea fx:id="descriptionValue" layoutX="6.0" layoutY="120.0" prefHeight="56.0" prefWidth="740.0" />
-      <Button layoutX="670.0" layoutY="488.0" mnemonicParsing="false" onAction="#onOkAction" prefHeight="26.0" prefWidth="53.0" text="Ok" />
-      <Button layoutX="29.0" layoutY="17.0" mnemonicParsing="false" onAction="#onRetourAction" text="Retour" />
+      <TextArea fx:id="descriptionValue" layoutX="6.0" layoutY="120.0" prefHeight="56.0" prefWidth="726.0" />
+      <Button blendMode="MULTIPLY" layoutX="591.0" layoutY="383.0" mnemonicParsing="false" onAction="#onOkAction" opacity="0.95" prefHeight="43.0" prefWidth="83.0" text="Ok" />
+      <Button blendMode="MULTIPLY" layoutX="491.0" layoutY="383.0" mnemonicParsing="false" onAction="#onRetourAction" opacity="0.95" prefHeight="43.0" prefWidth="83.0" text="Retour" />
       <Label fx:id="perduLe" layoutX="13.0" layoutY="218.0" text="Perdu le :" />
       <Label fx:id="lieu" layoutX="13.0" layoutY="299.0" text="Lieu :" />
       <TextField fx:id="perduLeValue" layoutX="100.0" layoutY="213.0" />
