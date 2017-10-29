@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import services.UserService;
 
 /**
  *
@@ -26,6 +27,9 @@ public class MainAnnonceTest extends Application {
         
        // System.out.println(url);
         try {
+            UserService s = new UserService();
+            UserService.userStatic = s.getUserById(3);
+            System.out.println(UserService.userStatic);
             URL url = getClass().getResource("/gui/FXMLAnnonceColocationMenu.fxml");
             Parent root = FXMLLoader.load(url);
             Scene scene = new Scene(root);

@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import services.UserService;
 
 /**
  *
@@ -26,6 +27,8 @@ public class MainAnnonceObjetPerduTest extends Application {
         
        // System.out.println(url);
         try {
+            UserService s = new UserService();
+            UserService.userStatic = s.getUserById(3);
             URL url = getClass().getResource("/gui/FXMLAnnonceObjetPerduMenu.fxml");
             Parent root = FXMLLoader.load(url);
             Scene scene = new Scene(root);
