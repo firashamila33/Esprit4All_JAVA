@@ -82,7 +82,6 @@ public class EvenementFXMLController implements Initializable {
     {
          EvenementService es = new EvenementService();
         Evenement e = es.getById(id);
-        System.out.println(e);
    
        path_img_event_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + e.getPath_img()));
        path_img_club_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/"+e.getClub().getPath_img()));

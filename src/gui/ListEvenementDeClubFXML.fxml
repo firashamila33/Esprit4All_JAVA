@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id="acco_event_id" prefHeight="560.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="controllers.ListEvenementDeClubFXMLController">
+   <children>
+      <Accordion layoutX="55.0" layoutY="84.0" prefHeight="245.0" prefWidth="900.0">
+        <panes>
+          <TitledPane animated="false" prefHeight="260.0" prefWidth="900.0" style="-fx-background-color: #4242428B;" text="Mes evenements" textFill="WHITE">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <content>
+                  <ListView fx:id="list_id_event" prefHeight="245.0" prefWidth="532.0" />
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+</AnchorPane>

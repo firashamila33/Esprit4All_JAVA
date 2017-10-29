@@ -70,11 +70,9 @@ public class RowClubFXMLController extends ListCell<Club> {
 
             libelle_club_id.setText(clubs.getLibelle());
             decription_club_id.setText(clubs.getDescription());
-            
-            
-            path_img_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/"+clubs.getPath_img(), 500 ,500 ,true,true));
+            path_img_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/" + clubs.getPath_img(), 500, 500, true, true));
 
-           setOnMouseClicked(new EventHandler<MouseEvent>() {
+            setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     //To change body of generated methods, choose Tools | Templates.
@@ -85,7 +83,6 @@ public class RowClubFXMLController extends ListCell<Club> {
                         ClubFXMLController controller = fXMLLoader.<ClubFXMLController>getController();
                         controller.setId(clubs.getId());
                         controller.display();
-                        
 
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
