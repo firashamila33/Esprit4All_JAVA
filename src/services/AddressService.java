@@ -26,13 +26,11 @@ public class AddressService implements IAddressService {
     public void add(Address t) {
 
         try {
-            String req = "insert into Address(city,street,homeNumber,furtherAddressDescription) values(?,?,?,?)";
+            String req = "insert into Address(lat,lng) values(?,?)";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setString(1, t.getCity());
-            ps.setString(2, t.getStreet());
-            ps.setString(3, t.getHomeNumber());
-            ps.setString(4, t.getFurtherAddressDescription());
+            ps.setDouble(1, t.getLat());
+            ps.setDouble(2, t.getLng());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
@@ -47,14 +45,13 @@ public class AddressService implements IAddressService {
     @Override
     public void update(Address t) {
         try {
-            String req = "Update  Address set city = ? , street = ? ,homeNumber = ?,furtherAddressDescription = ?  where id = ?";
+            String req = "Update  Address set lat=?, lng=? where id = ?;";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
-            ps.setString(1, t.getCity());
-            ps.setString(2, t.getStreet());
-            ps.setString(3, t.getHomeNumber());
-            ps.setString(4, t.getFurtherAddressDescription());
-            ps.setInt(5, t.getId());
+            ps.setDouble(1, t.getLat());
+            ps.setDouble(2, t.getLng());
+            
+            ps.setInt(3, t.getId());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex + "\n");
@@ -75,22 +72,7 @@ public class AddressService implements IAddressService {
 
     @Override
     public List<Address> getAll() {
-        List<Address> result = new ArrayList<>();
-        try {
-            String req = "select * from Address";
-
-            PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Address element = new Address(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
-                element.setId(rs.getInt(1));
-                result.add(element);
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Error" + ex);
-        }
-        return result;
+        return null;
 
     }
 
@@ -104,7 +86,7 @@ public class AddressService implements IAddressService {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 
-                 Address result = new Address(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                 Address result = new Address(rs.getDouble("lat"),rs.getDouble("lng"));
                  result.setId(rs.getInt(1));
                  return result;
             } else {
