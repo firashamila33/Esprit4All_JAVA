@@ -22,6 +22,7 @@ import controllers.FXMLAnnonceColocationController;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -43,38 +44,46 @@ public class FXMLAnnonceColocationMenuController implements Initializable {
     public AnchorPane mainPlace;
     @FXML
     public AnchorPane Menu;
+    @FXML
+    private TextField minLoyer;
+    @FXML
+    private TextField maxLoyer;
+    @FXML
+    private TextField minCoLocataires;
+    @FXML
+    private TextField maxCoLocataires;
 
     public FXMLAnnonceColocationMenuController() {
         annonceWidgetList = new ArrayList<>();
     }
-    public void setMarkerPosition(double lat,double lng)
-    {
-        String script = "setMarkerPosition("+ lat+"," +lng+ ");";
+
+    public void setMarkerPosition(double lat, double lng) {
+        String script = "setMarkerPosition(" + lat + "," + lng + ");";
         webViewMap.getEngine().executeScript(script);
-        
+
     }
-    public void onAnnonceClick(FXMLAnnonceColocationController c){
-        
+
+    public void onAnnonceClick(FXMLAnnonceColocationController c) {
+
         focusedElement = c;
-        
+
         setMarkerPosition(c.getAnnonce().getAddress().getLat(), c.getAnnonce().getAddress().getLng());
-        
-        
+
     }
-public void onDetailedMenuOkClick()
-{
-mainPlace.getChildren().clear();
-mainPlace.getChildren().add(Menu);
-refresh();
-}
+
+    public void onDetailedMenuOkClick() {
+        mainPlace.getChildren().clear();
+        mainPlace.getChildren().add(Menu);
+        refresh();
+    }
+
     private void refresh() {
         System.out.println("i am alive");
         AnnonceCoLocationService service = new AnnonceCoLocationService();
         annonceWidgetList.clear();
         myVBox.getChildren().clear();
         annonceList = (ArrayList<AnnonceCoLocation>) service.getAll();
-        annonceList.forEach(System.out::println);
-        
+
         annonceList.forEach(a -> {
             try {
                 FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/FXMLAnnonceColocation.fxml"));
@@ -98,11 +107,10 @@ refresh();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-            //URL url1 = new URL("file:///home/kadhem/esprit/gmap.html");
-            URL url1 = getClass().getResource("/gui/gmap.html");
+        //URL url1 = new URL("file:///home/kadhem/esprit/gmap.html");
+        URL url1 = getClass().getResource("/gui/gmap.html");
 
-            webViewMap.getEngine().load(url1.toString());
-
+        webViewMap.getEngine().load(url1.toString());
 
         refresh();
 
@@ -115,11 +123,11 @@ refresh();
             Node widget = fXMLLoader.<Node>load();
             FXMLDetailedAnnonceController controller = fXMLLoader.<FXMLDetailedAnnonceController>getController();
             //System.out.println(" Dclick" + trigger.getAnnonce());
-            controller.initUpdateMode(trigger.getAnnonce(),this);
+            controller.initUpdateMode(trigger.getAnnonce(), this);
             //System.out.println(Menu);
             mainPlace.getChildren().remove(Menu);
             mainPlace.getChildren().add(widget);
-            
+
         } catch (IOException ex) {
             Logger.getLogger(FXMLAnnonceColocationMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -139,7 +147,43 @@ refresh();
         } catch (IOException ex) {
             Logger.getLogger(FXMLAnnonceColocationMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+    }
+
+    @FXML
+    private void onFiltrerAction(ActionEvent event) {
+        myVBox.getChildren().clear();
+        ArrayList<FXMLAnnonceColocationController> newAnnonceWidgetList = new ArrayList<>();
+        annonceList.stream()
+                .filter(annonce -> {
+
+                    float loyerMax = maxLoyer.getText().equals("") ? 99999 : Float.parseFloat(maxLoyer.getText());
+                    float loyerMin = minLoyer.getText().equals("") ? 0 : Float.parseFloat(minLoyer.getText());
+                    int maxCMax = maxCoLocataires.getText().equals("") ? 99999 : Integer.parseInt(maxCoLocataires.getText());
+                    int maxCMin = minCoLocataires.getText().equals("") ? 0 : Integer.parseInt(minCoLocataires.getText());
+
+                    System.out.println(loyerMax + " " + loyerMin + " "+maxCMax + " "+ maxCMin);
+                    return annonce.getMaxCoLocataire() < maxCMax
+                            && annonce.getMaxCoLocataire() > maxCMin
+                            && annonce.getLoyer() < loyerMax
+                            && annonce.getLoyer() > loyerMin;
+                })
+                .forEach(annonce -> {
+                    try {
+                        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/FXMLAnnonceColocation.fxml"));
+
+                        Node widget = fXMLLoader.<Node>load();
+                        FXMLAnnonceColocationController controller = fXMLLoader.<FXMLAnnonceColocationController>getController();
+                        controller.init(annonce, this);
+                        newAnnonceWidgetList.add(controller);
+                        myVBox.getChildren().add(widget);
+
+                    } catch (IOException ex) {
+                        Logger.getLogger(FXMLAnnonceColocationMenuController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                });
+        annonceWidgetList = newAnnonceWidgetList;
     }
 
 }
