@@ -103,7 +103,7 @@ public class FXMLDetailedAnnonceController implements Initializable {
                         new ArrayList<>(),
                         "",
                         descriptionValue.getText(),
-                        new User(3), new Date(new java.util.Date().getTime()),
+                        new User(7), new Date(new java.util.Date().getTime()),
                         new Date(1514764800));
                 service.add(a);
                 annonce = a;
@@ -135,7 +135,7 @@ public class FXMLDetailedAnnonceController implements Initializable {
                     new ArrayList<>(),
                     "",
                     descriptionValue.getText(),
-                    new User(3), new Date(new java.util.Date().getTime()),
+                    new User(7), new Date(new java.util.Date().getTime()),
                     new Date(1514764800));
             a.setId(annonce.getId());
             service.update(a);
