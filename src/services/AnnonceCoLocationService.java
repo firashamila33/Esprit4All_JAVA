@@ -133,8 +133,8 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
 
         }
 
-        public List<User> getAllUsers(int annonceCoLocationId) {
-            List<User> result = new ArrayList();
+        public ArrayList<User> getAllUsers(int annonceCoLocationId) {
+            ArrayList<User> result = new ArrayList();
             try {
                 selectPS.setInt(1, annonceCoLocationId);
                 ResultSet rs = selectPS.executeQuery();
@@ -256,23 +256,30 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
             ResultSet rs = ps.executeQuery();
 
             AddressService addressService = new AddressService();
+            UserService userService = new UserService();
+            CoLocataire cl = new CoLocataire();
+
             while (rs.next()) {
+
+                User owner = userService.getUserById(rs.getInt("owner_id"));
+
+                ArrayList<User> colocataires = cl.getAllUsers(rs.getInt(1));
                 AnnonceCoLocation element = new AnnonceCoLocation(
                         addressService.getById(rs.getInt("address_id")),
                         rs.getString("dimensions"),
-                        new ArrayList<User>(),
+                        colocataires,
                         rs.getInt("maxCoLocataire"),
                         rs.getFloat("loyer"),
                         new ArrayList<String>(),
                         rs.getString("name"),
                         rs.getString("description"),
-                        new User(rs.getInt("owner_id")),
+                        owner,
                         rs.getDate("creationDate"),
                         rs.getDate("expirationDate"));
 
                 element.setId(rs.getInt(1));
                 result.add(element);
-                
+
                 System.out.println("hello i s me");
             }
 

@@ -78,7 +78,6 @@ public class FXMLAnnonceColocationMenuController implements Initializable {
     }
 
     private void refresh() {
-        System.out.println("i am alive");
         AnnonceCoLocationService service = new AnnonceCoLocationService();
         annonceWidgetList.clear();
         myVBox.getChildren().clear();
