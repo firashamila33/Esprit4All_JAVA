@@ -64,7 +64,7 @@ public class MenuService implements IMenuService {
     }
 
     public void update(Menu t) {
-        String req = "update Menu set libelle=?, type=?,categorie=? endroit=?, disponibilite=?, quantite=?, prix=?, path_img=? where id = ?";
+        String req = "update Menu set libelle=?, type=?,categorie=?, endroit=?, disponibilite=?, quantite=?, prix=?, path_img=? where id = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -94,7 +94,7 @@ public class MenuService implements IMenuService {
             while (resultSet.next()) {
                 Menu m;
                 m = new Menu(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("type"),resultSet.getString("categorie"), resultSet.getString("endroit"), resultSet.getInt("disponibilite"), resultSet.getInt("quantite"), resultSet.getDouble("prix"), resultSet.getString("path_img"));
-                meals.add(m);
+               meals.add(m);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

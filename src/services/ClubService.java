@@ -18,7 +18,7 @@ import technique.DataSource;
 
 /**
  *
- * @author Sami
+ * @author Majdi
  */
 public class ClubService implements IClubService {
 
@@ -55,7 +55,7 @@ public class ClubService implements IClubService {
             preparedStatement.setString(1, c.getLibelle());
             preparedStatement.setString(2, c.getDescription());
             preparedStatement.setString(3, c.getPath_img());
-             preparedStatement.setString(4, c.getPath_couverture());
+            preparedStatement.setString(4, c.getPath_couverture());
             preparedStatement.setInt(5, c.getUser().getId());
             preparedStatement.setInt(6, c.getId());
             preparedStatement.executeUpdate();
@@ -87,8 +87,9 @@ public class ClubService implements IClubService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), resultSet.getString("path_img"),resultSet.getString("path_couverture"), new User(resultSet.getInt("user_id")));
-                //System.out.println(c);
+                Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), 
+                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), resultSet.getString("apropos"), 
+                        resultSet.getString("notreHistoire"), new User(resultSet.getInt("user_id")));
                 club.add(c);
             }
         } catch (SQLException ex) {
@@ -100,17 +101,19 @@ public class ClubService implements IClubService {
     @Override
     public Club getById(Integer r) {
         Club club = null;
-        String req = "select *from club where id=?";
+        
+        String req = "select * from club where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
-                        resultSet.getString("path_img"),resultSet.getString("path_couverture"), new UserService().getUserById(resultSet.getInt("user_id")));
-                System.out.println(club);
-                
+                club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), 
+                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), resultSet.getString("apropos"),
+                        resultSet.getString("notreHistoire"), new User(resultSet.getInt("user_id")));
+                System.out.println("qsdqdqsdqsqd"+club);
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

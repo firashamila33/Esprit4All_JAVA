@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
@@ -9,25 +10,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.AcceuilClubFXMLController">
-   <children>
-      <Pane prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #ff2e44;">
-         <children>
-            <FlowPane fx:id="flowpane_id" layoutX="14.0" layoutY="14.0" prefHeight="532.0" prefWidth="1332.0" style="-fx-background-color: white;">
-               <effect>
-                  <DropShadow height="10.0" radius="4.5" width="10.0" />
-               </effect>
-               <padding>
-                  <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
-               </padding>
-            </FlowPane>
-            <Label layoutX="598.0" layoutY="18.0" text="Meilleurs Evenements" textFill="#424242">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-   </children>
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1320.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcceuilClubFXMLController">
+    <children>
+        <Pane prefHeight="560.0" prefWidth="1320.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="540.0" prefWidth="1320.0">
+                    <children>
+                        <Label alignment="CENTER" text="Meilleurs Evenements" textFill="#520707f0">
+                            <font>
+                                <Font name="Savoye LET Plain:1.0" size="30.0" />
+                            </font>
+                        </Label>
+                        <FlowPane fx:id="flowpane_id" prefHeight="560.0" prefWidth="1320.0">
+                            <padding>
+                                <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
+                            </padding>
+                        </FlowPane>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>

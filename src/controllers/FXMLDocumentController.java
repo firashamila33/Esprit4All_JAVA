@@ -5,13 +5,11 @@
  */
 package controllers;
 
-import services.CovoiturageService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,9 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import models.Covoiturage;
 import models.User;
 import services.CovoiturageService;
-import static services.UserService.userStatic;
 import utils.BCrypt;
-import interfaces.ICovoiturageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.HasCovoiturage;
@@ -164,15 +160,15 @@ public class FXMLDocumentController implements Initializable {
         } else if (event.getSource() == btnConsulter) {
             window2.setVisible(false);
             annonce.setVisible(true);
-            Covoiturage covoiturage;
+            Covoiturage covoiturage= null;
             CovoiturageService covoiturageService = new CovoiturageService();
-            covoiturage = covoiturageService.getByUserId(2);
-            typeAnnonce.setText(covoiturage.getType());
-            heureAnnonce.setText(covoiturage.getHeureDépart());
-            departAnnonce.setText(covoiturage.getDepart());
-            arriveAnnonce.setText(covoiturage.getArrivé());
-            prixAnnonce.setText(Double.toString(covoiturage.getPrix()));
-            descriptionAnnonce.setText(covoiturage.getDescription());
+            //covoiturage = covoiturageService.getByUserId(2);
+            //typeAnnonce.setText(covoiturage.getType());
+//            heureAnnonce.setText(covoiturage.getHeureDépart().toString());
+//            departAnnonce.setText(covoiturage.getDepart());
+//            arriveAnnonce.setText(covoiturage.getArrivé());
+//            prixAnnonce.setText(Double.toString(covoiturage.getPrix()));
+//            descriptionAnnonce.setText(covoiturage.getDescription());
 
             if (Integer.toString(covoiturage.getNbrePlace()).equals(radio1Annonce.getText())) {
                 radio1Annonce.setSelected(true);
@@ -241,7 +237,7 @@ public class FXMLDocumentController implements Initializable {
             } else if (radio4Annonce.isSelected()) {
                 nbr = Integer.parseInt(radio4Annonce.getText());
             }
-            Covoiturage covoiturage = new Covoiturage(2, userService.getUserById(2), typeAnnonce.getText(), Double.parseDouble(prixAnnonce.getText()), departAnnonce.getText(), arriveAnnonce.getText(), descriptionAnnonce.getText(), nbr, heureAnnonce.getText());
+            Covoiturage covoiturage = new Covoiturage(2, userService.getUserById(2),  Double.parseDouble(prixAnnonce.getText()), departAnnonce.getText(), arriveAnnonce.getText(), descriptionAnnonce.getText(), nbr, null);
             covoiturageService.update(covoiturage);
         } else if (event.getSource() == supprimer) {
             CovoiturageService covoiturageService = new CovoiturageService();
@@ -277,7 +273,7 @@ public class FXMLDocumentController implements Initializable {
         String originalPassword = "azerty";
         String generatedSecuredPasswordHash = BCrypt.hashpw(originalPassword, BCrypt.gensalt(12));
         User u = new User(2, "yacine", "yacine.farhat@esprit.tn", 1, generatedSecuredPasswordHash, "farhat", "yacine", null, "12345678", "cité olympique");
-        Covoiturage covoiturage = new Covoiturage(u, typeV, prixV, departV, arriveV, descriptionV, place, heureV);
+        Covoiturage covoiturage = new Covoiturage(u, prixV, departV, arriveV, descriptionV, place, null);
         System.out.println(covoiturage);
         CovoiturageService covoiturageService = new CovoiturageService();
         covoiturageService.add(covoiturage);
@@ -288,7 +284,7 @@ public class FXMLDocumentController implements Initializable {
         CovoiturageService covoiturageService = new CovoiturageService();
         covoiturages = FXCollections.observableArrayList(covoiturageService.getAll());
         listViewCovoiturage.setItems(covoiturages);
-        listViewCovoiturage.setCellFactory(covoiturageListView -> new RowCovoiturageController());
+        listViewCovoiturage.setCellFactory(covoiturageListView -> new RowCovoiturageController(null));
         ///////
         HasCovoiturageService hasCovoiturageService = new HasCovoiturageService();
         hasCovoiturages = FXCollections.observableArrayList(hasCovoiturageService.getAll());

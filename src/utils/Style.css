@@ -214,7 +214,16 @@ and open the template in the editor.
     -fx-background-radius: 4.0;
     -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);
 }
-
+.nav-card{
+    -fx-background-color: rgb(255.0, 255.0, 255.0);
+    -fx-background-radius: 4 4 0 0;
+    -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,0.0);
+}
+.container-card{
+    -fx-background-color: rgb(255.0, 255.0, 255.0);
+    -fx-background-radius: 0 0 4 4;
+    -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);
+}
 
 .rev-nav-button:hover{
     -fx-border-width: 0 4 0 0;
@@ -224,14 +233,53 @@ and open the template in the editor.
     -fx-border-width: 0 0 0 0;
 }
 
+.main-nav-button:hover{
+    -fx-border-width: 0 0 4 0;
+    -fx-border-color:  #ff2e44;
+}
+.main-nav-button{
+    -fx-border-width:  0 0 4 0;
+    -fx-border-color:  #ffffff;
+}
 
+.rev-nav-button:hover{
+    -fx-border-width: 0 4 0 0;
+    -fx-border-color:  #ff2e44;
+}
+.rev-nav-button{
+    -fx-border-width: 0 0 0 0;
+}
 
-
-
-
-
-
-
-
-
-
+.mylistview .scroll-bar:horizontal .track,
+.mylistview .scroll-bar:vertical .track{
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-border-radius:2em;
+}
+ 
+.mylistview .scroll-bar:horizontal .increment-button ,
+.mylistview .scroll-bar:horizontal .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 0 10 0;
+}
+ 
+.mylistview .scroll-bar:vertical .increment-button ,
+.mylistview .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 10 0 0;
+}
+.mylistview  .scroll-bar .increment-arrow,
+.mylistview  .scroll-bar .decrement-arrow{
+    -fx-shape:" ";
+    -fx-padding:0;
+}
+ 
+.mylistview .scroll-bar:horizontal .thumb,
+.mylistview .scroll-bar:vertical .thumb {
+    -fx-background-color:derive(black,90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+}

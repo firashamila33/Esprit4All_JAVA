@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #E5E5E5;" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainVieSocialFXMLController">
+   <children>
+      <AnchorPane layoutX="20.0" prefHeight="560.0" prefWidth="1320.0" styleClass="container-card">
+         <children>
+            <VBox prefHeight="560.0" prefWidth="150.0">
+               <children>
+                  <JFXButton fx:id="listClub_btn" onAction="#goToListClub" prefHeight="280.0" prefWidth="150.0" styleClass="rev-nav-button" text="Liste" />
+                  <JFXButton fx:id="listEvenement_btn" onAction="#GoToListEvenement" prefHeight="280.0" prefWidth="150.0" styleClass="rev-nav-button" text="Mes" />
+               </children>
+            </VBox>
+            <AnchorPane fx:id="container" layoutX="150.0" prefHeight="560.0" prefWidth="1170.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -20,11 +20,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 /**
  * FXML Controller class
@@ -36,8 +31,6 @@ public class ListRevisionFXMLController implements Initializable {
     @FXML
     private ListView<Revision> revision_lv;
     private ObservableList<Revision> revision;
-    @FXML
-    private TextArea recherche_annonce;
     @FXML
     private Button creer_fentre;
 

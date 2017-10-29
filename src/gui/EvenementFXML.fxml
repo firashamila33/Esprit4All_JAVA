@@ -19,6 +19,11 @@
                   <Image url="@../ressources/icons8_Back_Arrow_64px.png" />
                </image>
             </ImageView>
+            <Label layoutX="437.0" layoutY="8.0" text="Evenement" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
          </children></Pane>
       <Pane layoutX="14.0" layoutY="58.0" prefHeight="442.0" prefWidth="480.0" style="-fx-border-color: #4242428B; -fx-background-color: white;">
          <children>
