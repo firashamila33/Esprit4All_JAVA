@@ -9,15 +9,10 @@ import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -28,7 +23,6 @@ import javafx.stage.Stage;
 import models.Revision;
 import models.User;
 import services.RevisionService;
-import services.UserService;
 
 /**
  * FXML Controller class
@@ -196,8 +190,7 @@ modification.setVisible(true);
     private void boutton_descrip(ActionEvent event) {
        User u = new User(1);
         RevisionService rs = new RevisionService();
-        Revision r = new Revision();
-        r= rs.getById(u.getId());
+        Revision r =rs.getById(u.getId());
         nbrmaw_grp.setText(String.valueOf(r.getNbrmax()));
         matiere.setText(r.getMatiere());
         descritpion.setText(r.getDescription());

@@ -50,7 +50,7 @@ public class CovoiturageService implements ICovoiturageService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Covoiturage c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
+                Covoiturage c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getDate("heure_depart"),resultSet.getString("voiture"));
                 covoiturages.add(c);
             }
         } catch (SQLException ex) {
@@ -69,7 +69,7 @@ public class CovoiturageService implements ICovoiturageService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
+                c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getDate("heure_depart"),resultSet.getString("voiture"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -87,7 +87,7 @@ public class CovoiturageService implements ICovoiturageService {
             preparedStatement.setInt(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
+                c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getDate("heure_depart"),resultSet.getString("voiture"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -98,18 +98,18 @@ public class CovoiturageService implements ICovoiturageService {
 
     @Override
     public void update(Covoiturage t) {
-        String req = "update covoiturage set user_id=?,type=?,prix=?,depart=?,arrive=?,description=?,nbreplace=?,heure_depart=? where id=?";
+        String req = "update covoiturage set user_id=?,prix=?,depart=?,arrive=?,description=?,nbreplace=?,heure_depart=?,voiture=? where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getUserId().getId());
-            preparedStatement.setString(2, t.getType());
-            preparedStatement.setDouble(3, t.getPrix());
-            preparedStatement.setString(4, t.getDepart());
-            preparedStatement.setString(5, t.getArrivé());
-            preparedStatement.setString(6, t.getDescription());
-            preparedStatement.setInt(7, t.getNbrePlace());
-            preparedStatement.setString(8, t.getHeureDépart());
+            preparedStatement.setDouble(2, t.getPrix());
+            preparedStatement.setString(3, t.getDepart());
+            preparedStatement.setString(4, t.getArrivé());
+            preparedStatement.setString(5, t.getDescription());
+            preparedStatement.setInt(6, t.getNbrePlace());
+            preparedStatement.setDate(7, t.getHeureDépart());
+            preparedStatement.setString(8, t.getVoiture());
             preparedStatement.setInt(9, t.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
@@ -119,18 +119,18 @@ public class CovoiturageService implements ICovoiturageService {
 
     @Override
     public void add(Covoiturage t) {
-        String req = "insert into covoiturage(user_id,type,prix,depart,arrive,description,nbreplace,heure_depart) values (?,?,?,?,?,?,?,?)";
+        String req = "insert into covoiturage(user_id,prix,depart,arrive,description,nbreplace,heure_depart,voiture) values (?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getUserId().getId());
-            preparedStatement.setString(2, t.getType());
-            preparedStatement.setDouble(3, t.getPrix());
-            preparedStatement.setString(4, t.getDepart());
-            preparedStatement.setString(5, t.getArrivé());
-            preparedStatement.setString(6, t.getDescription());
-            preparedStatement.setInt(7, t.getNbrePlace());
-            preparedStatement.setString(8, t.getHeureDépart());
+            preparedStatement.setDouble(2, t.getPrix());
+            preparedStatement.setString(3, t.getDepart());
+            preparedStatement.setString(4, t.getArrivé());
+            preparedStatement.setString(5, t.getDescription());
+            preparedStatement.setInt(6, t.getNbrePlace());
+            preparedStatement.setDate(7, t.getHeureDépart());
+            preparedStatement.setString(8, t.getVoiture());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

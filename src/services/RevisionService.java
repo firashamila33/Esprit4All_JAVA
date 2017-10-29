@@ -33,17 +33,18 @@ public class RevisionService implements IServiceRevision {
 
     @Override
     public void add(Revision t) {
-        String req = "insert into revision (user_id,matiere,date_debut,date_fin,description,nbremax,type) values (?,?,?,?,?,?,?)";
+        String req = "insert into revision (user_id,matiere,date_debut,description,nbremax,type,date_fin) values (?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getUser().getId());
             preparedStatement.setString(2, t.getMatiere());
             preparedStatement.setDate(3, t.getDate_debut());
-            preparedStatement.setDate(4, t.getDate_fin());
-            preparedStatement.setString(5, t.getDescription());
-            preparedStatement.setInt(6, t.getNbrmax());
-            preparedStatement.setString(7, t.getType());
+            preparedStatement.setString(4, t.getDescription());
+            preparedStatement.setInt(5, t.getNbrmax());
+            preparedStatement.setString(6, t.getType());
+                        preparedStatement.setDate(3, t.getDate_fin());
+
 
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
@@ -53,8 +54,8 @@ public class RevisionService implements IServiceRevision {
 
     @Override
     public Revision getById(Integer r) {
-        Revision re = null;
-        String req = "select * from  revision where user_id=?";
+        Revision Revision = null;
+        String req = "select * from  revision where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -62,18 +63,17 @@ public class RevisionService implements IServiceRevision {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 User u = new User(resultSet.getInt(2));
-                re = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"), resultSet.getDate("date_fin"));
-                System.out.println(re);
+                Revision = new Revision(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getDate(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7),resultSet.getDate(8));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return re;
+        return Revision;
     }
 
     @Override
     public List<Revision> getAll() {
-        List<Revision> revision = new ArrayList<>();
+        List<Revision> Revision = new ArrayList<>();
 
         String req = "select * from  revision";
         PreparedStatement preparedStatement;
@@ -81,21 +81,20 @@ public class RevisionService implements IServiceRevision {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                User u = new User(resultSet.getInt("user_id"));
-                Revision r = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"), resultSet.getDate("date_fin"));
-                revision.add(r);
-                System.out.println(r);
+                User u = new UserService().getUserById(resultSet.getInt("user_id"));
+                Revision r = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"),resultSet.getDate("date_fin"));
+                Revision.add(r);
 
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return revision;
+        return Revision;
     }
 
     @Override
     public void delete(Integer r) {
-        String req = "delete from  revision where user_id =?";
+        String req = "delete from  revision where id =?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -108,16 +107,17 @@ public class RevisionService implements IServiceRevision {
 
     @Override
     public void update(Revision t) {
-        String req = "update  revision set matiere=?, date_debut =?,date_fin=?, description=?,nbremax=?,type=? where id = ?";
+        String req = "update  revision set matiere=?, heure =?, description=?,nbremax=?,type=? where id = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, t.getMatiere());
             preparedStatement.setDate(2, t.getDate_debut());
-            preparedStatement.setDate(3, t.getDate_fin());
-            preparedStatement.setString(4, t.getDescription());
-            preparedStatement.setInt(5, t.getNbrmax());
-            preparedStatement.setString(6, t.getType());
+            preparedStatement.setString(3, t.getDescription());
+            preparedStatement.setInt(4, t.getNbrmax());
+            preparedStatement.setString(5, t.getType());
+                        preparedStatement.setDate(6, t.getDate_debut());
+
 
             preparedStatement.setInt(7, t.getId());
             preparedStatement.executeUpdate();
@@ -128,7 +128,7 @@ public class RevisionService implements IServiceRevision {
 
     @Override
     public Revision search(Revision t) {
-        Revision x = null;
+        Revision x= null;
         String req = "select * from revision where type=?";
         PreparedStatement preparedStatement;
         try {
@@ -136,7 +136,7 @@ public class RevisionService implements IServiceRevision {
             preparedStatement.setString(1, t.getType());
             ResultSet resultSet = preparedStatement.executeQuery();
             User u = new User(resultSet.getInt(1));
-            x = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"), resultSet.getDate("date_fin"));
+            x = new Revision(resultSet.getInt("id"), u, resultSet.getString(3), resultSet.getDate(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7),resultSet.getDate(8));
         } catch (SQLException ex) {
             Logger.getLogger(RevisionService.class.getName()).log(Level.SEVERE, null, ex);
         }

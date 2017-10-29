@@ -5,12 +5,10 @@
  */
 package services;
 
-import technique.DataSource;
 import interfaces.IUserService;
 import java.sql.Connection;
 import models.User;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +28,19 @@ public class UserService implements IUserService {
     public UserService() {
         connection = DataSource.getInstance().getConnection();
     }
+    
+    
+    public void delete(Integer id){
+     String req = "delete from  user where id =?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     @Override
     public void register(User u) {
@@ -48,7 +59,7 @@ public class UserService implements IUserService {
             preparedStatement.setDate(9, u.getDateNaissance());
             preparedStatement.setString(10, u.getCin());
             preparedStatement.setString(11, u.getAdresse());
-            preparedStatement.setString(12, "a:0:{}");
+            preparedStatement.setString(12, u.getRole());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -72,7 +83,8 @@ public class UserService implements IUserService {
                 if (!matched) {
                     exist = false;
                 } else {
-                    userStatic = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"));
+                    String role =resultSet.getString("roles").substring(15, resultSet.getString("roles").length()-3);
+                    userStatic = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"),role);
                 }
             }
         } catch (SQLException ex) {
@@ -202,4 +214,43 @@ public class UserService implements IUserService {
         }
         return test;
     }
+
+    @Override
+    public List<User> getAllStudent() {
+        List<User> users = new ArrayList<>();
+        String req = "SELECT * FROM user WHERE ROLES='a:1:{i:0;s:13:\"ROLE_ETUDIANT\";}'";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                User user = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"));
+                users.add(user);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return users;
+    }
+
+    @Override
+    public List<User> getAllProfesseur() {
+        List<User> users = new ArrayList<>();
+        String req = "SELECT * FROM user WHERE ROLES='a:1:{i:0;s:15:\"ROLE_PROFESSEUR\";}'";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                User user = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"));
+                users.add(user);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return users;
+    }
+    
+    
+    
 }

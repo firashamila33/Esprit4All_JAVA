@@ -18,17 +18,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.util.List;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.util.Callback;
-import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import models.Commande;
 import models.LigneCommande;
 import models.Menu;
@@ -158,9 +153,6 @@ public class FoodMainnFXMLController implements Initializable {
         favorits_layout.setVisible(false);
         my_order_layout.setVisible(false);
         SetSubMenuButton("Fast_Food");
-//        Label label = (Label) event.getSource();
-//        String labelText = label.getId();
-//        System.out.println("Mouse click on label: " + labelText);
 
     }
 
@@ -184,7 +176,7 @@ public class FoodMainnFXMLController implements Initializable {
         List<String> list_sub_category = new ArrayList<>(menu.GetSubCategoriesbyCategory().get(s));
 
         int l = list_sub_category.size();
-        //System.out.println(list_sub_category);
+        
 
         if (l >= 1) {
             sub_menu_btn_1.setText(list_sub_category.get(0));

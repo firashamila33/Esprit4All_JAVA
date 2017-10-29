@@ -20,4 +20,6 @@ public interface IUserService{
     User search(User u);
     List<User> getAll();
     User getUserById(Integer i);
+    List<User>getAllStudent();
+    List<User>getAllProfesseur();
 }

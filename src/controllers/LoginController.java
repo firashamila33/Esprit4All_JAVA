@@ -8,6 +8,7 @@ package controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import services.UserService;
@@ -16,12 +17,15 @@ import models.User;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import utils.BCrypt;
 
 /**
@@ -30,7 +34,6 @@ import utils.BCrypt;
  */
 public class LoginController implements Initializable {
 
-    private Label label;
     @FXML
     private AnchorPane window1;
     @FXML
@@ -43,7 +46,7 @@ public class LoginController implements Initializable {
     private JFXButton button2;
     @FXML
     private AnchorPane winodw4;
-    private JFXTextField text5;
+
     @FXML
     private DatePicker date;
     @FXML
@@ -73,6 +76,8 @@ public class LoginController implements Initializable {
     @FXML
     private JFXPasswordField mdpLogin;
     static int controle = 0;
+     Stage stage;
+    Parent root;
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -85,9 +90,12 @@ public class LoginController implements Initializable {
         }
     }
 
+   
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }
 
     @FXML
@@ -103,7 +111,7 @@ public class LoginController implements Initializable {
         Date dateL = java.sql.Date.valueOf(dateNaissance);
         String cartIdentite = cin.getText();
         String adress = adresse.getText();
-        User u = new User(username, email, enabled, generatedSecuredPasswordHash, nomUser, prenomUser, dateL, cartIdentite, adress);
+        User u = new User(username, email, enabled, generatedSecuredPasswordHash, nomUser, prenomUser, dateL, cartIdentite, adress,"a:1:{i:0;s:13:\"ROLE_ETUDIANT\";}");
         UserService userService = new UserService();
         if (!userService.chercherUsername(username)) {
             if (!userService.chercherEmail(email)) {
@@ -124,7 +132,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void login(ActionEvent event) {
+    private void login(ActionEvent event) throws IOException {
         String usernameL = usernameLogin.getText();
         String motDePasseL = mdpLogin.getText();
 
@@ -143,7 +151,9 @@ public class LoginController implements Initializable {
             champ.setText("Pseudonyme ou mot de passe incorrect");
         } else {
             champ.setText("Bienvenu");
+            Redirection();
         }
+
     }
 
     @FXML
@@ -153,5 +163,27 @@ public class LoginController implements Initializable {
         adresseMail.setStyle("-fx-background-color:white");
         usernameLogin.setStyle("-fx-background-color:white");
         mdpLogin.setStyle("-fx-background-color:white");
+    }
+
+    public void Redirection() throws IOException {
+        stage = (Stage) login.getScene().getWindow();
+        if (UserService.userStatic.getRole().equals("ROLE_ETUDIANT")||UserService.userStatic.getRole().equals("ROLE_PROFESSEUR")) {
+            root = FXMLLoader.load(getClass().getResource("/gui/MainAcceuilFXML.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.setResizable(false);
+            stage.show();
+        }
+        else
+        {
+            root = FXMLLoader.load(getClass().getResource("/gui/BackOfficeFXML.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.setResizable(false);
+            stage.show();
+        }
+
     }
 }

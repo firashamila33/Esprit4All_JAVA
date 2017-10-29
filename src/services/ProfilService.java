@@ -30,7 +30,7 @@ public class ProfilService implements IProfilService {
 
     @Override
     public void add(Profil p) {
-        String req = "insert into profil (user_id,matiere_c,description,classe,path_img,path_cv,link_fb,link_ld,link_g,link_web,tel) values (?,?,?,?,?,?,?,?,?,?,?)";
+        String req = "insert into profil (user_id,matiere_c,description,classe,path_img,path_cv,link_fb,link_ld,link_g,path_couverture,tel) values (?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -53,7 +53,7 @@ public class ProfilService implements IProfilService {
 
     @Override
     public void update(Profil p) {
-        String req = "update profil set user_id=?,matiere_c=?,description=?,classe=?,path_img=?,path_cv=?,link_fb=?,link_ld=?,link_g=?,link_web=?,tel=? where id=?";
+        String req = "update profil set user_id=?,matiere_c=?,description=?,classe=?,path_img=?,path_cv=?,link_fb=?,link_ld=?,link_g=?,path_couverture=?,tel=? where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -97,7 +97,7 @@ public class ProfilService implements IProfilService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Profil p = new Profil(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("matiere_c"), resultSet.getString("description"), resultSet.getString("classe"), resultSet.getString("path_img"), resultSet.getString("path_cv"), resultSet.getString("link_fb"), resultSet.getString("link_ld"), resultSet.getString("link_g"), resultSet.getString("link_web"), resultSet.getString("tel"));
+                Profil p = new Profil(resultSet.getInt("id"), new UserService().getUserById(resultSet.getInt("user_id")), resultSet.getString("matiere_c"), resultSet.getString("description"), resultSet.getString("classe"), resultSet.getString("path_img"), resultSet.getString("path_cv"), resultSet.getString("link_fb"), resultSet.getString("link_ld"), resultSet.getString("link_g"), resultSet.getString("link_web"), resultSet.getString("tel"));
                 profils.add(p);
             }
         } catch (SQLException ex) {
@@ -116,7 +116,7 @@ public class ProfilService implements IProfilService {
             preparedStatement.setInt(1, i);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                p = new Profil(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("matiere_c"), resultSet.getString("description"), resultSet.getString("classe"), resultSet.getString("path_img"), resultSet.getString("path_cv"), resultSet.getString("link_fb"), resultSet.getString("link_ld"), resultSet.getString("link_g"), resultSet.getString("link_web"), resultSet.getString("tel"));
+                p = new Profil(resultSet.getInt("id"), new UserService().getUserById(resultSet.getInt("user_id")), resultSet.getString("matiere_c"), resultSet.getString("description"), resultSet.getString("classe"), resultSet.getString("path_img"), resultSet.getString("path_cv"), resultSet.getString("link_fb"), resultSet.getString("link_ld"), resultSet.getString("link_g"), resultSet.getString("path_couverture"), resultSet.getString("tel"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -134,7 +134,7 @@ public class ProfilService implements IProfilService {
             preparedStatement.setInt(1, i);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                p = new Profil(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("matiere_c"), resultSet.getString("description"), resultSet.getString("classe"), resultSet.getString("path_img"), resultSet.getString("path_cv"), resultSet.getString("link_fb"), resultSet.getString("link_ld"), resultSet.getString("link_g"), resultSet.getString("link_web"), resultSet.getString("tel"));
+                p = new Profil(resultSet.getInt("id"), new UserService().getUserById(resultSet.getInt("user_id")), resultSet.getString("matiere_c"), resultSet.getString("description"), resultSet.getString("classe"), resultSet.getString("path_img"), resultSet.getString("path_cv"), resultSet.getString("link_fb"), resultSet.getString("link_ld"), resultSet.getString("link_g"), resultSet.getString("path_couverture"), resultSet.getString("tel"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

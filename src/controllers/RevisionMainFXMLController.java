@@ -63,7 +63,6 @@ public class RevisionMainFXMLController implements Initializable {
     private void goToListRevision(ActionEvent event) {
         setNode(listRevision);
         changeStyle(listRevision_btn);
-        
     }
 
     @FXML

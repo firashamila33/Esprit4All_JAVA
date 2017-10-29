@@ -90,12 +90,12 @@ public class DialogueLayoutController implements Initializable {
         Profil profil = profilService.getByUserId(i);
         CovoiturageService covoiturageService = new CovoiturageService();
         Covoiturage covoiturageA = covoiturageService.getByUserId(i);
-        type.setText(covoiturageA.getType());
+        //type.setText(covoiturageA.getType());
         prix.setText(Double.toString(covoiturageA.getPrix()));
         depart.setText(covoiturageA.getDepart());
         arrive.setText(covoiturageA.getArrivé());
         nbrePlace.setText(Integer.toString(covoiturageA.getNbrePlace()));
-        hDepart.setText(covoiturageA.getHeureDépart());
+        hDepart.setText(covoiturageA.getHeureDépart().toString());
         description.setText(covoiturageA.getDescription());
         name.setText(user.getPrenom() + " " + user.getNom());
         tel.setText(profil.getTel());
