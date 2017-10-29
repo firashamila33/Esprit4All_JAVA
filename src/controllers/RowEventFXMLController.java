@@ -6,12 +6,9 @@
 package controllers;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -20,11 +17,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import models.Club;
 import models.Evenement;
-import services.ClubService;
 
 /**
  * FXML Controller class
@@ -90,8 +84,6 @@ public class RowEventFXMLController extends ListCell<Evenement> {
                         EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
                         controller.setId(evenements.getId());
                         controller.display();
-                        
-
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
                         stage.show();

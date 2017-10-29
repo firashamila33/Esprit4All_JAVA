@@ -12,7 +12,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1320.0" style="-fx-background-color: #E5E5E5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoodMainnFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #E5E5E5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoodMainnFXMLController">
     <children>
         <AnchorPane prefHeight="560.0" prefWidth="1360.0">
             <children>

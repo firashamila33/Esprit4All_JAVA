@@ -20,12 +20,12 @@ public class TestCovoiturage {
         String originalPassword = "azerty";
         String generatedSecuredPasswordHash = BCrypt.hashpw(originalPassword, BCrypt.gensalt(12));
         User u = new User(2,"yacine", "yacine.farhat@esprit.tn", 1, generatedSecuredPasswordHash, "farhat", "yacine", null, "12345678", "cité olympique");
-        Covoiturage c = new Covoiturage(3,u, "Opel", 12, "cité olympique", "esprit it", "pas d'objet lourd", 3, "8h15");
-        CovoiturageService covoiturageService = new CovoiturageService();
-        //covoiturageService.add(c);
-        covoiturageService.getAll().forEach((cov) -> {
-            System.out.println(cov);
-        });
+//        Covoiturage c = new Covoiturage(3,u, "Opel", 12, "cité olympique", "esprit it", "pas d'objet lourd", 3, null);
+//        CovoiturageService covoiturageService = new CovoiturageService();
+//        //covoiturageService.add(c);
+//        covoiturageService.getAll().forEach((cov) -> {
+//            System.out.println(cov);
+//        });
         //covoiturageService.delete(1);
         //System.out.println(covoiturageService.getById(2));
         //covoiturageService.update(c);

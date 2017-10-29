@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.controlsfx.control.textfield.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="window1" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #ff2e44;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLDocumentController">
+   <children>
+      <AnchorPane fx:id="window2" prefHeight="560.0" prefWidth="1360.0">
+         <children>
+            <AnchorPane fx:id="window3" layoutX="149.0" layoutY="153.0" prefHeight="254.0" prefWidth="254.0" style="-fx-background-color: #ffffff; -fx-background-radius: 3em;">
+               <children>
+                  <JFXButton fx:id="button1" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="1.0" layoutY="-1.0" onAction="#handleButtonAction" prefHeight="191.0" prefWidth="254.0">
+                     <graphic>
+                        <ImageView fitHeight="200.0" fitWidth="200.0">
+                           <image>
+                              <Image url="@../ressources/621382-200.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Text fill="#424242" layoutX="13.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une annonce">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <AnchorPane fx:id="window4" layoutX="552.0" layoutY="153.0" prefHeight="254.0" prefWidth="254.0" style="-fx-background-color: #ffffff; -fx-background-radius: 3em;">
+               <children>
+                  <JFXButton fx:id="button2" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="1.0" layoutY="-1.0" onAction="#handleButtonAction" prefHeight="191.0" prefWidth="254.0">
+                     <graphic>
+                        <ImageView fitHeight="200.0" fitWidth="212.0">
+                           <image>
+                              <Image url="@../ressources/car-search-icon-6371-0.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Text fill="#424242" layoutX="6.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chercher une annonce">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <AnchorPane fx:id="consulter" layoutX="955.0" layoutY="153.0" prefHeight="254.0" prefWidth="254.0" style="-fx-background-color: #ffffff; -fx-background-radius: 3em;">
+               <children>
+                  <JFXButton fx:id="btnConsulter" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="1.0" layoutY="-1.0" onAction="#handleButtonAction" prefHeight="191.0" prefWidth="254.0">
+                     <graphic>
+                        <ImageView fitHeight="200.0" fitWidth="200.0">
+                           <image>
+                              <Image url="@../ressources/icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Text fill="#424242" layoutX="-1.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consulter mon annonce">
+                     <font>
+                        <Font name="Lato Black" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <JFXButton fx:id="button31" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" onAction="#handleButtonAction">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../ressources/icons8_Back_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Text fill="WHITE" layoutX="77.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quitter">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="window5" prefHeight="560.0" prefWidth="1360.0" visible="false">
+         <children>
+            <JFXButton fx:id="button3" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="14.0" layoutY="21.0" onAction="#handleButtonAction">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../ressources/icons8_Back_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <AnchorPane fx:id="window7" layoutX="291.0" layoutY="12.0" prefHeight="536.0" prefWidth="870.0" style="-fx-background-color: #ffffff; -fx-background-radius: 4em;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Text fill="#ff2e44" layoutX="199.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter votre annonce">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="type" focusColor="#424242" labelFloat="true" layoutX="33.0" layoutY="127.0" prefHeight="53.0" prefWidth="333.0" promptText="Type de la voiture" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="heure" focusColor="#424242" labelFloat="true" layoutX="505.0" layoutY="127.0" prefHeight="53.0" prefWidth="333.0" promptText="Heure de départ" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="depart" focusColor="#424242" labelFloat="true" layoutX="33.0" layoutY="215.0" prefHeight="53.0" prefWidth="333.0" promptText="Lieu de départ" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="arrive" focusColor="#424242" labelFloat="true" layoutX="505.0" layoutY="215.0" prefHeight="53.0" prefWidth="333.0" promptText="Destination" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXRadioButton id="radio" fx:id="radio1" layoutX="280.0" layoutY="298.0" onAction="#Ajouter" text="1" textFill="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nbrePlace" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton id="radio" fx:id="radio2" layoutX="346.0" layoutY="298.0" onAction="#Ajouter" text="2" textFill="#ff2e44" toggleGroup="$nbrePlace">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <JFXRadioButton id="radio" fx:id="radio3" layoutX="415.0" layoutY="298.0" onAction="#Ajouter" text="3" textFill="#ff2e44" toggleGroup="$nbrePlace">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <JFXRadioButton id="radio" fx:id="radio4" layoutX="485.0" layoutY="298.0" onAction="#Ajouter" text="4" textFill="#ff2e44" toggleGroup="$nbrePlace">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <Text fill="#ff2e44" layoutX="68.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de places:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="prix" focusColor="#424242" labelFloat="true" layoutX="33.0" layoutY="379.0" prefHeight="53.0" prefWidth="333.0" promptText="Prix" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextArea fx:id="description" focusColor="#424242" layoutX="502.0" layoutY="325.0" prefHeight="104.0" prefWidth="348.0" promptText="Description" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextArea>
+                  <JFXButton fx:id="ajout" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="395.0" layoutY="444.0" onAction="#handleButtonAction">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../ressources/icons8_Checkmark_64px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <Text fill="WHITE" layoutX="95.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retour">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="window8" prefHeight="560.0" prefWidth="1360.0" visible="false">
+         <children>
+            <JFXButton fx:id="button5" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="14.0" layoutY="21.0" onAction="#handleButtonAction">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../ressources/icons8_Back_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <AnchorPane fx:id="window9" layoutX="70.0" layoutY="231.0" prefHeight="315.0" prefWidth="359.0" style="-fx-background-color: #ffffff; -fx-background-radius: 4em;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <JFXButton fx:id="button6" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="65.0" layoutY="30.0" onAction="#handleButtonAction">
+                     <graphic>
+                        <ImageView fitHeight="200.0" fitWidth="200.0">
+                           <image>
+                              <Image url="@../ressources/621382-200.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Text fill="#424242" layoutX="13.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une annonce">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="window10" layoutX="480.0" layoutY="12.0" prefHeight="536.0" prefWidth="870.0" style="-fx-background-color: #ffffff; -fx-background-radius: 4em;">
+               <children>
+                  <JFXListView fx:id="listViewCovoiturage" layoutX="49.0" layoutY="163.0" prefHeight="346.0" prefWidth="773.0" />
+                  <Text fill="#ff2e44" layoutX="76.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des annonces de covoiturage">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Text>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="220.0" layoutY="106.0" prefHeight="14.0" prefWidth="16.0">
+                     <graphic>
+                        <ImageView fitHeight="49.0" fitWidth="49.0">
+                           <image>
+                              <Image url="@../ressources/icons8_Search_64px_6.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <JFXTextField focusColor="#424242" layoutX="306.0" layoutY="115.0" prefHeight="25.0" prefWidth="269.0" promptText="Chercher" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <Text fill="WHITE" layoutX="95.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retour">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="annonce" prefHeight="560.0" prefWidth="1360.0" visible="false">
+         <children>
+            <JFXButton fx:id="returnA" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="14.0" layoutY="21.0" onAction="#handleButtonAction">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../ressources/icons8_Back_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <AnchorPane fx:id="window61" layoutX="14.0" layoutY="131.0" prefHeight="415.0" prefWidth="458.0" style="-fx-background-color: #ffffff; -fx-background-radius: 4em;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Text fill="#ff2e44" layoutX="116.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Participant">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Text>
+                  <JFXListView fx:id="listViewHasCovoiturage" layoutX="21.0" layoutY="107.0" prefHeight="288.0" prefWidth="411.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="window71" layoutX="480.0" layoutY="12.0" prefHeight="536.0" prefWidth="870.0" style="-fx-background-color: #ffffff; -fx-background-radius: 4em;">
+               <children>
+                  <Text fill="#ff2e44" layoutX="260.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre annonce">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="typeAnnonce" disable="true" focusColor="#424242" layoutX="33.0" layoutY="120.0" prefHeight="53.0" prefWidth="333.0" promptText="Type de la voiture" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="heureAnnonce" disable="true" focusColor="#424242" layoutX="505.0" layoutY="120.0" prefHeight="53.0" prefWidth="333.0" promptText="Heure de départ" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="departAnnonce" disable="true" focusColor="#424242" layoutX="33.0" layoutY="200.0" prefHeight="53.0" prefWidth="333.0" promptText="Lieu de départ" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="arriveAnnonce" disable="true" focusColor="#424242" layoutX="505.0" layoutY="200.0" prefHeight="53.0" prefWidth="333.0" promptText="Destination" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXRadioButton id="radio" fx:id="radio1Annonce" disable="true" layoutX="269.0" layoutY="285.0" onAction="#Ajouter" text="1" textFill="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nbrePlace1" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton id="radio" fx:id="radio2Annonce" disable="true" layoutX="340.0" layoutY="285.0" onAction="#Ajouter" text="2" textFill="#ff2e44" toggleGroup="$nbrePlace1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <JFXRadioButton id="radio" fx:id="radio3Annonce" disable="true" layoutX="409.0" layoutY="285.0" onAction="#Ajouter" text="3" textFill="#ff2e44" toggleGroup="$nbrePlace1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <JFXRadioButton id="radio" fx:id="radio4Annonce" disable="true" layoutX="479.0" layoutY="285.0" onAction="#Ajouter" text="4" textFill="#ff2e44" toggleGroup="$nbrePlace1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <Text fill="#ff2e44" layoutX="56.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de places:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="prixAnnonce" disable="true" focusColor="#424242" layoutX="33.0" layoutY="370.0" prefHeight="53.0" prefWidth="333.0" promptText="Prix" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextArea fx:id="descriptionAnnonce" disable="true" focusColor="#424242" layoutX="502.0" layoutY="317.0" prefHeight="104.0" prefWidth="348.0" promptText="Description" unFocusColor="#ff2e44">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXTextArea>
+                  <JFXButton fx:id="modifier" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="228.0" layoutY="430.0" onAction="#handleButtonAction" prefHeight="98.0" prefWidth="107.0">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../ressources/icons8_Edit_Property_96px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="supprimer" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="531.0" layoutY="430.0" onAction="#handleButtonAction" prefHeight="98.0" prefWidth="107.0">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../ressources/icons8_Delete_Document_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="add" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="379.0" layoutY="430.0" onAction="#handleButtonAction" prefHeight="98.0" prefWidth="107.0" visible="false">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../ressources/icons8_Checkmark_64px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <Text fill="WHITE" layoutX="95.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retour">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

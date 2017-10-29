@@ -94,7 +94,9 @@ public class MainFXMLController implements Initializable {
     }
 
     @FXML
-    private void goToCovoitureage(ActionEvent event) {
+    private void goToCovoitureage(ActionEvent event) throws IOException {
+        covoiturage = FXMLLoader.load(getClass().getResource("/gui/MainCovoiturageFXML.fxml"));
+        setNode(covoiturage);
         changeStyle(covoiturage_btn);
     }
 
