@@ -44,6 +44,8 @@ public class FXMLDetailedAnnonceController implements Initializable {
     private String mode = "view";
     private AnnonceCoLocation annonce;
     private FXMLAnnonceColocationMenuController menu;
+    @FXML
+    private TextField nbColocataireValue;
 
     /**
      * Initializes the controller class.
@@ -60,10 +62,12 @@ public class FXMLDetailedAnnonceController implements Initializable {
         loyerValue.setText(((Float) a.getLoyer()).toString());
         dimensionsValue.setText(a.getDimensions());
         ajouteLeValue.setText(a.getCreationDate().toString());
+        nbColocataireValue.setText(((Integer)a.getMaxCoLocataire()).toString());
 
         descriptionValue.setEditable(false);
         loyerValue.setEditable(false);
         dimensionsValue.setEditable(false);
+        nbColocataireValue.setEditable(false);
         this.annonce = a;
     }
 
@@ -80,7 +84,7 @@ public class FXMLDetailedAnnonceController implements Initializable {
         loyerValue.setText(((Float) a.getLoyer()).toString());
         dimensionsValue.setText(a.getDimensions());
         ajouteLeValue.setText(a.getCreationDate().toString());
-        System.out.println("##" + a.getAddress());
+        nbColocataireValue.setText(((Integer)a.getMaxCoLocataire()).toString());
         this.menu.setMarkerPosition(a.getAddress().getLat(), a.getAddress().getLng());
 
         this.annonce = a;
@@ -99,11 +103,11 @@ public class FXMLDetailedAnnonceController implements Initializable {
                 AnnonceCoLocation a = new AnnonceCoLocation(
                         new Address(lat, lng), dimensionsValue.getText(),
                         new ArrayList<User>(),
-                        10, Float.parseFloat(loyerValue.getText()),
+                        Integer.parseInt(nbColocataireValue.getText()), Float.parseFloat(loyerValue.getText()),
                         new ArrayList<>(),
                         "",
                         descriptionValue.getText(),
-                        new User(7), new Date(new java.util.Date().getTime()),
+                        menu.getCurrentUser(), new Date(new java.util.Date().getTime()),
                         new Date(1514764800));
                 service.add(a);
                 annonce = a;
@@ -131,11 +135,11 @@ public class FXMLDetailedAnnonceController implements Initializable {
             AnnonceCoLocation a = new AnnonceCoLocation(
                     address, dimensionsValue.getText(),
                     new ArrayList<User>(),
-                    10, Float.parseFloat(loyerValue.getText()),
+                    Integer.parseInt(nbColocataireValue.getText()), Float.parseFloat(loyerValue.getText()),
                     new ArrayList<>(),
                     "",
                     descriptionValue.getText(),
-                    new User(7), new Date(new java.util.Date().getTime()),
+                    menu.getCurrentUser(), new Date(new java.util.Date().getTime()),
                     new Date(1514764800));
             a.setId(annonce.getId());
             service.update(a);

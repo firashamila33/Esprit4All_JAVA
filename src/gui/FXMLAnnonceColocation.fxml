@@ -20,9 +20,9 @@
             <Label layoutX="23.0" layoutY="38.0" text="Description :" />
             <Label fx:id="dimensionsValue" layoutX="191.0" layoutY="77.0" text="Label" />
             <Label fx:id="loyerValue" layoutX="191.0" layoutY="101.0" text="Label" />
-            <TextArea fx:id="descriptionValue" layoutX="123.0" layoutY="25.0" prefHeight="41.0" prefWidth="560.0" />
-            <Label layoutX="22.0" layoutY="120.0" text="Nombre de Colocataire :" />
-            <Label layoutX="191.0" layoutY="120.0" text="Label" />
+            <TextArea fx:id="descriptionValue" editable="false" layoutX="123.0" layoutY="25.0" prefHeight="41.0" prefWidth="560.0" />
+            <Label fx:id="nbColocataire" layoutX="22.0" layoutY="120.0" text="Nombre de Colocataire :" />
+            <Label fx:id="nbColocataireValue" layoutX="191.0" layoutY="120.0" text="Label" />
          </children>
       </Pane>
    </children>

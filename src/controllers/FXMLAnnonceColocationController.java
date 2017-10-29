@@ -23,8 +23,6 @@ import models.AnnonceCoLocation;
 public class FXMLAnnonceColocationController implements Initializable {
 
     @FXML
-    private TextArea locatairesValue;
-    @FXML
     private Label dimensionsValue;
     @FXML
     private Label loyerValue;
@@ -34,6 +32,10 @@ public class FXMLAnnonceColocationController implements Initializable {
     private Label ajouteLeValue;
     private FXMLAnnonceColocationMenuController menu;
     private AnnonceCoLocation annonce;
+    @FXML
+    private Label nbColocataire;
+    @FXML
+    private Label nbColocataireValue;
 
     /**
      * Initializes the controller class.
@@ -49,6 +51,7 @@ public class FXMLAnnonceColocationController implements Initializable {
         loyerValue.setText(((Float) a.getLoyer()).toString());
         dimensionsValue.setText(a.getDimensions());
         ajouteLeValue.setText(a.getCreationDate().toString());
+        nbColocataireValue.setText(((Integer)a.getMaxCoLocataire()).toString());
         annonce = a;
 
     }

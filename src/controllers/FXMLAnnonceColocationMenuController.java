@@ -60,6 +60,10 @@ public class FXMLAnnonceColocationMenuController implements Initializable {
     private User currentUser;
     private boolean isAdmin;
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
     public FXMLAnnonceColocationMenuController() {
         annonceWidgetList = new ArrayList<>();
         UserService service = new UserService();
