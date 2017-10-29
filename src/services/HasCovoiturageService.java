@@ -44,7 +44,7 @@ public class HasCovoiturageService implements IHasCovoiturage {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                hasCovoiturage = new HasCovoiturage(resultSet.getInt("id"), new Covoiturage(resultSet.getInt("covoiturage_id")), new User(resultSet.getInt("user_id")));
+                hasCovoiturage = new HasCovoiturage(resultSet.getInt("id"), new Covoiturage(resultSet.getInt("covoiturage_id")), new UserService().getUserById(resultSet.getInt("user_id")));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -62,7 +62,7 @@ public class HasCovoiturageService implements IHasCovoiturage {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                HasCovoiturage hasCovoiturage = new HasCovoiturage(resultSet.getInt("id"), new Covoiturage(resultSet.getInt("covoiturage_id")), new User(resultSet.getInt("user_id")));
+                HasCovoiturage hasCovoiturage = new HasCovoiturage(resultSet.getInt("id"), new Covoiturage(resultSet.getInt("covoiturage_id")), new UserService().getUserById(resultSet.getInt("user_id")));
                 hasCovoiturages.add(hasCovoiturage);
             }
         } catch (SQLException ex) {

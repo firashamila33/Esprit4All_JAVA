@@ -17,8 +17,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Evenement;
+import utils.URLimages;
 
 /**
  * FXML Controller class
@@ -40,7 +42,7 @@ public class RowEventFXMLController extends ListCell<Evenement> {
     @FXML
     private ImageView img_club_id;
     @FXML
-    private Label desc_event_id;
+    private Text desc_event_id;
     AnchorPane eventclub;
     /**
      * Initializes the controller class.
@@ -67,8 +69,9 @@ public class RowEventFXMLController extends ListCell<Evenement> {
             }
 
             lib_event_id.setText(evenements.getLiblle());
-            img_evnt_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + evenements.getPath_img()));
-            img_club_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/" + evenements.getClub().getPath_img()));
+            img_evnt_id.setImage(new Image(URLimages.imagesEvents + evenements.getPath_img()));
+            System.out.println(evenements.getClub().getPath_img());
+            img_club_id.setImage(new Image(URLimages.LogoClubs + evenements.getClub().getPath_img()));
 
             date_event_id.setText(String.valueOf(evenements.getDate()));
             desc_event_id.setText(evenements.getDescription());

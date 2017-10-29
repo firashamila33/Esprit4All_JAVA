@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="anchorPane_id" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClubFXMLController">
     <children>
-        <ScrollPane fx:id="scrollpane_verticale_id" layoutY="200.0" prefHeight="360.0" prefWidth="1000.0">
+        <ScrollPane fx:id="scrollpane_verticale_id" hbarPolicy="NEVER" layoutY="200.0" prefHeight="360.0" prefWidth="1000.0" vbarPolicy="NEVER">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="787.0" prefWidth="1000.0" style="-fx-background-color: #ff2e44;">
                     <children>
@@ -29,17 +30,13 @@
                                         </Label>
                                     </children>
                                 </Pane>
-                                <Pane fx:id="list_membre" layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
+                                <Pane fx:id="list_membre" layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="650.0" style="-fx-background-color: white;">
                                     <effect>
                                         <DropShadow height="10.0" radius="4.5" width="10.0" />
                                     </effect>
-                                    <children>
-                                        <Label layoutX="10.0" layoutY="37.0" prefHeight="62.0" prefWidth="651.0" text="Notre Histoire est de la ays idmao dur,ndj hdyye ooijdk kddhya majdi ra b yacien akhdj" textFill="#6b6b6b">
-                                            <font>
-                                                <Font name="Arial" size="18.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
+                           <children>
+                              <Text fx:id="NotreHistoire" layoutX="15.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="630.0" />
+                           </children>
                                 </Pane>
                             </children>
                         </Pane>
@@ -57,17 +54,13 @@
                                         </Label>
                                     </children>
                                 </Pane>
-                                <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
+                                <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="650.0" style="-fx-background-color: white;">
                                     <effect>
                                         <DropShadow height="10.0" radius="4.5" width="10.0" />
                                     </effect>
-                                    <children>
-                                        <Label layoutX="21.0" layoutY="36.0" prefHeight="62.0" prefWidth="651.0" text="Notre Histoire est de la ays idmao dur,ndj hdyye ooijdk kddhya majdi ra b yacien akhdj" textFill="#6b6b6b">
-                                            <font>
-                                                <Font name="Arial" size="18.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
+                           <children>
+                              <Text fx:id="apropos" layoutX="15.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="630.0" />
+                           </children>
                                 </Pane>
                             </children>
                         </Pane>
@@ -85,12 +78,12 @@
                                         </Label>
                                     </children>
                                 </Pane>
-                                <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
+                                <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="650.0" style="-fx-background-color: white;">
                                     <effect>
                                         <DropShadow height="10.0" radius="4.5" width="10.0" />
                                     </effect>
                                     <children>
-                                        <JFXListView fx:id="lit_view_membre" cacheShape="false" centerShape="false" orientation="HORIZONTAL" prefHeight="129.0" prefWidth="670.0" />
+                                        <JFXListView fx:id="lit_view_membre" cacheShape="false" centerShape="false" orientation="HORIZONTAL" prefHeight="129.0" prefWidth="650.0" />
                                     </children>
                                 </Pane>
                             </children>
@@ -105,7 +98,7 @@
                                         <Image url="@../ressources/fête%20de%20la%20musique.jpg" />
                                     </image>
                                 </ImageView>
-                                <Pane  layoutX="6.0" layoutY="6.0" onMouseClicked="#GoToEvenement" prefHeight="281.0" prefWidth="370.0" style="-fx-border-color: #4242428B; -fx-border-width: 2;" >
+                                <Pane layoutX="6.0" layoutY="6.0" onMouseClicked="#GoToEvenement" prefHeight="281.0" prefWidth="370.0" style="-fx-border-color: #4242428B; -fx-border-width: 2;">
                                     <children>
                                         <ImageView fx:id="img_event_id" fitHeight="270.0" fitWidth="360.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true">
                                             <image>

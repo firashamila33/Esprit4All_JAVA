@@ -120,7 +120,9 @@ public class MainFXMLController implements Initializable {
     }
 
     @FXML
-    private void goToVieSocial(ActionEvent event) {
+    private void goToVieSocial(ActionEvent event) throws IOException {
+        covoiturage = FXMLLoader.load(getClass().getResource("/gui/MainVieSocialFXML.fxml"));
+        setNode(covoiturage);
         changeStyle(vieSocial_btn);
     }
 

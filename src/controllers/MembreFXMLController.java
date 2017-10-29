@@ -68,7 +68,7 @@ public class MembreFXMLController extends ListCell<Profil> {
             }
 
             //img_membre_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_profil/path_img/"+p.getPathImg(), 500 ,500 ,true,true));
-            nom_membre_id.setText("Majdi Rabie");
+            nom_membre_id.setText(p.getU().getPrenom());
 
             setOnMouseEntered(event -> {
               

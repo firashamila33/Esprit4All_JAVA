@@ -19,7 +19,6 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -68,7 +67,6 @@ public class ListCovoituragesFXMLController implements Initializable {
     private HBox datetimeAnnance;
 
     private JFXTimePicker timeAnnaonce = new JFXTimePicker();
-    ;
 
     @FXML
     private JFXDatePicker heureAnnonce;
@@ -94,7 +92,7 @@ public class ListCovoituragesFXMLController implements Initializable {
     private JFXButton add;
     @FXML
     private AnchorPane window71;
-    int place;
+    static int place;
     @FXML
     private JFXDialogLayout addDialogLayout;
 
@@ -122,7 +120,6 @@ public class ListCovoituragesFXMLController implements Initializable {
     }
 
     private void ShowAddDialog() {
-        System.out.println("sssss");
         heureAnnonce.setDefaultColor(Color.valueOf("#ff2e44"));
         timeAnnaonce.setIs24HourView(true);
         timeAnnaonce.setDefaultColor(Color.valueOf("#ff2e44"));
@@ -132,7 +129,7 @@ public class ListCovoituragesFXMLController implements Initializable {
         dialog.show();
 
     }
-
+    @FXML
     private void RadioBox(ActionEvent event) {
         String nbrePlaceV = "";
         if (radio1Annonce.isSelected()) {
@@ -147,6 +144,7 @@ public class ListCovoituragesFXMLController implements Initializable {
         if (radio4Annonce.isSelected()) {
             nbrePlaceV = radio4Annonce.getText();
         }
+        System.out.println(nbrePlace1+"sss");
         place = Integer.parseInt(nbrePlaceV);
     }
 
@@ -161,7 +159,8 @@ public class ListCovoituragesFXMLController implements Initializable {
 
     @FXML
     private void Ajouter(ActionEvent event) {
-
+        
+        System.out.println(place);
         String date = heureAnnonce.getValue() + " " + timeAnnaonce.getValue();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         Date startDate = null;
@@ -173,8 +172,7 @@ public class ListCovoituragesFXMLController implements Initializable {
             e.printStackTrace();
         }
 
-        Covoiturage covoiturage = new Covoiturage(UserService.userStatic, Float.parseFloat(prixAnnonce.getText()), departAnnonce.getText(), arriveAnnonce.getText(), descriptionAnnonce.getText(), place, new java.sql.Date(startDate.getTime()));
-        CovoiturageService covoiturageService = new CovoiturageService();
+        Covoiturage covoiturage = new Covoiturage(UserService.userStatic, Double.parseDouble(prixAnnonce.getText()), departAnnonce.getText(), arriveAnnonce.getText(), descriptionAnnonce.getText(), place, new java.sql.Date(startDate.getTime()),typeAnnonce.getText());
         covoiturageService.add(covoiturage);
         displayAll();
         dialog.close();

@@ -71,7 +71,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <JFXRadioButton id="radio" fx:id="radio1Annonce"  onAction="#Ajouter" text="1" textFill="#ff2e44">
+                        <JFXRadioButton id="radio" fx:id="radio1Annonce"  onAction="#RadioBox" text="1" textFill="#ff2e44">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -79,17 +79,17 @@
                               <ToggleGroup fx:id="nbrePlace1" />
                            </toggleGroup>
                         </JFXRadioButton>
-                        <JFXRadioButton id="radio" fx:id="radio2Annonce"  onAction="#Ajouter" text="2" textFill="#ff2e44" toggleGroup="$nbrePlace1">
+                        <JFXRadioButton id="radio" fx:id="radio2Annonce"  onAction="#RadioBox" text="2" textFill="#ff2e44" toggleGroup="$nbrePlace1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton id="radio" fx:id="radio3Annonce"  onAction="#Ajouter" text="3" textFill="#ff2e44" toggleGroup="$nbrePlace1">
+                        <JFXRadioButton id="radio" fx:id="radio3Annonce"  onAction="#RadioBox" text="3" textFill="#ff2e44" toggleGroup="$nbrePlace1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton id="radio" fx:id="radio4Annonce"  onAction="#Ajouter" text="4" textFill="#ff2e44" toggleGroup="$nbrePlace1">
+                        <JFXRadioButton id="radio" fx:id="radio4Annonce"  onAction="#RadioBox" text="4" textFill="#ff2e44" toggleGroup="$nbrePlace1">
                            <font>
                               <Font size="18.0" />
                            </font>

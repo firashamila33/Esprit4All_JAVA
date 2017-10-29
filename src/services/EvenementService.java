@@ -79,7 +79,7 @@ public class EvenementService implements IEvenementService {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Evenement e = new Evenement(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"), resultSet.getString("path_img"), new ClubService().getById(resultSet.getInt("Club_id")));
-             
+                
                 even.add(e);
             }
         } catch (SQLException ex) {

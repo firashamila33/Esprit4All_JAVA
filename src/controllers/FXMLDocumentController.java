@@ -160,15 +160,15 @@ public class FXMLDocumentController implements Initializable {
         } else if (event.getSource() == btnConsulter) {
             window2.setVisible(false);
             annonce.setVisible(true);
-            Covoiturage covoiturage;
+            Covoiturage covoiturage= null;
             CovoiturageService covoiturageService = new CovoiturageService();
-            covoiturage = covoiturageService.getByUserId(2);
+            //covoiturage = covoiturageService.getByUserId(2);
             //typeAnnonce.setText(covoiturage.getType());
-            heureAnnonce.setText(covoiturage.getHeureDépart().toString());
-            departAnnonce.setText(covoiturage.getDepart());
-            arriveAnnonce.setText(covoiturage.getArrivé());
-            prixAnnonce.setText(Double.toString(covoiturage.getPrix()));
-            descriptionAnnonce.setText(covoiturage.getDescription());
+//            heureAnnonce.setText(covoiturage.getHeureDépart().toString());
+//            departAnnonce.setText(covoiturage.getDepart());
+//            arriveAnnonce.setText(covoiturage.getArrivé());
+//            prixAnnonce.setText(Double.toString(covoiturage.getPrix()));
+//            descriptionAnnonce.setText(covoiturage.getDescription());
 
             if (Integer.toString(covoiturage.getNbrePlace()).equals(radio1Annonce.getText())) {
                 radio1Annonce.setSelected(true);

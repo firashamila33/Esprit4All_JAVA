@@ -18,14 +18,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javax.swing.SpringLayout;
 import models.Evenement;
 import services.EvenementService;
+import utils.URLimages;
 
 /**
  * FXML Controller class
@@ -54,7 +53,8 @@ public class AcceuilClubFXMLController implements Initializable {
                 e = evenements.get(i);
                 ImageView im = new ImageView(new Image("ressources/USERGROUPS.png"));
                 ImageView m = new ImageView(new Image("ressources/AAA.jpg"));
-                m.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + e.getPath_img()));
+                System.out.println(URLimages.imagesEvents + e.getPath_img());
+                m.setImage(new Image(URLimages.imagesEvents + e.getPath_img()));
                 Label l = new Label();
                 VBox vb = new VBox();
                 HBox hb = new HBox();
@@ -90,7 +90,7 @@ public class AcceuilClubFXMLController implements Initializable {
                             Parent root = (Parent) fXMLLoader.load();
                             EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
 
-                            controller.setId(e.getId());                     
+                            controller.setId(e.getId());
                             controller.display();
 
                             Stage stage = new Stage();

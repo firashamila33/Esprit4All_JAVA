@@ -18,7 +18,7 @@ import technique.DataSource;
 
 /**
  *
- * @author Sami
+ * @author Majdi
  */
 public class ClubService implements IClubService {
 
@@ -87,7 +87,9 @@ public class ClubService implements IClubService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), resultSet.getString("path_img"), resultSet.getString("path_couverture"), new User(resultSet.getInt("user_id")));
+                Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), 
+                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), resultSet.getString("apropos"), 
+                        resultSet.getString("notreHistoire"), new User(resultSet.getInt("user_id")));
                 club.add(c);
             }
         } catch (SQLException ex) {
@@ -99,16 +101,18 @@ public class ClubService implements IClubService {
     @Override
     public Club getById(Integer r) {
         Club club = null;
-        String req = "select *from club where id=?";
+        
+        String req = "select * from club where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
-                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), new User(resultSet.getInt("user_id")));
-                //System.out.println(club);
+                club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), 
+                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), resultSet.getString("apropos"),
+                        resultSet.getString("notreHistoire"), new User(resultSet.getInt("user_id")));
+                System.out.println("qsdqdqsdqsqd"+club);
 
             }
         } catch (SQLException ex) {

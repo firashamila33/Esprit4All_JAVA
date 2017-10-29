@@ -89,37 +89,37 @@ public class DialogueLayoutController implements Initializable {
         ProfilService profilService = new ProfilService();
         Profil profil = profilService.getByUserId(i);
         CovoiturageService covoiturageService = new CovoiturageService();
-        Covoiturage covoiturageA = covoiturageService.getByUserId(i);
-        //type.setText(covoiturageA.getType());
-        prix.setText(Double.toString(covoiturageA.getPrix()));
-        depart.setText(covoiturageA.getDepart());
-        arrive.setText(covoiturageA.getArrivé());
-        nbrePlace.setText(Integer.toString(covoiturageA.getNbrePlace()));
-        hDepart.setText(covoiturageA.getHeureDépart().toString());
-        description.setText(covoiturageA.getDescription());
-        name.setText(user.getPrenom() + " " + user.getNom());
-        tel.setText(profil.getTel());
+//        //Covoiturage covoiturageA = covoiturageService.getByUserId(i);
+//        //type.setText(covoiturageA.getType());
+//        prix.setText(Double.toString(covoiturageA.getPrix()));
+//        depart.setText(covoiturageA.getDepart());
+//        arrive.setText(covoiturageA.getArrivé());
+//        nbrePlace.setText(Integer.toString(covoiturageA.getNbrePlace()));
+//        hDepart.setText(covoiturageA.getHeureDépart().toString());
+//        description.setText(covoiturageA.getDescription());
+//        name.setText(user.getPrenom() + " " + user.getNom());
+//        tel.setText(profil.getTel());
     }
 
     @FXML
     private void ajouterUser(ActionEvent event) {
-        int nbrPlace = Integer.parseInt(nbrePlace.getText());
-        if (nbrPlace != 0) {
-            --nbrPlace;
-            UserService userService = new UserService();
-            User user = userService.getUserById(id);
-            CovoiturageService covoiturageService = new CovoiturageService();
-            Covoiturage covoiturage1 = covoiturageService.getByUserId(id);
-            covoiturage1.setNbrePlace(nbrPlace);
-            covoiturageService.update(covoiturage1);
-            HasCovoiturageService hasCovoiturageService = new HasCovoiturageService();
-            HasCovoiturage hasCovoiturage = new HasCovoiturage(covoiturage1, user);
-            hasCovoiturageService.add(hasCovoiturage);
-            nbrePlace.setText(Integer.toString(nbrPlace));
-        } else if (nbrPlace == 0) {
-            messageTest = true;
-            showDialog();
-        }
+//        int nbrPlace = Integer.parseInt(nbrePlace.getText());
+//        if (nbrPlace != 0) {
+//            --nbrPlace;
+//            UserService userService = new UserService();
+//            User user = userService.getUserById(id);
+//            CovoiturageService covoiturageService = new CovoiturageService();
+//            Covoiturage covoiturage1 = covoiturageService.getByUserId(id);
+//            covoiturage1.setNbrePlace(nbrPlace);
+//            covoiturageService.update(covoiturage1);
+//            HasCovoiturageService hasCovoiturageService = new HasCovoiturageService();
+//            HasCovoiturage hasCovoiturage = new HasCovoiturage(covoiturage1, user);
+//            hasCovoiturageService.add(hasCovoiturage);
+//            nbrePlace.setText(Integer.toString(nbrPlace));
+//        } else if (nbrPlace == 0) {
+//            messageTest = true;
+//            showDialog();
+//        }
     }
 
     private void showDialog() {

@@ -1,13 +1,17 @@
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
@@ -38,7 +42,7 @@ public class AcceuilFXMLController implements Initializable {
     @FXML
     private AnchorPane Restauration;
 
-    AnchorPane club, covoiturage, restauration, revision, document;
+    AnchorPane club_event, covoiturage, restauration, revision, document;
 
     List<String> images = new ArrayList<>();
 
@@ -54,6 +58,12 @@ public class AcceuilFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         slideImages();
+        try {
+            club_event=FXMLLoader.load(getClass().getResource("/gui/AcceuilClubFXML.fxml"));
+            setNode(club_event, Club_event);
+        } catch (IOException ex) {
+            Logger.getLogger(AcceuilFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 

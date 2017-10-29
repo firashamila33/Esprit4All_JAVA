@@ -61,6 +61,18 @@ public class Covoiturage {
         this.Voiture = Voiture;
     }
 
+    public Covoiturage(User u, double prix, String depart, String arrivé, String description, int nbrePlace, Date heureDépart, String Voiture) {
+        this.u = u;
+        this.prix = prix;
+        this.depart = depart;
+        this.arrivé = arrivé;
+        this.description = description;
+        this.nbrePlace = nbrePlace;
+        this.heureDépart = heureDépart;
+        this.Voiture = Voiture;
+    }
+    
+
     public int getId() {
         return id;
     }
