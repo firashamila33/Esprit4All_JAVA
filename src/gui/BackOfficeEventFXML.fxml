@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import application.*?>
 <?import javafx.geometry.*?>
-<?import org.controlsfx.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
@@ -14,99 +11,103 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1110.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackOfficeEventsFXMLController">
-   <children>
-      <JFXProgressBar prefWidth="1110.0" visible="false" />
-      <Pane prefHeight="50.0" prefWidth="1110.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="12.5" layoutY="12.5" prefHeight="30.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Gestion Evenement" />
-            <Separator layoutY="48.0" prefWidth="1110.0" />
-         </children>
-      </Pane>
-      <StackPane fx:id="tablePane" layoutY="51.0" prefHeight="671.0" prefWidth="1108.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0">
-         <children>
-            <JFXTextField fx:id="recherche_tf" alignment="CENTER" focusTraversable="false" layoutX="930.0" layoutY="10.0" maxWidth="200.0" minWidth="200.0" prefHeight="33.0" prefWidth="200.0" promptText="Recherche" StackPane.alignment="TOP_RIGHT" />
-            <TableView fx:id="event_table" layoutX="10.0" layoutY="45.0" prefHeight="624.0" prefWidth="1108.0" StackPane.alignment="BOTTOM_CENTER">
-              <columns>
-                  <TableColumn fx:id="col_couverture" prefWidth="75.0" text="Couverture" />
-                  <TableColumn fx:id="col_logo" prefWidth="75.0" text="Logo" />
-                  <TableColumn fx:id="col_libelle" prefWidth="75.0" text="Libelle" />
-                <TableColumn fx:id="col_description" prefWidth="75.0" text="Description" />
-                <TableColumn fx:id="col_date" prefWidth="75.0" text="Date" />
-                  <TableColumn fx:id="col_option" prefWidth="75.0" text="Option" />
-              </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-               <StackPane.margin>
-                  <Insets top="30.0" />
-               </StackPane.margin>
-            </TableView>
-         </children>
-      </StackPane>
-      <JFXButton fx:id="add_btn_layout" layoutX="1030.0" layoutY="660.0" onAction="#showAddFormAction" prefHeight="48.0" prefWidth="48.0" styleClass="addBtn" />
-      <JFXDialogLayout fx:id="addDialogLayout" layoutY="8.0" prefHeight="300.0" prefWidth="250.0" visible="false">
-         <children>
-            <StackPane>
-               <children>
-                  <GridPane alignment="CENTER" focusTraversable="true" prefHeight="300.0" prefWidth="100.0">
-                    <columnConstraints>
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <JFXTextField fx:id="libelle_tf" prefHeight="30.0" prefWidth="200.0" promptText="Libelle" />
-                        <JFXTextField fx:id="Description_tf" prefHeight="30.0" prefWidth="200.0" promptText="Description" GridPane.rowIndex="1" />
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                           <children>
-                              <JFXTextField fx:id="logo_path_tf" maxWidth="130.0" minWidth="130.0" prefHeight="30.0" prefWidth="130.0" promptText="Logo Path">
-                                 <HBox.margin>
-                                    <Insets top="8.0" />
-                                 </HBox.margin></JFXTextField>
-                              <JFXButton alignment="CENTER" prefHeight="55.0" prefWidth="83.0" text="Parcourir" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font size="12.0" />
-                                 </font>
-            
-                                                            </JFXButton>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
-                           <children>
-                              <JFXTextField fx:id="couverture_path_tf" maxWidth="130.0" minWidth="130.0" prefHeight="30.0" prefWidth="130.0" promptText="Couverture Path">
-                                 <HBox.margin>
-                                    <Insets top="8.0" />
-                                 </HBox.margin></JFXTextField>
-                              <JFXButton alignment="CENTER" prefHeight="55.0" prefWidth="83.0" text="Parcourir">
-                                 <font>
-                                    <Font size="12.0" />
-                                 </font>
-                              </JFXButton>
-                           </children>
-                        </HBox>
-                        <JFXButton fx:id="add_btn" onAction="#addAction" text="Ajouter" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <DatePicker fx:id="date_tf" promptText="Date" style="-fx-background-color: transparent;" GridPane.rowIndex="2" />
+    <children>
+        <Pane prefHeight="50.0" prefWidth="1110.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="35.0" layoutY="12.5" prefHeight="30.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Gestion Evenement" />
+                <Separator layoutY="48.0" prefWidth="1110.0" />
+                <JFXTextField fx:id="recherche_tf" alignment="TOP_LEFT" focusColor="#ff2e44" focusTraversable="false" labelFloat="true" layoutX="868.0" layoutY="15.0" maxWidth="202.0" minWidth="200.0" prefHeight="30.0" prefWidth="202.0" promptText="Recherche">
+                    <cursor>
+                        <Cursor fx:constant="TEXT" />
+                    </cursor>
+                </JFXTextField>
+            </children>
+        </Pane>
+        
+        <StackPane fx:id="tablePane" layoutY="51.0" prefHeight="671.0" prefWidth="1108.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="49.0">
+            <children>
+                <TableView fx:id="events_table" prefHeight="200.0" prefWidth="200.0" styleClass="card-white">
+                    <columns>
+                        <TableColumn fx:id="col_img" prefWidth="75.0" text="Image" />
+                        <TableColumn fx:id="col_libelle" prefWidth="75.0" text="Libelle" />
+                        <TableColumn fx:id="col_type" prefWidth="75.0" text="Type" />
+                        <TableColumn fx:id="col_description" prefWidth="75.0" text="Description" />
+                        <TableColumn fx:id="col_date" prefWidth="75.0" text="Date" />
+                        <TableColumn fx:id="col_option" prefWidth="75.0" text="Option" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                    <StackPane.margin>
+                        <Insets bottom="35.0" left="35.0" right="35.0" top="25.0" />
+                    </StackPane.margin>
+                </TableView>
+                
+            </children>
+        </StackPane>
+        <JFXButton fx:id="add_btn_layout" layoutX="1049.0" layoutY="660.0" onAction="#showAddFormAction" prefHeight="48.0" prefWidth="48.0" styleClass="addBtn" />
+        <JFXDialogLayout fx:id="addDialogLayout" layoutY="8.0" prefHeight="450.0" prefWidth="250.0" visible="false">
+            <children>
+                <StackPane maxHeight="450.0" maxWidth="250.0" minHeight="450.0" minWidth="250.0" prefHeight="450.0" prefWidth="250.0">
+                    <children>
+                        <GridPane alignment="CENTER" focusTraversable="true" prefHeight="450.0" prefWidth="100.0">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <JFXTextField fx:id="libelle_tf" focusColor="#ff2e44" labelFloat="true" prefHeight="30.0" prefWidth="200.0" promptText="Libelle" GridPane.rowIndex="1" />
+                                <JFXTextArea fx:id="Description_tf" focusColor="#ff2e44" labelFloat="true" prefColumnCount="50" prefHeight="50.0" promptText="Description" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets top="15.0" />
+                                    </GridPane.margin>
+                                </JFXTextArea>
+                                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                                    <children>
+                                        <JFXTextField fx:id="img_path_tf" focusColor="#ff2e44" labelFloat="true" maxWidth="130.0" minWidth="130.0" prefHeight="30.0" prefWidth="130.0" promptText="Image">
+                                           
+                                        </JFXTextField>
+                                        <JFXButton fx:id="parcourir_img" alignment="CENTER" onAction="#parcourir_img" prefHeight="32.0" prefWidth="73.0" text="Parcourir">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </JFXButton>
+                                    </children>
+                                    <GridPane.margin>
+                                        <Insets top="10.0" />
+                                    </GridPane.margin>
+                                </HBox>
+                                <JFXButton fx:id="add_btn" onAction="#addAction" text="Ajouter" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <JFXComboBox fx:id="Type" focusColor="#ff2e44" labelFloat="true" prefHeight="24.0" prefWidth="203.0" promptText="Type" visibleRowCount="5" GridPane.rowIndex="3">
+                                    <GridPane.margin>
+                                        <Insets top="10.0" />
+                                    </GridPane.margin>
+                                </JFXComboBox>
+                                <Label fx:id="formLibelle_lbl" alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Ajouter Evenement" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <JFXDatePicker fx:id="date_tf" GridPane.rowIndex="4" />
                         
                                           
-                     </children>
-                     <StackPane.margin>
-                        <Insets top="30.0" />
-                     </StackPane.margin>
-                  </GridPane>
-                  <Label alignment="TOP_LEFT" text="Ajouter Evenement" StackPane.alignment="TOP_CENTER">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </StackPane>
-         </children>
-      </JFXDialogLayout>
-   </children>
+                            </children>
+                            <StackPane.margin>
+                                <Insets />
+                            </StackPane.margin>
+                            
+                        </GridPane>
+                    </children>
+                </StackPane>
+            </children>
+        </JFXDialogLayout>
+    </children>
 </AnchorPane>

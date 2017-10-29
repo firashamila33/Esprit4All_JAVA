@@ -20,8 +20,7 @@ public class Revision {
   private String  description ;
   private int nbrmax;
   private String type ;
-    private  Date date_fin
-            ;
+  private  Date date_fin ;
 
     public Revision(int id) {
         this.id = id;
@@ -52,9 +51,9 @@ public class Revision {
     }
 
     public Revision() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-   
+    
     
 
     public int getId() {

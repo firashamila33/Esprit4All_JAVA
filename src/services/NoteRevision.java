@@ -92,8 +92,9 @@ note_revision x= null;
       
             java.sql.ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-               x = new note_revision(resultSet.getInt("id"), new Revision(resultSet.getInt("revision_id")),new User (resultSet.getInt("user_id")),resultSet.getInt("note"));
+                    x = new note_revision(resultSet.getInt("id"), new Revision(resultSet.getInt("revision_id")),new User (resultSet.getInt("user_id")),resultSet.getInt("note"));
                                revision.add(x);
+           
 
             }
         } catch (SQLException ex) {

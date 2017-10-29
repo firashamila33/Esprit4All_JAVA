@@ -42,6 +42,24 @@ public class Evenement {
         this.club = club;
     }
 
+    public Evenement(int id, String liblle, String type, String description, Date date, String path_img) {
+        this.id = id;
+        this.liblle = liblle;
+        this.type = type;
+        this.description = description;
+        this.date = date;
+        this.path_img = path_img;
+    }
+
+    public Evenement(String liblle, String type, String description, Date date, String path_img) {
+        this.liblle = liblle;
+        this.type = type;
+        this.description = description;
+        this.date = date;
+        this.path_img = path_img;
+    }
+    
+
     public int getId() {
         return id;
     }

@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="row" prefHeight="120.0" prefWidth="900.0" style="-fx-border-color: #4242428B; -fx-border-width: 0 0 1 0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="row" maxHeight="125.0" maxWidth="830.0" minWidth="830.0" prefHeight="125.0" prefWidth="830.0" styleClass="card-white" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="656.0" layoutY="5.0" prefHeight="111.0" prefWidth="232.0" style="-fx-border-color: BLACK; -fx-border-width: 1; -fx-background-color: WHITE;">
-         <children>
-            <ImageView fx:id="path_img_id" fitHeight="101.0" fitWidth="225.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../ressources/Abstract-Background-Red-and-Grey.jpg" />
-               </image>
-            </ImageView>
-         </children>
-         <effect>
-            <DropShadow height="10.0" radius="4.5" width="10.0" />
-         </effect>
-      </Pane>
-      <Label fx:id="libelle_club_id" alignment="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="44.0" prefWidth="646.0" style="-fx-background-color: #dddada;" text="Nom de club">
+      <Label fx:id="libelle_club_id" alignment="CENTER" layoutX="284.0" layoutY="10.0" prefHeight="44.0" prefWidth="500.0 " style="-fx-text-fill: black;" text="Nom de club">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <BorderPane layoutX="6.0" layoutY="5.0" prefHeight="111.0" prefWidth="646.0" style="-fx-border-color: #4242428B;">
-         <bottom>
-            <Label fx:id="decription_club_id" alignment="CENTER" layoutX="4.0" layoutY="-13.0" prefHeight="33.0" prefWidth="627.0" text="Description club " BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-         </bottom></BorderPane>
+      <Text fx:id="decription_club_id" layoutX="284.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="Textqsdqsd," wrappingWidth="500.0" />
+      <ImageView fx:id="path_img_id" fitHeight="101.0" fitWidth="225.0" layoutX="15.0" layoutY="8.0" pickOnBounds="true">
+         <image>
+            <Image url="@../ressources/Abstract-Background-Red-and-Grey.jpg" />
+         </image>
+      </ImageView>
+      <Separator layoutX="291.0" layoutY="50.0" prefWidth="500.0" />
+      <Separator layoutX="255.0" layoutY="9.0" orientation="VERTICAL" prefHeight="100.0" />
    </children>
 </AnchorPane>

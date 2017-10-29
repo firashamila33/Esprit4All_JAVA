@@ -15,7 +15,9 @@ public class Club {
     private String libelle;
     private String description;
     private String path_img;
-     private String path_couverture;
+    private String path_couverture;
+    private String apropos;
+    private String notreHistoire;
     private User user;
 
     public Club() {
@@ -26,6 +28,7 @@ public class Club {
     }
 
     public Club(int id, String libelle, String description, String path_img,String path_couverture, User user) {
+        this.path_couverture= path_couverture;
         this.id = id;
         this.libelle = libelle;
         this.description = description;
@@ -36,12 +39,36 @@ public class Club {
     }
 
     public Club( String libelle, String description, String path_img,String path_couverture, User user) {
+        this.path_couverture= path_couverture;
         this.libelle = libelle;
         this.description = description;
         this.path_img = path_img;
          this.path_couverture=path_couverture;
         this.user = user;
     }
+
+    public Club(int id, String libelle, String description, String path_img, String path_couverture, String apropos, String notreHistoire, User user) {
+        this.id = id;
+        this.libelle = libelle;
+        this.description = description;
+        this.path_img = path_img;
+        this.path_couverture = path_couverture;
+        this.apropos = apropos;
+        this.notreHistoire = notreHistoire;
+        this.user = user;
+    }
+
+    public Club(String libelle, String description, String path_img, String path_couverture, String apropos, String notreHistoire, User user) {
+        this.libelle = libelle;
+        this.description = description;
+        this.path_img = path_img;
+        this.path_couverture = path_couverture;
+        this.apropos = apropos;
+        this.notreHistoire = notreHistoire;
+        this.user = user;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -91,17 +118,9 @@ public class Club {
         this.user = user;
     }
 
-    
-
-   
     @Override
     public String toString() {
-        return "Club{" + "id=" + id +
-                ", libelle=" + libelle +
-                ", description=" + description + 
-                ", path_img=" + path_img +
-                ", path_couverture=" + path_couverture + 
-                ", user=" + user + '}';
+        return "Club{" + "id=" + id + ", libelle=" + libelle + ", description=" + description + ", path_img=" + path_img + ", path_couverture=" + path_couverture + ", user=" + user + '}';
     }
 
    
@@ -122,6 +141,22 @@ public class Club {
         }
 
         return false;
+    }
+
+    public String getApropos() {
+        return apropos;
+    }
+
+    public void setApropos(String apropos) {
+        this.apropos = apropos;
+    }
+
+    public String getNotreHistoire() {
+        return notreHistoire;
+    }
+
+    public void setNotreHistoire(String notreHistoire) {
+        this.notreHistoire = notreHistoire;
     }
 
 }

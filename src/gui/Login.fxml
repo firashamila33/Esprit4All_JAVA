@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="window1" prefHeight="575.0" prefWidth="940.0" style="-fx-background-color: 0,100,0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
-      <AnchorPane id="fenetre2" fx:id="winodw3" layoutY="42.0" prefHeight="503.0" prefWidth="940.0" style="-fx-border-radius: 5em; -fx-background-color: #fff;">
+      <AnchorPane id="fenetre2" fx:id="winodw3" layoutY="42.0" prefHeight="503.0" prefWidth="940.0" style="-fx-border-radius: 5em; -fx-background-color: #ffffff">
          <children>
             <JFXButton id="button1" fx:id="button1" focusTraversable="false" layoutY="162.0" onAction="#handleButtonAction" prefHeight="66.0" prefWidth="171.0" text="Se connecter" textFill="#ff2e44">
                <font>
@@ -24,7 +24,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <AnchorPane id="fenetre4" fx:id="window5" layoutX="545.0" layoutY="1.0" prefHeight="503.0" prefWidth="395.0" style="-fx-background-color: 000.100.000;">
+            <AnchorPane id="fenetre4" fx:id="window5" layoutX="545.0" layoutY="1.0" prefHeight="503.0" prefWidth="395.0" style="-fx-background-color: #ffffff">
                <children>
                   <JFXTextField id="username" fx:id="usernameLogin" focusColor="#424242" labelFloat="true" layoutX="29.0" layoutY="170.0" onKeyPressed="#change" prefHeight="47.0" prefWidth="338.0" promptText="Pseudonyme" unFocusColor="#ff2e44" />
                   <JFXButton id="connexion" fx:id="login" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="151.0" layoutY="356.0" onAction="#login" prefHeight="47.0" prefWidth="93.0" text="Button">
@@ -56,7 +56,7 @@
                   <JFXTextField id="text3" fx:id="adresseMail" focusColor="#424242" labelFloat="true" layoutX="29.0" layoutY="186.0" onKeyPressed="#change" prefHeight="25.0" prefWidth="338.0" promptText="Adresse mail" unFocusColor="#ff2e44" />
                   <JFXTextField id="text4" fx:id="mdp" focusColor="#424242" labelFloat="true" layoutX="29.0" layoutY="227.0" prefHeight="25.0" prefWidth="338.0" promptText="Mot de passe" unFocusColor="#ff2e44" />
                   <JFXTextField id="text5" fx:id="pseudonyme" focusColor="#424242" labelFloat="true" layoutX="29.0" layoutY="270.0" onKeyPressed="#change" prefHeight="25.0" prefWidth="338.0" promptText="Pseudonyme" unFocusColor="#ff2e44" />
-                  <DatePicker id="date" fx:id="date" layoutX="26.0" layoutY="314.0" prefHeight="25.0" prefWidth="344.0" promptText="Date naissance" style="-fx-border-color: #ff2e44; -fx-background-color: #fffff;" />
+                  <JFXDatePicker id="date" fx:id="date" layoutX="26.0" layoutY="314.0" prefHeight="25.0" prefWidth="344.0" promptText="Date naissance" />
                   <JFXTextField id="text6" fx:id="cin" focusColor="#424242" labelFloat="true" layoutX="29.0" layoutY="354.0" onKeyPressed="#change" prefHeight="25.0" prefWidth="338.0" promptText="Carte d'identité nationale" unFocusColor="#ff2e44" />
                   <JFXTextField id="text7" fx:id="adresse" focusColor="#424242" labelFloat="true" layoutX="29.0" layoutY="398.0" prefHeight="25.0" prefWidth="338.0" promptText="Adresse" unFocusColor="#ff2e44" />
                   <JFXButton id="button3" fx:id="register" contentDisplay="GRAPHIC_ONLY" layoutX="151.0" layoutY="438.0" onAction="#register" prefHeight="25.0" prefWidth="93.0" textFill="#ff2e44">

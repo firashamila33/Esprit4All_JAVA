@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import com.guigarage.controls.*?>
+<?import org.controlsfx.control.textfield.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcceuilFXMLController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: White;" vbarPolicy="NEVER">
+         <content>
+            <AnchorPane prefHeight="560.0" prefWidth="1360.0">
+               <children>
+                  <AnchorPane layoutX="19.0" prefHeight="3360.0" prefWidth="1320.0" styleClass="container-card">
+                     <children>
+                        <VBox prefHeight="3360.0" prefWidth="1320.0">
+                           <children>
+                              <AnchorPane fx:id="slideImage" prefHeight="560.0" prefWidth="1320.0" style="-fx-background-color: #4242428B;">
+                                 <children>
+                                    
+                                 </children></AnchorPane>
+                              <AnchorPane fx:id="Club_event" prefHeight="560.0" prefWidth="1320.0" />
+                              <AnchorPane fx:id="Couvoiturage" prefHeight="560.0" prefWidth="1320.0" style="-fx-background-color: #4242428B;" />
+                              <AnchorPane fx:id="Restauration" prefHeight="560.0" prefWidth="1320.0" />
+                              <AnchorPane fx:id="Revision" prefHeight="560.0" prefWidth="1320.0" style="-fx-background-color: gray;" />
+                              <AnchorPane fx:id="Document" prefHeight="560.0" prefWidth="1320.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

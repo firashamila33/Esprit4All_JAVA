@@ -17,6 +17,10 @@ public class note_revision {
     private User user;
     private float note;
 
+    public note_revision(int id) {
+        this.id = id;
+    }
+
     public note_revision(int id, Revision revision, User user, float note) {
         this.id = id;
         this.revision = revision;

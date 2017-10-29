@@ -37,16 +37,14 @@ public class Club_EvenementFXMLController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+     
         EvenementService es = new EvenementService();
-        
         ClubService cs = new ClubService();
         
-        
-        //System.out.println(es.getAll().toString());
+        //lester les evenements
         evenements = FXCollections.observableArrayList(es.getAll());
         list_even.setItems(evenements);
         list_even.setCellFactory(evenementListView -> new RowEventFXMLController());
-
         
         //lister les clubs 
         clubs = FXCollections.observableArrayList(cs.getAll());

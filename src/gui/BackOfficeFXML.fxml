@@ -18,41 +18,52 @@
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
-               
+                    
                 </Label>
             </left>
+         <right>
+            <JFXButton fx:id="exit" onAction="#Exit" text="*" BorderPane.alignment="CENTER" />
+         </right>
         </JFXToolbar>
-        <VBox layoutY="42.0" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #4242428B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="42.0">
+        <VBox fx:id="menu_bar" layoutY="42.0" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #4242428B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="42.0">
             <children>
-            <AnchorPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="151.0" fitWidth="249.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../utils/material_header.jpg" />
-                     </image>
-                  </ImageView>
-                  <JFXButton layoutX="144.0" layoutY="116.0" text="Deconnextion" textFill="WHITE" />
-                  <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="97.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../utils/user-3_1.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="84.0" layoutY="93.0" text="Prenom nom" textFill="WHITE" />
-                  <Label layoutX="3.0" layoutY="121.0" text="Role" textFill="WHITE" />
-               </children>
-            </AnchorPane>
+                <AnchorPane prefHeight="150.0" prefWidth="200.0">
+                    <children>
+                        <ImageView fitHeight="151.0" fitWidth="249.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@../utils/material_header.jpg" />
+                            </image>
+                        </ImageView>
+                        <JFXButton fx:id="deconnexion" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="205.0" layoutY="114.0" onAction="#Deconnexion" text="Button" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/icons8-Exit-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                        <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../ressources/profile.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="User" alignment="CENTER" layoutY="93.0" prefHeight="17.0" prefWidth="248.0" text="Prenom " textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="Role" layoutX="11.0" layoutY="122.0" text="Role" textFill="WHITE" />
+                    </children>
+                </AnchorPane>
                 <JFXButton fx:id="nav_clubs" onAction="#goToClubs" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Clubs" textAlignment="CENTER" />
-            <JFXButton fx:id="nav_events" onAction="#goToEvents" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Evenement" textAlignment="CENTER" />
-            <JFXButton fx:id="nav_docs" onAction="#goToDocs" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Documents" textAlignment="CENTER" />
-            <JFXButton fx:id="nav_menu" onAction="#goToMenu" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Menus" textAlignment="CENTER" />
-            <JFXButton fx:id="nav_revisions" onAction="#goToRevisions" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Révisions" textAlignment="CENTER" />
-            <JFXButton fx:id="nav_objetPerdus" onAction="#goToObjetPerdus" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Objets Perdus" textAlignment="CENTER" />
-            <JFXButton fx:id="nav_info_club" onAction="#goToInfoClub" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Club" textAlignment="CENTER" />
-            <JFXButton fx:id="nav_orders" onAction="#goToOrders" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Orders" textAlignment="CENTER" />
-            <JFXButton fx:id="nav_recettes" onAction="#goToRecette" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Recettes" textAlignment="CENTER" />
+                <JFXButton fx:id="nav_events" onAction="#goToEvents" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Evenement" textAlignment="CENTER" />
+                <JFXButton fx:id="nav_docs" onAction="#goToDocs" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Documents" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_Professeur" onAction="#goToProfesseur" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Professeur " textAlignment="CENTER" />
+                <JFXButton fx:id="nav_menu" onAction="#goToMenu" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Menus" textAlignment="CENTER" />
+                <JFXButton fx:id="nav_revisions" onAction="#goToRevisions" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Révisions" textAlignment="CENTER" />
+                <JFXButton fx:id="nav_objetPerdus" onAction="#goToObjetPerdus" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Objets Perdus" textAlignment="CENTER" />
+                <JFXButton fx:id="nav_orders" onAction="#goToOrders" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Orders" textAlignment="CENTER" />
+            <JFXButton fx:id="nav_utilisateur" onAction="#goToUtilisateur" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Gestion Utilisateurs" textAlignment="CENTER" />
+                <JFXButton fx:id="nav_recettes" onAction="#goToRecette" prefHeight="42.0" prefWidth="250.0" styleClass="nav-button" text="Recettes" textAlignment="CENTER" />
                
             </children>
         </VBox>
-         <AnchorPane fx:id="holderPane" layoutX="250.0" layoutY="42.0" prefHeight="720.0" prefWidth="1110.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0" />
+        <AnchorPane fx:id="holderPane" layoutX="250.0" layoutY="42.0" prefHeight="720.0" prefWidth="1110.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0" />
     </children>
 </AnchorPane>

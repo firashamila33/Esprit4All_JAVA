@@ -9,82 +9,91 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="row" prefHeight="130.0" prefWidth="708.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="row" prefHeight="125.0" prefWidth="800.0" styleClass="card-white" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Separator layoutY="98.0" prefHeight="18.0" prefWidth="708.0" translateY="9.0" />
-      <JFXButton fx:id="afficheCov" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="-8.0" layoutY="-4.0">
-         <graphic>
-            <ImageView>
+      <Separator layoutX="200.0" layoutY="10.0" orientation="VERTICAL" prefHeight="100.0" />
+      <Pane layoutY="3.0" prefHeight="120.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="owner_img" fitHeight="75.0" fitWidth="75.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
                <image>
-                  <Image url="@../ressources/icons8_Car_64px.png" />
+                  <Image url="@../utils/photo.png" />
                </image>
             </ImageView>
-         </graphic>
-      </JFXButton>
-      <Text fx:id="marqueV" fill="#ff2e44" layoutX="64.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque de voiture">
-         <font>
-            <Font name="Lato Black" size="24.0" />
-         </font>
-      </Text>
-      <ImageView layoutX="16.0" layoutY="54.0">
-         <image>
-            <Image url="@../ressources/icons8_Marker_32px.png" />
-         </image>
-      </ImageView>
-      <Text fill="#424242" layoutX="13.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Départ">
-         <font>
-            <Font name="Lato Black" size="12.0" />
-         </font>
-      </Text>
-      <ImageView layoutX="496.0" layoutY="54.0">
-         <image>
-            <Image url="@../ressources/icons8_Marker_32px.png" />
-         </image>
-      </ImageView>
-      <Text fill="#424242" layoutX="493.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrivé">
-         <font>
-            <Font name="Lato Black" size="12.0" />
-         </font>
-      </Text>
-      <Text fx:id="departV" fill="#ff2e44" layoutX="64.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu de départ">
-         <font>
-            <Font name="Lato Black" size="24.0" />
-         </font>
-      </Text>
-      <Text fx:id="arriveV" fill="#ff2e44" layoutX="545.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu d'arrivé">
-         <font>
-            <Font name="Lato Black" size="24.0" />
-         </font>
-      </Text>
-      <ImageView layoutX="572.0">
-         <image>
-            <Image url="@../ressources/icons8_Price_64px.png" />
-         </image>
-      </ImageView>
-      <Text fx:id="prixV" fill="#ff2e44" layoutX="636.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix">
-         <font>
-            <Font name="Lato Black" size="24.0" />
-         </font>
-      </Text>
-      <ImageView layoutX="267.0" layoutY="62.0">
-         <image>
-            <Image url="@../ressources/icons8_Foot_Step_48px.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="297.0" layoutY="62.0">
-         <image>
-            <Image url="@../ressources/icons8_Foot_Step_48px.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="327.0" layoutY="62.0">
-         <image>
-            <Image url="@../ressources/icons8_Foot_Step_48px.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="359.0" layoutY="62.0">
-         <image>
-            <Image url="@../ressources/icons8_Foot_Step_48px.png" />
-         </image>
-      </ImageView>
+            <Label fx:id="owner_name_lbl" layoutX="91.0" layoutY="24.0" style="-fx-text-fill: black;" text="Sami Marrekchi" />
+            <Label fx:id="phone_lbl" layoutX="93.0" layoutY="48.0" style="-fx-text-fill: black;" text="29377762">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/phone-contact.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="marqueV_lbl" layoutX="10.0" layoutY="90.0" prefHeight="24.0" prefWidth="183.0" style="-fx-text-fill: black;" text="Golf">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0">
+                     <image>
+                        <Image url="@../ressources/icons8_Car_64px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="205.0" layoutY="5.0" prefHeight="120.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="dateDepart_lbl" layoutX="15.0" layoutY="10.0" style="-fx-text-fill: black;" text="Date Départ">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/startTime.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="ville_depart_lbl" layoutX="15.0" layoutY="45.0" style="-fx-text-fill: black;" text="Depart">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/greenMarker.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="ville_arrive_lbl" layoutX="214.0" layoutY="45.0" style="-fx-text-fill: black;" text="Arrivée">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/redMarker.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="prix_lbl" layoutX="400.0" layoutY="10.0" prefHeight="25.0" prefWidth="100.0" style="-fx-text-fill: black;" text="Prix">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/icons8_Price_64px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label layoutX="430.0" layoutY="33.0" style="-fx-text-fill: black;" text="Par Place ">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="img_occuped_place" fitHeight="30.0" fitWidth="30.0" layoutX="433.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/groupe.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="description" layoutX="15.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="375.0" />
+         </children>
+      </Pane>
+      <JFXButton fx:id="participer" layoutX="700.0" layoutY="-1.0" prefHeight="125.0" prefWidth="100.0" text="Participer" />
    </children>
 </AnchorPane>

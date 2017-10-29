@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoodMainFXMLController">
+   <children>
+      <ImageView fitHeight="560.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0">
+         <image>
+            <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/background1.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="560.0" prefWidth="350.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="204.0" fitWidth="166.0" layoutX="84.0" layoutY="-8.0">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/chef.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="menu_btn" layoutY="193.0" onAction="#goToMenu" prefHeight="54.0" prefWidth="350.0" text="Menu" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="37.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutX="-1.0" layoutY="262.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <JFXButton fx:id="myorders_btn" layoutX="-34.0" layoutY="268.0" onAction="#goToMyOrder" prefHeight="70.0" prefWidth="382.0" text="    MY ORDERS" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="current_order_btn" layoutX="-1.0" layoutY="341.0" onAction="#goToCurrentOrder" prefHeight="73.0" prefWidth="350.0" text="      CURRENT ORDER" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutY="336.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <BorderPane layoutX="1.0" layoutY="412.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <JFXButton fx:id="my_favorites_btn" layoutX="1.0" layoutY="417.0" onAction="#goToFavorites" prefHeight="70.0" prefWidth="350.0" text="  MY FAVORITES" textFill="#373a42">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </JFXButton>
+            <BorderPane layoutX="1.0" layoutY="190.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <BorderPane layoutX="-1.0" layoutY="486.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" />
+            <ImageView fitHeight="73.0" fitWidth="59.0" layoutX="20.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/menu2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="28.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/myorders.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="34.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/current-order.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="35.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Desktop/ESPRIT/PIDEV/IMG/favorite.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="container" layoutX="351.0" prefHeight="560.0" prefWidth="1010.0" />
+      
+   </children>
+</AnchorPane>

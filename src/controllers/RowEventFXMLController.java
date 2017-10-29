@@ -6,19 +6,21 @@
 package controllers;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import models.Club;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import models.Evenement;
-import services.ClubService;
+import utils.URLimages;
 
 /**
  * FXML Controller class
@@ -40,8 +42,8 @@ public class RowEventFXMLController extends ListCell<Evenement> {
     @FXML
     private ImageView img_club_id;
     @FXML
-    private Label desc_event_id;
-
+    private Text desc_event_id;
+    AnchorPane eventclub;
     /**
      * Initializes the controller class.
      */
@@ -67,13 +69,34 @@ public class RowEventFXMLController extends ListCell<Evenement> {
             }
 
             lib_event_id.setText(evenements.getLiblle());
-            img_evnt_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + evenements.getPath_img()));
-            img_club_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/" + evenements.getClub().getPath_img()));
+            img_evnt_id.setImage(new Image(URLimages.imagesEvents + evenements.getPath_img()));
+            System.out.println(evenements.getClub().getPath_img());
+            img_club_id.setImage(new Image(URLimages.LogoClubs + evenements.getClub().getPath_img()));
 
             date_event_id.setText(String.valueOf(evenements.getDate()));
             desc_event_id.setText(evenements.getDescription());
             type_event_id.setText(evenements.getType());
+            setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    //To change body of generated methods, choose Tools | Templates.
+                    try {
 
+                        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementFXML.fxml"));
+                        Parent root = (Parent) fXMLLoader.load();
+                        EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
+                        controller.setId(evenements.getId());
+                        controller.display();
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            );
             setText(null);
             setGraphic(row);
         }

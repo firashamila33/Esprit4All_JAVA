@@ -34,4 +34,7 @@ public interface IEvenementService extends IServices<Evenement, Integer> {
     public Evenement getById(Integer r);
     
     
+    
+    
+    
 }

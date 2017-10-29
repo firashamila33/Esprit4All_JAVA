@@ -57,7 +57,7 @@ public class TopRatedMentorsFXMLController implements Initializable {
         list_topetu.setCellFactory(f-> new Row_TopRated_MentorController());*/
         List<User> w = x.getAll();
         for (User u : w) {
-            if (u.getRoles().equals("ROLE_ETUDIANT")) {
+            if (u.getRole().equals("ROLE_ETUDIANT")) {
                 mentor_etu = FXCollections.observableArrayList(es.getAll());
                 list_topetu.setItems(mentor_etu);
                 list_topetu.setCellFactory(f -> new Row_TopRated_MentorController());

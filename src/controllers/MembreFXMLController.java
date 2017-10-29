@@ -68,11 +68,10 @@ public class MembreFXMLController extends ListCell<Profil> {
             }
 
             //img_membre_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_profil/path_img/"+p.getPathImg(), 500 ,500 ,true,true));
-            nom_membre_id.setText("Majdi Rabie");
+            nom_membre_id.setText(p.getU().getPrenom());
 
             setOnMouseEntered(event -> {
-                JFXDialogLayout dialogLayout = new JFXDialogLayout();
-                dialogLayout.setStyle("-fx-padding: 5px 10px 10px 5px;\n ");
+              
                 VBox vb = new VBox();
                 vb.setStyle("-fx-alignment: CENTER;\n" + "-fx-padding: 5px;\n");
                 JFXButton btn1 = new JFXButton("Voir Profil");
@@ -107,8 +106,10 @@ public class MembreFXMLController extends ListCell<Profil> {
                 fp.getChildren().addAll(Facebook, Linkedin, Gougle, CV);
                 vb.getChildren().add(fp);
                 fp.setStyle("-fx-padding: 5px;\n");
+                
+                JFXDialogLayout dialogLayout = new JFXDialogLayout();
+                dialogLayout.setStyle("-fx-padding: 5px 10px 10px 5px;\n ");
                 dialogLayout.getChildren().add(vb);
-
                 dialog = new JFXDialog(anchorpane_membre_id, dialogLayout, JFXDialog.DialogTransition.TOP);
                 dialog.show();
 
