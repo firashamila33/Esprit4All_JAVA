@@ -99,12 +99,12 @@ public class AnnonceObjetPerduService implements IAnnonceObjetPerduService {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
 
-                //AnnonceObjetPerdu element = new AnnonceObjetPerdu(rs.getString("objectDescription"),
-                //        rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
-                //        rs.getString("description"), userService.getById(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
                 AnnonceObjetPerdu element = new AnnonceObjetPerdu(rs.getString("objectDescription"),
                         rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
-                        rs.getString("description"), new User(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
+                        rs.getString("description"), userService.getUserById(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
+                //AnnonceObjetPerdu element = new AnnonceObjetPerdu(rs.getString("objectDescription"),
+                //        rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
+                //        rs.getString("description"), new User(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
 
                 element.setId(rs.getInt(1));
                 result.add(element);
@@ -123,14 +123,15 @@ public class AnnonceObjetPerduService implements IAnnonceObjetPerduService {
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ps.setInt(1, r);
+             IUserService userService = new UserService();
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                //AnnonceObjetPerdu result = new AnnonceObjetPerdu(rs.getString("objectDescription"),
-                //        rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
-                //        rs.getString("description"), userService.getById(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
                 AnnonceObjetPerdu result = new AnnonceObjetPerdu(rs.getString("objectDescription"),
                         rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
-                        rs.getString("description"), new User(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
+                        rs.getString("description"), userService.getUserById(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
+                //AnnonceObjetPerdu result = new AnnonceObjetPerdu(rs.getString("objectDescription"),
+                //        rs.getDate("lossDate"), rs.getString("lossLocation"), rs.getString("name"),
+                //        rs.getString("description"), new User(rs.getInt("owner_id")), rs.getDate("creationDate"), rs.getDate("expirationDate"));
 
                 result.setId(rs.getInt(1));
                 return result;
