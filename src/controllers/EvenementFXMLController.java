@@ -31,7 +31,7 @@ public class EvenementFXMLController implements Initializable {
     @FXML
     private AnchorPane anchorPanrEV_id;
     AnchorPane club;
-    
+
     private int id;
     @FXML
     private ImageView path_img_event_id;
@@ -56,8 +56,6 @@ public class EvenementFXMLController implements Initializable {
         this.id = id;
     }
 
-    
-
     /**
      * Initializes the controller class.
      */
@@ -69,22 +67,26 @@ public class EvenementFXMLController implements Initializable {
     @FXML
     private void backToClub(MouseEvent event) {
         try {
-            club = FXMLLoader.load(getClass().getResource("/gui/Club_EvenementFXML.fxml"));
-            anchorPanrEV_id.getChildren().clear();
-            anchorPanrEV_id.getChildren().add(club);
+            FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/AcceuilFXML.fxml"));
+                        AnchorPane p= (AnchorPane)fXMLLoader.load();
+                        AcceuilFXMLController controller = fXMLLoader.<AcceuilFXMLController>getController();
+                       
+                        
+                        MainFXMLController.setNode(p);
         } catch (Exception e) {
 
             System.out.println("interface introuvable");
         }
 
     }
-    public void display()
-    {
-         EvenementService es = new EvenementService();
+
+    public void display() {
+
+        EvenementService es = new EvenementService();
         Evenement e = es.getById(id);
-   
-       path_img_event_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + e.getPath_img()));
-       path_img_club_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/"+e.getClub().getPath_img()));
+
+        path_img_event_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_event/" + e.getPath_img()));
+        path_img_club_id.setImage(new Image("http://localhost/www/Esprit4All/uploads/img_club/path_img/" + e.getClub().getPath_img()));
         desc_id.setText(e.getDescription());
         libel_event_id.setText(e.getLiblle());
         type_id.setText(e.getType());

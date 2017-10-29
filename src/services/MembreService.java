@@ -64,7 +64,7 @@ public class MembreService {
             preparedStatement.setInt(1, c.getId());
             java.sql.ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {    
-              Membre  membre = new Membre(new Club(resultSet.getInt("club_id")),new User(resultSet.getInt("user_id")),resultSet.getString("role"));
+              Membre  membre = new Membre(new ClubService().getById(resultSet.getInt("club_id")),new UserService().getUserById(resultSet.getInt("user_id")),resultSet.getString("role"));
                 membres.add(membre);
             }
         } catch (SQLException ex) {
@@ -81,7 +81,7 @@ public class MembreService {
             preparedStatement = connection.prepareStatement(req);
             java.sql.ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                 Membre m = new Membre(new Club(resultSet.getInt("club_id")),new User(resultSet.getInt("user_id")),resultSet.getString("role"));
+                 Membre m = new Membre(new ClubService().getById(resultSet.getInt("club_id")),new UserService().getUserById(resultSet.getInt("user_id")),resultSet.getString("role"));
                
                 membre.add(m);
             }

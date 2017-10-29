@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="560.0" prefWidth="1170.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListEventClubFXMLController">
+   <children>
+      <ImageView fitHeight="560.0" fitWidth="1170.0" pickOnBounds="true">
+         <image>
+            <Image url="@../ressources/33.png" />
+         </image>
+      </ImageView>
+      <JFXListView fx:id="list_even" layoutX="180.0" layoutY="20.0" maxHeight="530" maxWidth="850.0" minWidth="490.0" opacity="0.9" prefHeight="530" prefWidth="850.0" styleClass="mylistview" StackPane.alignment="CENTER">
+         <StackPane.margin>
+            <Insets top="20.0" />
+         </StackPane.margin></JFXListView>   
+   </children>
+</AnchorPane>

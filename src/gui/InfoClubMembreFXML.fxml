@@ -17,14 +17,14 @@
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1100.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackOfficeInfoClubMembreFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1170.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InfoClubMembreFXMLController">
     <children>
         
-        <StackPane prefHeight="720.0" prefWidth="1100.0">
+        <StackPane fx:id="pane" prefHeight="560.0" prefWidth="1170.0">
             <children>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                <AnchorPane prefHeight="560.0" prefWidth="1170.0">
                     <children>
-                        <TableView fx:id="membre_table" layoutX="24.0" layoutY="159.0" prefHeight="500.0" prefWidth="700.0">
+                        <TableView fx:id="membre_table" layoutX="50.0" layoutY="151.0" prefHeight="380.0" prefWidth="699.0" styleClass="card-white">
                             <columns>
                                 <TableColumn fx:id="col_membre" prefWidth="75.0" text="Membres" />
                                 <TableColumn fx:id="col_role" prefWidth="75.0" text="Roles" />
@@ -34,27 +34,28 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
                         </TableView>
-                        <AnchorPane layoutX="751.0" layoutY="49.0" prefHeight="647.0" prefWidth="320.0" styleClass="card-white">
+                  <JFXButton fx:id="showAdd" contentDisplay="GRAPHIC_ONLY" layoutX="727.0" layoutY="504.0" onAction="#showAddDialog" prefHeight="48.0" prefWidth="48.0" styleClass="addBtn" />
+                        <AnchorPane layoutX="800.0" layoutY="12.0" prefHeight="523.0" prefWidth="320.0" styleClass="card-white">
                             <children>
-                                <StackPane layoutX="47.0" layoutY="39.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <StackPane layoutX="47.0" layoutY="39.0" prefHeight="472.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                        <VBox prefHeight="464.0" prefWidth="100.0">
                                             <children>
-                                                <Pane prefHeight="180.0" prefWidth="320.0">
+                                                <Pane prefHeight="171.0" prefWidth="320.0">
                                                     <children>
                                                         <ImageView fitHeight="180.0" fitWidth="320.0" pickOnBounds="true">
                                                             <image>
                                                                 <Image url="@../utils/background.png" />
                                                             </image>
                                                         </ImageView>
-                                                        <Label fx:id="Name_lbl" alignment="CENTER" layoutX="59.0" layoutY="109.0" prefHeight="30.0" prefWidth="200.0" text="Responsable Clube" textFill="#eeecec">
+                                                        <Label fx:id="Name_lbl" alignment="CENTER" layoutX="59.0" layoutY="109.0" prefHeight="30.0" prefWidth="200.0" text="Responsable Club" textFill="#eeecec">
                                                             <font>
                                                                 <Font name="Roboto Black" size="15.0" />
                                                             </font>
                                                         </Label>
                                                     </children>
                                                 </Pane>
-                                                <AnchorPane prefHeight="466.0" prefWidth="320.0">
+                                                <AnchorPane prefHeight="365.0" prefWidth="320.0">
                                                     <children>
                                                         <Separator layoutX="24.0" layoutY="125.0" prefHeight="0.0" prefWidth="290.0" />
                                                         <VBox layoutX="50.0" layoutY="37.0" prefHeight="85.0" prefWidth="221.0">
@@ -73,7 +74,7 @@
                                                                 </Label>
                                                             </children>
                                                         </VBox>
-                                                        <VBox layoutX="50.0" layoutY="138.0" prefHeight="326.0" prefWidth="221.0">
+                                                        <VBox layoutX="50.0" layoutY="215.0" prefHeight="132.0" prefWidth="221.0">
                                                             <children>
                                                                 <Label fx:id="ourstory_lbl" prefHeight="30.0" prefWidth="214.0" text="Our Story" textFill="#797878">
                                                                     <font>
@@ -93,13 +94,13 @@
                                                 </AnchorPane>
                                             </children>
                                         </VBox>
-                                        <AnchorPane fx:id="responsable_label" prefHeight="631.0" prefWidth="320.0">
+                                        <AnchorPane fx:id="responsable_label" prefHeight="614.0" prefWidth="320.0">
                                             <children>
                                                 <AnchorPane fx:id="fabPane" layoutX="255.0" layoutY="155.0" prefHeight="53.0" prefWidth="51.0">
                                                     <children>
                                                         <Label fx:id="fabEdit" styleClass="fab">
                                                             
-                                                            <padding>
+                                                                              <padding>
                                                                 <Insets right="5.0" top="5.0" />
                                                             </padding>
                                                         </Label>
@@ -111,7 +112,7 @@
                                 </StackPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="26.0" layoutY="47.0" prefHeight="101.0" prefWidth="700.0" style="-fx-background-color: #4242428B; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 5;">
+                        <AnchorPane layoutX="50.0" layoutY="43.0" prefHeight="101.0" prefWidth="700.0" style="-fx-background-color: #4242428B; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 5;">
                             <children>
                                 <Pane layoutX="22.0" layoutY="-36.0" prefHeight="106.0" prefWidth="115.0" style="-fx-background-color: #ff2e44; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 4;">
                                     <children>
@@ -144,5 +145,46 @@
                 </AnchorPane>
             </children>
         </StackPane>
+           <JFXDialogLayout fx:id="addDialogLayout" layoutY="8.0" prefHeight="300.0" prefWidth="250.0" visible="false">
+            <children>
+                <StackPane maxHeight="300.0" maxWidth="250.0" minHeight="300.0" minWidth="250.0" prefHeight="300.0" prefWidth="250.0">
+                    <children>
+                        <GridPane alignment="CENTER" focusTraversable="true" prefHeight="394.0" prefWidth="250.0">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                  <JFXTextField fx:id="role" focusColor="#ff2e44" labelFloat="true" maxWidth="192.0" minWidth="130.0" prefHeight="30.0" prefWidth="192.0" promptText="Role" GridPane.rowIndex="2">
+                                           
+                                        </JFXTextField>
+                                <JFXButton fx:id="add_btn" onAction="#addAction" text="Ajouter" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <JFXComboBox fx:id="membre" focusColor="#ff2e44" labelFloat="true" onKeyTyped="#retreiveuser" prefHeight="24.0" prefWidth="203.0" promptText="Etudiant" visibleRowCount="5" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets top="10.0" />
+                                    </GridPane.margin>
+                                </JFXComboBox>
+                                <Label fx:id="formLibelle_lbl" alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Ajouter Membre" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                        
+                                          
+                            </children>
+                            <StackPane.margin>
+                                <Insets />
+                            </StackPane.margin>
+                            
+                        </GridPane>
+                    </children>
+                </StackPane>
+            </children>
+        </JFXDialogLayout>
     </children>
 </AnchorPane>

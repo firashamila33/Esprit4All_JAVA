@@ -87,9 +87,9 @@ public class ClubService implements IClubService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), 
-                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), resultSet.getString("apropos"), 
-                        resultSet.getString("notreHistoire"), new User(resultSet.getInt("user_id")));
+                Club c = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
+                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), resultSet.getString("apropos"),
+                        resultSet.getString("notreHistoire"), new UserService().getUserById(resultSet.getInt("user_id")));
                 club.add(c);
             }
         } catch (SQLException ex) {
@@ -101,7 +101,7 @@ public class ClubService implements IClubService {
     @Override
     public Club getById(Integer r) {
         Club club = null;
-        
+
         String req = "select * from club where id=?";
         PreparedStatement preparedStatement;
         try {
@@ -109,11 +109,9 @@ public class ClubService implements IClubService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"), 
+                club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
                         resultSet.getString("path_img"), resultSet.getString("path_couverture"), resultSet.getString("apropos"),
-                        resultSet.getString("notreHistoire"), new User(resultSet.getInt("user_id")));
-                System.out.println("qsdqdqsdqsqd"+club);
-
+                        resultSet.getString("notreHistoire"), new UserService().getUserById(resultSet.getInt("user_id")));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -121,9 +119,49 @@ public class ClubService implements IClubService {
         return club;
     }
 
+    public boolean getUserByClub(Integer r) {
+        boolean exist = false;
+
+        String req = "select * from club where user_id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, r);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                exist = true;
+
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return exist;
+    }
+
     @Override
     public Club search(Club c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Club getClubByUser(Integer r) {
+        Club club = null;
+
+        String req = "select * from club where user_id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, r);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                club = new Club(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("description"),
+                        resultSet.getString("path_img"), resultSet.getString("path_couverture"), resultSet.getString("apropos"),
+                        resultSet.getString("notreHistoire"), new UserService().getUserById(resultSet.getInt("user_id")));
+
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return club;
     }
 
 }

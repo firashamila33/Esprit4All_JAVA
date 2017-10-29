@@ -5,23 +5,34 @@
  */
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.event.EventHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import models.Covoiturage;
 import models.Evenement;
 import services.EvenementService;
 import utils.URLimages;
@@ -35,6 +46,7 @@ public class AcceuilClubFXMLController implements Initializable {
 
     @FXML
     private FlowPane flowpane_id;
+    JFXDialog dialog;
 
     /**
      * Initializes the controller class.
@@ -81,25 +93,19 @@ public class AcceuilClubFXMLController implements Initializable {
                 hb.setStyle("-fx-padding: 10px 0px 0px 0px;\n");
 
                 flowpane_id.getChildren().add(vb);
-                vb.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        try {
+                vb.setOnMouseClicked((MouseEvent event) -> {
+                    try {
 
-                            FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementFXML.fxml"));
-                            Parent root = (Parent) fXMLLoader.load();
-                            EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
-
-                            controller.setId(e.getId());
-                            controller.display();
-
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(root));
-                            stage.show();
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                      
+                        
+                        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementFXML.fxml"));
+                        AnchorPane p= (AnchorPane)fXMLLoader.load();
+                        EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
+                        controller.setId(e.getId());
+                        controller.display();
+                        MainFXMLController.setNode(p);
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
                     }
                 });
             }

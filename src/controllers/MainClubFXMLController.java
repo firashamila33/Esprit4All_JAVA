@@ -18,7 +18,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**
@@ -26,18 +25,17 @@ import javafx.util.Duration;
  *
  * @author Sami
  */
-public class MainCovoiturageFXMLController implements Initializable {
+public class MainClubFXMLController implements Initializable {
 
-    @FXML
-    private JFXButton listCovoiturage_btn;
-    @FXML
-    private JFXButton mesCovoiturage_btn;
     @FXML
     private AnchorPane container;
 
+    @FXML
+    private JFXButton infoClub_btn;
+    @FXML
+    private JFXButton eventClub_btn;
     JFXButton currentselectedButton;
-
-    StackPane listeCovoiturage, mesCovoituarge;
+    AnchorPane infoClub, eventClub;
 
     /**
      * Initializes the controller class.
@@ -45,17 +43,33 @@ public class MainCovoiturageFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            listeCovoiturage = FXMLLoader.load(getClass().getResource("/gui/ListCovoituragesFXML.fxml"));
-            setNode(listeCovoiturage);
-            currentselectedButton = listCovoiturage_btn;
-            listCovoiturage_btn.setStyle(" -fx-border-width: 0 4 0 0;\n"
+            infoClub = FXMLLoader.load(getClass().getResource("/gui/InfoClubMembreFXML.fxml"));
+            infoClub_btn.setStyle("  -fx-border-width: 0 4 0 0;\n"
                     + "    -fx-border-color:  #ff2e44;");
+            currentselectedButton=infoClub_btn;
         } catch (IOException ex) {
-            Logger.getLogger(MainCovoiturageFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainClubFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        setNode(infoClub);
     }
 
-    private void setNode(Node node) {
+    @FXML
+    private void goToInfoClub(ActionEvent event) throws IOException {
+        infoClub = FXMLLoader.load(getClass().getResource("/gui/InfoClubMembreFXML.fxml"));
+        changeStyle(infoClub_btn);
+        setNode(infoClub);
+
+    }
+
+    @FXML
+    private void GoToEvenement(ActionEvent event) throws IOException {
+        eventClub = FXMLLoader.load(getClass().getResource("/gui/ListEventClubFXML.fxml"));
+        changeStyle(eventClub_btn);
+        setNode(eventClub);
+
+    }
+
+    public void setNode(Node node) {
         container.getChildren().clear();
         container.getChildren().add((Node) node);
         FadeTransition ft = new FadeTransition(Duration.millis(1500));
@@ -65,20 +79,7 @@ public class MainCovoiturageFXMLController implements Initializable {
         ft.setCycleCount(1);
         ft.setAutoReverse(false);
         ft.play();
-    }
 
-    @FXML
-    private void goToListCovoiturage(ActionEvent event) throws IOException {
-        listeCovoiturage = FXMLLoader.load(getClass().getResource("/gui/ListCovoituragesFXML.fxml"));
-        setNode(listeCovoiturage);
-        changeStyle(listCovoiturage_btn);
-    }
-
-    @FXML
-    private void GoToMesCovoiturage(ActionEvent event) throws IOException {
-         mesCovoituarge = FXMLLoader.load(getClass().getResource("/gui/MesCovoituragesFXML.fxml"));
-        setNode(mesCovoituarge);
-        changeStyle(mesCovoiturage_btn);
     }
 
     private void changeStyle(JFXButton button) {
@@ -96,5 +97,4 @@ public class MainCovoiturageFXMLController implements Initializable {
         currentselectedButton = button;
 
     }
-    
 }

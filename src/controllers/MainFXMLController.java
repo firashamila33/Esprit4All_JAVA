@@ -6,6 +6,8 @@
 package controllers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPopup;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,8 +19,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import services.ClubService;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -27,7 +36,7 @@ import javafx.util.Duration;
  */
 public class MainFXMLController implements Initializable {
 
-    AnchorPane acceuil, annonce, covoiturage, objetPerdus, revision, restauration, vieSocial, profile;
+    AnchorPane acceuil, annonce, covoiturage, objetPerdus, revision, restauration, vieSocial, profile, profileClub;
     @FXML
     private JFXButton acceuil_btn;
     @FXML
@@ -49,12 +58,68 @@ public class MainFXMLController implements Initializable {
 
     @FXML
     private AnchorPane container;
+    JFXPopup popup = new JFXPopup();
+    ClubService cs = new ClubService();
+    VBox box = new VBox();
+    static AnchorPane p;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        p=container;
+        JFXButton Logout = new JFXButton("Logout");
+        Logout.setPrefSize(120, 50);
+        JFXButton Profil = new JFXButton("Profile");
+        Profil.setPrefSize(120, 50);
+        JFXButton Club = new JFXButton("Club");
+        Club.setPrefSize(120, 50);
+        
+        Club.setOnAction(event1 -> {
+            try {
+                profileClub = FXMLLoader.load(getClass().getResource("/gui/MainClubFXML.fxml"));
+                setNode(profileClub);
+                changeStyle(profile_btn);
+                popup.hide();
+            } catch (IOException ex) {
+                Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
+        Logout.setOnAction(event -> {
+            popup.hide();
+            UserService.userStatic = null;
+            Stage stage = (Stage) profile_btn.getScene().getWindow();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.setResizable(false);
+
+            stage.show();
+
+        });
+        if (cs.getUserByClub(UserService.userStatic.getId())) {
+            profile_btn.setOnMouseEntered(event -> {
+                box.getChildren().addAll(Profil, Club, Logout);
+                popup.setPopupContent(box);
+                popup.show(profile_btn, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, 0, 140);
+            });
+        } else {
+            profile_btn.setOnMouseEntered(event -> {
+                box.getChildren().addAll(Profil, Logout);
+                popup.setPopupContent(box);
+                popup.show(profile_btn, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, 0, 140);
+            });
+        }
+
         try {
             acceuil = FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
             currentselectedButton = acceuil_btn;
@@ -67,9 +132,10 @@ public class MainFXMLController implements Initializable {
 
     }
 
-    public void setNode(Node node) {
-        container.getChildren().clear();
-        container.getChildren().add((Node) node);
+    static void setNode(Node node) {
+        
+        p.getChildren().clear();
+        p.getChildren().add((Node) node);
         FadeTransition ft = new FadeTransition(Duration.millis(1500));
         ft.setNode(node);
         ft.setFromValue(0.1);
@@ -83,7 +149,6 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void goToAcceuil(ActionEvent event) throws IOException {
         acceuil = FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
-
         setNode(acceuil);
         changeStyle(acceuil_btn);
     }
@@ -126,11 +191,6 @@ public class MainFXMLController implements Initializable {
         changeStyle(vieSocial_btn);
     }
 
-    @FXML
-    private void goToProfile(ActionEvent event) {
-        changeStyle(profile_btn);
-    }
-
     private void changeStyle(JFXButton button) {
 
         button.setStyle(" -fx-border-width: 0 0 4 0;\n"
@@ -145,4 +205,5 @@ public class MainFXMLController implements Initializable {
         currentselectedButton = button;
 
     }
+
 }

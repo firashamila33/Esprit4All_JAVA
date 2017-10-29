@@ -75,16 +75,6 @@ public class Fentre_ajout_grp_revisionController implements Initializable {
 
         Revision E = new Revision(u, r, date2, r, w, y, date2);
         rs.add(E);
-        utilisateur_has_revision ur = new utilisateur_has_revision( E, u);
-        Sutilisateur_has_revision sur = new Sutilisateur_has_revision();
-        sur.add(ur);
-       
-    
-  Ajoutgrp_type.clear();
-   Ajoutgrp_nbrmax.clear();
- Ajoutgrp_description.clear();
-     Ajoutgrp_matiere.clear();
-   
 
     }
 
