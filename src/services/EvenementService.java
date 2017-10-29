@@ -141,6 +141,28 @@ public class EvenementService implements IEvenementService {
         }
         return ev;
     }
+ 
+    public List<Evenement> getByGroupe(Integer r) {
+        
+         List<Evenement> events = new ArrayList<>();
+        String req = "select *from evenement where club_id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, r);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+               
+                Evenement ev = new Evenement(resultSet.getInt("id"),resultSet.getString("libelle"), resultSet.getString("type"), resultSet.getString("description"), resultSet.getDate("date"),
+                        resultSet.getString("path_img"), new ClubService().getById(resultSet.getInt("club_id")));
+                events.add(ev);
+                
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return events;
+    }
 
     @Override
     public Evenement search(Evenement t

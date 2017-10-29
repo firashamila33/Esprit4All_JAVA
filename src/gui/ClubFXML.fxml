@@ -10,155 +10,167 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="anchorPane_id" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClubFXMLController">
-   <children>
-      <ScrollPane fx:id="scrollpane_verticale_id" layoutY="200.0" prefHeight="360.0" prefWidth="1000.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="787.0" prefWidth="1000.0" style="-fx-background-color: #ff2e44;">
-               <children>
-                  <Pane layoutY="5.0" prefHeight="140.0" prefWidth="1000.0">
-                     <children>
-                        <Pane layoutX="13.0" layoutY="5.0" prefHeight="130.0" prefWidth="293.0" style="-fx-background-color: white;">
-                           <effect>
-                              <DropShadow height="10.0" radius="4.5" width="10.0" />
-                           </effect>
-                           <children>
-                              <Label alignment="CENTER" layoutX="48.0" layoutY="34.0" prefHeight="62.0" prefWidth="197.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: #ff2e44;" text="Notre Histoire" textFill="#6b6b6b">
-                                 <font>
-                                    <Font name="Arial Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
+    <children>
+        <ScrollPane fx:id="scrollpane_verticale_id" layoutY="200.0" prefHeight="360.0" prefWidth="1000.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="787.0" prefWidth="1000.0" style="-fx-background-color: #ff2e44;">
+                    <children>
+                        <Pane layoutY="5.0" prefHeight="140.0" prefWidth="1000.0">
+                            <children>
+                                <Pane layoutX="13.0" layoutY="5.0" prefHeight="130.0" prefWidth="293.0" style="-fx-background-color: white;">
+                                    <effect>
+                                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                    </effect>
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="48.0" layoutY="34.0" prefHeight="62.0" prefWidth="197.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: #ff2e44;" text="Notre Histoire" textFill="#6b6b6b">
+                                            <font>
+                                                <Font name="Arial Bold" size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="list_membre" layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
+                                    <effect>
+                                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                    </effect>
+                                    <children>
+                                        <Label layoutX="10.0" layoutY="37.0" prefHeight="62.0" prefWidth="651.0" text="Notre Histoire est de la ays idmao dur,ndj hdyye ooijdk kddhya majdi ra b yacien akhdj" textFill="#6b6b6b">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
                         </Pane>
-                        <Pane fx:id="list_membre" layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
-                           <effect>
-                              <DropShadow height="10.0" radius="4.5" width="10.0" />
-                           </effect>
-                           <children>
-                              <Label layoutX="10.0" layoutY="37.0" prefHeight="62.0" prefWidth="651.0" text="Notre Histoire est de la ays idmao dur,ndj hdyye ooijdk kddhya majdi ra b yacien akhdj" textFill="#6b6b6b">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <Pane layoutY="146.0" prefHeight="140.0" prefWidth="1000.0">
+                            <children>
+                                <Pane layoutX="12.0" layoutY="5.0" prefHeight="130.0" prefWidth="294.0" style="-fx-background-color: white;">
+                                    <effect>
+                                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                    </effect>
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="49.0" layoutY="34.0" prefHeight="62.0" prefWidth="197.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: #ff2e44;" text="A propos nous" textFill="#6b6b6b">
+                                            <font>
+                                                <Font name="Arial Bold" size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
+                                    <effect>
+                                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                    </effect>
+                                    <children>
+                                        <Label layoutX="21.0" layoutY="36.0" prefHeight="62.0" prefWidth="651.0" text="Notre Histoire est de la ays idmao dur,ndj hdyye ooijdk kddhya majdi ra b yacien akhdj" textFill="#6b6b6b">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
                         </Pane>
-                     </children>
-                  </Pane>
-                  <Pane layoutY="146.0" prefHeight="140.0" prefWidth="1000.0">
-                     <children>
-                        <Pane layoutX="12.0" layoutY="5.0" prefHeight="130.0" prefWidth="294.0" style="-fx-background-color: white;">
-                           <effect>
-                              <DropShadow height="10.0" radius="4.5" width="10.0" />
-                           </effect>
-                           <children>
-                              <Label alignment="CENTER" layoutX="49.0" layoutY="34.0" prefHeight="62.0" prefWidth="197.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: #ff2e44;" text="A propos nous" textFill="#6b6b6b">
-                                 <font>
-                                    <Font name="Arial Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <Pane layoutY="287.0" prefHeight="140.0" prefWidth="1000.0">
+                            <children>
+                                <Pane layoutX="12.0" layoutY="5.0" prefHeight="130.0" prefWidth="294.0" style="-fx-background-color: white;">
+                                    <effect>
+                                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                    </effect>
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="49.0" layoutY="34.0" prefHeight="62.0" prefWidth="197.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: #ff2e44;" text="Membres" textFill="#6b6b6b">
+                                            <font>
+                                                <Font name="Arial Bold" size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
+                                    <effect>
+                                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                    </effect>
+                                    <children>
+                                        <JFXListView fx:id="lit_view_membre" cacheShape="false" centerShape="false" orientation="HORIZONTAL" prefHeight="129.0" prefWidth="670.0" />
+                                    </children>
+                                </Pane>
+                            </children>
                         </Pane>
-                        <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
-                           <effect>
-                              <DropShadow height="10.0" radius="4.5" width="10.0" />
-                           </effect>
-                           <children>
-                              <Label layoutX="21.0" layoutY="36.0" prefHeight="62.0" prefWidth="651.0" text="Notre Histoire est de la ays idmao dur,ndj hdyye ooijdk kddhya majdi ra b yacien akhdj" textFill="#6b6b6b">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <Pane layoutX="13.0" layoutY="431.0" prefHeight="291.0" prefWidth="974.0" style="-fx-background-color: white;">
+                            <effect>
+                                <DropShadow height="10.0" radius="4.5" width="10.0" />
+                            </effect>
+                            <children>
+                                <ImageView fitHeight="265.0" fitWidth="353.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../ressources/fête%20de%20la%20musique.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Pane  layoutX="6.0" layoutY="6.0" onMouseClicked="#GoToEvenement" prefHeight="281.0" prefWidth="370.0" style="-fx-border-color: #4242428B; -fx-border-width: 2;" >
+                                    <children>
+                                        <ImageView fx:id="img_event_id" fitHeight="270.0" fitWidth="360.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@../ressources/lion_big_cat_face_smoke_colored_63451_3840x2160.jpg" />
+                                            </image>
+                                            <effect>
+                                                <DropShadow />
+                                            </effect>
+                                        </ImageView>
+                                    </children>
+                                </Pane>
+                     
+                            </children>
+                            <children>
+                                <Label alignment="CENTER" layoutX="600" layoutY="120.0" prefHeight="62.0" prefWidth="220.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: #ff2e44;" text="Notre Evenement " textFill="#6b6b6b">
+                                    <font>
+                                        <Font name="Arial Bold" size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
                         </Pane>
-                     </children>
-                  </Pane>
-                  <Pane layoutY="287.0" prefHeight="140.0" prefWidth="1000.0">
-                     <children>
-                        <Pane layoutX="12.0" layoutY="5.0" prefHeight="130.0" prefWidth="294.0" style="-fx-background-color: white;">
-                           <effect>
-                              <DropShadow height="10.0" radius="4.5" width="10.0" />
-                           </effect>
-                           <children>
-                              <Label alignment="CENTER" layoutX="49.0" layoutY="34.0" prefHeight="62.0" prefWidth="197.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: #ff2e44;" text="Membres" textFill="#6b6b6b">
-                                 <font>
-                                    <Font name="Arial Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="317.0" layoutY="5.0" prefHeight="130.0" prefWidth="670.0" style="-fx-background-color: white;">
-                           <effect>
-                              <DropShadow height="10.0" radius="4.5" width="10.0" />
-                           </effect>
-                           <children>
-                              <JFXListView fx:id="lit_view_membre" cacheShape="false" centerShape="false" orientation="HORIZONTAL" prefHeight="129.0" prefWidth="670.0" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="13.0" layoutY="431.0" prefHeight="291.0" prefWidth="974.0" style="-fx-background-color: white;">
-                     <effect>
-                        <DropShadow height="10.0" radius="4.5" width="10.0" />
-                     </effect>
-                     <children>
-                        <ImageView fitHeight="265.0" fitWidth="353.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true">
-                           <image>
-                              <Image url="@../ressources/fête%20de%20la%20musique.jpg" />
-                           </image>
-                        </ImageView>
-                        <Pane fx:id="img_event_id" layoutX="6.0" layoutY="6.0" onMouseClicked="#GoToEvenement" prefHeight="281.0" prefWidth="370.0" style="-fx-border-color: #4242428B; -fx-border-width: 2;" />
-                     </children>
-                      <children>
-                              <Label alignment="CENTER" layoutX="600" layoutY="120.0" prefHeight="62.0" prefWidth="220.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: #ff2e44;" text="Notre Evenement " textFill="#6b6b6b">
-                                 <font>
-                                    <Font name="Arial Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                  </Pane>
-                  <JFXButton fx:id="btn_evenement_id" layoutX="13.0" layoutY="734.0" onAction="#GoToEvenementDeClub" prefHeight="35.0" prefWidth="972.0" style="-fx-background-color: #4242428B;" text="EVENEMENT DE CLUB" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
+                        <JFXButton fx:id="btn_evenement_id" layoutX="13.0" layoutY="734.0" onAction="#GoToEvenementDeClub" prefHeight="35.0" prefWidth="972.0" style="-fx-background-color: #4242428B;" text="EVENEMENT DE CLUB" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </JFXButton>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Pane prefHeight="200.0" prefWidth="1000.0">
+            <children>
+                <ImageView fx:id="path_couverture_id" fitHeight="184.0" fitWidth="981.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../ressources/lion_big_cat_face_smoke_colored_63451_3840x2160.jpg" />
+                    </image>
+                    <effect>
                         <DropShadow />
-                     </effect>
-                  </JFXButton>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-      <Pane prefHeight="200.0" prefWidth="1000.0">
-         <children>
-            <ImageView fx:id="path_couverture_id" fitHeight="184.0" fitWidth="981.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../ressources/lion_big_cat_face_smoke_colored_63451_3840x2160.jpg" />
-               </image>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </ImageView>
-            <Label fx:id="libelle_clib_id" layoutX="153.0" layoutY="134.0" prefHeight="58.0" prefWidth="380.0" text="Nom de club" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="48.0" />
-               </font>
-            </Label>
-            <Pane layoutX="41.0" layoutY="99.0" prefHeight="100.0" prefWidth="103.0" style="-fx-background-color: white;">
-               <children>
-                  <BorderPane layoutX="-4.0" layoutY="-4.0" prefHeight="108.0" prefWidth="110.0" style="-fx-border-color: WHITE;">
-                     <center>
-                        <ImageView fx:id="path_img_id" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@../ressources/logo-256-transp.png" />
-                           </image>
-                        </ImageView>
-                     </center>
-                  </BorderPane>
-               </children>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Pane>
-         </children>
-      </Pane>
-   </children>
+                    </effect>
+                </ImageView>
+                <Label fx:id="libelle_clib_id" layoutX="153.0" layoutY="134.0" prefHeight="58.0" prefWidth="380.0" text="Nom de club" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font size="48.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="41.0" layoutY="99.0" prefHeight="100.0" prefWidth="103.0" style="-fx-background-color: white;">
+                    <children>
+                        <BorderPane layoutX="-4.0" layoutY="-4.0" prefHeight="108.0" prefWidth="110.0" style="-fx-border-color: WHITE;">
+                            <center>
+                                <ImageView fx:id="path_img_id" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                    <image>
+                                        <Image url="@../ressources/logo-256-transp.png" />
+                                    </image>
+                                </ImageView>
+                            </center>
+                        </BorderPane>
+                    </children>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Pane>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>

@@ -19,7 +19,7 @@ import models.Club;
 /**
  * FXML Controller class
  *
- * @author Sami
+ * @author majdi
  */
 public class BackOfficeInfoClubMembreFXMLController implements Initializable {
 

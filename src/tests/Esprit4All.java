@@ -15,7 +15,7 @@ import javafx.stage.StageStyle;
 
 /**
  *
- * @author danml
+ * @author majdi
  */
 public class Esprit4All extends Application {
 
