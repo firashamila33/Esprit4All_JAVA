@@ -24,7 +24,7 @@ import models.Evenement;
 /**
  * FXML Controller class
  *
- * @author Sami
+ * @author majdi
  */
 public class BackOfficeEventsFXMLController implements Initializable {
 

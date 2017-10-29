@@ -32,7 +32,7 @@ UserService us =new UserService();
      //  User u=new User(3);
          //   Revision r = new Revision(u," math", null, "description", 0, "nnnd", null);
             
-            rs.delete(3);
+            rs.delete(1);
         
 
     }

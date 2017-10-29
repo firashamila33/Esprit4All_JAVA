@@ -61,7 +61,7 @@ String req = "delete from  revision where user_id =?";
     @Override
     public note_revision getById(Integer r) {
    note_revision re = null;
-        String req = "select * from  note_revision where user_id=?";
+        String req = "select * from  note_revision where revision_id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);

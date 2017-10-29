@@ -9,7 +9,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -19,11 +21,16 @@ public class Esprit4All extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/RevisionMainFXML.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("/gui/RevisionMainFXML.fxml"));
+                        //  Parent root = FXMLLoader.load(getClass().getResource("/gui/DocAdministratif.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("/gui/BackOfficeFXML.fxml"));
+        stage.initStyle(StageStyle.TRANSPARENT);
         Scene scene = new Scene(root);
-        stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setResizable(true);
+        stage.setResizable(false);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
         stage.show();
     }
 

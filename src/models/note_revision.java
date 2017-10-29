@@ -28,6 +28,14 @@ public class note_revision {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public note_revision(Revision revision, User user, float note) {
+        this.revision = revision;
+        this.user = user;
+        this.note = note;
+    }
+
+   
+
    
 
     public int getId() {

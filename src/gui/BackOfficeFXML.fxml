@@ -9,8 +9,6 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 
 <AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackOfficeFXMLController">
     <children>
@@ -36,7 +34,7 @@
                   <JFXButton layoutX="144.0" layoutY="116.0" text="Deconnextion" textFill="WHITE" />
                   <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="97.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../utils/photo.png" />
+                        <Image url="@../utils/user-3_1.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="84.0" layoutY="93.0" text="Prenom nom" textFill="WHITE" />

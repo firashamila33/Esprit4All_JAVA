@@ -27,7 +27,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.Revision;
 import models.User;
+import models.note_revision;
+import models.utilisateur_has_revision;
+import org.controlsfx.control.Rating;
+import services.NoteRevision;
 import services.RevisionService;
+import services.Sutilisateur_accept_revision;
+import services.Sutilisateur_has_revision;
 import services.UserService;
 
 /**
@@ -53,8 +59,6 @@ public class Fenetre_groupe_revisionController implements Initializable {
     private ImageView quitter_grp_rev;
     @FXML
     private AnchorPane modification;
-    @FXML
-    private Button save_setting_grp;
     @FXML
     private Label heurdebut_label;
     @FXML
@@ -82,8 +86,6 @@ public class Fenetre_groupe_revisionController implements Initializable {
     @FXML
     private DatePicker modifgrp_heurfin;
     @FXML
-    private ImageView valider_ajout_grp;
-    @FXML
     private AnchorPane modiff;
     @FXML
     private Button supp_annonce;
@@ -98,6 +100,10 @@ public class Fenetre_groupe_revisionController implements Initializable {
      private  Button quitter;
       @FXML
       private AnchorPane revision_fenetre;
+    @FXML
+    private Rating rate_mentor;
+    @FXML
+    private Button set_rate;
 
     /**
      * Initializes the controller class.
@@ -170,21 +176,27 @@ modification.setVisible(true);
 
     @FXML
     private void supprimer_annoce(ActionEvent event) {
-       
         User u = new User(1);
         if (u.getId()==1)
         {
-       RevisionService rs = new RevisionService();
- rs.delete(u.getId());
- 
- Stage stage = (Stage) quitter.getScene().getWindow();
-    // do what you have to do
-    stage.close(); 
+      supp_annonce.setVisible(true);
+
         }else
         {supp_annonce.setVisible(false);}
          
-  
+   RevisionService rs = new RevisionService();
+   Revision r = rs.getById(u.getId());
+           utilisateur_has_revision s = new utilisateur_has_revision(r, u);
+           Sutilisateur_has_revision ss= new Sutilisateur_has_revision();
+           ss.delete(u.getId());
+
+ rs.delete(u.getId()); 
+            System.out.println("controllers.Fenetre_groupe_revisionController.supprimer_annoce()");
+            
+                Stage stage = (Stage) quitter.getScene().getWindow();
                 
+    // do what you have to do
+    stage.close();  
     }
 
  
@@ -198,7 +210,8 @@ modification.setVisible(true);
         RevisionService rs = new RevisionService();
         Revision r = new Revision();
         r= rs.getById(u.getId());
-        nbrmaw_grp.setText(String.valueOf(r.getNbrmax()));
+        System.out.println(r);
+     nbrmaw_grp.setText(String.valueOf(r.getNbrmax()));
         matiere.setText(r.getMatiere());
         descritpion.setText(r.getDescription());
         
@@ -219,6 +232,24 @@ modification.setVisible(true);
 Stage stage = (Stage) quitter.getScene().getWindow();
     // do what you have to do
     stage.close();                    
+    }
+    
+
+    @FXML
+    private void rating(ActionEvent event) {
+       float rate = (float) rate_mentor.getRating();
+        System.out.println(rate);
+        User u = new User(1);
+     UserService us = new UserService();
+     RevisionService rs = new RevisionService();
+    
+     Revision r = rs.getById(u.getId());
+     
+     
+       
+       note_revision nr = new note_revision(r, u, rate);
+        NoteRevision no = new NoteRevision();
+        no.add(nr);
     }
 }
     

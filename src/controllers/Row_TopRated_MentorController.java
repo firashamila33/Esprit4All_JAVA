@@ -18,6 +18,8 @@ import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import models.Revision;
+import models.User;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -54,13 +56,16 @@ public class Row_TopRated_MentorController extends ListCell<Revision>  {
             if (mLLoader == null) {
                 mLLoader = new FXMLLoader(getClass().getResource("/gui/Row_TopRated_MentorController.fxml"));
                 mLLoader.setController(this);
-
+ 
+                
                 try {
                     mLLoader.load();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-           
+             UserService us = new UserService();
+               User u= us.getUserById(revision.getUser().getId());
+                LabelNomMentor1LabelNomMentor.setText(u.getNom()+" "+u.getPrenom());
            setText(null);
             setGraphic(top_rated);
             }

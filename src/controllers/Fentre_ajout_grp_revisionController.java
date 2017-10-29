@@ -49,8 +49,6 @@ public class Fentre_ajout_grp_revisionController implements Initializable {
     private DatePicker Ajoutgrp_heurdepart;
     @FXML
     private TextField Ajoutgrp_matiere;
-    @FXML
-    private ImageView valider_ajout_grp;
 
     /**
      * Initializes the controller class.
@@ -73,11 +71,11 @@ public class Fentre_ajout_grp_revisionController implements Initializable {
         String r = (Ajoutgrp_type.getText());
         Date date2 = new Date(Ajoutgrp_heurfin.getValue().toEpochDay());
 
-        Revision E = new Revision(u, r, date2, r, w, y, date2);
+        Revision E = new Revision(u, y, date1, v, w, r, date2);
+        
+     
         rs.add(E);
-        utilisateur_has_revision ur = new utilisateur_has_revision( E, u);
-        Sutilisateur_has_revision sur = new Sutilisateur_has_revision();
-        sur.add(ur);
+        
        
     
   Ajoutgrp_type.clear();

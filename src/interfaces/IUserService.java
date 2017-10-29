@@ -20,4 +20,6 @@ public interface IUserService{
     User search(User u);
     List<User> getAll();
     User getUserById(Integer i);
+                    public  float  noteUSer(Integer r);
+
 }

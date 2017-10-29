@@ -61,7 +61,7 @@ public class RevisionService implements IServiceRevision {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                User u = new User(resultSet.getInt(2));
+                   User u = new User(resultSet.getInt("user_id"));
                 re = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"), resultSet.getDate("date_fin"));
                 System.out.println(re);
             }
@@ -126,22 +126,47 @@ public class RevisionService implements IServiceRevision {
         }
     }
 
+    public Revision search2(Integer r) {
+         Revision re = null;
+        String req = "select * from  revision where id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, r);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                User u = new User(resultSet.getInt(2));
+                re = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"), resultSet.getDate("date_fin"));
+                System.out.println(re);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return re;
+    }
+
     @Override
     public Revision search(Revision t) {
-        Revision x = null;
-        String req = "select * from revision where type=?";
+ Revision re = null;
+        String req = "select * from  revision where type=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, t.getType());
             ResultSet resultSet = preparedStatement.executeQuery();
-            User u = new User(resultSet.getInt(1));
-            x = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"), resultSet.getDate("date_fin"));
+            while (resultSet.next()) {
+                User u = new User(resultSet.getInt(2));
+                re = new Revision(resultSet.getInt("id"), u, resultSet.getString("matiere"), resultSet.getDate("date_debut"), resultSet.getString("description"), resultSet.getInt("nbremax"), resultSet.getString("type"), resultSet.getDate("date_fin"));
+                System.out.println(re);
+            }
         } catch (SQLException ex) {
-            Logger.getLogger(RevisionService.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
+        return re;    }
 
-        return x;
+   
     }
 
-}
+   
+
+
