@@ -67,8 +67,8 @@ public class FXMLAnnonceColocationMenuController implements Initializable {
     public FXMLAnnonceColocationMenuController() {
         annonceWidgetList = new ArrayList<>();
         UserService service = new UserService();
-        currentUser = service.getUserById(7);
-        isAdmin = false;
+        currentUser = service.userStatic;
+        isAdmin = currentUser.getRole() == "ROLE_ADMIN";
          
     }
 

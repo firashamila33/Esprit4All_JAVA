@@ -56,8 +56,8 @@ public class FXMLAnnonceObjetPerduMenuController implements Initializable {
     public FXMLAnnonceObjetPerduMenuController() {
         annonceWidgetList = new ArrayList<>();
         UserService service = new UserService();
-        currentUser = service.getUserById(7);
-        isAdmin = false;
+        currentUser = service.userStatic;
+        isAdmin = currentUser.getRole() == "ROLE_ADMIN";
 
     }
 
