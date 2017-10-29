@@ -89,7 +89,9 @@ public class MainFXMLController implements Initializable {
     }
 
     @FXML
-    private void goToAnnonce(ActionEvent event) {
+    private void goToAnnonce(ActionEvent event) throws IOException {
+        annonce = FXMLLoader.load(getClass().getResource("/gui/FXMLAnnonceColocationMenu.fxml"));
+        setNode(this.annonce);
         changeStyle(annonce_btn);
     }
 
@@ -101,8 +103,10 @@ public class MainFXMLController implements Initializable {
     }
 
     @FXML
-    private void goToObjetPerdu(ActionEvent event) {
+    private void goToObjetPerdu(ActionEvent event) throws IOException {
+        objetPerdus = FXMLLoader.load(getClass().getResource("/gui/FXMLAnnonceObjetPerduMenu.fxml"));
         changeStyle(objetPerdu_btn);
+        setNode(objetPerdus);
     }
 
     @FXML
