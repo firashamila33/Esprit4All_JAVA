@@ -32,7 +32,7 @@ public class MenuService implements IMenuService {
     }
 
     public void add(Menu t) {
-        String req = "insert into Menu (libelle,type,categorie,endroit,disponibilite,quantite,prix,path_img) values (?,?,?,?,?,?,?,?)";
+        String req = "insert into menu (libelle,type,categorie,endroit,disponibilite,quantite,prix,path_img) values (?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -52,7 +52,7 @@ public class MenuService implements IMenuService {
     }
 
     public void delete(Integer id) {
-        String req = "delete from Menu where id=?";
+        String req = "delete from menu where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -64,7 +64,7 @@ public class MenuService implements IMenuService {
     }
 
     public void update(Menu t) {
-        String req = "update Menu set libelle=?, type=?,categorie=? endroit=?, disponibilite=?, quantite=?, prix=?, path_img=? where id = ?";
+        String req = "update menu set libelle=?, type=?,categorie=? endroit=?, disponibilite=?, quantite=?, prix=?, path_img=? where id = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -86,7 +86,7 @@ public class MenuService implements IMenuService {
     @Override
     public List<Menu> getAll() {
         List<Menu> meals = new ArrayList<>();
-        String req = "select * from Menu";
+        String req = "select * from menu";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -105,7 +105,7 @@ public class MenuService implements IMenuService {
     @Override
     public Menu getById(Integer r) {
         Menu menu = null;
-        String req = "select * from Menu where id=?";
+        String req = "select * from menu where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -138,7 +138,7 @@ public class MenuService implements IMenuService {
         TreeSet<String> drinks= new TreeSet<>();
         TreeSet<String> snacks= new TreeSet<>();
         
-        String req = "select * from Menu";
+        String req = "select * from menu";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -180,7 +180,7 @@ public class MenuService implements IMenuService {
         
         List<Menu> meals = new ArrayList<>();
         Menu menu;
-        String req = "select * from Menu where categorie=?";
+        String req = "select * from menu where categorie=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);

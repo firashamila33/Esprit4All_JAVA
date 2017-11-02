@@ -32,7 +32,7 @@ public class CommandeService implements ICommandeService {
     }
 
     public void add(Commande t) {
-        String req = "insert into Commande (user_id,heure,prix) values (?,?,?)";
+        String req = "insert into commande (user_id,heure,prix) values (?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -89,7 +89,7 @@ public class CommandeService implements ICommandeService {
 
     public Commande getById(Integer r) {
         Commande commande = null;
-        String req = "select * from Commande where id=?";
+        String req = "select * from commande where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -106,7 +106,7 @@ public class CommandeService implements ICommandeService {
 
     public Commande getByUserId(Integer r) {
         Commande commande = null;
-        String req = "select * from Commande where user_id=?";
+        String req = "select * from commande where user_id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -167,7 +167,7 @@ public class CommandeService implements ICommandeService {
     public Commande ReturnLastOrderByUser(Integer r) {
 
         Commande c = null;
-        String req = "select * from Commande where user_id=?";
+        String req = "select * from commande where user_id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);

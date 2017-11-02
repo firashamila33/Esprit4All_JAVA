@@ -15,9 +15,9 @@ import java.sql.SQLException;
  */
 public class DataSource {
 
-    String url = "jdbc:mysql://localhost:3306/espritforall";
-    String login = "root";
-    String password = "";
+    String url = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11202770";
+    String login = "sql11202770";
+    String password = "hJYa59gtWL";
     private Connection connection;
 
     private static DataSource instance;
