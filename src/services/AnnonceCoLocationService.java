@@ -30,11 +30,11 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
 
     class ImageService {
 
-        private String insertReq = "insert into ImageAnnonce(annonceCoLocation_id,imageUrl) values(?,?)";
+        private String insertReq = "insert into imageAnnonce(annonceCoLocation_id,imageUrl) values(?,?)";
         private PreparedStatement insertPs;
-        private String deleteReq = "delete from ImageAnnonce where annonceCoLocation_id=? AND imageUrl=?";
+        private String deleteReq = "delete from imageAnnonce where annonceCoLocation_id=? AND imageUrl=?";
         private PreparedStatement deletePs;
-        private String selectReq = "select imageUrl from ImageAnnonce where annonceCoLocation_id=?";
+        private String selectReq = "select imageUrl from imageAnnonce where annonceCoLocation_id=?";
         private PreparedStatement selectPs;
 
         public ImageService() {
@@ -153,7 +153,7 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
     public void add(AnnonceCoLocation t) {
 
         try {
-            String req = "insert into AnnonceCoLocation(address_id,dimensions,maxCoLocataire, loyer,name,description,owner_id,creationDate,expirationDate) values(?,?,?,?,?,?,?,?,?)";
+            String req = "insert into annoncecolocation(address_id,dimensions,maxCoLocataire, loyer,name,description,owner_id,creationDate,expirationDate) values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
 
             IAddressService addressService = new AddressService();
@@ -196,7 +196,7 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
     @Override
     public void update(AnnonceCoLocation t) {
         try {
-            String req = "update  AnnonceCoLocation set address_id = ?,dimensions=?,maxCoLocataire=?, loyer=?,name=?,description=?,owner_id=?,creationDate=?,expirationDate=? where id=?";
+            String req = "update  annoncecolocation set address_id = ?,dimensions=?,maxCoLocataire=?, loyer=?,name=?,description=?,owner_id=?,creationDate=?,expirationDate=? where id=?";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
 
@@ -245,7 +245,7 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
     @Override
     public void delete(Integer r) {
         try {
-            String req = "delete from AnnonceCoLocation  where id=?";
+            String req = "delete from annoncecolocation  where id=?";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ps.setInt(1, r);
             ps.executeUpdate();
@@ -259,7 +259,7 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
     public List<AnnonceCoLocation> getAll() {
         ArrayList<AnnonceCoLocation> result = new ArrayList<>();
         try {
-            String req = "select * from AnnonceCoLocation";
+            String req = "select * from annoncecolocation";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ResultSet rs = ps.executeQuery();
 

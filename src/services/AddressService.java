@@ -26,7 +26,7 @@ public class AddressService implements IAddressService {
     public void add(Address t) {
 
         try {
-            String req = "insert into Address(lat,lng) values(?,?)";
+            String req = "insert into address(lat,lng) values(?,?)";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setDouble(1, t.getLat());
@@ -45,7 +45,7 @@ public class AddressService implements IAddressService {
     @Override
     public void update(Address t) {
         try {
-            String req = "Update  Address set lat=?, lng=? where id = ?;";
+            String req = "Update  address set lat=?, lng=? where id = ?;";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ps.setDouble(1, t.getLat());
@@ -61,7 +61,7 @@ public class AddressService implements IAddressService {
     @Override
     public void delete(Integer r) {
         try {
-            String req = "delete from Address where id=?";
+            String req = "delete from address where id=?";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ps.setInt(1, r);
             ps.executeUpdate();
@@ -79,7 +79,7 @@ public class AddressService implements IAddressService {
     @Override
     public Address getById(Integer r) {
         try {
-            String req = "select * from Address where id=?";
+            String req = "select * from address where id=?";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ps.setInt(1, r);

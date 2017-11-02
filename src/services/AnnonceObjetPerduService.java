@@ -29,7 +29,7 @@ public class AnnonceObjetPerduService implements IAnnonceObjetPerduService {
     public void add(AnnonceObjetPerdu t) {
 
         try {
-            String req = "insert into AnnonceObjetPerdu(name,description,owner_id,creationDate,expirationDate,objectDescription,lossDate,lossLocation) values(?,?,?,?,?,?,?,?)";
+            String req = "insert into annonceobjetperdu(name,description,owner_id,creationDate,expirationDate,objectDescription,lossDate,lossLocation) values(?,?,?,?,?,?,?,?)";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, t.getName());
@@ -56,7 +56,7 @@ public class AnnonceObjetPerduService implements IAnnonceObjetPerduService {
     public void update(AnnonceObjetPerdu t) {
 
         try {
-            String req = "update  AnnonceObjetPerdu set name=? ,description =?,owner_id=?,creationDate=?,expirationDate=?,objectDescription=?,lossDate=?,lossLocation=? where id=?";
+            String req = "update  annonceobjetperdu set name=? ,description =?,owner_id=?,creationDate=?,expirationDate=?,objectDescription=?,lossDate=?,lossLocation=? where id=?";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ps.setString(1, t.getName());
@@ -79,7 +79,7 @@ public class AnnonceObjetPerduService implements IAnnonceObjetPerduService {
     @Override
     public void delete(Integer r) {
         try {
-            String req = "delete from AnnonceObjetPerdu where id=?";
+            String req = "delete from annonceobjetperdu where id=?";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ps.setInt(1, r);
             ps.executeUpdate();
@@ -93,7 +93,7 @@ public class AnnonceObjetPerduService implements IAnnonceObjetPerduService {
         List<AnnonceObjetPerdu> result = new ArrayList<>();
         IUserService userService = new UserService();
         try {
-            String req = "select * from AnnonceObjetPerdu";
+            String req = "select * from annonceobjetperdu";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ResultSet rs = ps.executeQuery();
@@ -119,7 +119,7 @@ public class AnnonceObjetPerduService implements IAnnonceObjetPerduService {
     @Override
     public AnnonceObjetPerdu getById(Integer r) {
         try {
-            String req = "select * from AnnonceObjetPerdu where id=?";
+            String req = "select * from annonceobjetperdu where id=?";
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(req);
             ps.setInt(1, r);
