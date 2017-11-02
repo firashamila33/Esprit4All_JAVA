@@ -50,7 +50,7 @@ import utils.URLimages;
 /**
  * FXML Controller class
  *
- * @author Sami
+ * @author majdi
  */
 public class BackOfficeEventsFXMLController implements Initializable {
 

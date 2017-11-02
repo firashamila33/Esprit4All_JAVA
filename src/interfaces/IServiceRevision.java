@@ -29,5 +29,8 @@ public interface IServiceRevision extends IServices<Revision,Integer> {
 
     @Override
     public Revision search(Revision t);
-        
+    
+           public Revision search2(Integer r );
+
+ 
 }

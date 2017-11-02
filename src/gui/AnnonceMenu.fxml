@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLAnnonceColocationMenuController">
+   
+    <children>
+      <ScrollPane layoutX="4.0" layoutY="110.0" prefHeight="444.0" prefWidth="798.0">
+         <content>
+            <VBox fx:id="myVBox" prefHeight="442.0" prefWidth="796.0" spacing="10.0" />
+         </content>
+      </ScrollPane>
+      <Button layoutX="24.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="163.0" text="Nouvelle Annonce" />
+      <Label layoutX="24.0" layoutY="50.0" prefHeight="26.0" prefWidth="77.0" text="Loyer" />
+      <TextField layoutX="254.0" layoutY="50.0" />
+      <TextField layoutX="593.0" layoutY="49.0" />
+      <Label layoutX="222.0" layoutY="55.0" text="min" />
+      <Label layoutX="557.0" layoutY="54.0" text="max" />
+      <Label layoutX="24.0" layoutY="84.0" text="CoLocataires" />
+      <TextField layoutX="254.0" layoutY="79.0" />
+      <TextField layoutX="593.0" layoutY="78.0" />
+      
+      
+      <Label layoutX="222.0" layoutY="84.0" text="min" />
+      <Label layoutX="557.0" layoutY="83.0" text="max" />
+      <AnchorPane layoutX="802.0" layoutY="8.0" prefHeight="545.0" prefWidth="558.0">
+         <children>
+            <WebView fx:id="webViewMap" layoutX="-4.0" layoutY="-5.0" prefHeight="552.0" prefWidth="564.0" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

@@ -16,7 +16,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -50,7 +52,7 @@ public class Fentre_ajout_grp_revisionController implements Initializable {
     @FXML
     private TextField Ajoutgrp_matiere;
     @FXML
-    private ImageView valider_ajout_grp;
+    private Button AjouterRevision;
 
     /**
      * Initializes the controller class.
@@ -62,20 +64,22 @@ public class Fentre_ajout_grp_revisionController implements Initializable {
 
     @FXML
     private void ajouter_grp(ActionEvent event) throws ParseException {
-        User u= new User(1);
         RevisionService rs = new RevisionService();
         String y = Ajoutgrp_matiere.getText();
         Date date1 = new Date(Ajoutgrp_heurdepart.getValue().toEpochDay());
 
         String v = Ajoutgrp_description.getText();
-           int w=parseInt(Ajoutgrp_nbrmax.getText());
-        
+        int w = parseInt(Ajoutgrp_nbrmax.getText());
+
         String r = (Ajoutgrp_type.getText());
         Date date2 = new Date(Ajoutgrp_heurfin.getValue().toEpochDay());
 
-        Revision E = new Revision(u, r, date2, r, w, y, date2);
+        Revision E = new Revision(UserService.userStatic, y, date1, v, w, r, date2);
         rs.add(E);
-
+        Ajoutgrp_type.clear();
+        Ajoutgrp_nbrmax.clear();
+        Ajoutgrp_description.clear();
+        Ajoutgrp_matiere.clear();
     }
 
 }

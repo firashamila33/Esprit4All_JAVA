@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**
@@ -35,7 +36,8 @@ public class MainClubFXMLController implements Initializable {
     @FXML
     private JFXButton eventClub_btn;
     JFXButton currentselectedButton;
-    AnchorPane infoClub, eventClub;
+    AnchorPane infoClub;
+    StackPane eventClub;
 
     /**
      * Initializes the controller class.
@@ -46,7 +48,7 @@ public class MainClubFXMLController implements Initializable {
             infoClub = FXMLLoader.load(getClass().getResource("/gui/InfoClubMembreFXML.fxml"));
             infoClub_btn.setStyle("  -fx-border-width: 0 4 0 0;\n"
                     + "    -fx-border-color:  #ff2e44;");
-            currentselectedButton=infoClub_btn;
+            currentselectedButton = infoClub_btn;
         } catch (IOException ex) {
             Logger.getLogger(MainClubFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }

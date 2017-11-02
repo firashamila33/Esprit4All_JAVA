@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLColocataireController">
+   <children>
+      <Label layoutX="-1.0" layoutY="14.0" prefHeight="19.0" prefWidth="102.0" style="-fx-alignment: center;" text="label" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutY="41.0" prefHeight="19.0" prefWidth="102.0" style="-fx-alignment: center;" text="Label" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="33.0" fitWidth="27.0" layoutX="41.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

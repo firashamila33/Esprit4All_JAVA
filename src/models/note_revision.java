@@ -17,6 +17,10 @@ public class note_revision {
     private User user;
     private float note;
 
+    public note_revision(int id) {
+        this.id = id;
+    }
+
     public note_revision(int id, Revision revision, User user, float note) {
         this.id = id;
         this.revision = revision;
@@ -27,6 +31,14 @@ public class note_revision {
     public note_revision(int aInt, User user) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public note_revision(Revision revision, User user, float note) {
+        this.revision = revision;
+        this.user = user;
+        this.note = note;
+    }
+
+   
 
    
 

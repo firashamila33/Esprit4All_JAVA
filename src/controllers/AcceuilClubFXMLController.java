@@ -5,21 +5,13 @@
  */
 package controllers;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,12 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import models.Covoiturage;
 import models.Evenement;
 import services.EvenementService;
 import utils.URLimages;
@@ -96,10 +83,8 @@ public class AcceuilClubFXMLController implements Initializable {
                 vb.setOnMouseClicked((MouseEvent event) -> {
                     try {
 
-                      
-                        
                         FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementFXML.fxml"));
-                        AnchorPane p= (AnchorPane)fXMLLoader.load();
+                        AnchorPane p = (AnchorPane) fXMLLoader.load();
                         EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
                         controller.setId(e.getId());
                         controller.display();

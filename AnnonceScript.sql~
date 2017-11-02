@@ -1,0 +1,2 @@
+CREATE TABLE `espritforall`.`AnnonceObjetPerdu` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(50) NOT NULL , `description` VARCHAR(50) NOT NULL , `owner_id` INT NOT NULL , `creationDate` DATE NOT NULL , `expirationDate` DATE NOT NULL , `objectDescription` VARCHAR(50) NOT NULL , `lossDate` DATE NOT NULL , `lossLocation` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`));
+ALTER TABLE `AnnonceObjetPerdu` ADD INDEX(`owner_id`);

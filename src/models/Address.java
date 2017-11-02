@@ -10,8 +10,8 @@ package models;
  * @author kadhem
  */
 public class Address {
+
     private int id;
-    private String city;
 
     public void setId(int id) {
         this.id = id;
@@ -20,51 +20,29 @@ public class Address {
     public int getId() {
         return id;
     }
-    private String street;
-    private String homeNumber;
-    private String furtherAddressDescription;
+    double lat;
+    double lng;
 
-    public Address(String city, String street, String homeNumber, String furtherAddressDescription) {
-        this.city = city;
-        this.street = street;
-        this.homeNumber = homeNumber;
-        this.furtherAddressDescription = furtherAddressDescription;
+    public Address(double lat, double lng) {
+        this.lat = lat;
+        this.lng = lng;
     }
 
-    public String getCity() {
-        return city;
+    public double getLat() {
+        return lat;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public double getLng() {
+        return lng;
     }
 
-    public String getStreet() {
-        return street;
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 73 * hash + this.id;
+        return hash;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getHomeNumber() {
-        return homeNumber;
-    }
-
-    public void setHomeNumber(String homeNumber) {
-        this.homeNumber = homeNumber;
-    }
-
-    public String getFurtherAddressDescription() {
-        return furtherAddressDescription;
-    }
-
-    public void setFurtherAddressDescription(String furtherAddressDescription) {
-        this.furtherAddressDescription = furtherAddressDescription;
-    }
-
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -85,7 +63,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" + "city=" + city + ", street=" + street + ", homeNumber=" + homeNumber + ", furtherAddressDescription=" + furtherAddressDescription + '}';
+        return "Address{" + "id=" + id + ", lat=" + lat + ", lng=" + lng + '}';
     }
-    
+
 }

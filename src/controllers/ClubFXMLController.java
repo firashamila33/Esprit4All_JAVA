@@ -7,10 +7,13 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,7 +35,6 @@ import models.Club;
 import models.Evenement;
 import models.Membre;
 import models.Profil;
-import models.User;
 import services.ClubService;
 import services.EvenementService;
 import services.MembreService;
@@ -45,9 +47,9 @@ import utils.URLimages;
  * @author majdi
  */
 public class ClubFXMLController implements Initializable {
-    
+
     public ObservableList<Profil> profils;
-    List<Membre> membres= new ArrayList<>();
+    List<Membre> membres = new ArrayList<>();
     AnchorPane eventclub;
     private int id;
     @FXML
@@ -71,84 +73,94 @@ public class ClubFXMLController implements Initializable {
     private Text NotreHistoire;
     @FXML
     private Text apropos;
-    
+    @FXML
+    private Pane goTolastEvent;
+
     public int getId() {
         return id;
     }
-    
+
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public ClubFXMLController() {
-        
+
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
-       
     }
-     @FXML
-    private void GoToEvenement(MouseEvent event) {
-        EvenementService es = new EvenementService();
-        List<Evenement> list = es.getByClub(id);
-        Evenement e = list.get(list.size() - 1);
-        try {
-            
-            FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementFXML.fxml"));
-            Parent root = (Parent) fXMLLoader.load();
-            EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
-            
-            controller.setId(e.getId());
-            controller.display();
-            
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-            
-        } catch (Exception s) {
-            s.printStackTrace();
-        }
-        
-    }
-    
+
     public void display() {
         EvenementService es = new EvenementService();
         ClubService cs = new ClubService();
-        
+
         Club c = cs.getById(id);
-        
+        System.out.println(id+"saaadsqdqds");
         List<Evenement> list = es.getByClub(id);
         Evenement dernier_event;
         dernier_event = list.get(list.size() - 1);
         libelle_clib_id.setText(c.getLibelle());
         path_img_id.setImage(new Image(URLimages.LogoClubs + c.getPath_img()));
         path_couverture_id.setImage(new Image(URLimages.CouverturesClubs + c.getPath_couverture()));
-       //img_event_id.setImage(new Image(URLimages.imagesEvents + dernier_event.getPath_img()));
+        //img_event_id.setImage(new Image(URLimages.imagesEvents + dernier_event.getPath_img()));
         NotreHistoire.setText(c.getNotreHistoire());
         apropos.setText(c.getApropos());
-        
-        
+
         profils = FXCollections.observableArrayList();
-        
-        ProfilService profilService= new ProfilService();
-        MembreService membreService= new MembreService();
-        
-        
-        membres=membreService.getByClub(c);
+
+        ProfilService profilService = new ProfilService();
+        MembreService membreService = new MembreService();
+
+        membres = membreService.getByClub(c);
         for (Membre membre : membres) {
             profils.add(profilService.getByUserId(membre.getUser().getId()));
         }
         System.out.println(profils);
-         lit_view_membre.setItems(profils);
+        lit_view_membre.setItems(profils);
         lit_view_membre.setCellFactory(evenementListView -> new MembreFXMLController());
+        goTolastEvent.setOnMouseClicked(event->{
+        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementCFXML.fxml"));
+            AnchorPane p;
+            try {
+                p = (AnchorPane) fXMLLoader.load();
+                EvenementCFXMLController controller = fXMLLoader.<EvenementCFXMLController>getController();
+                controller.setId(dernier_event.getId());
+                controller.setIdClub(id);
+                controller.display();
+                MainFXMLController.setNode(p);
+            } catch (IOException ex) {
+                Logger.getLogger(ClubFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
+    }
+
+    private void GoToEvenement(ActionEvent event) {
+        
+
+
+    }
+
+    @FXML
+    private void backTo(ActionEvent event) {
+        try {
+            FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/MainVieSocialFXML.fxml"));
+            AnchorPane p = (AnchorPane) fXMLLoader.load();
+            MainFXMLController.setNode(p);
+        } catch (Exception e) {
+
+            System.out.println("interface introuvable");
+        }
     }
 
     @FXML
     private void GoToEvenementDeClub(ActionEvent event) {
+
     }
-    
-   
+
+
 }

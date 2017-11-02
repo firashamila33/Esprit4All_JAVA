@@ -20,7 +20,7 @@ import technique.DataSource;
 
 /**
  *
- * @author plazma33
+ *@author plazma33
  */
 public class MenuService implements IMenuService {
 
@@ -64,7 +64,7 @@ public class MenuService implements IMenuService {
     }
 
     public void update(Menu t) {
-        String req = "update Menu set libelle=?, type=?,categorie=?, endroit=?, disponibilite=?, quantite=?, prix=?, path_img=? where id = ?";
+        String req = "update Menu set libelle=?, type=?,categorie=? endroit=?, disponibilite=?, quantite=?, prix=?, path_img=? where id = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -94,7 +94,7 @@ public class MenuService implements IMenuService {
             while (resultSet.next()) {
                 Menu m;
                 m = new Menu(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("type"),resultSet.getString("categorie"), resultSet.getString("endroit"), resultSet.getInt("disponibilite"), resultSet.getInt("quantite"), resultSet.getDouble("prix"), resultSet.getString("path_img"));
-               meals.add(m);
+                meals.add(m);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -132,6 +132,7 @@ public class MenuService implements IMenuService {
     public Map<String,TreeSet<String>> GetSubCategoriesbyCategory() {
            
         Map<String,TreeSet<String>> Categs = new HashMap<>();
+        
         TreeSet<String> fast_food= new TreeSet<>();
         TreeSet<String> meals= new TreeSet<>();
         TreeSet<String> drinks= new TreeSet<>();
@@ -187,7 +188,6 @@ public class MenuService implements IMenuService {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 menu = new Menu(resultSet.getInt("id"), resultSet.getString("libelle"), resultSet.getString("type"),resultSet.getString("categorie"), resultSet.getString("endroit"), resultSet.getInt("disponibilite"), resultSet.getInt("quantite"), resultSet.getDouble("prix"), resultSet.getString("path_img"));
-                System.out.println(menu);
                 meals.add(menu);
             }
         } catch (SQLException ex) {

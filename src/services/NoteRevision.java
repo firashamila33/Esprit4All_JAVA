@@ -23,9 +23,8 @@ import technique.DataSource;
  *
  * @author asus
  */
-public class NoteRevision implements InoteRevision {
-
-    Connection connection;
+public class NoteRevision implements InoteRevision{
+      Connection connection;
 
     public NoteRevision() {
         connection = DataSource.getInstance().getConnection();
@@ -33,15 +32,15 @@ public class NoteRevision implements InoteRevision {
 
     @Override
     public void add(note_revision t) {
-        String req = "insert into note_revision (revision_id,user_id,note) values (?,?,?)";
+         String req = "insert into note_revision (revision_id,user_id,note) values (?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getRevision().getId());
             preparedStatement.setInt(2, t.getUser().getId());
             preparedStatement.setFloat(3, t.getNote());
-
-            preparedStatement.executeUpdate();
+          
+             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -49,7 +48,7 @@ public class NoteRevision implements InoteRevision {
 
     @Override
     public void delete(Integer r) {
-        String req = "delete from  revision where user_id =?";
+String req = "delete from  revision where user_id =?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -57,44 +56,45 @@ public class NoteRevision implements InoteRevision {
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
-    }
+        }    }
 
     @Override
     public note_revision getById(Integer r) {
-        note_revision re = null;
-        String req = "select * from  note_revision where user_id=?";
+   note_revision re = null;
+        String req = "select * from  note_revision where revision_id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, r);
             java.sql.ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                re = new note_revision(resultSet.getInt("id"), new RevisionService().getById(resultSet.getInt("revision_id")), new UserService().getUserById(resultSet.getInt("user_id")), resultSet.getInt("note"));
-
-                System.out.println(re);
+                re = new note_revision(resultSet.getInt("id"), new Revision(resultSet.getInt("revision_id")), new User(resultSet.getInt("user_id")),resultSet.getInt("note"));
+  
+                
+                
+            System.out.println(re);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return re;
-    }
+        return re ;    }
 
     @Override
     public List<note_revision> getAll() {
-
+ 
         List<note_revision> revision = new ArrayList<>();
-        note_revision x = null;
+note_revision x= null;
 
         String req = "select * from  note_revision";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
-
+      
             java.sql.ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                x = new note_revision(resultSet.getInt("id"), new RevisionService().getById(resultSet.getInt("revision_id")), new UserService().getUserById(resultSet.getInt("user_id")), resultSet.getInt("note"));
-                revision.add(x);
+                    x = new note_revision(resultSet.getInt("id"), new Revision(resultSet.getInt("revision_id")),new User (resultSet.getInt("user_id")),resultSet.getInt("note"));
+                               revision.add(x);
+           
 
             }
         } catch (SQLException ex) {
@@ -102,27 +102,26 @@ public class NoteRevision implements InoteRevision {
         }
         return revision;
     }
-
     @Override
     public note_revision search(note_revision t) {
-        return null;
+          return null;
 
+ 
     }
 
     @Override
     public void update(note_revision t) {
-        String req = "update  note_revision set revision_id=?, user_id =?, note=? where id = ?";
-        PreparedStatement preparedStatement;
+ String req = "update  note_revision set revision_id=?, user_id =?, note=? where id = ?";
+       PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getRevision().getId());
             preparedStatement.setInt(2, t.getUser().getId());
             preparedStatement.setFloat(3, t.getNote());
-
-            preparedStatement.executeUpdate();
+          
+             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
-    }
-
+        }    }
+    
 }

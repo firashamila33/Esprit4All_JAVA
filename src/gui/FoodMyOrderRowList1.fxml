@@ -9,12 +9,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="row" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="row" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <Separator layoutX="10.0" layoutY="102.0" prefHeight="3.0" prefWidth="806.0" />
       <Pane layoutX="2.0" layoutY="1.0" prefHeight="86.0" prefWidth="836.0">
          <children>
-            <ImageView fitHeight="74.0" fitWidth="78.0" layoutX="87.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="meal_image" fitHeight="74.0" fitWidth="78.0" layoutX="87.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/menu-modern-5-310x260.png" />
                </image>
@@ -34,7 +34,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="753.0" layoutY="37.0" prefHeight="35.0" prefWidth="41.0" text=" ">
+            <JFXButton fx:id="delete_btn" layoutX="753.0" layoutY="37.0" onAction="#delete_row" prefHeight="35.0" prefWidth="41.0" text=" ">
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -48,7 +48,7 @@
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <JFXButton layoutX="26.0" layoutY="54.0" prefHeight="21.0" prefWidth="17.0" text=" ">
+            <JFXButton fx:id="substruct_btn" layoutX="26.0" layoutY="54.0" onAction="#sustruct_quantity" prefHeight="21.0" prefWidth="17.0" text=" ">
                <graphic>
                   <ImageView fitHeight="17.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,7 +57,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="25.0" layoutY="15.0" prefHeight="21.0" prefWidth="17.0" text=" ">
+            <JFXButton fx:id="add_btn" layoutX="25.0" layoutY="15.0" onAction="#add_quantity" prefHeight="21.0" prefWidth="17.0" text=" ">
                <graphic>
                   <ImageView fitHeight="11.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>

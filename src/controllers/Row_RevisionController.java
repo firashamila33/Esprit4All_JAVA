@@ -6,6 +6,8 @@
 package controllers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +29,8 @@ import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
 import static javafx.scene.input.KeyCode.E;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import models.Revision;
@@ -45,6 +49,8 @@ public class Row_RevisionController extends ListCell<Revision> {
 
     @FXML
     private ImageView photo_mentor2;
+    
+   
     private AnchorPane revision_fenetre;
     @FXML
     private Button rejoindre_grp;
@@ -56,12 +62,13 @@ public class Row_RevisionController extends ListCell<Revision> {
     private Label LabelNbrPersonne;
     @FXML
     private Label LabelNomMentor2;
-
+JFXDialog dialog;
     private FXMLLoader mLLoader;
-        JFXButton currentButton;
+    JFXButton currentButton;
     @FXML
     private AnchorPane row_revision;
-
+    @FXML
+    private StackPane stack_revi;
 
     @Override
     protected void updateItem(Revision revision, boolean empty) {
@@ -82,10 +89,12 @@ public class Row_RevisionController extends ListCell<Revision> {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-           LabelNbrPersonne.setText(String.valueOf(revision.getNbrmax()));
-           LabelMatiere.setText(revision.getMatiere());
-           setText(null);
-            setGraphic(row_revision);
+               
+                LabelNbrPersonne.setText(String.valueOf(revision.getNbrmax()));
+                LabelMatiere.setText(revision.getMatiere());
+                LabelDescription.setText(revision.getDescription());
+                setText(null);
+                setGraphic(row_revision);
             }
 
         }
@@ -95,29 +104,45 @@ public class Row_RevisionController extends ListCell<Revision> {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+
     @FXML
-    private void rejoindre_grp_revision(ActionEvent event) { 
-       try{
-                    FXMLLoader fXMLLoader=new FXMLLoader(getClass().getResource("/gui/fenetre_groupe_revision.fxml"));
-                    Parent root=(Parent) fXMLLoader.load();
-                 
-                    Stage stage=new Stage();
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                }catch(IOException e){
-                    e.printStackTrace();
-                }
-                
-          RevisionService rs = new RevisionService();
-       User u = new User(1);
-       Revision revision = rs.getById(1);
-        utilisateur_has_revision ur = new utilisateur_has_revision(revision, u);
+    private void rejoindre_grp_revision(ActionEvent event) {
+        try { 
+            
+            RevisionService revisionService=new RevisionService();
+         
+            RevisionService rs = new RevisionService();
+         Revision r =rs.getById(   UserService.userStatic.getId());
+            int x = Integer.parseInt(LabelDescription.getText());
+            if (x != 0) {
+                x--;
+                r.setNbrmax(x);
+                rs.update(r);
+                String description="";
+                description = revisionService.getById(UserService.userStatic.getId()).getDescription();
+
+                revisionService.getById(UserService.userStatic.getId()).setNbrmax(x);
+                revisionService.update(revisionService.getById(UserService.userStatic.getId()));
+
+                FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/fenetre_groupe_revision.fxml"));
+                Parent root = (Parent) fXMLLoader.load();
+
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+        Revision revision = revisionService.getById(UserService.userStatic.getId());
+         utilisateur_has_revision ur = new utilisateur_has_revision(revision, UserService.userStatic);
         Sutilisateur_has_revision sur = new Sutilisateur_has_revision();
         sur.add(ur);
-            
-       
-        
+        LabelNbrPersonne.setText(String.valueOf(x));
+            } else {
+                rejoindre_grp.setVisible(false);
+                
+                
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    
 
 }

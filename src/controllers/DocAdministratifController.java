@@ -75,31 +75,31 @@ public class DocAdministratifController implements Initializable {
     @FXML
     private void envoi_demande2(ActionEvent event) {
         DocumentAdministratifService d = new DocumentAdministratifService();
-  User u = new User(1);
-        da = new DocumentAdministratif(u, "attestation", "1", true);
+  UserService us = new UserService();
+        da = new DocumentAdministratif(us.userStatic, "attestation", "1", true);
         d.add(da);
 
         to = "yacine.farhat@esprit.tn";
         sub = "Demande de confirmation de document administratif";
         msg = "l'eleve a envoyer la demande d'obtention de releever de note lerci de confirmer ";
-        user = "ilyes.elayeb@esprit.tn";
-        pass = "puma71319395";
+        user = "ilyes.elb@gmail.com";
+        pass = "xxxtentacion";
    controllers.SendMail s = null;
         s.send(to, sub, msg, user, pass);    }
 
     @FXML
     private void envoi_demande(ActionEvent event) {
          DocumentAdministratifService d = new DocumentAdministratifService();
-User u = new User(1);
-        da = new DocumentAdministratif(u, "relever de note", "1", true);
+UserService us = new UserService();
+        da = new DocumentAdministratif(us.userStatic, "relever de note", "1", true);
 
         d.add(da);
 
         to = "yacine.farhat@esprit.tn";
         sub = "Demande de confirmation de document administratif";
         msg = "l'eleveaved 'lID a envoyer la demande d'obtention de releever de note lerci de confirmer ";
-        user = "ilyes.elayeb@esprit.tn";
-        pass = "puma71319395";
+        user = "ilyes.elb@gmail.com";
+                pass="xxxtentacion";
         controllers.SendMail s = null;
         s.send(to, sub, msg, user, pass);
     }

@@ -10,17 +10,85 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
-
-<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="560.0" prefWidth="1170.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListEventClubFXMLController">
-   <children>
-      <ImageView fitHeight="560.0" fitWidth="1170.0" pickOnBounds="true">
-         <image>
-            <Image url="@../ressources/33.png" />
-         </image>
-      </ImageView>
-      <JFXListView fx:id="list_even" layoutX="180.0" layoutY="20.0" maxHeight="530" maxWidth="850.0" minWidth="490.0" opacity="0.9" prefHeight="530" prefWidth="850.0" styleClass="mylistview" StackPane.alignment="CENTER">
-         <StackPane.margin>
-            <Insets top="20.0" />
-         </StackPane.margin></JFXListView>   
-   </children>
-</AnchorPane>
+<StackPane id="AnchorPane" fx:id="anchor" prefHeight="560.0" prefWidth="1170.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListEventClubFXMLController">
+    <children>
+        <AnchorPane id="e" fx:id="p" prefHeight="560.0" prefWidth="1170.0">
+            <children>
+                <ImageView fitHeight="560.0" fitWidth="1170.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../ressources/33.png" />
+                    </image>
+                </ImageView>
+                <JFXListView fx:id="list_even" layoutX="180.0" layoutY="20.0" maxHeight="530" maxWidth="850.0" minWidth="490.0" opacity="0.9" prefHeight="530" prefWidth="850.0" styleClass="mylistview" StackPane.alignment="CENTER">
+                    <StackPane.margin>
+                        <Insets top="20.0" />
+                    </StackPane.margin>
+                </JFXListView>  
+                 <JFXButton fx:id="add_btn_layout" layoutX="960.0" layoutY="500.0" onAction="#showAddFormAction" prefHeight="48.0" prefWidth="48.0" styleClass="addBtn" />
+                <JFXDialogLayout fx:id="addDialogLayout" layoutY="8.0" prefHeight="450.0" prefWidth="250.0" visible="false">
+                    <children>
+                        <StackPane maxHeight="450.0" maxWidth="250.0" minHeight="450.0" minWidth="250.0" prefHeight="450.0" prefWidth="250.0">
+                            <children>
+                                <GridPane alignment="CENTER" focusTraversable="true" prefHeight="450.0" prefWidth="100.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="50.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="50.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <JFXTextField fx:id="libelle_tf" focusColor="#ff2e44" labelFloat="true" prefHeight="30.0" prefWidth="200.0" promptText="Libelle" GridPane.rowIndex="1" />
+                                        <JFXTextArea fx:id="Description_tf" focusColor="#ff2e44" labelFloat="true" prefColumnCount="50" prefHeight="50.0" promptText="Description" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets top="15.0" />
+                                            </GridPane.margin>
+                                        </JFXTextArea>
+                                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                                            <children>
+                                                <JFXTextField fx:id="img_path_tf" focusColor="#ff2e44" labelFloat="true" maxWidth="130.0" minWidth="130.0" prefHeight="30.0" prefWidth="130.0" promptText="Image">
+                                           
+                                                </JFXTextField>
+                                                <JFXButton fx:id="parcourir_img" alignment="CENTER" onAction="#parcourir_img" prefHeight="32.0" prefWidth="73.0" text="Parcourir">
+                                                    <font>
+                                                        <Font size="12.0" />
+                                                    </font>
+                                                </JFXButton>
+                                            </children>
+                                            <GridPane.margin>
+                                                <Insets top="10.0" />
+                                            </GridPane.margin>
+                                        </HBox>
+                                        <JFXButton fx:id="add_btn" onAction="#addAction" text="Ajouter" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                        <JFXComboBox fx:id="Type" focusColor="#ff2e44" labelFloat="true" prefHeight="24.0" prefWidth="203.0" promptText="Type" visibleRowCount="5" GridPane.rowIndex="3">
+                                            <GridPane.margin>
+                                                <Insets top="10.0" />
+                                            </GridPane.margin>
+                                        </JFXComboBox>
+                                        <Label fx:id="formLibelle_lbl" alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Ajouter Evenement" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXDatePicker fx:id="date_tf" GridPane.rowIndex="4" />
+                        
+                                          
+                                    </children>
+                                    <StackPane.margin>
+                                        <Insets />
+                                    </StackPane.margin>
+                            
+                                </GridPane>
+                            </children>
+                        </StackPane>
+                    </children>
+                </JFXDialogLayout>  
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

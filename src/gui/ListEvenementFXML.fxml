@@ -21,6 +21,8 @@
       <JFXListView fx:id="list_even" layoutX="180.0" layoutY="20.0" maxHeight="530" maxWidth="850.0" minWidth="490.0" opacity="0.9" prefHeight="530" prefWidth="850.0" styleClass="mylistview" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets top="20.0" />
-         </StackPane.margin></JFXListView>   
+         </StackPane.margin>
+      </JFXListView>  
+       
    </children>
 </AnchorPane>

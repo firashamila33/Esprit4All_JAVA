@@ -12,8 +12,8 @@ import models.Address;
  *
  * @author kadhem
  */
+/*
 public class TestAddressService {
-
     public static void testAdd() {
         AddressService addressService = new AddressService();
 
@@ -77,3 +77,4 @@ public class TestAddressService {
 
     }
 }
+*/

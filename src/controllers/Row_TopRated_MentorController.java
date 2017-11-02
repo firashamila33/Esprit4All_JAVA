@@ -18,13 +18,15 @@ import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import models.Revision;
+import models.User;
+import services.UserService;
 
 /**
  * FXML Controller class
  *
  * @author asus
  */
-public class Row_TopRated_MentorController extends ListCell<Revision>  {
+public class Row_TopRated_MentorController extends ListCell<User>  {
 
     @FXML
     private AnchorPane top_rated;
@@ -41,11 +43,11 @@ public class Row_TopRated_MentorController extends ListCell<Revision>  {
     private ImageView topMentorinfo;
 
    @Override
-    protected void updateItem(Revision revision, boolean empty) {
+    protected void updateItem(User user, boolean empty) {
         
-        super.updateItem(revision, empty);
+        super.updateItem(user, empty);
 
-        if (empty || revision == null) {
+        if (empty || user == null) {
 
             setText(null);
             setGraphic(null);
@@ -54,13 +56,14 @@ public class Row_TopRated_MentorController extends ListCell<Revision>  {
             if (mLLoader == null) {
                 mLLoader = new FXMLLoader(getClass().getResource("/gui/Row_TopRated_MentorController.fxml"));
                 mLLoader.setController(this);
-
+ 
+                
                 try {
                     mLLoader.load();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-           
+            
            setText(null);
             setGraphic(top_rated);
             }

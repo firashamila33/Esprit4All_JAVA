@@ -72,17 +72,14 @@ public class RowClubFXMLController extends ListCell<Club> {
             setOnMouseClicked((MouseEvent event) -> {
                 //To change body of generated methods, choose Tools | Templates.
                 try {
-                    
+
                     FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/ClubFXML.fxml"));
-                    Parent root = (Parent) fXMLLoader.load();
+                    AnchorPane p = (AnchorPane) fXMLLoader.load();
                     ClubFXMLController controller = fXMLLoader.<ClubFXMLController>getController();
                     controller.setId(clubs.getId());
                     controller.display();
-                    
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                    
+                    MainFXMLController.setNode(p);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

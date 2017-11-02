@@ -6,13 +6,19 @@
 package controllers;
 
 import java.io.IOException;
+import org.controlsfx.control.Rating;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -22,7 +28,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.Revision;
 import models.User;
+import models.note_revision;
+import models.utilisateur_has_revision;
+import org.controlsfx.control.Rating;
+import services.NoteRevision;
 import services.RevisionService;
+import services.Sutilisateur_accept_revision;
+import services.Sutilisateur_has_revision;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -42,13 +55,9 @@ public class Fenetre_groupe_revisionController implements Initializable {
     @FXML
     private ImageView setting_grp_rev;
     @FXML
-    private ImageView chat_grp_rev;
-    @FXML
     private ImageView quitter_grp_rev;
     @FXML
     private AnchorPane modification;
-    @FXML
-    private Button save_setting_grp;
     @FXML
     private Label heurdebut_label;
     @FXML
@@ -76,15 +85,11 @@ public class Fenetre_groupe_revisionController implements Initializable {
     @FXML
     private DatePicker modifgrp_heurfin;
     @FXML
-    private ImageView valider_ajout_grp;
-    @FXML
     private AnchorPane modiff;
     @FXML
     private Button supp_annonce;
     @FXML
     private Button description_rev;
-    @FXML
-    private Button button_chat;
        @FXML
       
     private Button        set_modif;
@@ -92,6 +97,10 @@ public class Fenetre_groupe_revisionController implements Initializable {
      private  Button quitter;
       @FXML
       private AnchorPane revision_fenetre;
+    @FXML
+    private Rating rate_mentor;
+    @FXML
+    private Button set_rate;
 
     /**
      * Initializes the controller class.
@@ -103,7 +112,7 @@ public class Fenetre_groupe_revisionController implements Initializable {
 
     @FXML
     private void modif_grp_revis(ActionEvent event) {
-        User u = new User(1);
+      User u = new User(1);
 modification.setVisible(true);
             modiff.setVisible(true);
             Chat.setVisible(false);
@@ -159,26 +168,36 @@ modification.setVisible(true);
         r.setType(ty);
          r.setDate_fin(date2);
         rs.update(r);
+        modifgrp_description.clear();
+        modifgrp_nbrmax.clear();
+       modifgrp_matiere.clear();
+        modifgrp_type.clear();
          
     }
 
     @FXML
     private void supprimer_annoce(ActionEvent event) {
-       
         User u = new User(1);
         if (u.getId()==1)
         {
-       RevisionService rs = new RevisionService();
- rs.delete(u.getId());
- 
- Stage stage = (Stage) quitter.getScene().getWindow();
-    // do what you have to do
-    stage.close(); 
+      supp_annonce.setVisible(true);
+
         }else
         {supp_annonce.setVisible(false);}
          
-  
+   RevisionService rs = new RevisionService();
+   Revision r = rs.getById(u.getId());
+           utilisateur_has_revision s = new utilisateur_has_revision(r, u);
+           Sutilisateur_has_revision ss= new Sutilisateur_has_revision();
+           ss.delete(u.getId());
+
+ rs.delete(u.getId()); 
+            System.out.println("controllers.Fenetre_groupe_revisionController.supprimer_annoce()");
+            
+                Stage stage = (Stage) quitter.getScene().getWindow();
                 
+    // do what you have to do
+    stage.close();  
     }
 
  
@@ -188,10 +207,12 @@ modification.setVisible(true);
 
     @FXML
     private void boutton_descrip(ActionEvent event) {
-       User u = new User(1);
+       
         RevisionService rs = new RevisionService();
-        Revision r =rs.getById(u.getId());
-        nbrmaw_grp.setText(String.valueOf(r.getNbrmax()));
+     
+      Revision  r= rs.getById(UserService.userStatic.getId());
+        System.out.println(r);
+     nbrmaw_grp.setText(String.valueOf(r.getNbrmax()));
         matiere.setText(r.getMatiere());
         descritpion.setText(r.getDescription());
         
@@ -201,17 +222,36 @@ modification.setVisible(true);
             
     }
 
-    @FXML
-    private void chat_revision(ActionEvent event) {
-        modification.setVisible(false);
-          Chat.setVisible(true);
-            compteRendu.setVisible(false);
-    }
+   
+    
      @FXML
     private void quiter(ActionEvent event) throws IOException {
 Stage stage = (Stage) quitter.getScene().getWindow();
     // do what you have to do
-    stage.close();                    
+    stage.close();  
+    UserService us = new  UserService();
+    RevisionService rs = new RevisionService();
+    Revision r = rs.getById(us.userStatic.getId());
+    r.setNbrmax(r.getNbrmax()+1);
+    
+    }
+    
+
+    @FXML
+    private void rating(ActionEvent event) {
+       float rate = (float) rate_mentor.getRating();
+        System.out.println(rate);
+        User u = new User(1);
+     UserService us = new UserService();
+     RevisionService rs = new RevisionService();
+    
+     Revision r = rs.getById(u.getId());
+     
+     
+       
+       note_revision nr = new note_revision(r, u, rate);
+        NoteRevision no = new NoteRevision();
+        no.add(nr);
     }
 }
     

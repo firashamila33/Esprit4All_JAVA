@@ -22,6 +22,10 @@ public class Revision {
   private String type ;
   private  Date date_fin ;
 
+    public Revision(int id) {
+        this.id = id;
+    }
+
 
    
 

@@ -35,7 +35,7 @@ import services.RevisionService;
 /**
  * FXML Controller class
  *
- * @author Sami
+ * @author asus
  */
 public class BackOfficeRevisionsFXMLController implements Initializable {
 

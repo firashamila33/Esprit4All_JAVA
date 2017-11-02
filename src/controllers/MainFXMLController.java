@@ -68,14 +68,16 @@ public class MainFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        p=container;
+        p = container;
+
+        
+        
         JFXButton Logout = new JFXButton("Logout");
         Logout.setPrefSize(120, 50);
         JFXButton Profil = new JFXButton("Profile");
         Profil.setPrefSize(120, 50);
         JFXButton Club = new JFXButton("Club");
         Club.setPrefSize(120, 50);
-        
         Club.setOnAction(event1 -> {
             try {
                 profileClub = FXMLLoader.load(getClass().getResource("/gui/MainClubFXML.fxml"));
@@ -106,19 +108,7 @@ public class MainFXMLController implements Initializable {
             stage.show();
 
         });
-        if (cs.getUserByClub(UserService.userStatic.getId())) {
-            profile_btn.setOnMouseEntered(event -> {
-                box.getChildren().addAll(Profil, Club, Logout);
-                popup.setPopupContent(box);
-                popup.show(profile_btn, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, 0, 140);
-            });
-        } else {
-            profile_btn.setOnMouseEntered(event -> {
-                box.getChildren().addAll(Profil, Logout);
-                popup.setPopupContent(box);
-                popup.show(profile_btn, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, 0, 140);
-            });
-        }
+        
 
         try {
             acceuil = FXMLLoader.load(getClass().getResource("/gui/AcceuilFXML.fxml"));
@@ -133,7 +123,7 @@ public class MainFXMLController implements Initializable {
     }
 
     static void setNode(Node node) {
-        
+
         p.getChildren().clear();
         p.getChildren().add((Node) node);
         FadeTransition ft = new FadeTransition(Duration.millis(1500));
@@ -154,7 +144,9 @@ public class MainFXMLController implements Initializable {
     }
 
     @FXML
-    private void goToAnnonce(ActionEvent event) {
+    private void goToAnnonce(ActionEvent event) throws IOException {
+        annonce = FXMLLoader.load(getClass().getResource("/gui/FXMLAnnonceColocationMenu.fxml"));
+        setNode(this.annonce);
         changeStyle(annonce_btn);
     }
 
@@ -166,13 +158,17 @@ public class MainFXMLController implements Initializable {
     }
 
     @FXML
-    private void goToObjetPerdu(ActionEvent event) {
+    private void goToObjetPerdu(ActionEvent event) throws IOException {
+        objetPerdus = FXMLLoader.load(getClass().getResource("/gui/FXMLAnnonceObjetPerduMenu.fxml"));
         changeStyle(objetPerdu_btn);
+        setNode(objetPerdus);
     }
 
     @FXML
-    private void goToRevision(ActionEvent event) {
+    private void goToRevision(ActionEvent event) throws IOException {
+        revision = FXMLLoader.load(getClass().getResource("/gui/RevisionMainFXML.fxml"));
         changeStyle(revision_btn);
+        setNode(revision);
     }
 
     @FXML

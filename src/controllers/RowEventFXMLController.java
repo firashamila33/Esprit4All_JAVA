@@ -82,14 +82,20 @@ public class RowEventFXMLController extends ListCell<Evenement> {
                     //To change body of generated methods, choose Tools | Templates.
                     try {
 
-                        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementFXML.fxml"));
-                        Parent root = (Parent) fXMLLoader.load();
-                        EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
+//                        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementFXML.fxml"));
+//                        Parent root = (Parent) fXMLLoader.load();
+//                        EvenementFXMLController controller = fXMLLoader.<EvenementFXMLController>getController();
+//                        controller.setId(evenements.getId());
+//                        controller.display();
+//                        Stage stage = new Stage();
+//                        stage.setScene(new Scene(root));
+//                        stage.show();
+                        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/gui/EvenementAFXML.fxml"));
+                        AnchorPane p = (AnchorPane) fXMLLoader.load();
+                        EvenementAFXMLController controller = fXMLLoader.<EvenementAFXMLController>getController();
                         controller.setId(evenements.getId());
                         controller.display();
-                        Stage stage = new Stage();
-                        stage.setScene(new Scene(root));
-                        stage.show();
+                        MainFXMLController.setNode(p);
 
                     } catch (Exception e) {
                         e.printStackTrace();

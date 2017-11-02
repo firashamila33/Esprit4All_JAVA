@@ -7,6 +7,7 @@ package interfaces;
 
 import java.util.List;
 import models.Commande;
+import models.LigneCommande;
 import models.User;
 
 /**
@@ -35,5 +36,14 @@ public interface ICommandeService extends IServices<Commande, Integer> {
     //public List<Commande> GetUserCommands(User u);
     
     
+    
+    public Commande ReturnLastOrderByUser(Integer r);
+   
+    public Double GetCommandePriceById(Integer r);
+    
+    
+    public double UpdateCommandePricce(Commande t );
+    
+    //public double NewPrice(Commande t);
     
 }
