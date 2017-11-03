@@ -13,7 +13,6 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import models.Revision;
 import technique.DataSource;
 import utils.BCrypt;
 
@@ -252,28 +251,6 @@ public class UserService implements IUserService {
         return users;
     }
     
-    @Override
-    public float noteUSer(Integer r) {
- 
-        float x = 0;
-        int t=0;
-        RevisionService rs = new RevisionService();
-        List<Revision> l  = rs.getAll();
-        for(Revision re:l)
-        { if (re.getUser().getId()==r)
-            t++;
-        { NoteRevision nr = new NoteRevision();
-      
-        
-             x= x +  nr.getById(re.getId()).getNote();
-        }
-        } 
-        return x/t;    }
+    
     
 }
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-

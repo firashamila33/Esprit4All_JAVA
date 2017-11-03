@@ -30,7 +30,7 @@ public class CovoiturageService implements ICovoiturageService {
 
     @Override
     public void delete(Integer r) {
-        String req = "delete from covoiturage where id=? ";
+        String req = "delete from covoiturage where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -50,7 +50,7 @@ public class CovoiturageService implements ICovoiturageService {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Covoiturage c = new Covoiturage(resultSet.getInt("id"), new UserService().getUserById(resultSet.getInt("user_id")), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getDate("heure_depart"),resultSet.getString("voiture"));
+                Covoiturage c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
                 covoiturages.add(c);
             }
         } catch (SQLException ex) {
@@ -69,7 +69,7 @@ public class CovoiturageService implements ICovoiturageService {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                c = new Covoiturage(resultSet.getInt("id"), new UserService().getUserById(resultSet.getInt("user_id")), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getDate("heure_depart"),resultSet.getString("voiture"));
+                c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -78,39 +78,38 @@ public class CovoiturageService implements ICovoiturageService {
         return c;
     }
 
-    public List<Covoiturage> getByUserId(Integer id) {
+    public Covoiturage getByUserId(Integer id) {
         String req = "select * from covoiturage where user_id=?";
-        List<Covoiturage> covoiturages= new ArrayList<>();
+        Covoiturage c = null;
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                 Covoiturage c = new Covoiturage(resultSet.getInt("id"), new UserService().getUserById(resultSet.getInt("user_id")), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getDate("heure_depart"),resultSet.getString("voiture"));
-                 covoiturages.add(c);
+                c = new Covoiturage(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getString("type"), resultSet.getDouble("prix"), resultSet.getString("depart"), resultSet.getString("arrive"), resultSet.getString("description"), resultSet.getInt("nbreplace"), resultSet.getString("heure_depart"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return covoiturages;
+        return c;
     }
 
     @Override
     public void update(Covoiturage t) {
-        String req = "update covoiturage set user_id=?,prix=?,depart=?,arrive=?,description=?,nbreplace=?,heure_depart=?,voiture=? where id=?";
+        String req = "update covoiturage set user_id=?,type=?,prix=?,depart=?,arrive=?,description=?,nbreplace=?,heure_depart=? where id=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getUserId().getId());
-            preparedStatement.setDouble(2, t.getPrix());
-            preparedStatement.setString(3, t.getDepart());
-            preparedStatement.setString(4, t.getArrivé());
-            preparedStatement.setString(5, t.getDescription());
-            preparedStatement.setInt(6, t.getNbrePlace());
-            preparedStatement.setDate(7, t.getHeureDépart());
-            preparedStatement.setString(8, t.getVoiture());
+            preparedStatement.setString(2, t.getType());
+            preparedStatement.setDouble(3, t.getPrix());
+            preparedStatement.setString(4, t.getDepart());
+            preparedStatement.setString(5, t.getArrivé());
+            preparedStatement.setString(6, t.getDescription());
+            preparedStatement.setInt(7, t.getNbrePlace());
+            preparedStatement.setString(8, t.getHeureDépart());
             preparedStatement.setInt(9, t.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
@@ -120,18 +119,18 @@ public class CovoiturageService implements ICovoiturageService {
 
     @Override
     public void add(Covoiturage t) {
-        String req = "insert into covoiturage(user_id,prix,depart,arrive,description,nbreplace,heure_depart,voiture) values (?,?,?,?,?,?,?,?)";
+        String req = "insert into covoiturage(user_id,type,prix,depart,arrive,description,nbreplace,heure_depart) values (?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getUserId().getId());
-            preparedStatement.setDouble(2, t.getPrix());
-            preparedStatement.setString(3, t.getDepart());
-            preparedStatement.setString(4, t.getArrivé());
-            preparedStatement.setString(5, t.getDescription());
-            preparedStatement.setInt(6, t.getNbrePlace());
-            preparedStatement.setDate(7, t.getHeureDépart());
-            preparedStatement.setString(8, t.getVoiture());
+            preparedStatement.setString(2, t.getType());
+            preparedStatement.setDouble(3, t.getPrix());
+            preparedStatement.setString(4, t.getDepart());
+            preparedStatement.setString(5, t.getArrivé());
+            preparedStatement.setString(6, t.getDescription());
+            preparedStatement.setInt(7, t.getNbrePlace());
+            preparedStatement.setString(8, t.getHeureDépart());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

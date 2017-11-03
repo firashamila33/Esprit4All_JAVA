@@ -23,5 +23,6 @@ public interface IUserService{
     List<User>getAllStudent();
     List<User>getAllProfesseur();
                         public  float  noteUSer(Integer r);
+                        public void update(User u);
 
 }

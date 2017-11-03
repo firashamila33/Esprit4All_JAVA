@@ -5,7 +5,6 @@
  */
 package models;
 
-import java.sql.Date;
 import java.util.Objects;
 
 /**
@@ -16,21 +15,22 @@ public class Covoiturage {
 
     private int id;
     private User u;
+    private String type;
     private double prix;
     private String depart;
     private String arrivé;
     private String description;
     private int nbrePlace;
-    private Date heureDépart;
-    private String Voiture;
+    private String heureDépart;
     
     public Covoiturage(int id){
         this.id=id;
     }
     
-    public Covoiturage(int id, User u,  double prix, String depart, String arrivé, String description, int nbrePlace, Date heureDépart) {
+    public Covoiturage(int id, User u, String type, double prix, String depart, String arrivé, String description, int nbrePlace, String heureDépart) {
         this.id = id;
         this.u = u;
+        this.type = type;
         this.prix = prix;
         this.depart = depart;
         this.arrivé = arrivé;
@@ -39,8 +39,9 @@ public class Covoiturage {
         this.heureDépart = heureDépart;
     }
 
-    public Covoiturage(User u, double prix, String depart, String arrivé, String description, int nbrePlace, Date heureDépart) {
+    public Covoiturage(User u, String type, double prix, String depart, String arrivé, String description, int nbrePlace, String heureDépart) {
         this.u = u;
+        this.type = type;
         this.prix = prix;
         this.depart = depart;
         this.arrivé = arrivé;
@@ -48,30 +49,6 @@ public class Covoiturage {
         this.nbrePlace = nbrePlace;
         this.heureDépart = heureDépart;
     }
-
-    public Covoiturage(int id, User u, double prix, String depart, String arrivé, String description, int nbrePlace, Date heureDépart, String Voiture) {
-        this.id = id;
-        this.u = u;
-        this.prix = prix;
-        this.depart = depart;
-        this.arrivé = arrivé;
-        this.description = description;
-        this.nbrePlace = nbrePlace;
-        this.heureDépart = heureDépart;
-        this.Voiture = Voiture;
-    }
-
-    public Covoiturage(User u, double prix, String depart, String arrivé, String description, int nbrePlace, Date heureDépart, String Voiture) {
-        this.u = u;
-        this.prix = prix;
-        this.depart = depart;
-        this.arrivé = arrivé;
-        this.description = description;
-        this.nbrePlace = nbrePlace;
-        this.heureDépart = heureDépart;
-        this.Voiture = Voiture;
-    }
-    
 
     public int getId() {
         return id;
@@ -83,7 +60,7 @@ public class Covoiturage {
 
     @Override
     public String toString() {
-        return "Covoiturage{" + "id=" + id + ", User_id=" + u.getId() + ", prix=" + prix + ", depart=" + depart + ", arriv\u00e9=" + arrivé + ", nbrePlace=" + nbrePlace + ", heureD\u00e9part=" + heureDépart + '}';
+        return "Covoiturage{" + "id=" + id + ", User_id=" + u.getId() + ", type=" + type + ", prix=" + prix + ", depart=" + depart + ", arriv\u00e9=" + arrivé + ", nbrePlace=" + nbrePlace + ", heureD\u00e9part=" + heureDépart + '}';
     }
 
     public User getUserId() {
@@ -94,6 +71,13 @@ public class Covoiturage {
         this.u = u;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public double getPrix() {
         return prix;
@@ -127,11 +111,11 @@ public class Covoiturage {
         this.nbrePlace = nbrePlace;
     }
 
-    public Date getHeureDépart() {
+    public String getHeureDépart() {
         return heureDépart;
     }
 
-    public void setHeureDépart(Date heureDépart) {
+    public void setHeureDépart(String heureDépart) {
         this.heureDépart = heureDépart;
     }
 
@@ -140,6 +124,7 @@ public class Covoiturage {
         int hash = 3;
         hash = 53 * hash + this.id;
         hash = 53 * hash + this.u.hashCode();
+        hash = 53 * hash + Objects.hashCode(this.type);
         hash = 53 * hash + (int) (Double.doubleToLongBits(this.prix) ^ (Double.doubleToLongBits(this.prix) >>> 32));
         hash = 53 * hash + Objects.hashCode(this.depart);
         hash = 53 * hash + Objects.hashCode(this.arrivé);
@@ -172,6 +157,9 @@ public class Covoiturage {
         if (this.nbrePlace != other.nbrePlace) {
             return false;
         }
+        if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
         if (!Objects.equals(this.depart, other.depart)) {
             return false;
         }
@@ -187,22 +175,6 @@ public class Covoiturage {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public User getU() {
-        return u;
-    }
-
-    public void setU(User u) {
-        this.u = u;
-    }
-
-    public String getVoiture() {
-        return Voiture;
-    }
-
-    public void setVoiture(String Voiture) {
-        this.Voiture = Voiture;
     }
 
 }
