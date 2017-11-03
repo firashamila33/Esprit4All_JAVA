@@ -98,6 +98,8 @@ public class FoodMyOrderRowListController extends ListCell<LigneCommande> {
             quantity.setText(String.valueOf(Ligne.TestExist(ligne_commande)));
             setText(null);
             setGraphic(row);
+            
+            
             int i = 0;
             add_btn.setOnAction(event -> {
                 ligne_commande.setQuantite(1);

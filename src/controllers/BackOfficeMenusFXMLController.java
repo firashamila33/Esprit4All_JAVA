@@ -122,7 +122,7 @@ public class BackOfficeMenusFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       
+
         displayAll();
         recherche_tf.setOnKeyPressed((KeyEvent event) -> {
             recherche_tf.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -169,7 +169,7 @@ public class BackOfficeMenusFXMLController implements Initializable {
     }
 
     private void displayAll() {
-         menuService = new MenuService();
+        menuService = new MenuService();
         listMenu = menuService.getAll();
         Categorie_tf.getItems().addAll("Fast_Food", "Snack", "Meal", "Drinks");
         endroit_tf.getItems().addAll("Buvette 1", "Buvette 2", "Buvette 3");
@@ -185,9 +185,9 @@ public class BackOfficeMenusFXMLController implements Initializable {
         col_sous_categorie.setCellValueFactory(new PropertyValueFactory<>("categorie"));
         col_disponibilite.setCellValueFactory(new PropertyValueFactory<>("disponibilite"));
         col_disponibilite.setCellFactory((TableColumn<Menu, Integer> param) -> {
-            
+
             return new TableCell<Menu, Integer>() {
-                
+
                 @Override
                 protected void updateItem(Integer item, boolean empty) {
                     super.updateItem(item, empty);
@@ -196,20 +196,20 @@ public class BackOfficeMenusFXMLController implements Initializable {
                     }
                     if (item != null) {
                         final VBox vbox = new VBox();
-                        
+
                         JFXCheckBox confimation = new JFXCheckBox("disponible");
                         if (item == 1) {
                             confimation.setSelected(true);
-                            
+
                         } else {
                             confimation.setSelected(false);
-                            
+
                         }
-                        
+
                         vbox.getChildren().add(confimation);
                         vbox.setMaxSize(100, 100);
                         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-                        
+
                         setGraphic(vbox);
                     }
                 }

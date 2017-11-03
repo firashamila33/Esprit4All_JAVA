@@ -45,7 +45,28 @@
                                     <children>
                                         <AnchorPane fx:id="responsable_label" prefHeight="600.0" prefWidth="323.0">
                                  <children>
-                                    <ListView fx:id="ligneCommande_lv" prefHeight="556.0" prefWidth="323.0" />
+                                    <JFXListView fx:id="ligneCommande_lv" layoutY="153.0" prefHeight="404.0" prefWidth="323.0" />
+                                    <AnchorPane prefHeight="150.0" prefWidth="323.0">
+                                       <children>
+                                          <ImageView fitHeight="151.0" fitWidth="323.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../utils/material_header.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="User" alignment="CENTER" layoutX="39.0" layoutY="120.0" prefHeight="17.0" prefWidth="248.0" text="Prenom " textAlignment="CENTER" textFill="WHITE" />
+                                          <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="120.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../ressources/profile.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXButton fx:id="deconnexion" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" onAction="#Deconnexion" text="Button" textFill="WHITE" />
+                                          <ImageView fitHeight="23.0" fitWidth="52.0" layoutX="268.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../ressources/icons8-Exit-32.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
                                     <AnchorPane layoutY="556.0" prefHeight="66.0" prefWidth="323.0" style="-fx-background-color: #ff2e44;">
                                        <children>
                                           <Label layoutX="14.0" layoutY="15.0" text="Prix Total :" textFill="WHITE">

@@ -154,13 +154,7 @@ public class FoodMainnFXMLController implements Initializable {
         //setting my_order total price and Referance 
         id_commande.setText(String.valueOf(commande.getId()));
         price_commande.setText(String.valueOf(commande.getPrix()) + " DT");
-
-        //making an instance of menus list to render it into listview rows
-//        Set<Menu> values = Order_list.keySet();
-//        List<Menu> ligne_comm=new ArrayList<Menu>(values);
-//        ligne_commande = FXCollections.observableArrayList(ligne_comm);
-//        listView_commandes.setItems(ligne_commande);
-//        listView_commandes.setCellFactory(LigneCommandesListVIrs -> new FoodMyOrderRowListController());
+        
         ligne_commande = FXCollections.observableArrayList(Ligne_repas.getByCommande(CommandeId));
         listView_commandes.setItems(ligne_commande);
         listView_commandes.setCellFactory(LigneCommandesListVIrs -> new FoodMyOrderRowListController());
