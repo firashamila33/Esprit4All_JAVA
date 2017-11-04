@@ -250,6 +250,16 @@ public class UserService implements IUserService {
         }
         return users;
     }
+
+    @Override
+    public float noteUSer(Integer r) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(User u) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
