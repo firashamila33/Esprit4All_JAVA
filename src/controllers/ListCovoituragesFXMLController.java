@@ -19,8 +19,6 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -131,7 +129,6 @@ public class ListCovoituragesFXMLController implements Initializable {
         dialog.show();
 
     }
-
     @FXML
     private void RadioBox(ActionEvent event) {
         String nbrePlaceV = "";
@@ -147,7 +144,7 @@ public class ListCovoituragesFXMLController implements Initializable {
         if (radio4Annonce.isSelected()) {
             nbrePlaceV = radio4Annonce.getText();
         }
-        System.out.println(nbrePlace1 + "sss");
+        System.out.println(nbrePlace1+"sss");
         place = Integer.parseInt(nbrePlaceV);
     }
 
@@ -162,20 +159,20 @@ public class ListCovoituragesFXMLController implements Initializable {
 
     @FXML
     private void Ajouter(ActionEvent event) {
-
+        
         System.out.println(place);
-        LocalDate date = heureAnnonce.getValue();
-        LocalTime time = timeAnnaonce.getValue();
-        String dateF = date + " " + time;
+        String date = heureAnnonce.getValue() + " " + timeAnnaonce.getValue();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         Date startDate = null;
         try {
-            startDate = df.parse(dateF);
+            startDate = df.parse(date);
             String newDateString = df.format(startDate);
+
         } catch (ParseException e) {
             e.printStackTrace();
-        }   
-        Covoiturage covoiturage = new Covoiturage(UserService.userStatic, Double.parseDouble(prixAnnonce.getText()), departAnnonce.getText(), arriveAnnonce.getText(), descriptionAnnonce.getText(), place, new java.sql.Date(startDate.getTime()), typeAnnonce.getText());
+        }
+
+        Covoiturage covoiturage = new Covoiturage(UserService.userStatic, Double.parseDouble(prixAnnonce.getText()), departAnnonce.getText(), arriveAnnonce.getText(), descriptionAnnonce.getText(), place, new java.sql.Date(startDate.getTime()),typeAnnonce.getText());
         covoiturageService.add(covoiturage);
         displayAll();
         dialog.close();

@@ -30,11 +30,11 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
 
     class ImageService {
 
-        private String insertReq = "insert into imageAnnonce(annonceCoLocation_id,imageUrl) values(?,?)";
+        private String insertReq = "insert into imageannonce(annonceCoLocation_id,imageUrl) values(?,?)";
         private PreparedStatement insertPs;
-        private String deleteReq = "delete from imageAnnonce where annonceCoLocation_id=? AND imageUrl=?";
+        private String deleteReq = "delete from imageannonce where annonceCoLocation_id=? AND imageUrl=?";
         private PreparedStatement deletePs;
-        private String selectReq = "select imageUrl from imageAnnonce where annonceCoLocation_id=?";
+        private String selectReq = "select imageUrl from imageannonce where annonceCoLocation_id=?";
         private PreparedStatement selectPs;
 
         public ImageService() {
@@ -94,11 +94,11 @@ public class AnnonceCoLocationService implements IAnnonceCoLocationService {
 
     class CoLocataire {
 
-        private String insertReq = "insert into AnnonceCoLocataire_R(annonceCoLocation_id,User_id) values(?,?)";
+        private String insertReq = "insert into annoncecolocataire_R(annonceCoLocation_id,User_id) values(?,?)";
         private PreparedStatement insertPS;
-        private String deleteReq = "delete from AnnonceCoLocataire_R where annonceCoLocation_id=? AND User_id=?";
+        private String deleteReq = "delete from annoncecolocataire_R where annonceCoLocation_id=? AND User_id=?";
         private PreparedStatement deletePS;
-        private String selectReq = "select User_id from AnnonceCoLocataire_R where annonceCoLocation_id=?";
+        private String selectReq = "select User_id from annoncecolocataire_R where annonceCoLocation_id=?";
         private PreparedStatement selectPS;
 
         public CoLocataire() {

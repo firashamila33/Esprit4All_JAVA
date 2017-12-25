@@ -44,7 +44,7 @@ public class HasCovoiturageService implements IHasCovoiturage {
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                hasCovoiturage = new HasCovoiturage(resultSet.getInt("id"), new Covoiturage(resultSet.getInt("covoiturage_id")), new User(resultSet.getInt("user_id")));
+                hasCovoiturage = new HasCovoiturage(resultSet.getInt("id"), new Covoiturage(resultSet.getInt("covoiturage_id")), new UserService().getUserById(resultSet.getInt("user_id")));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -62,7 +62,7 @@ public class HasCovoiturageService implements IHasCovoiturage {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                HasCovoiturage hasCovoiturage = new HasCovoiturage(resultSet.getInt("id"), new Covoiturage(resultSet.getInt("covoiturage_id")), new User(resultSet.getInt("user_id")));
+                HasCovoiturage hasCovoiturage = new HasCovoiturage(resultSet.getInt("id"), new Covoiturage(resultSet.getInt("covoiturage_id")), new UserService().getUserById(resultSet.getInt("user_id")));
                 hasCovoiturages.add(hasCovoiturage);
             }
         } catch (SQLException ex) {
@@ -73,11 +73,12 @@ public class HasCovoiturageService implements IHasCovoiturage {
 
     @Override
     public void delete(Integer r) {
-        String req = "delete from utilisateur_has_covoituragewhere id=?";
+        String req = "DELETE FROM utilisateur_has_covoiturage WHERE covoiturage_id = ? and user_id = ?";
         PreparedStatement preparedStatement;
         try {
-            preparedStatement = connection.prepareCall(req);
+            preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, r);
+            preparedStatement.setInt(2, UserService.userStatic.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -89,7 +90,7 @@ public class HasCovoiturageService implements IHasCovoiturage {
         String req = "update utilisateur_has_covoiturage set covoiturage_id=?,user_id=? where id=?";
         PreparedStatement preparedStatement;
         try {
-            preparedStatement = connection.prepareCall(req);
+            preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getCovoiturage().getId());
             preparedStatement.setInt(2, t.getU().getId());
             preparedStatement.setInt(3, t.getId());
@@ -104,13 +105,47 @@ public class HasCovoiturageService implements IHasCovoiturage {
         String req = "insert into utilisateur_has_covoiturage (covoiturage_id,user_id) values (?,?)";
         PreparedStatement preparedStatement;
         try {
-            preparedStatement = connection.prepareCall(req);
+            preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, t.getCovoiturage().getId());
             preparedStatement.setInt(2, t.getU().getId());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public int getCouvoiturageCount(Covoiturage covoiturage) {
+        int count=0;
+        String req = "SELECT COUNT(*) AS count FROM `utilisateur_has_covoiturage` WHERE `covoiturage_id` = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, covoiturage.getId());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+            count = resultSet.getInt("count");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return count;
+    }
+    public boolean getUserCouvoiturage(Covoiturage covoiturage,User user) {
+        Boolean participe=false;
+        String req = "SELECT * FROM `utilisateur_has_covoiturage` WHERE `covoiturage_id`= ? and `user_id`= ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setInt(1, covoiturage.getId());
+            preparedStatement.setInt(2, user.getId());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+               participe=true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return participe;
     }
 
 }

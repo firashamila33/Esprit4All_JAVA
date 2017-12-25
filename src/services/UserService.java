@@ -13,6 +13,7 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import models.Revision;
 import technique.DataSource;
 import utils.BCrypt;
 
@@ -218,7 +219,7 @@ public class UserService implements IUserService {
     @Override
     public List<User> getAllStudent() {
         List<User> users = new ArrayList<>();
-        String req = "SELECT * FROM user WHERE ROLES='a:1:{i:0;s:13:\"ROLE_ETUDIANT\";}'";
+        String req = "select * from user where roles='a:1:{i:0;s:13:\"ROLE_ETUDIANT\";}'";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -236,7 +237,7 @@ public class UserService implements IUserService {
     @Override
     public List<User> getAllProfesseur() {
         List<User> users = new ArrayList<>();
-        String req = "SELECT * FROM user WHERE ROLES='a:1:{i:0;s:15:\"ROLE_PROFESSEUR\";}'";
+        String req = "select * from user where roles='a:1:{i:0;s:15:\"ROLE_PROFESSEUR\";}'";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -250,17 +251,29 @@ public class UserService implements IUserService {
         }
         return users;
     }
-
+    
     @Override
     public float noteUSer(Integer r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void update(User u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
+ 
+        float x = 0;
+        int t=0;
+        RevisionService rs = new RevisionService();
+        List<Revision> l  = rs.getAll();
+        for(Revision re:l)
+        { if (re.getUser().getId()==r)
+            t++;
+        { NoteRevision nr = new NoteRevision();
+      
+        
+             x= x +  nr.getById(re.getId()).getNote();
+        }
+        } 
+        return x/t;    }
     
 }
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
