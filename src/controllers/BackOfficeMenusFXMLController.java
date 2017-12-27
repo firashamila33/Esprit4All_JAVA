@@ -124,7 +124,7 @@ public class BackOfficeMenusFXMLController implements Initializable {
         // TODO
 
         displayAll();
-        recherche_tf.setOnKeyPressed((KeyEvent event) -> {
+         recherche_tf.setOnKeyPressed((KeyEvent event) -> {
             recherche_tf.textProperty().addListener((observable, oldValue, newValue) -> {
                 menus_table.setItems(FXCollections.observableArrayList(listMenu.stream().filter(menu -> menu.getLibelle().toLowerCase().contains(newValue)).collect(Collectors.toList())));
             });

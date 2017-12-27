@@ -59,8 +59,10 @@ public class AcceuilFXMLController implements Initializable {
 
         slideImages();
         try {
-            club_event=FXMLLoader.load(getClass().getResource("/gui/AcceuilClubFXML.fxml"));
+           club_event=FXMLLoader.load(getClass().getResource("/gui/AcceuilClubFXML.fxml"));
+            document=FXMLLoader.load(getClass().getResource("/gui/DocAdministratif.fxml"));
             setNode(club_event, Club_event);
+            setNode(document,Document);
         } catch (IOException ex) {
             Logger.getLogger(AcceuilFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
