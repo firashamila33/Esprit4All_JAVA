@@ -42,7 +42,7 @@
                </font>
             </JFXButton>
             <BorderPane layoutY="367.0" prefHeight="6.0" prefWidth="350.0" style="-fx-background-color: #ff2e44;" visible="false" />
-            <JFXButton fx:id="my_favorites_btn" layoutY="372.0" onAction="#goToFavorites" prefHeight="70.0" prefWidth="350.0" text="  MY FAVORITES" textFill="#373a42">
+            <JFXButton fx:id="my_favorites_btn" layoutY="372.0" onAction="#goToFavorites" prefHeight="70.0" prefWidth="350.0" text="NEW ORDER" textFill="#373a42">
                <font>
                   <Font name="Candara" size="24.0" />
                </font>
@@ -61,7 +61,7 @@
             </ImageView>
             <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="34.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ressources/favorite.png" />
+                  <Image url="@../ressources/new.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="92.0" fitWidth="202.0" layoutX="112.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">

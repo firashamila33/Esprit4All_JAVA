@@ -165,7 +165,7 @@ public class CommandeService implements ICommandeService {
     }
 
     public Commande ReturnLastOrderByUser(Integer r) {
-
+            
         Commande c = null;
         String req = "select * from commande where user_id=?";
         PreparedStatement preparedStatement;
@@ -173,8 +173,11 @@ public class CommandeService implements ICommandeService {
             preparedStatement = connection.prepareStatement(req);
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
+            System.out.println("I am in ReturnLastOrderByUser");
             while (resultSet.next()) {
                 c = new Commande(resultSet.getInt("id"), new User(resultSet.getInt("user_id")), resultSet.getDate("heure"), resultSet.getDouble("prix"));
+                System.out.println("hey I found orders for this user");
+                c.toString();
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

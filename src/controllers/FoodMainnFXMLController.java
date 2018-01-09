@@ -47,6 +47,8 @@ import models.User;
 import services.CommandeService;
 import services.LigneCommandeService;
 import services.MenuService;
+import services.UserService;
+import static services.UserService.userStatic;
 
 /**
  * FXML Controller class
@@ -110,8 +112,8 @@ public class FoodMainnFXMLController implements Initializable {
     //this is the meal that will be passed to the order in case "Commander" Button is clicked
     private Menu meal_ready_for_command;
 
-    private Integer CommandeId;
-    private Integer User_id = 12;
+    private Integer CommandeId = -1;
+    private Integer User_id = 0;
     private Map<Menu, Integer> Order_list = new HashMap<>();
 
     //sub_menu button clicked
@@ -137,14 +139,24 @@ public class FoodMainnFXMLController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //getting static user
+        User u = u = UserService.userStatic;
+        User_id = u.getId();
+        System.out.println("USER ID ------> " + User_id);
+        System.out.println("Commande ID ---------->" + CommandeId);
+        //testing if user have an order 
         ICommandeService com_tool = new CommandeService();
-        CommandeId = com_tool.ReturnLastOrderByUser(User_id).getId();
-        if (CommandeId == null) {
-            
-            System.out.println("------------------------------------------------------------- ;");
+        if (com_tool.ReturnLastOrderByUser(User_id) != null) {
+            CommandeId = com_tool.ReturnLastOrderByUser(User_id).getId();
+        }
+        if (CommandeId == -1) {
+            System.out.println("Commande ID ---------->" + CommandeId);
+            System.out.println("-----------------------I DID NOT FIND A ORDER SO I am going to create one-------------------------------------- ;");
             Commande c = new Commande(new User(User_id), null, 0.0);
-            ICommandeService ICom=new CommandeService();
+            ICommandeService ICom = new CommandeService();
             ICom.add(c);
+            CommandeId = com_tool.ReturnLastOrderByUser(User_id).getId();
+
         }
         //initialising orders interface to work on and getting the order of the user
         ILigneCommandeService Ligne_repas = new LigneCommandeService();
@@ -154,7 +166,7 @@ public class FoodMainnFXMLController implements Initializable {
         //setting my_order total price and Referance 
         id_commande.setText(String.valueOf(commande.getId()));
         price_commande.setText(String.valueOf(commande.getPrix()) + " DT");
-        
+
         ligne_commande = FXCollections.observableArrayList(Ligne_repas.getByCommande(CommandeId));
         listView_commandes.setItems(ligne_commande);
         listView_commandes.setCellFactory(LigneCommandesListVIrs -> new FoodMyOrderRowListController());
@@ -187,10 +199,34 @@ public class FoodMainnFXMLController implements Initializable {
 
     @FXML
     private void goToFavorites(ActionEvent event) {
+//        menu_layout.setVisible(false);
+//        sub_menu_layout.setVisible(false);
+//        favorits_layout.setVisible(true);
+//        my_order_layout.setVisible(false);
         menu_layout.setVisible(false);
         sub_menu_layout.setVisible(false);
-        favorits_layout.setVisible(true);
-        my_order_layout.setVisible(false);
+        favorits_layout.setVisible(false);
+        my_order_layout.setVisible(true);
+        
+        ILigneCommandeService Ligne_repas = new LigneCommandeService();
+        ICommandeService com_tool = new CommandeService();
+        //inserting new order to database
+        Commande c = new Commande(new User(User_id), null, 0.0);
+        ICommandeService ICom = new CommandeService();
+        ICom.add(c);
+        CommandeId = com_tool.ReturnLastOrderByUser(User_id).getId();
+        
+        //setting labels
+        id_commande.setText(String.valueOf(CommandeId));
+        //Set TOtal Prise to 0
+        price_commande.setText("0 DT");
+        
+        //initialise listview
+        System.out.println("-------------------------------------COMMANDE PRICE Add = " + Commande_Price);
+        ligne_commande = FXCollections.observableArrayList(Ligne_repas.getByCommande(CommandeId));
+        listView_commandes.setItems(ligne_commande);
+        listView_commandes.setCellFactory(LigneCommandesListVIrs -> new FoodMyOrderRowListController());
+
     }
 
     @FXML
@@ -624,7 +660,8 @@ public class FoodMainnFXMLController implements Initializable {
         //finding the last order by this user
         Commande order = comm_tool.ReturnLastOrderByUser(User_id);
         Commande_Price = comm_tool.UpdateCommandePricce(order);
-        //comm_tool.delete(order.getId());
+        order.setPrix(0.0);
+        comm_tool.update(order);
 
         //refresh price label
         price_commande.setText("0 DT");
@@ -646,6 +683,7 @@ public class FoodMainnFXMLController implements Initializable {
         ICommandeService comm_tool = new CommandeService();
         Commande order = comm_tool.ReturnLastOrderByUser(User_id);
         Commande_Price = comm_tool.UpdateCommandePricce(order);
+
         //updating commande price in datbase
         order.setPrix(Commande_Price);
         comm_tool.update(order);
@@ -659,8 +697,13 @@ public class FoodMainnFXMLController implements Initializable {
         //updating commande price in datbase
         order.setPrix(Commande_Price);
         comm_tool.update(order);
-        price_commande.setText(String.valueOf(Commande_Price) + " DT");
 
+        System.out.println(".....................SETTING NEW TOTAL PRICE");
+        SetTotaPriceLabel(Commande_Price);
+        System.out.println(".....................NEW COMMANDE TOTAL PRICE " + Commande_Price);
+        System.out.println(".....................NEW TOTAL PRICE SETTED");
+
+        //price_commande.setText(String.valueOf(Commande_Price) + " DT");
     }
 
     public void SetTotaPriceLabel(double i) {
