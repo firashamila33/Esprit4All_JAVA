@@ -15,10 +15,12 @@ import java.sql.SQLException;
  */
 public class DataSource {
 
-
-    String url = "jdbc:mysql://localhost:3306/symfony_espritforal";
-    String login = "root";
-    String password = "";
+    String url = "jdbc:mysql://sql3.freemysqlhosting.net:3306/sql3214864";
+    String login = "sql3214864";
+    String password = "AsqS46bvbR";
+    //String url = "jdbc:mysql://localhost:3306/symfony_espritforal";
+    //String login = "root";
+    //String password = "";
     private Connection connection;
 
     private static DataSource instance;
