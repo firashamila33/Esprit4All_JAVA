@@ -13,6 +13,7 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import models.Profil;
 import models.Revision;
 import technique.DataSource;
 import utils.BCrypt;
@@ -29,10 +30,9 @@ public class UserService implements IUserService {
     public UserService() {
         connection = DataSource.getInstance().getConnection();
     }
-    
-    
-    public void delete(Integer id){
-     String req = "delete from  user where id =?";
+
+    public void delete(Integer id) {
+        String req = "delete from  user where id =?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
@@ -70,7 +70,7 @@ public class UserService implements IUserService {
 
     @Override
     public boolean Login(String username, String password) {
-        boolean exist=false;
+        boolean exist = false;
         String req = "select * from user where username=?";
         PreparedStatement preparedStatement;
         try {
@@ -84,8 +84,14 @@ public class UserService implements IUserService {
                 if (!matched) {
                     exist = false;
                 } else {
-                    String role =resultSet.getString("roles").substring(15, resultSet.getString("roles").length()-3);
-                    userStatic = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"),role);
+                    String role = resultSet.getString("roles").substring(15, resultSet.getString("roles").length() - 3);
+                    userStatic = new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("email"), resultSet.getInt("enabled"), resultSet.getString("password"), resultSet.getString("nom"), resultSet.getString("prenom"), resultSet.getDate("date_naissance"), resultSet.getString("cin"), resultSet.getString("adress"), role);
+                    Profil p = new Profil( new UserService().getUserById(userStatic.getId()), "Entrer la matière", "Editer votre description", "Préciser votre classe", "file:C:\\wamp\\www\\Photo\\images.jpg", "file:C:\\wamp\\www\\Photo\\3b82d38cdcad9e55a7afafac7add1355.jpg", "", "", "", "", "");
+                    ProfilService profilService = new ProfilService();
+                    Profil p1=profilService.getByUserId(userStatic.getId());
+                    if(p1 ==null){
+                       profilService.add(p); 
+                    }  
                 }
             }
         } catch (SQLException ex) {
@@ -251,29 +257,30 @@ public class UserService implements IUserService {
         }
         return users;
     }
-    
+
     @Override
     public float noteUSer(Integer r) {
- 
+
         float x = 0;
-        int t=0;
+        int t = 0;
         RevisionService rs = new RevisionService();
-        List<Revision> l  = rs.getAll();
-        for(Revision re:l)
-        { if (re.getUser().getId()==r)
-            t++;
-        { NoteRevision nr = new NoteRevision();
-      
-        
-             x= x +  nr.getById(re.getId()).getNote();
+        List<Revision> l = rs.getAll();
+        for (Revision re : l) {
+            if (re.getUser().getId() == r) {
+                t++;
+            }
+            {
+                NoteRevision nr = new NoteRevision();
+
+                x = x + nr.getById(re.getId()).getNote();
+            }
         }
-        } 
-        return x/t;    }
-    
+        return x / t;
+    }
+
 }
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-

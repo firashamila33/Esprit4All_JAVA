@@ -202,4 +202,11 @@ public class MainFXMLController implements Initializable {
 
     }
 
+    @FXML
+    private void goToProfil(ActionEvent event) throws IOException {
+        profile = FXMLLoader.load(getClass().getResource("/gui/ProfilV3.fxml"));
+        setNode(profile);
+        changeStyle(profile_btn);
+    }
+
 }

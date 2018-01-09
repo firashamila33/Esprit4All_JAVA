@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="profilVoir" prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #f2f2f2;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProfilV3Controller">
+   <children>
+      <ScrollPane fx:id="profilAffiche" focusTraversable="false" prefHeight="560.0" prefWidth="1360.0">
+         <content>
+            <AnchorPane prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #f2f2f2;">
+               <children>
+                  <AnchorPane layoutX="200.0" layoutY="10.0" prefHeight="560.0" prefWidth="934.0" style="-fx-background-color: #e6e6e6;">
+                     <children>
+                        <ImageView fx:id="photoDeCouverture" fitHeight="234.0" fitWidth="945.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/3b82d38cdcad9e55a7afafac7add1355.jpg" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <viewport>
+                              <Rectangle2D height="234.0" width="934.0" />
+                           </viewport>
+                        </ImageView>
+                        <JFXButton fx:id="edit" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="834.0" layoutY="256.0" onAction="#handleButtonAction">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ressources/icons8-registration-96.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <BorderPane layoutX="49.0" layoutY="115.0" maxHeight="208.0" maxWidth="208.0" minHeight="208.0" minWidth="208.0" prefHeight="208.0" prefWidth="208.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <top>
+                              <ImageView fx:id="photoDeProfil" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../ressources/images.jpg" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D width="200.0" />
+                                 </viewport>
+                              </ImageView>
+                           </top>
+                        </BorderPane>
+                        <Text fx:id="name" fill="WHITE" layoutX="293.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yacine Farhat">
+                           <font>
+                              <Font name="Lato Black" size="36.0" />
+                           </font>
+                        </Text>
+                        <AnchorPane layoutX="13.0" layoutY="370.0" prefHeight="400.0" prefWidth="934.0" style="-fx-background-color: #f2f2f2;">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <Pane prefHeight="60.0" prefWidth="934.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <Text fill="#424242" layoutX="69.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="À propos">
+                                       <font>
+                                          <Font name="Lato Black" size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../ressources/icons8_Customer_64px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Text fill="#424242" layoutX="14.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse mail:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Classe:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="prenom" fill="#ff2e44" layoutX="171.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yacine">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="nom" fill="#ff2e44" layoutX="171.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farhat">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="age" fill="#ff2e44" layoutX="171.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22 ans">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="adresseMail" fill="#ff2e44" layoutX="171.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="yacine.farhat@esprit.tn">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="classe" fill="#ff2e44" layoutX="171.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 infob 1">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Téléphone:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="telephone" fill="#ff2e44" layoutX="171.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50494671">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Label fx:id="description" layoutX="14.0" layoutY="282.0" prefHeight="96.0" prefWidth="908.0" textFill="#ff2e44">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="14.0" layoutY="785.0" prefHeight="200.0" prefWidth="934.0" style="-fx-background-color: #f2f2f2;">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <Pane prefHeight="60.0" prefWidth="934.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <Text fill="#424242" layoutX="66.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liens utiles">
+                                       <font>
+                                          <Font name="Lato Black" size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../ressources/external-link-64%20(2).png" />
+                                       </image>
+                                    </ImageView>
+                                 </children></Pane>
+                              <JFXButton fx:id="facebook" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="96.0" layoutY="64.0" onAction="#handleButtonAction">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../ressources/facebook-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="linkedin" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="327.0" layoutY="64.0" onAction="#handleButtonAction">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../ressources/linkedin-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="googlePlus" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="553.0" layoutY="64.0" onAction="#handleButtonAction">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../ressources/google-plus-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="cv" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="754.0" layoutY="64.0" onAction="#handleButtonAction">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../ressources/cv.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#ff2e44" layoutX="83.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facebook">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff2e44" layoutX="320.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linkedin">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff2e44" layoutX="529.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Google plus">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff2e44" layoutX="702.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curriculum vitae">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="profilEdit" focusTraversable="false" prefHeight="560.0" prefWidth="1360.0" visible="false">
+         <content>
+            <AnchorPane prefHeight="560.0" prefWidth="1360.0" style="-fx-background-color: #f2f2f2;">
+               <children>
+                  <AnchorPane layoutX="200.0" layoutY="10.0" prefHeight="560.0" prefWidth="934.0" style="-fx-background-color: #e6e6e6;">
+                     <children>
+                        <ImageView fx:id="photoDeCouverture1" fitHeight="234.0" fitWidth="934.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <image>
+                              <Image url="@../ressources/3b82d38cdcad9e55a7afafac7add1355.jpg" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D height="234.0" minX="14.0" minY="14.0" width="934.0" />
+                           </viewport>
+                        </ImageView>
+                        <BorderPane layoutX="62.0" layoutY="115.0" maxHeight="200.0" maxWidth="200.0" minHeight="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <top>
+                              <ImageView fx:id="photoDeProfil1" fitHeight="200.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../ressources/images.jpg" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </top>
+                           <bottom>
+                              <JFXButton fx:id="btnPhotoDeProfil" onAction="#UploadPhotoDeProfil" style="-fx-background-color: white;" text="Editer photo de profil" BorderPane.alignment="CENTER" />
+                           </bottom>
+                        </BorderPane>
+                        <Text fx:id="name1" fill="WHITE" layoutX="293.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yacine Farhat">
+                           <font>
+                              <Font name="Lato Black" size="36.0" />
+                           </font>
+                        </Text>
+                        <AnchorPane layoutX="13.0" layoutY="370.0" prefHeight="400.0" prefWidth="934.0" style="-fx-background-color: #f2f2f2;">
+                           <children>
+                              <Pane prefHeight="60.0" prefWidth="934.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <Text fill="#424242" layoutX="69.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="À propos">
+                                       <font>
+                                          <Font name="Lato Black" size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../ressources/icons8_Customer_64px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Text fill="#424242" layoutX="14.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse mail:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Classe:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#424242" layoutX="14.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Téléphone:">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <JFXTextField fx:id="prenomEdit" focusColor="#ff2e44" focusTraversable="false" layoutX="171.0" layoutY="78.0" prefHeight="25.0" prefWidth="454.0" promptText="Prenom" unFocusColor="#ff2e44" />
+                              <JFXTextField fx:id="nomEdit" focusColor="#ff2e44" focusTraversable="false" layoutX="171.0" layoutY="107.0" prefHeight="25.0" prefWidth="454.0" promptText="Nom" unFocusColor="#ff2e44" />
+                              <JFXTextField fx:id="ageEdit" focusColor="#ff2e44" focusTraversable="false" layoutX="171.0" layoutY="135.0" prefHeight="25.0" prefWidth="454.0" promptText="Age" unFocusColor="#ff2e44" />
+                              <JFXTextField fx:id="mailEdit" focusColor="#ff2e44" focusTraversable="false" layoutX="171.0" layoutY="167.0" prefHeight="25.0" prefWidth="454.0" promptText="Adresse mail" unFocusColor="#ff2e44" />
+                              <JFXTextField fx:id="classeEdit" focusColor="#ff2e44" focusTraversable="false" layoutX="171.0" layoutY="198.0" prefHeight="25.0" prefWidth="454.0" promptText="Classe" unFocusColor="#ff2e44" />
+                              <JFXTextField fx:id="telEdit" focusColor="#ff2e44" focusTraversable="false" layoutX="171.0" layoutY="226.0" prefHeight="25.0" prefWidth="454.0" promptText="Téléphone" unFocusColor="#ff2e44" />
+                              <JFXTextField fx:id="descriptionEdit" focusColor="#ff2e44" focusTraversable="false" layoutX="14.0" layoutY="282.0" prefHeight="103.0" prefWidth="611.0" unFocusColor="#ff2e44" />
+                           </children>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </AnchorPane>
+                        <AnchorPane layoutX="14.0" layoutY="785.0" prefHeight="200.0" prefWidth="934.0" style="-fx-background-color: #f2f2f2;">
+                           <children>
+                              <Pane prefHeight="60.0" prefWidth="934.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="16.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../ressources/external-link-64%20(2).png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text fill="#424242" layoutX="66.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liens utiles">
+                                       <font>
+                                          <Font name="Lato Black" size="36.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Pane>
+                              <AnchorPane fx:id="facebookPane" layoutX="36.0" layoutY="80.0" prefHeight="40.0" prefWidth="200.0" visible="false">
+                                 <children>
+                                    <JFXTextField fx:id="textFacebook" focusColor="#ff2e44" layoutY="7.5" unFocusColor="#ff2e44" />
+                                    <JFXButton fx:id="btnFacebook" layoutX="148.0" layoutY="7.5" onAction="#handleButtonAction" text="OK" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="linekdinPane" layoutX="267.0" layoutY="80.0" prefHeight="40.0" prefWidth="200.0" visible="false">
+                                 <children>
+                                    <JFXTextField fx:id="textLinkedin" focusColor="#ff2e44" layoutY="7.5" unFocusColor="#ff2e44" />
+                                    <JFXButton fx:id="btnLinkedin" layoutX="148.0" layoutY="7.5" onAction="#handleButtonAction" text="OK" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="googlePlusPane" layoutX="493.0" layoutY="80.0" prefHeight="40.0" prefWidth="200.0" visible="false">
+                                 <children>
+                                    <JFXTextField fx:id="textGooglePlus" focusColor="#ff2e44" layoutY="7.5" unFocusColor="#ff2e44" />
+                                    <JFXButton fx:id="btnGooglePlus" layoutX="148.0" layoutY="7.5" onAction="#handleButtonAction" text="OK" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="cvPane" layoutX="694.0" layoutY="80.0" prefHeight="40.0" prefWidth="200.0" visible="false">
+                                 <children>
+                                    <JFXTextField fx:id="textCv" focusColor="#ff2e44" layoutY="7.5" unFocusColor="#ff2e44" />
+                                    <JFXButton fx:id="btnCv" layoutX="148.0" layoutY="7.5" onAction="#handleButtonAction" text="OK" />
+                                 </children>
+                              </AnchorPane>
+                              <JFXButton fx:id="facebookEdit" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="96.0" layoutY="64.0" onAction="#handleButtonAction">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../ressources/facebook-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="linkedinEdit" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="327.0" layoutY="64.0" onAction="#handleButtonAction">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../ressources/linkedin-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="googlePlusEdit" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="553.0" layoutY="64.0" onAction="#handleButtonAction">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../ressources/google-plus-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="cvEdit" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="754.0" layoutY="64.0" onAction="#UploadPDF">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../ressources/cv.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#ff2e44" layoutX="83.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facebook">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff2e44" layoutX="320.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linkedin">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff2e44" layoutX="529.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Google plus">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff2e44" layoutX="702.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curriculum vitae">
+                                 <font>
+                                    <Font name="Lato Black" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </AnchorPane>
+                        <JFXButton fx:id="valide" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="465.0" layoutY="1012.0" onAction="#handleButtonAction">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../ressources/icons8-checkmark-96.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="761.0" layoutY="233.0" onAction="#UploadPhotoDeCouverture" style="-fx-background-color: white;" text="Editer photo de couverture" />
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

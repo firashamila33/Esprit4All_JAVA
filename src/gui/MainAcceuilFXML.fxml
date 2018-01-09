@@ -117,7 +117,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="profile_btn" contentDisplay="TOP" graphicTextGap="5.0" prefHeight="140.0" prefWidth="120.0" styleClass="main-nav-button" text="Profile">
+                        <JFXButton fx:id="profile_btn" contentDisplay="TOP" graphicTextGap="5.0" onAction="#goToProfil" prefHeight="140.0" prefWidth="120.0" styleClass="main-nav-button" text="Profile">
                            <font>
                               <Font size="18.0" />
                            </font>

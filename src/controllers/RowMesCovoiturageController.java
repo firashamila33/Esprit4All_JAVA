@@ -94,8 +94,16 @@ public class RowMesCovoiturageController extends ListCell<Covoiturage> {
             description.setText(covoiturage.getDescription());
             
             owner_name_lbl.setText(covoiturage.getUserId().getPrenom()+" "+covoiturage.getUserId().getNom());
-            phone_lbl.setText(profil.getTel()+"");
-            dateDepart_lbl.setText(covoiturage.getHeureDépart().toString());
+            if (profil == null) {
+                phone_lbl.setText("Pas de numéro");
+            } else {
+                phone_lbl.setText(profil.getTel() + "");
+            }
+            if (covoiturage.getHeureDépart() == null) {
+                dateDepart_lbl.setText("Pas de date");
+            } else {
+                dateDepart_lbl.setText(covoiturage.getHeureDépart().toString());
+            }
             supprime.setOnAction(event -> {
                 CovoiturageService covoiturageService= new CovoiturageService();
                 covoiturageService.delete(covoiturage.getId());

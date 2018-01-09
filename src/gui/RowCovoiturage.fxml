@@ -16,7 +16,7 @@
          <children>
             <ImageView fx:id="owner_img" fitHeight="75.0" fitWidth="75.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
                <image>
-                  <Image url="@../utils/photo.png" />
+                  <Image url="@../ressources/icons8_Customer_64px.png" />
                </image>
             </ImageView>
             <Label fx:id="owner_name_lbl" layoutX="91.0" layoutY="24.0" style="-fx-text-fill: black;" text="Sami Marrekchi" />
