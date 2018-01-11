@@ -220,6 +220,7 @@ public class FoodMainnFXMLController implements Initializable {
         id_commande.setText(String.valueOf(CommandeId));
         //Set TOtal Prise to 0
         price_commande.setText("0 DT");
+        System.out.println("hey firas");
         
         //initialise listview
         System.out.println("-------------------------------------COMMANDE PRICE Add = " + Commande_Price);
